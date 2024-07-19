@@ -1,47 +1,12 @@
 <html style="font-size: 51px;"><head>
-    <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="author" content="www.vancheer.com">
-    <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
-    <meta name="Keywords" content="Qman Toys"><meta name="Description" content="Children's building blocks Guangdong Qman Culture Communication Co., LtdSmall building blocks"><title>Our Products - Qman Toys</title>
-    <link href="/en/style/main.css" rel="stylesheet" type="text/css">
-    <link href="/en/style/index.css" rel="stylesheet" type="text/css">
-    <link href="/en/style/media.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/en/style/swiper.min.css">
-    <link rel="stylesheet" href="/en/style/animate.min.css">
-    <link rel="stylesheet" href="/en/style/jie.css">
-    <script language="javascript" type="text/javascript" src="/en/script/jquery-3.5.1.min.js"></script>
-    <!--[if lte IE 6]>
-    <script src="script/png.js" type="text/javascript"></script>
-        <script type="text/javascript">
-            DD_belatedPNG.fix('div, ul, img, li, input , a');
-        </script>
-    <![endif]--> 
+    <?php include '../php/head.php'; ?>
 </head>
 <body>
     
 
 <div class="headD"></div>
 <div class="headDiv home">
-    <div class="wal">
-        <a href="/en" class="logo">
-            <img src="/images/2022/10/20221010151814746.png" class="PC-Box" alt="Qman Toys">
-            <img src="/images/2022/10/20221010151821394.png" class="Phone-Box" alt="Qman Toys">
-        </a>
-        <a href="javascript:;" class="navA"></a>
-        <div class="txt Phone-Box">
-            Our Products
-
-
-        </div>
-        <div class="nav">
-            <ul>
-                <li><a href="/en">Our Story</a></li>
-                <li><a href="/en/product/" class="on">Our Products</a></li>
-                
-                <li><a href="/en/Contact/">Contact Us</a></li>
-            </ul>
-        </div>
+<?php include '../php/header_vn.php'; ?>
         <div class="lan">
             <ul>
                 <li><a href="javascript:;" class="cur">EN</a></li>
