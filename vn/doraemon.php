@@ -1,6 +1,9 @@
-<html style="font-size: 80px;"><head>
+<html style="font-size: 80px;">
+    <head>
 <?php include '../php/head.php'; ?>
-</head>
+<?php include '../php/login.php'; ?>
+<?php include '../php/getUser.php'; ?>
+    </head>
 <body inmaintabuse="1">
     
 
@@ -11,6 +14,8 @@
             <ul>
                 <li><a href="../en/doraemon.php">EN</a></li>
                 <li><a href="#" class="cur">VN</a></li>
+
+                <?php include '../php/welcomeUser_vn.php'; ?>
             </ul>
         </div>
     </div>

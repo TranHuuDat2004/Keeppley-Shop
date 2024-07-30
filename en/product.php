@@ -2,8 +2,13 @@
 
 <head>
     <?php include '../php/head.php'; ?>
+    <?php include '../php/login.php'; ?>
+    <?php include '../php/getUser.php'; ?>
 </head>
 
+<style>
+
+</style>
 <body>
 
 
@@ -14,6 +19,8 @@
             <ul>
                 <li><a href="javascript:;" class="cur">EN</a></li>
                 <li><a href="../vn/product.php">VN</a></li>
+
+                <?php include '../php/welcomeUser_en.php'; ?>
             </ul>
         </div>
     </div>
@@ -77,13 +84,8 @@
                                         src="../images/2022122312010632.jpg" alt="Sumikko"></a></div>
                             <div class="botDiv">
                                 <div class="name"><a href="/en/product/index_100000020731961.html"
-                                        target="_blank">Sumikko</a></div>
-                                <div class="btnDiv "><a href="/en/product/index_100000020731961.html"
-                                        target="_blank">Click for More</a></div>
-                                <div class="btnVideo">
-
-
-                                </div>
+                                        target="_blank">Sumikko</a></div>        
+                               
                             </div>
                         </div>
                     </li>
@@ -96,12 +98,7 @@
                             <div class="botDiv">
                                 <div class="name"><a href="/en/product/index_100000020769387.html"
                                         target="_blank">Ultraman</a></div>
-                                <div class="btnDiv "><a href="/en/product/index_100000020769387.html"
-                                        target="_blank">Click for More</a></div>
-                                <div class="btnVideo">
-
-
-                                </div>
+                                
                             </div>
                         </div>
                     </li>
@@ -114,12 +111,7 @@
                             <div class="botDiv">
                                 <div class="name"><a href="/en/product/index_100000020779299.html" target="_blank">Build
                                         &amp; Fun</a></div>
-                                <div class="btnDiv "><a href="/en/product/index_100000020779299.html"
-                                        target="_blank">Click for More</a></div>
-                                <div class="btnVideo">
-
-
-                                </div>
+                                
                             </div>
                         </div>
                     </li>
@@ -132,12 +124,7 @@
                             <div class="botDiv">
                                 <div class="name"><a href="/en/product/index_956.html" target="_blank">Una Series</a>
                                 </div>
-                                <div class="btnDiv "><a href="/en/product/index_956.html" target="_blank">Click for
-                                        More</a></div>
-                                <div class="btnVideo">
-
-
-                                </div>
+                                
                             </div>
                         </div>
                     </li>
@@ -150,12 +137,7 @@
                             <div class="botDiv">
                                 <div class="name"><a href="/en/product/index_943.html" target="_blank">Machine armour
                                         beast cube</a></div>
-                                <div class="btnDiv "><a href="/en/product/index_943.html" target="_blank">Click for
-                                        More</a></div>
-                                <div class="btnVideo">
-
-
-                                </div>
+                                
                             </div>
                         </div>
                     </li>
@@ -168,12 +150,7 @@
                             <div class="botDiv">
                                 <div class="name"><a href="/en/product/index_100000020741264.html"
                                         target="_blank">Trans-collector Series 4IN1</a></div>
-                                <div class="btnDiv "><a href="/en/product/index_100000020741264.html"
-                                        target="_blank">Click for More</a></div>
-                                <div class="btnVideo">
-
-
-                                </div>
+                                
                             </div>
                         </div>
                     </li>
@@ -186,12 +163,7 @@
                             <div class="botDiv">
                                 <div class="name"><a href="/en/product/index_920.html" target="_blank">Power Model-RC
                                         Cars Series</a></div>
-                                <div class="btnDiv "><a href="/en/product/index_920.html" target="_blank">Click for
-                                        More</a></div>
-                                <div class="btnVideo">
-
-
-                                </div>
+                                
                             </div>
                         </div>
                     </li>
@@ -204,12 +176,7 @@
                             <div class="botDiv">
                                 <div class="name"><a href="/en/product/index_100000020739997.html" target="_blank">Power
                                         Model-Guns Series </a></div>
-                                <div class="btnDiv "><a href="/en/product/index_100000020739997.html"
-                                        target="_blank">Click for More</a></div>
-                                <div class="btnVideo">
-
-
-                                </div>
+                                
                             </div>
                         </div>
                     </li>
@@ -222,9 +189,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_958.html">Cherry Ducklings
                                         Journey</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_958.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -236,9 +201,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_715.html">KYANITE SQUAD</a>
                                 </div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_715.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -250,9 +213,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_712.html">THE WAR OF
                                         GLORY</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_712.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -264,9 +225,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_947.html">Thunder Mission -
                                         Special Elit</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_947.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -277,9 +236,7 @@
                                         alt="CHERRY"></a></div>
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_711.html">CHERRY</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_711.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -291,9 +248,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_880.html">COMBAT ZONES
                                         FIRE</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_880.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -304,9 +259,7 @@
                                         alt="POLICE"></a></div>
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_714.html">POLICE</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_714.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -318,9 +271,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_941.html">The Heroine of
                                         Ancient China</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_941.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -332,9 +283,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_709.html">COMBAT ZONES
                                         FIRE</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_709.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -346,9 +295,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_909.html">Mine city
                                         POLICE</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_909.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -360,9 +307,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_892.html">Tians-combo
                                         Unlimited Ideas</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_892.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -373,9 +318,7 @@
                                         alt="CITY"></a></div>
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_719.html">CITY</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_719.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -387,9 +330,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_935.html">Princess Leah-A
                                         Dream of Flowe</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_935.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -401,9 +342,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_710.html">FIRE RESCUE</a>
                                 </div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_710.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -415,9 +354,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_932.html">Fire Rescue -
                                         Fire Line </a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_932.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -428,9 +365,7 @@
                                         alt="ARMY"></a></div>
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_720.html">ARMY</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_720.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -442,9 +377,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank"
                                         href="/en/product/index_914.html">MineCity-Spaceflight</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_914.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -456,9 +389,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank"
                                         href="/en/product/index_718.html">TRANS-COLLECTOR</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_718.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -470,9 +401,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_908.html">Cherry Mew Mew
                                         Music Festival</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_908.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -484,9 +413,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_910.html">THUNDER
                                         MISSION-JONITOPERATION</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_910.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -498,9 +425,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_894.html">cherry Silver
                                         Carnival</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_894.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -512,9 +437,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_888.html">Scene Cognition
                                         Series</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_888.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -526,9 +449,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_885.html">Basic
                                         Conition</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_885.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -540,9 +461,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_893.html">Racing Car
                                         Series</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_893.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -553,9 +472,7 @@
                             </div>
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_868.html">POLICE</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_868.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -567,9 +484,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_735.html">Powersquad</a>
                                 </div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_735.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -581,9 +496,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_727.html">BLAST RANGER</a>
                                 </div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_727.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -595,9 +508,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_866.html">Vitality
                                         Beach</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_866.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -609,9 +520,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_726.html">colorful city</a>
                                 </div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_726.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -623,9 +532,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_728.html">THUNDER
                                         MISSION</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_728.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -637,9 +544,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_725.html">Cherry colorful
                                         holiday</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_725.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -651,9 +556,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_730.html">Kyanite
                                         Souad·Deep-Sea Mission</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_730.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -664,9 +567,7 @@
                             </div>
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_731.html">Police</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_731.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -678,9 +579,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_724.html">Fire Rescue</a>
                                 </div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_724.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -692,9 +591,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_721.html">BUILD &amp; LEARN
                                         SERIES</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_721.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                               
                             </div>
                         </div>
                     </li>
@@ -705,9 +602,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_722.html">OCTONAUTS</a>
                                 </div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_722.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -719,9 +614,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_723.html">SUPER SOCCER</a>
                                 </div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_723.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -733,9 +626,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_717.html">TEH HIGH-TECH
                                         ERA</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_717.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                                
                             </div>
                         </div>
                     </li>
@@ -747,9 +638,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_729.html">Monkeyking Story
                                         Of Wukong</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_729.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                               
                             </div>
                         </div>
                     </li>
@@ -761,9 +650,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_716.html">PRINCESS LEAH</a>
                                 </div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_716.html">Click for
-                                        More</a></div>
-                                <div class="btnVideo"></div>
+                       
                             </div>
                         </div>
                     </li>
@@ -787,12 +674,8 @@
                             <div class="botDiv">
                                 <div class="name"><a href="/en/product/index_100000020787943.html"
                                         target="_blank">Shinchan</a></div>
-                                <div class="btnDiv btnDiv2"><a href="/en/product/index_100000020787943.html"
-                                        target="_blank">Click for More</a></div>
-                                <div class="btnVideo">
-
-
-                                </div>
+                                
+                                
                             </div>
                         </div>
                     </li>
@@ -805,12 +688,7 @@
                             <div class="botDiv">
                                 <div class="name"><a href="/en/product/index_100000020797234.html" target="_blank">Hello
                                         kitty</a></div>
-                                <div class="btnDiv btnDiv2"><a href="/en/product/index_100000020797234.html"
-                                        target="_blank">Click for More</a></div>
-                                <div class="btnVideo">
-
-
-                                </div>
+                                
                             </div>
                         </div>
                     </li>
@@ -822,30 +700,20 @@
                             <div class="botDiv">
                                 <div class="name"><a href="/en/product/index_100000020784232.html"
                                         target="_blank">Pokémon</a></div>
-                                <div class="btnDiv btnDiv2"><a href="/en/product/index_100000020784232.html"
-                                        target="_blank">Click for More</a></div>
-                                <div class="btnVideo">
-
-
-                                </div>
+                                
                             </div>
                         </div>
                     </li>
 
                     <li>
                         <div class="box">
-                            <div class="imgDiv"><a href="/en/product/index_100000020783983.html" target="_blank"><img
+                            <div class="imgDiv"><a href="../en/doraemon.php" target="_blank"><img
                                         src="../images/2022111111563701.jpg" alt="Doraemon"></a>
                             </div>
                             <div class="botDiv">
-                                <div class="name"><a href="/en/product/index_100000020783983.html"
+                                <div class="name"><a href="../en/doraemon.php"
                                         target="_blank">Doraemon</a></div>
-                                <div class="btnDiv btnDiv2"><a href="/en/product/index_100000020783983.html"
-                                        target="_blank">Click for More</a></div>
-                                <div class="btnVideo">
-
-
-                                </div>
+                                
                             </div>
                         </div>
                     </li>
@@ -857,12 +725,7 @@
                             <div class="botDiv">
                                 <div class="name"><a href="/en/product/index_100000020796399.html"
                                         target="_blank">Naruto</a></div>
-                                <div class="btnDiv btnDiv2"><a href="/en/product/index_100000020796399.html"
-                                        target="_blank">Click for More</a></div>
-                                <div class="btnVideo">
-
-
-                                </div>
+                                
                             </div>
                         </div>
                     </li>
@@ -874,12 +737,7 @@
                             <div class="botDiv">
                                 <div class="name"><a href="/en/product/index_100000020771862.html"
                                         target="_blank">Conan</a></div>
-                                <div class="btnDiv btnDiv2"><a href="/en/product/index_100000020771862.html"
-                                        target="_blank">Click for More</a></div>
-                                <div class="btnVideo">
-
-
-                                </div>
+                               
                             </div>
                         </div>
                     </li>
@@ -892,12 +750,7 @@
                             <div class="botDiv">
                                 <div class="name"><a href="/en/product/index_100000020756342.html" target="_blank">City
                                         Corner Series</a></div>
-                                <div class="btnDiv btnDiv2"><a href="/en/product/index_100000020756342.html"
-                                        target="_blank">Click for More</a></div>
-                                <div class="btnVideo">
-
-
-                                </div>
+                              
                             </div>
                         </div>
                     </li>
@@ -910,12 +763,7 @@
                             <div class="botDiv">
                                 <div class="name"><a href="/en/product/index_100000020732229.html"
                                         target="_blank">Lovely Street</a></div>
-                                <div class="btnDiv btnDiv2"><a href="/en/product/index_100000020732229.html"
-                                        target="_blank">Click for More</a></div>
-                                <div class="btnVideo">
-
-
-                                </div>
+                         
                             </div>
                         </div>
                     </li>
@@ -928,9 +776,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank"
                                         href="/en/product/index_100000020721216.html">Ultraman</a></div>
-                                <div class="btnDiv"><a target="_blank"
-                                        href="/en/product/index_100000020721216.html">Click for More</a></div>
-                                <div class="btnVideo"></div>
+                   
                             </div>
                         </div>
                     </li>
@@ -942,9 +788,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_100000020744692.html">New
                                         Chinese Style Streetscape</a></div>
-                                <div class="btnDiv"><a target="_blank"
-                                        href="/en/product/index_100000020744692.html">Click for More</a></div>
-                                <div class="btnVideo"></div>
+             
                             </div>
                         </div>
                     </li>
@@ -991,10 +835,10 @@
                                 var html = "";
                                 for (var i = 0; i < res.length; i++) {
 
-                                    //html += '<li><div class="box"><a target="_blank" href="' + res[i].Url + '"><div class="imgDiv"><img src="' + res[i].Image + '" alt="' + res[i].Title + '" /></div><div class="botDiv"><div class="name">' + res[i].Title + '</div><div class="btnDiv' + (id == "100000010797975" ? " btnDiv2" : "") +'">Click for More</div></div></a></div></li>'
+                                    //html += '<li><div class="box"><a target="_blank" href="' + res[i].Url + '"><div class="imgDiv"><img src="' + res[i].Image + '" alt="' + res[i].Title + '" /></div><div class="botDiv"><div class="name">' + res[i].Title + '</div><div class="username' + (id == "100000010797975" ? " username2" : "") +'">Click for More</div></div></a></div></li>'
 
 
-                                    html += '<li><div class="box"><div class="imgDiv"><a target="_blank" href="' + res[i].Url + '"><img src="' + res[i].Image + '" alt="' + res[i].Title + '" /></a></div><div class="botDiv"><div class="name"><a target="_blank" href="' + res[i].Url + '">' + res[i].Title + '</a></div><div class="btnDiv' + (id == "100000010797975" ? " btnDiv2" : "") + '"><a target="_blank" href="' + res[i].Url + '">Click for More</a></div><div class="btnVideo">'
+                                    html += '<li><div class="box"><div class="imgDiv"><a target="_blank" href="' + res[i].Url + '"><img src="' + res[i].Image + '" alt="' + res[i].Title + '" /></a></div><div class="botDiv"><div class="name"><a target="_blank" href="' + res[i].Url + '">' + res[i].Title + '</a></div><div class="username' + (id == "100000010797975" ? " username2" : "") + '"><a target="_blank" href="' + res[i].Url + '">Click for More</a></div><div class="btnVideo">'
                                     if (res[i].Video != "") {
                                         html += '<a href = "' + res[i].Video + '" ' + (res[i].Video.indexOf('http') != -1 ? 'target = "_blank"' : '') + ' ><img src="../images/20221020095235674.png"  /></a>'
                                     }

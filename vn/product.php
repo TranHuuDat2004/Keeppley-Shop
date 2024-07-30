@@ -78,12 +78,7 @@
                             <div class="botDiv">
                                 <div class="name"><a href="/en/product/index_100000020731961.html"
                                         target="_blank">Sumikko</a></div>
-                                <div class="btnDiv "><a href="/en/product/index_100000020731961.html"
-                                        target="_blank">Xem chi tiết</a></div>
-                                <div class="btnVideo">
 
-
-                                </div>
                             </div>
                         </div>
                     </li>
@@ -96,12 +91,7 @@
                             <div class="botDiv">
                                 <div class="name"><a href="/en/product/index_100000020769387.html"
                                         target="_blank">Ultraman</a></div>
-                                <div class="btnDiv "><a href="/en/product/index_100000020769387.html"
-                                        target="_blank">Xem chi tiết</a></div>
-                                <div class="btnVideo">
 
-
-                                </div>
                             </div>
                         </div>
                     </li>
@@ -113,12 +103,7 @@
                             <div class="botDiv">
                                 <div class="name"><a href="/en/product/index_100000020779299.html" target="_blank">Build
                                         &amp; Fun</a></div>
-                                <div class="btnDiv "><a href="/en/product/index_100000020779299.html"
-                                        target="_blank">Xem chi tiết</a></div>
-                                <div class="btnVideo">
 
-
-                                </div>
                             </div>
                         </div>
                     </li>
@@ -131,12 +116,7 @@
                             <div class="botDiv">
                                 <div class="name"><a href="/en/product/index_956.html" target="_blank">Una Series</a>
                                 </div>
-                                <div class="btnDiv "><a href="/en/product/index_956.html" target="_blank">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo">
 
-
-                                </div>
                             </div>
                         </div>
                     </li>
@@ -148,12 +128,7 @@
                             <div class="botDiv">
                                 <div class="name"><a href="/en/product/index_943.html" target="_blank">Machine armour
                                         beast cube</a></div>
-                                <div class="btnDiv "><a href="/en/product/index_956.html" target="_blank">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo">
 
-
-                                </div>
                             </div>
                         </div>
                     </li>
@@ -166,12 +141,7 @@
                             <div class="botDiv">
                                 <div class="name"><a href="/en/product/index_100000020741264.html"
                                         target="_blank">Trans-collector Series 4IN1</a></div>
-                                <div class="btnDiv "><a href="/en/product/index_956.html" target="_blank">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo">
 
-
-                                </div>
                             </div>
                         </div>
                     </li>
@@ -184,12 +154,7 @@
                             <div class="botDiv">
                                 <div class="name"><a href="/en/product/index_920.html" target="_blank">Power Model-RC
                                         Cars Series</a></div>
-                                <div class="btnDiv "><a href="/en/product/index_956.html" target="_blank">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo">
 
-
-                                </div>
                             </div>
                         </div>
                     </li>
@@ -201,12 +166,7 @@
                             <div class="botDiv">
                                 <div class="name"><a href="/en/product/index_100000020739997.html" target="_blank">Power
                                         Model-Guns Series </a></div>
-                                <div class="btnDiv "><a href="/en/product/index_956.html" target="_blank">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo">
 
-
-                                </div>
                             </div>
                         </div>
                     </li>
@@ -218,11 +178,9 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_958.html">Cherry Ducklings
                                         Journey</a></div>
-                                <div class="btnDiv "><a href="/en/product/index_956.html" target="_blank">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo">
-                                </div>
+
                             </div>
+                        </div>
                     </li>
                     <li>
                         <div class="box">
@@ -231,11 +189,9 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_715.html">KYANITE SQUAD</a>
                                 </div>
-                                <div class="btnDiv "><a href="/en/product/index_956.html" target="_blank">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo">
-                                </div>
+
                             </div>
+                        </div>
                     </li>
                     <li>
                         <div class="box">
@@ -244,11 +200,9 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_712.html">THE WAR OF
                                         GLORY</a></div>
-                                <div class="btnDiv "><a href="/en/product/index_956.html" target="_blank">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo">
-                                </div>
+
                             </div>
+                        </div>
                     </li>
                     <li>
                         <div class="box">
@@ -258,11 +212,9 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_947.html">Thunder Mission -
                                         Special Elit</a></div>
-                                <div class="btnDiv "><a href="/en/product/index_956.html" target="_blank">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo">
-                                </div>
+
                             </div>
+                        </div>
                     </li>
                     <li>
                         <div class="box">
@@ -270,11 +222,9 @@
                                         src="../images/L.series_cover@2x.jpg" alt="CHERRY"></a></div>
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_711.html">CHERRY</a></div>
-                                <div class="btnDiv "><a href="/en/product/index_956.html" target="_blank">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo">
-                                </div>
+
                             </div>
+                        </div>
                     </li>
                     <li>
                         <div class="box">
@@ -283,9 +233,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_880.html">COMBAT ZONES
                                         FIRE</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_880.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -295,9 +243,7 @@
                                         src="../images/O.series_cover@2x.jpg" alt="POLICE"></a></div>
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_714.html">POLICE</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_714.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -308,9 +254,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_941.html">The Heroine of
                                         Ancient China</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_941.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -321,9 +265,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_709.html">COMBAT ZONES
                                         FIRE</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_709.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -334,9 +276,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_909.html">Mine city
                                         POLICE</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_909.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -347,9 +287,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_892.html">Tians-combo
                                         Unlimited Ideas</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_892.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -359,9 +297,7 @@
                                         src="../images/T.series_cover@2x.jpg" alt="CITY"></a></div>
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_719.html">CITY</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_719.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -373,9 +309,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_935.html">Princess Leah-A
                                         Dream of Flowe</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_935.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -386,9 +320,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_710.html">FIRE RESCUE</a>
                                 </div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_710.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -399,9 +331,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_932.html">Fire Rescue -
                                         Fire Line </a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_932.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -411,9 +341,7 @@
                                         src="../images/X.series_cover@2x.jpg" alt="ARMY"></a></div>
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_720.html">ARMY</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_720.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -424,9 +352,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank"
                                         href="/en/product/index_914.html">MineCity-Spaceflight</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_914.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -437,9 +363,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank"
                                         href="/en/product/index_718.html">TRANS-COLLECTOR</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_718.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -450,9 +374,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_908.html">Cherry Mew Mew
                                         Music Festival</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_908.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -464,9 +386,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_910.html">THUNDER
                                         MISSION-JONITOPERATION</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_910.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -477,9 +397,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_894.html">cherry Silver
                                         Carnival</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_894.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -490,9 +408,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_888.html">Scene Cognition
                                         Series</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_888.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -503,9 +419,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_885.html">Basic
                                         Conition</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_885.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -516,9 +430,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_893.html">Racing Car
                                         Series</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_893.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -529,9 +441,7 @@
                             </div>
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_868.html">POLICE</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_868.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -542,13 +452,10 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_735.html">Powersquad</a>
                                 </div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_735.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
-
                     <li>
                         <div class="box">
                             <div class="imgDiv"><a target="_blank" href="/en/product/index_727.html"><img
@@ -556,9 +463,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_727.html">BLAST RANGER</a>
                                 </div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_727.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -569,9 +474,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_866.html">Vitality
                                         Beach</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_866.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -582,9 +485,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_726.html">colorful city</a>
                                 </div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_726.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -595,9 +496,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_728.html">THUNDER
                                         MISSION</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_728.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -608,9 +507,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_725.html">Cherry colorful
                                         holiday</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_725.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -622,9 +519,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_730.html">Kyanite
                                         Souad·Deep-Sea Mission</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_730.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -635,22 +530,18 @@
                             </div>
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_731.html">Police</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_731.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="box">
                             <div class="imgDiv"><a target="_blank" href="/en/product/index_724.html"><img
-                                        src="../images/q_.series_cover@2x.jpg" alt="Fire Rescue"></a></div>
+                                        src="../images/q_.series_cover@2x.jpg" alt="Fire  Rescue"></a></div>
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_724.html">Fire Rescue</a>
                                 </div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_724.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -661,9 +552,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_721.html">BUILD &amp; LEARN
                                         SERIES</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_721.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -674,9 +563,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_722.html">OCTONAUTS</a>
                                 </div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_722.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -687,9 +574,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_723.html">SUPER SOCCER</a>
                                 </div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_723.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -700,9 +585,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_717.html">TEH HIGH-TECH
                                         ERA</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_717.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -713,9 +596,7 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_729.html">Monkeyking Story
                                         Of Wukong</a></div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_729.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
                             </div>
                         </div>
                     </li>
@@ -726,213 +607,155 @@
                             <div class="botDiv">
                                 <div class="name"><a target="_blank" href="/en/product/index_716.html">PRINCESS LEAH</a>
                                 </div>
-                                <div class="btnDiv"><a target="_blank" href="/en/product/index_716.html">Xem chi
-                                        tiết</a></div>
-                                <div class="btnVideo"></div>
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="clear_f"></div>
+            </div>
+
+            <div class="pageMore" onclick="MoreData(this)" data-id="100000003464980" data-page="6"
+                style="display: none;"><a href="javascript:;">
+                    More Series &gt;</a></div>
+
+            <div class="title title2" id="page-100000010724924">Keeppley Products</div>
+            <div class="list">
+                <ul>
+
+                    <li>
+                        <div class="box">
+                            <div class="imgDiv"><a href="/en/product/index_100000020787943.html" target="_blank"><img
+                                        src="../images/20221104121927808.jpg" alt="Shinchan"></a>
+                            </div>
+                            <div class="botDiv">
+                                <div class="name"><a href="/en/product/index_100000020787943.html"
+                                        target="_blank">Shinchan</a></div>
+
+
                             </div>
                         </div>
                     </li>
 
+                    <li>
+                        <div class="box">
+                            <div class="imgDiv"><a href="/en/product/index_100000020797234.html" target="_blank"><img
+                                        src="../images/20221104153543766.jpg" alt="Hello kitty"></a>
+                            </div>
+                            <div class="botDiv">
+                                <div class="name"><a href="/en/product/index_100000020797234.html" target="_blank">Hello
+                                        kitty</a></div>
 
-                    <div class="pageMore" onclick="MoreData(this)" data-id="100000003464980" data-page="6"
-                        style="display: none;"><a href="javascript:;">
-                            More Series &gt;</a></div>
+                            </div>
+                        </div>
+                    </li>
 
-                    <div class="title title2" id="page-100000010724924">Sản phẩm của Keeppley</div>
-                    <div class="list">
-                        <ul>
+                    <li>
+                        <div class="box">
+                            <div class="imgDiv"><a href="/en/product/index_100000020784232.html" target="_blank"><img
+                                        src="../images/2022111111274090.jpg" alt="Pokémon"></a></div>
+                            <div class="botDiv">
+                                <div class="name"><a href="/en/product/index_100000020784232.html"
+                                        target="_blank">Pokémon</a></div>
 
-                            <li>
-                                <div class="box">
-                                    <div class="imgDiv"><a href="/en/product/index_100000020787943.html"
-                                            target="_blank"><img src="../images/20221104121927808.jpg"
-                                                alt="Shinchan"></a>
-                                    </div>
-                                    <div class="botDiv">
-                                        <div class="name"><a href="/en/product/index_100000020787943.html"
-                                                target="_blank">Shinchan</a></div>
-                                        <div class="btnDiv btnDiv2"><a href="/en/product/index_100000020787943.html"
-                                                target="_blank">Xem chi tiết</a></div>
-                                        <div class="btnVideo">
+                            </div>
+                        </div>
+                    </li>
 
+                    <li>
+                        <div class="box">
+                            <div class="imgDiv"><a href="../en/doraemon.php" target="_blank"><img
+                                        src="../images/2022111111563701.jpg" alt="Doraemon"></a>
+                            </div>
+                            <div class="botDiv">
+                                <div class="name"><a href="../en/doraemon.php" target="_blank">Doraemon</a></div>
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                            </div>
+                        </div>
+                    </li>
 
-                            <li>
-                                <div class="box">
-                                    <div class="imgDiv"><a href="/en/product/index_100000020797234.html"
-                                            target="_blank"><img src="../images/20221104153543766.jpg"
-                                                alt="Hello kitty"></a>
-                                    </div>
-                                    <div class="botDiv">
-                                        <div class="name"><a href="/en/product/index_100000020797234.html"
-                                                target="_blank">Hello
-                                                kitty</a></div>
-                                        <div class="btnDiv btnDiv2"><a href="/en/product/index_100000020797234.html"
-                                                target="_blank">Xem chi tiết</a></div>
-                                        <div class="btnVideo">
+                    <li>
+                        <div class="box">
+                            <div class="imgDiv"><a href="/en/product/index_100000020796399.html" target="_blank"><img
+                                        src="../images/20221111121032917.jpg" alt="Naruto"></a></div>
+                            <div class="botDiv">
+                                <div class="name"><a href="/en/product/index_100000020796399.html"
+                                        target="_blank">Naruto</a></div>
 
+                            </div>
+                        </div>
+                    </li>
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                    <li>
+                        <div class="box">
+                            <div class="imgDiv"><a href="/en/product/index_100000020771862.html" target="_blank"><img
+                                        src="../images/2022111114195733.jpg" alt="Conan"></a></div>
+                            <div class="botDiv">
+                                <div class="name"><a href="/en/product/index_100000020771862.html"
+                                        target="_blank">Conan</a></div>
 
-                            <li>
-                                <div class="box">
-                                    <div class="imgDiv"><a href="/en/product/index_100000020784232.html"
-                                            target="_blank"><img src="../images/2022111111274090.jpg" alt="Pokémon"></a>
-                                    </div>
-                                    <div class="botDiv">
-                                        <div class="name"><a href="/en/product/index_100000020784232.html"
-                                                target="_blank">Pokémon</a></div>
-                                        <div class="btnDiv btnDiv2"><a href="/en/product/index_100000020784232.html"
-                                                target="_blank">Xem chi tiết</a></div>
-                                        <div class="btnVideo">
+                            </div>
+                        </div>
+                    </li>
 
+                    <li>
+                        <div class="box">
+                            <div class="imgDiv"><a href="/en/product/index_100000020756342.html" target="_blank"><img
+                                        src="../images/20221216163951558.jpg" alt="City Corner Series"></a></div>
+                            <div class="botDiv">
+                                <div class="name"><a href="/en/product/index_100000020756342.html" target="_blank">City
+                                        Corner Series</a></div>
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                            </div>
+                        </div>
+                    </li>
 
-                            <li>
-                                <div class="box">
-                                    <div class="imgDiv"><a href="/en/product/index_100000020783983.html"
-                                            target="_blank"><img src="../images/2022111111563701.jpg"
-                                                alt="Doraemon"></a>
-                                    </div>
-                                    <div class="botDiv">
-                                        <div class="name"><a href="/en/product/index_100000020783983.html"
-                                                target="_blank">Doraemon</a></div>
-                                        <div class="btnDiv btnDiv2"><a href="/en/product/index_100000020783983.html"
-                                                target="_blank">Xem chi tiết</a></div>
-                                        <div class="btnVideo">
+                    <li>
+                        <div class="box">
+                            <div class="imgDiv"><a href="/en/product/index_100000020732229.html" target="_blank"><img
+                                        src="../images/2022122311050603.jpg" alt="Lovely Street"></a>
+                            </div>
+                            <div class="botDiv">
+                                <div class="name"><a href="/en/product/index_100000020732229.html"
+                                        target="_blank">Lovely Street</a></div>
 
+                            </div>
+                        </div>
+                    </li>
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                    <li>
+                        <div class="box">
+                            <div class="imgDiv"><a target="_blank" href="/en/product/index_100000020721216.html"><img
+                                        src="../images/20221223164528957.jpg" alt="Ultraman"></a>
+                            </div>
+                            <div class="botDiv">
+                                <div class="name"><a target="_blank"
+                                        href="/en/product/index_100000020721216.html">Ultraman</a></div>
 
-                            <li>
-                                <div class="box">
-                                    <div class="imgDiv"><a href="/en/product/index_100000020796399.html"
-                                            target="_blank"><img src="../images/20221111121032917.jpg" alt="Naruto"></a>
-                                    </div>
-                                    <div class="botDiv">
-                                        <div class="name"><a href="/en/product/index_100000020796399.html"
-                                                target="_blank">Naruto</a></div>
-                                        <div class="btnDiv btnDiv2"><a href="/en/product/index_100000020796399.html"
-                                                target="_blank">Xem chi tiết</a></div>
-                                        <div class="btnVideo">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="box">
+                            <div class="imgDiv"><a target="_blank" href="/en/product/index_100000020744692.html"><img
+                                        src="../images/20221223110727618.jpg" alt="New Chinese Style Streetscape"></a>
+                            </div>
+                            <div class="botDiv">
+                                <div class="name"><a target="_blank" href="/en/product/index_100000020744692.html">New
+                                        Chinese Style Streetscape</a></div>
 
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="box">
-                                    <div class="imgDiv"><a href="/en/product/index_100000020771862.html"
-                                            target="_blank"><img src="../images/2022111114195733.jpg" alt="Conan"></a>
-                                    </div>
-                                    <div class="botDiv">
-                                        <div class="name"><a href="/en/product/index_100000020771862.html"
-                                                target="_blank">Conan</a></div>
-                                        <div class="btnDiv btnDiv2"><a href="/en/product/index_100000020771862.html"
-                                                target="_blank">Xem chi tiết</a></div>
-                                        <div class="btnVideo">
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="box">
-                                    <div class="imgDiv"><a href="/en/product/index_100000020756342.html"
-                                            target="_blank"><img src="../images/20221216163951558.jpg"
-                                                alt="City Corner Series"></a></div>
-                                    <div class="botDiv">
-                                        <div class="name"><a href="/en/product/index_100000020756342.html"
-                                                target="_blank">City
-                                                Corner Series</a></div>
-                                        <div class="btnDiv btnDiv2"><a href="/en/product/index_100000020756342.html"
-                                                target="_blank">Xem chi tiết</a></div>
-                                        <div class="btnVideo">
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="box">
-                                    <div class="imgDiv"><a href="/en/product/index_100000020732229.html"
-                                            target="_blank"><img src="../images/2022122311050603.jpg"
-                                                alt="Lovely Street"></a>
-                                    </div>
-                                    <div class="botDiv">
-                                        <div class="name"><a href="/en/product/index_100000020732229.html"
-                                                target="_blank">Lovely Street</a></div>
-                                        <div class="btnDiv btnDiv2"><a href="/en/product/index_100000020732229.html"
-                                                target="_blank">Xem chi tiết</a></div>
-                                        <div class="btnVideo">
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="box">
-                                    <div class="imgDiv"><a target="_blank"
-                                            href="/en/product/index_100000020721216.html"><img
-                                                src="../images/20221223164528957.jpg" alt="Ultraman"></a>
-                                    </div>
-                                    <div class="botDiv">
-                                        <div class="name"><a target="_blank"
-                                                href="/en/product/index_100000020721216.html">Ultraman</a></div>
-                                        <div class="btnDiv"><a target="_blank"
-                                                href="/en/product/index_100000020721216.html">Xem chi tiết</a></div>
-                                        <div class="btnVideo"></div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="box">
-                                    <div class="imgDiv"><a target="_blank"
-                                            href="/en/product/index_100000020744692.html"><img
-                                                src="../images/20221223110727618.jpg"
-                                                alt="New Chinese Style Streetscape"></a></div>
-                                    <div class="botDiv">
-                                        <div class="name"><a target="_blank"
-                                                href="/en/product/index_100000020744692.html">New
-                                                Chinese Style Streetscape</a></div>
-                                        <div class="btnDiv"><a target="_blank"
-                                                href="/en/product/index_100000020744692.html">Xem chi tiết</a></div>
-                                        <div class="btnVideo"></div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <div class="clear_f"></div>
-                    </div>
-
-                    <div class="pageMore" onclick="MoreData(this)" data-id="100000010724924" data-page="2"
-                        style="display: none;"><a href="javascript:;">
-                            More Series &gt;</a></div>
-
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="clear_f"></div>
             </div>
 
+            <div class="pageMore" onclick="MoreData(this)" data-id="100000010724924" data-page="2"
+                style="display: none;"><a href="javascript:;">
+                    More Series &gt;</a></div>
+
+        </div>
 
 
 
@@ -941,62 +764,63 @@
 
 
 
-            <script language="javascript" type="text/javascript" src="/en/script/js.js"></script>
 
-            <script type="text/javascript">
-                function MoreData(obj) {
-                    $(obj).unbind('click')
-                    var page = $(obj).attr('data-page')
-                    var id = $(obj).attr('data-id')
-                    page++;
-                    $.ajax({
-                        url: "/AjaxAction/product.ashx?action=list",
-                        type: "post",
-                        data: {
-                            "nodecode": "134002001",
-                            "page": page,
-                            "s": 8,
-                            "cate": id
-                        },
-                        dataType: "json",
-                        success: function (data) {
-                            if (data.status == 1) {
-                                var res = data.data;
-                                if (res.length > 0) {
-                                    var html = "";
-                                    for (var i = 0; i < res.length; i++) {
+        <script language="javascript" type="text/javascript" src="/en/script/js.js"></script>
 
-                                        //html += '<li><div class="box"><a target="_blank" href="' + res[i].Url + '"><div class="imgDiv"><img src="' + res[i].Image + '" alt="' + res[i].Title + '" /></div><div class="botDiv"><div class="name">' + res[i].Title + '</div><div class="btnDiv' + (id == "100000010797975" ? " btnDiv2" : "") +'">Xem chi tiết</div></div></a></div></li>'
+        <script type="text/javascript">
+            function MoreData(obj) {
+                $(obj).unbind('click')
+                var page = $(obj).attr('data-page')
+                var id = $(obj).attr('data-id')
+                page++;
+                $.ajax({
+                    url: "/AjaxAction/product.ashx?action=list",
+                    type: "post",
+                    data: {
+                        "nodecode": "134002001",
+                        "page": page,
+                        "s": 8,
+                        "cate": id
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.status == 1) {
+                            var res = data.data;
+                            if (res.length > 0) {
+                                var html = "";
+                                for (var i = 0; i < res.length; i++) {
+
+                                    //html += '<li><div class="box"><a target="_blank" href="' + res[i].Url + '"><div class="imgDiv"><img src="' + res[i].Image + '" alt="' + res[i].Title + '" /></div><div class="botDiv"><div class="name">' + res[i].Title + '</div><div class="username' + (id == "100000010797975" ? " username2" : "") +'">Click for More</div></div></a></div></li>'
 
 
-                                        html += '<li><div class="box"><div class="imgDiv"><a target="_blank" href="' + res[i].Url + '"><img src="' + res[i].Image + '" alt="' + res[i].Title + '" /></a></div><div class="botDiv"><div class="name"><a target="_blank" href="' + res[i].Url + '">' + res[i].Title + '</a></div><div class="btnDiv' + (id == "100000010797975" ? " btnDiv2" : "") + '"><a target="_blank" href="' + res[i].Url + '">Xem chi tiết</a></div><div class="btnVideo">'
-                                        if (res[i].Video != "") {
-                                            html += '<a href = "' + res[i].Video + '" ' + (res[i].Video.indexOf('http') != -1 ? 'target = "_blank"' : '') + ' ><img src="../images/20221020095235674.png"  /></a>'
-                                        }
-                                        html += '</div></div></div></li>'
+                                    html += '<li><div class="box"><div class="imgDiv"><a target="_blank" href="' + res[i].Url + '"><img src="' + res[i].Image + '" alt="' + res[i].Title + '" /></a></div><div class="botDiv"><div class="name"><a target="_blank" href="' + res[i].Url + '">' + res[i].Title + '</a></div><div class="username' + (id == "100000010797975" ? " username2" : "") + '"><a target="_blank" href="' + res[i].Url + '">Click for More</a></div><div class="btnVideo">'
+                                    if (res[i].Video != "") {
+                                        html += '<a href = "' + res[i].Video + '" ' + (res[i].Video.indexOf('http') != -1 ? 'target = "_blank"' : '') + ' ><img src="../images/20221020095235674.png"  /></a>'
                                     }
-
-                                    $(obj).prev('.list').find("ul").append(html);
-                                    if (data.count <= $(obj).prev('.list').find("ul li").length) $(obj).hide();
-
-                                } else {
-                                    $(obj).hide();
+                                    html += '</div></div></div></li>'
                                 }
+
+                                $(obj).prev('.list').find("ul").append(html);
+                                if (data.count <= $(obj).prev('.list').find("ul li").length) $(obj).hide();
+
+                            } else {
+                                $(obj).hide();
                             }
-
-                        },
-                        error: function (xhr, type) {
-                            //alert('Ajax error!');
-                            console.log(xhr + type);
                         }
-                    });
 
-                    $(obj).attr('data-page', page)
+                    },
+                    error: function (xhr, type) {
+                        //alert('Ajax error!');
+                        console.log(xhr + type);
+                    }
+                });
 
-                    $(obj).click(function () { MoreData(obj); })
-                }
+                $(obj).attr('data-page', page)
 
-            </script>
+                $(obj).click(function () { MoreData(obj); })
+            }
+
+        </script>
 </body>
 
 </html>

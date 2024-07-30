@@ -1,6 +1,9 @@
-<html style="font-size: 80px;"><head>
+<html style="font-size: 80px;">
+    <head>
 <?php include '../php/head.php'; ?>
-</head>
+<?php include '../php/login.php'; ?>
+<?php include '../php/getUser.php'; ?>
+    </head>
 <body inmaintabuse="1">
     
 
@@ -11,6 +14,8 @@
             <ul>
                 <li><a href="#" class="cur">EN</a></li>
                 <li><a href="../vn/doraemon.php" >VN</a></li>
+
+                <?php include '../php/welcomeUser_en.php'; ?>
             </ul>
         </div>
     </div>
@@ -19,7 +24,7 @@
 <div class="navLayer">
     <div class="bg">
         <div class="toptop">
-            <a href="/en" class="logo"><img src="../images/20221010151821394.png" alt="Qman Toys"></a>
+            <a href="/en" class="logo"><img  src="../images/20221010151821394.png" alt="Qman Toys"></a>
             <div class="txt">Home</div>
             <a href="javascript:;" class="closeBtn"><img src="/images/close.png"></a>
         </div>
