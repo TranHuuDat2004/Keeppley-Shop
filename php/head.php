@@ -17,3 +17,36 @@
             DD_belatedPNG.fix('div, ul, img, li, input , a');
         </script>
     <![endif]--> 
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v5.15.4/css/all.css">
+    <!-- link icon -->
+    <link
+      rel="stylesheet"
+      data-purpose="Layout StyleSheet"
+      title="Web Awesome"
+
+      href="/css/app-wa-8d95b745961f6b33ab3aa1b98a45291a.css?vsn=d"
+    >
+
+      <link
+        rel="stylesheet"
+
+        href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css"
+      >
+
+      <link
+        rel="stylesheet"
+
+        href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-solid.css"
+      >
+
+      <link
+        rel="stylesheet"
+
+        href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-regular.css"
+      >
+
+      <link
+        rel="stylesheet"
+
+        href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-light.css"
+      >

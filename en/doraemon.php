@@ -1,3 +1,11 @@
+<!-- <?php
+// if (!isset($_SESSION["userName"])) {
+// 	// Redirect user to the login page if not logged in
+// 	header("Location: ../html/reaction_form.html");
+// 	exit(); // Stop further execution of the script
+// }
+?> -->
+
 <html style="font-size: 80px;">
     <head>
 <?php include '../php/head.php'; ?>
@@ -14,6 +22,8 @@
             <ul>
                 <li><a href="#" class="cur">EN</a></li>
                 <li><a href="../vn/doraemon.php" >VN</a></li>
+                
+                
 
                 <?php include '../php/welcomeUser_en.php'; ?>
             </ul>

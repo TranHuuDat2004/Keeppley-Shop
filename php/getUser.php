@@ -13,5 +13,6 @@ $userLogin = array(
 	"userID" => $row["userID"],
 	"userName" => $row["userName"],
 	"email" => $row["email"],
+	"image" => $row["image"],
 );
 ?>

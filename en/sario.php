@@ -2,6 +2,8 @@
 
 <head>
     <?php include '../php/head.php'; ?>
+    <?php include '../php/login.php'; ?>
+<?php include '../php/getUser.php'; ?>
 </head>
 
 <body inmaintabuse="1">
@@ -14,6 +16,8 @@
             <ul>
                 <li><a href="#" class="cur">EN</a></li>
                 <li><a href="../vn/sario.php" >VN</a></li>
+
+                <?php include '../php/welcomeUser_en.php'; ?>
             </ul>
         </div>
     </div>
