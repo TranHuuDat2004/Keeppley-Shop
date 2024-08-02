@@ -16,21 +16,19 @@
     
 
 <div class="headD"></div>
-<div class="headDiv home">
-<?php include '../php/header_en.php'; ?>
+    <div class="headDiv home">
+        <?php include '../php/header_en.php'; ?>
         <div class="lan">
             <ul>
                 <li><a href="#" class="cur">EN</a></li>
                 <li><a href="../vn/doraemon.php" >VN</a></li>
-                
-                
 
                 <?php include '../php/welcomeUser_en.php'; ?>
             </ul>
         </div>
     </div>
-</div>
-<!---->
+    </div>
+    <!---->
 <div class="navLayer">
     <div class="bg">
         <div class="toptop">

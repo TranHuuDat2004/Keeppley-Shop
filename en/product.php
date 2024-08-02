@@ -12,13 +12,13 @@
 <body>
 
 
-    <div class="headD"></div>
+<div class="headD"></div>
     <div class="headDiv home">
         <?php include '../php/header_en.php'; ?>
         <div class="lan">
             <ul>
-                <li><a href="javascript:;" class="cur">EN</a></li>
-                <li><a href="../vn/product.php">VN</a></li>
+                <li><a href="#" class="cur">EN</a></li>
+                <li><a href="../vn/product.php" >VN</a></li>
 
                 <?php include '../php/welcomeUser_en.php'; ?>
             </ul>
@@ -33,14 +33,7 @@
                 <div class="txt">Home</div>
                 <a href="javascript:;" class="closeBtn"><img src="/images/close.png"></a>
             </div>
-            <div class="sideNav">
-                <div class="subNav"><a href="/en"><img src="/../images/20220825135842913.png" alt="">Our Story</a></div>
-                <div class="subNav"><a href="/en/product/"><img src="/../images/20220825135859657.png" alt="">Our
-                        Products</a></div>
-
-                <div class="subNav"><a href="/en/Contact/"><img src="/../images/20220825135930547.png" alt="">Contact
-                        Us</a></div>
-            </div>
+            
             <div class="lan">
                 <ul>
                     <li><a href="javascript:;" class="cur">EN</a></li>

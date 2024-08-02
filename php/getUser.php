@@ -1,7 +1,7 @@
 <?php
-$userName = $_SESSION["username"];
+$userID = $_SESSION["userID"];
 // print_r($userName);
-$sqlLogin = "SELECT * FROM `login` WHERE userName = '$userName' ";
+$sqlLogin = "SELECT * FROM `login` WHERE userID = '$userID' ";
 $queryLogin = mysqli_query($conn, $sqlLogin);
 // print_r($queryLogin);
 // Kiểm tra kết quả truy vấn

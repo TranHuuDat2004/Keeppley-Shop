@@ -14,7 +14,7 @@ $conn = new mysqli('localhost', 'root', '', 'keeppley-shop'); //servername, user
 if ($conn->connect_error) {
     die("Connection Failed : " . $conn->connect_error);
 } else {
-    if (isset($_POST['username']) && isset($_POST['password'])) { // kiem tra xem bien co ton tai hay hong
+    if (isset($_POST['username']) && isset($_POST['password'])) { // kiểm tra xem biến có tồn tại hay không
         $username = $_POST['username'];
         $password = $_POST['password'];
 
@@ -22,7 +22,7 @@ if ($conn->connect_error) {
             $_SESSION['username'] = 'admin.com';
             header('Location: ../Admin/public/index.php');
         } else {
-            $stmt = $conn->prepare("SELECT * FROM login WHERE username = ? AND loginpassword = ?"); // so sanh bien nhap vao voi database
+            $stmt = $conn->prepare("SELECT * FROM login WHERE username = ? AND loginpassword = ?"); // so sánh biến nhập vào với database
             $stmt->bind_param("ss", $username, $password);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -30,15 +30,15 @@ if ($conn->connect_error) {
             if ($result->num_rows <= 0) {
                 $error = 'Invalid username or password';
                 header('Location: ../html/reaction_form.html'); // Chuyển hướng đến trang reaction_form.html nếu đăng nhập thất bại
-            } else if ($result->num_rows > 0) {
-                $_SESSION['username'] = $username;
+            } else {
+                $row = $result->fetch_assoc();
+                $_SESSION['userID'] = $row['userID'];
 
                 // print_r($_SESSION['username']);
                 
                 header('Location: ../en/product.php');
             }
 
-            
             $stmt->close();
             $conn->close();
         }

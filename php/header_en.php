@@ -1,5 +1,5 @@
 <div class="wal">
-        <a href="/vn" class="logo">
+        <a href="" class="logo">
             <img src="../images/20221010151814746.png" class="PC-Box" alt="Qman Toys">
             <img src="../images/20221010151821394.png" class="Phone-Box" alt="Qman Toys">
         </a>

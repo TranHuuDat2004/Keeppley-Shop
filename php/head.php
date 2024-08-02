@@ -18,6 +18,7 @@
         </script>
     <![endif]--> 
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v5.15.4/css/all.css">
+    
     <!-- link icon -->
     <link
       rel="stylesheet"
