@@ -29,14 +29,14 @@ if ($conn->connect_error) {
             
             if ($result->num_rows <= 0) {
                 $error = 'Invalid username or password';
-                header('Location: ../html/reaction_form_en.html'); // Chuyển hướng đến trang reaction_form.html nếu đăng nhập thất bại
+                header('Location: ../html/reaction_form_vn.html'); // Chuyển hướng đến trang reaction_form.html nếu đăng nhập thất bại
             } else {
                 $row = $result->fetch_assoc();
                 $_SESSION['userID'] = $row['userID'];
 
                 // print_r($_SESSION['username']);
                 
-                header('Location: ../en/product.php');
+                header('Location: ../vn/product.php');
             }
 
             $stmt->close();

@@ -25,5 +25,5 @@
 <?php else: ?>
 
     <!-- VN -->
-    <li><a href="../html/reaction_form.html">Đăng nhập</a></li>
+    <li><a href="../html/reaction_form_vn.html">Đăng nhập</a></li>
 <?php endif; ?>

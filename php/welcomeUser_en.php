@@ -24,5 +24,5 @@
 
 <?php else: ?>
     <!-- EN -->
-    <li><a href="../html/reaction_form.html">Login</a></li>
+    <li><a href="../html/reaction_form_en.html">Login</a></li>
 <?php endif; ?>
