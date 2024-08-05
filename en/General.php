@@ -194,7 +194,7 @@
     </div>
 </div>
     <!---->
-    <div style="margin-top:80px"  class="container light-style flex-grow-1 container-p-y">
+    <div style="margin-top:80px" class="container light-style flex-grow-1 container-p-y">
         <h4 class="font-weight-bold py-3 mb-4">
             Account settings
         </h4>
@@ -206,13 +206,13 @@
                             href="general.php">General</a>
                         <a class="list-group-item list-group-item-action"
                             href="ChangePassword.php">Change password</a>
-                        <a class="list-group-item list-group-item-action " 
+                        <a class="list-group-item list-group-item-action" 
                             href="Information.php">Information</a>
-                        <a class="list-group-item list-group-item-action " 
+                        <a class="list-group-item list-group-item-action" 
                             href="SocialLinks.php">Social links</a>
                         <a class="list-group-item list-group-item-action"
                             href="Connections.php">Connections</a>
-                        <a class="list-group-item list-group-item-action " 
+                        <a class="list-group-item list-group-item-action" 
                             href="Notifications.php">Notifications</a>
                     </div>
                 </div>
@@ -221,13 +221,14 @@
                         <div class="tab-pane fade active show" id="account-general">
 
                             <?php
+                            session_start();
                             if (isset($_SESSION['success_message'])) {
                                 echo '<div class="alert alert-success">' . $_SESSION['success_message'] . '</div>';
                                 unset($_SESSION['success_message']); // Xóa thông báo sau khi hiển thị
                             }
                             ?>
 
-                            <form action="../php/ChangeGeneral.php" method="POST" enctype="multipart/form-data">
+                            <form action="../php/ChangeGeneral.php" method="POST" enctype="multipart/form-data" id="accountForm">
                                 <div class="card-body media align-items-center">
                                     <?php if($userLogin['image']):?>
                                         <img id="preview1" src="../user/<?php echo $userLogin['image'] ?>" height="200">
@@ -263,7 +264,7 @@
                                 </div>
                                 <div class="text-right mt-3">
                                     <button style="margin-bottom:30px; margin-right:30px" type="submit" class="btn btn-primary">Save changes</button>
-                                    <button style="margin-bottom:30px; margin-right:30px" type="button" class="btn btn-default">Cancel</button>
+                                    <button style="margin-bottom:30px; margin-right:30px" type="button" class="btn btn-default" id="cancelButton">Cancel</button>
                                     <!-- Nút Đăng Xuất -->
                                     <a style="margin-bottom:30px; margin-right:30px" href="../php/logout.php" class="btn btn-danger">Logout</a>
                                 </div>
@@ -276,6 +277,33 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        let isFormDirty = false;
+
+        document.querySelectorAll('input').forEach((input) => {
+            input.addEventListener('change', () => {
+                isFormDirty = true;
+            });
+        });
+
+        document.getElementById('accountForm').addEventListener('submit', function() {
+            isFormDirty = false;
+        });
+
+        document.getElementById('cancelButton').addEventListener('click', function() {
+            isFormDirty = false;
+            location.reload();
+        });
+
+        window.addEventListener('beforeunload', function (e) {
+            if (isFormDirty) {
+                const confirmationMessage = 'You have unsaved changes. Are you sure you want to leave this page?';
+                e.returnValue = confirmationMessage; // Gecko, Trident, Chrome 34+
+                return confirmationMessage; // Gecko, WebKit, Chrome <34
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -28,8 +28,8 @@ if ($conn->connect_error) {
             $result = $stmt->get_result();
             
             if ($result->num_rows <= 0) {
-                $error = 'Invalid username or password';
-                header('Location: ../html/reaction_form_vn.html'); // Chuyển hướng đến trang reaction_form.html nếu đăng nhập thất bại
+                $_SESSION['error0'] = 'Sai tên đăng nhập hoặc mật khẩu';
+                header('Location: form_login_vn.php'); // Chuyển hướng đến trang reaction_form.html nếu đăng nhập thất bại
             } else {
                 $row = $result->fetch_assoc();
                 $_SESSION['userID'] = $row['userID'];
