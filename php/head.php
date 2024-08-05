@@ -51,3 +51,6 @@
 
         href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-light.css"
       >
+
+        <!-- Thêm favicon vào đây -->
+  <link rel="icon" href="../images/keeppley_logo.webp" type="image/x-icon">
