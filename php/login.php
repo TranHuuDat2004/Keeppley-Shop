@@ -22,7 +22,7 @@ if ($conn->connect_error) {
             $_SESSION['username'] = 'admin.com';
             header('Location: ../Admin/public/index.php');
         } else {
-            $stmt = $conn->prepare("SELECT * FROM login WHERE username = ? AND loginpassword = ?"); // so sánh biến nhập vào với database
+            $stmt = $conn->prepare("SELECT * FROM `user` WHERE username = ? AND loginpassword = ?"); // so sánh biến nhập vào với database
             $stmt->bind_param("ss", $username, $password);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -31,6 +31,7 @@ if ($conn->connect_error) {
                 $_SESSION['error0'] = 'Invalid username or password';
                 header('Location: form_login_en.php'); // Chuyển hướng đến trang reaction_form.html nếu đăng nhập thất bại
             } else {
+                unset ($_SESSION['error0']);
                 $row = $result->fetch_assoc();
                 $_SESSION['userID'] = $row['userID'];
 

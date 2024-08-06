@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Account Settings - Bootdey.com</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
 
     <?php include '../php/head.php'; ?>
     <?php include '../php/login.php'; ?>
@@ -125,54 +125,63 @@
             padding: 0.85rem 1.5rem;
             border-color: rgba(24, 28, 33, 0.03) !important;
         }
+
+        .btn-cancel:hover {
+            background-color: #f5f5f5;
+        }
     </style>
 </head>
 
 <body inmaintabuse="1">
-<div class="headD">
-    <div class="headDiv home">
-    <!-- Important -->
-    <div class="wal">
-        <a href="../en/product.php" class="logo">
-            <img src="../images/20221010151814746.png" class="PC-Box" alt="Qman Toys">
-            <img src="../images/20221010151821394.png" class="Phone-Box" alt="Qman Toys">
-        </a>
+    <div class="headD">
+        <div class="headDiv home">
+            <!-- Important -->
+            <div class="wal">
+                <a href="../en/product.php" class="logo">
+                    <img src="../images/20221010151814746.png" class="PC-Box" alt="Qman Toys">
+                    <img src="../images/20221010151821394.png" class="Phone-Box" alt="Qman Toys">
+                </a>
 
-        <div class="lan">
-            <ul>
-                <li><a href="javascript:;" class="cur">EN</a></li>
-                <li><a href="../vn/product.php">VN</a></li>
+                <div class="lan">
+                    <ul>
+                        <!-- Show Icon cart  -->
+                        <li><a href="../en/product.php" class="fa-solid fa-house btn-cart" style="color: #000000;"></a> </li>
 
-                <?php include '../php/welcomeUser_en.php'; ?>
-            </ul>
-        </div>
-    </div>
-    </div>
-    <!---->
-    <div class="navLayer">
-        <div class="bg">
-            <div class="toptop">
-                <a href="/en" class="logo"><img src="../images/20221010151821394.png" alt="Qman Toys"></a>
-                <div class="txt">Home</div>
-                <a href="javascript:;" class="closeBtn"><img src="/images/close.png"></a>
-            </div>
-            <div class="sideNav">
-                <div class="subNav"><a href="/en"><img src="/../images/20220825135842913.png" alt="">Our Story</a></div>
-                <div class="subNav"><a href="/en/product/"><img src="/../images/20220825135859657.png" alt="">Our
-                        Products</a></div>
+                        <li><a href="javascript:;" class="cur">EN</a></li>
+                        <li><a href="../vn/product.php">VN</a></li>
 
-                <div class="subNav"><a href="/en/Contact/"><img src="/../images/20220825135930547.png" alt="">Contact
-                        Us</a></div>
-            </div>
-            <div class="lan">
-                <ul>
-                    <li><a href="javascript:;" class="cur">EN</a></li>
-
-                </ul>
+                        <?php include '../php/welcomeUser_en.php'; ?>
+                    </ul>
+                </div>
             </div>
         </div>
+        <!---->
+        <div class="navLayer">
+            <div class="bg">
+                <div class="toptop">
+                    <a href="/en" class="logo"><img src="../images/20221010151821394.png" alt="Qman Toys"></a>
+                    <div class="txt">Home</div>
+                    <a href="javascript:;" class="closeBtn"><img src="/images/close.png"></a>
+                </div>
+                <div class="sideNav">
+                    <div class="subNav"><a href="/en"><img src="/../images/20220825135842913.png" alt="">Our Story</a>
+                    </div>
+                    <div class="subNav"><a href="/en/product/"><img src="/../images/20220825135859657.png" alt="">Our
+                            Products</a></div>
+
+                    <div class="subNav"><a href="/en/Contact/"><img src="/../images/20220825135930547.png"
+                                alt="">Contact
+                            Us</a></div>
+                </div>
+                <div class="lan">
+                    <ul>
+                        <li><a href="javascript:;" class="cur">EN</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
     <!---->
 
     <div style="margin-top:80px" class="container light-style flex-grow-1 container-p-y">
@@ -183,17 +192,12 @@
             <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
                     <div class="list-group list-group-flush account-settings-links">
-                        <a class="list-group-item list-group-item-action" 
-                            href="general.php">General</a>
-                        <a class="list-group-item list-group-item-action"
-                            href="ChangePassword.php">Change password</a>
-                        <a class="list-group-item list-group-item-action " 
-                            href="Information.php">Information</a>
-                        <a class="list-group-item list-group-item-action " 
-                            href="SocialLinks.php">Social links</a>
-                        <a class="list-group-item list-group-item-action"
-                            href="Connections.php">Connections</a>
-                        <a class="list-group-item list-group-item-action active" 
+                        <a class="list-group-item list-group-item-action" href="general.php">General</a>
+                        <a class="list-group-item list-group-item-action" href="ChangePassword.php">Change password</a>
+                        <a class="list-group-item list-group-item-action " href="Information.php">Information</a>
+                        <a class="list-group-item list-group-item-action " href="SocialLinks.php">Social links</a>
+                        <a class="list-group-item list-group-item-action" href="Connections.php">Connections</a>
+                        <a class="list-group-item list-group-item-action active"
                             href="Notifications.php">Notifications</a>
                     </div>
                 </div>
@@ -269,16 +273,21 @@
                                 </div>
                             </div>
                         </div>
-                        
 
-        <div class="text-right mt-3">
-            <button style="margin-bottom:30px; margin-right:30px" type="button" class="btn btn-primary">Save changes</button>&nbsp;
-            <button style="margin-bottom:30px; margin-right:30px" type="button" class="btn btn-default">Cancel</button>
-        </div>
-    </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+                        <div class="text-right mt-3">
+                            <button style="margin-bottom:30px; margin-right:30px" type="submit"
+                                class="btn btn-primary">Save changes</button>
+                            <button style="margin-bottom:30px; margin-right:30px" type="button"
+                                class="btn btn-default btn-cancel" id="cancelButton">Cancel</button>
+                            <!-- Nút Đăng Xuất -->
+                            <a style="margin-bottom:30px; margin-right:30px" href="../php/logout.php"
+                                class="btn btn-danger">Logout</a>
+                        </div>
+                    </div>
+
+                    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

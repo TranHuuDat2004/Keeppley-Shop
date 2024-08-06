@@ -5,11 +5,16 @@
     <meta charset="utf-8">
     <title>Account Settings - Bootdey.com</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
 
     <?php include '../php/head.php'; ?>
     <?php include '../php/login.php'; ?>
     <?php include '../php/getUser.php'; ?>
+    <?php include '../php/ListCountries.php'; ?>
+
+    <!-- Thêm jQuery và jQuery UI CSS và JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
     <!-- Important -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -125,54 +130,63 @@
             padding: 0.85rem 1.5rem;
             border-color: rgba(24, 28, 33, 0.03) !important;
         }
+
+        .btn-cancel:hover {
+            background-color: #f5f5f5;
+        }
     </style>
 </head>
 
-<body inmaintabuse="1">
-<div class="headD">
-    <div class="headDiv home">
-    <!-- Important -->
-    <div class="wal">
-        <a href="../en/product.php" class="logo">
-            <img src="../images/20221010151814746.png" class="PC-Box" alt="Qman Toys">
-            <img src="../images/20221010151821394.png" class="Phone-Box" alt="Qman Toys">
-        </a>
+<body>
+    <div class="headD">
+        <div class="headDiv home">
+            <!-- Important -->
+            <div class="wal">
+                <a href="../en/product.php" class="logo">
+                    <img src="../images/20221010151814746.png" class="PC-Box" alt="Qman Toys">
+                    <img src="../images/20221010151821394.png" class="Phone-Box" alt="Qman Toys">
+                </a>
 
-        <div class="lan">
-            <ul>
-                <li><a href="javascript:;" class="cur">EN</a></li>
-                <li><a href="../vn/product.php">VN</a></li>
+                <div class="lan">
+                    <ul>
+                        <!-- Show Icon cart  -->
+                        <li><a href="../en/product.php" class="fa-solid fa-house btn-cart" style="color: #000000;"></a> </li>
+                        
+                        <li><a href="javascript:;" class="cur">EN</a></li>
+                        <li><a href="../vn/product.php">VN</a></li>
 
-                <?php include '../php/welcomeUser_en.php'; ?>
-            </ul>
-        </div>
-    </div>
-    </div>
-    <!---->
-    <div class="navLayer">
-        <div class="bg">
-            <div class="toptop">
-                <a href="/en" class="logo"><img src="../images/20221010151821394.png" alt="Qman Toys"></a>
-                <div class="txt">Home</div>
-                <a href="javascript:;" class="closeBtn"><img src="/images/close.png"></a>
-            </div>
-            <div class="sideNav">
-                <div class="subNav"><a href="/en"><img src="/../images/20220825135842913.png" alt="">Our Story</a></div>
-                <div class="subNav"><a href="/en/product/"><img src="/../images/20220825135859657.png" alt="">Our
-                        Products</a></div>
-
-                <div class="subNav"><a href="/en/Contact/"><img src="/../images/20220825135930547.png" alt="">Contact
-                        Us</a></div>
-            </div>
-            <div class="lan">
-                <ul>
-                    <li><a href="javascript:;" class="cur">EN</a></li>
-
-                </ul>
+                        <?php include '../php/welcomeUser_en.php'; ?>
+                    </ul>
+                </div>
             </div>
         </div>
+        <!---->
+        <div class="navLayer">
+            <div class="bg">
+                <div class="toptop">
+                    <a href="/en" class="logo"><img src="../images/20221010151821394.png" alt="Qman Toys"></a>
+                    <div class="txt">Home</div>
+                    <a href="javascript:;" class="closeBtn"><img src="/images/close.png"></a>
+                </div>
+                <div class="sideNav">
+                    <div class="subNav"><a href="/en"><img src="/../images/20220825135842913.png" alt="">Our Story</a>
+                    </div>
+                    <div class="subNav"><a href="/en/product/"><img src="/../images/20220825135859657.png" alt="">Our
+                            Products</a></div>
+
+                    <div class="subNav"><a href="/en/Contact/"><img src="/../images/20220825135930547.png"
+                                alt="">Contact
+                            Us</a></div>
+                </div>
+                <div class="lan">
+                    <ul>
+                        <li><a href="javascript:;" class="cur">EN</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
     <!---->
 
     <div style="margin-top:80px" class="container light-style flex-grow-1 container-p-y">
@@ -183,67 +197,82 @@
             <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
                     <div class="list-group list-group-flush account-settings-links">
-                        <a class="list-group-item list-group-item-action" 
-                            href="general.php">General</a>
-                        <a class="list-group-item list-group-item-action"
-                            href="ChangePassword.php">Change password</a>
-                        <a class="list-group-item list-group-item-action active" 
-                            href="Information.php">Information</a>
-                        <a class="list-group-item list-group-item-action " 
-                            href="SocialLinks.php">Social links</a>
-                        <a class="list-group-item list-group-item-action"
-                            href="Connections.php">Connections</a>
-                        <a class="list-group-item list-group-item-action " 
-                            href="Notifications.php">Notifications</a>
+                        <a class="list-group-item list-group-item-action" href="general.php">General</a>
+                        <a class="list-group-item list-group-item-action" href="ChangePassword.php">Change password</a>
+                        <a class="list-group-item list-group-item-action active" href="Information.php">Information</a>
+                        <a class="list-group-item list-group-item-action " href="SocialLinks.php">Social links</a>
+                        <a class="list-group-item list-group-item-action" href="Connections.php">Connections</a>
+                        <a class="list-group-item list-group-item-action " href="Notifications.php">Notifications</a>
                     </div>
                 </div>
                 <div class="col-md-9">
                     <div class="tab-content">
                         <div class="tab-pane fade active show" id="account-info">
-                            <div class="card-body pb-2">
-                                <div class="form-group">
-                                    <label class="form-label">Bio</label>
-                                    <textarea class="form-control"
-                                        rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nunc arcu, dignissim sit amet sollicitudin iaculis, vehicula id urna. Sed luctus urna nunc. Donec fermentum, magna sit amet rutrum pretium, turpis dolor molestie diam, ut lacinia diam risus eleifend sapien. Curabitur ac nibh nulla. Maecenas nec augue placerat, viverra tellus non, pulvinar risus.</textarea>
+                            <form action="../php/UpdateInformation.php" method="post">
+                                <div class="card-body pb-2">
+                                    <?php
+                                    session_start();
+                                    if (isset($_SESSION['success_message'])) {
+                                        echo '<div class="alert alert-success">' . $_SESSION['success_message'] . '</div>';
+                                        unset($_SESSION['success_message']); // Xóa thông báo sau khi hiển thị
+                                    }
+                                    ?>
+                                    <div class="form-group">
+                                        <label class="form-label">Bio</label>
+                                        <textarea class="form-control" name="bio"
+                                            rows="5"><?php echo $userLogin['bio'] ?></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Birthday</label>
+                                        <input type="date" class="form-control" name="birthday" id="birthday"
+                                            value="<?php echo $userLogin['birthday'] ?>">
+
+                                        <!-- Lấy ID -->
+                                        <input type="hidden" name="userID" value="<?php echo $userLogin['userID'] ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Country</label>
+                                        <select class="custom-select" name="country">
+                                            <?php foreach ($country_list as $country): ?>
+                                                <option value="<?php echo htmlspecialchars($country); ?>" <?php echo $userLogin['country'] == $country ? 'selected' : ''; ?>>
+                                                    <?php echo htmlspecialchars($country); ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">Phone</label>
+                                        <input type="text" class="form-control" name="phone"
+                                            value="<?php echo $userLogin['phone'] ?>">
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="form-label">Birthday</label>
-                                    <input type="text" class="form-control" value="May 3, 1995">
+                                <div class="text-right mt-3">
+                                    <button style="margin-bottom:30px; margin-right:30px" type="submit"
+                                        class="btn btn-primary">Save changes</button>
+                                    <button style="margin-bottom:30px; margin-right:30px" type="button"
+                                        class="btn btn-default btn-cancel" id="cancelButton">Cancel</button>
+                                    <!-- Nút Đăng Xuất -->
+                                    <a style="margin-bottom:30px; margin-right:30px" href="../php/logout.php"
+                                        class="btn btn-danger">Logout</a>
                                 </div>
-                                <div class="form-group">
-                                    <label class="form-label">Country</label>
-                                    <select class="custom-select">
-                                        <option>USA</option>
-                                        <option selected>Canada</option>
-                                        <option>UK</option>
-                                        <option>Germany</option>
-                                        <option>France</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <hr class="border-light m-0">
-                            <div class="card-body pb-2">
-                                <h6 class="mb-4">Contacts</h6>
-                                <div class="form-group">
-                                    <label class="form-label">Phone</label>
-                                    <input type="text" class="form-control" value="+0 (123) 456 7891">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Website</label>
-                                    <input type="text" class="form-control" value>
-                                </div>
-                            </div>
+                            </form>
                         </div>
-                        
-
-        <div class="text-right mt-3">
-            <button style="margin-bottom:30px; margin-right:30px" type="button" class="btn btn-primary">Save changes</button>&nbsp;
-            <button style="margin-bottom:30px; margin-right:30px" type="button" class="btn btn-default">Cancel</button>
-        </div>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+                    </div>
+                </div>
+                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+<script>
+    $(document).ready(function () {
+        $('#birthday').datepicker({
+            dateFormat: "MM d, yy",
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1900:2100",
+            autoclose: true
+        });
+    });
+</script>
 
 </html>

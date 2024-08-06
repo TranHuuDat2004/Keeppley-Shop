@@ -27,7 +27,7 @@ if(isset($_POST['userID'])){
         move_uploaded_file($p_image_tmp, '../user/' . $image_path);
         
         // Cập nhật thông tin sản phẩm kèm theo đường dẫn ảnh mới
-        $sql = "UPDATE login SET `image` = '$image_path' WHERE userID = $userID";
+        $sql = "UPDATE user SET `image` = '$image_path' WHERE userID = $userID";
         
         if ($conn->query($sql) !== TRUE) {
             echo "Lỗi: " . $sql . "<br>" . $conn->error;
@@ -39,7 +39,7 @@ if(isset($_POST['userID'])){
     $newEmail = $_POST['email'];
 
     // Lệnh SQL để cập nhật dữ liệu
-    $sql = "UPDATE login SET userName='$newUserName', email='$newEmail' WHERE userID = $userID";
+    $sql = "UPDATE user SET userName='$newUserName', email='$newEmail' WHERE userID = $userID";
 
     if ($conn->query($sql) === TRUE) {
         $_SESSION['success_message'] = "Update Information Successfully";
