@@ -29,7 +29,7 @@ if ($conn->connect_error) {
             
             if ($result->num_rows <= 0) {
                 $_SESSION['error0'] = 'Invalid username or password';
-                header('Location: form_login_en.php'); // Chuyển hướng đến trang reaction_form.html nếu đăng nhập thất bại
+                header('Location: login_again_en.php'); // Chuyển hướng đến trang reaction_form.html nếu đăng nhập thất bại
             } else {
                 unset ($_SESSION['error0']);
                 $row = $result->fetch_assoc();

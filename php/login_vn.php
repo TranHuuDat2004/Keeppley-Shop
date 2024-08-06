@@ -29,7 +29,7 @@ if ($conn->connect_error) {
             
             if ($result->num_rows <= 0) {
                 $_SESSION['error0'] = 'Sai tên đăng nhập hoặc mật khẩu';
-                header('Location: form_login_vn.php'); // Chuyển hướng đến trang reaction_form.html nếu đăng nhập thất bại
+                header('Location: login_again_vn.php'); // Chuyển hướng đến trang reaction_form.html nếu đăng nhập thất bại
             } else {
                 unset ($_SESSION['error0']);
                 $row = $result->fetch_assoc();
