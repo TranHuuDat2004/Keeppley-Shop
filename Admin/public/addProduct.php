@@ -41,154 +41,35 @@ if (isset($_POST['sbm'])) {
 <html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Omacha - Playful World</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/css/tailwind.output.css" />
-  <link rel="stylesheet" href="./Fontend/css/main.css" />
-  <!-- link icon -->
-  <link rel="icon" type="image/png" href="/Fontend/images/icon.png" />
-  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-  <script src="./assets/js/init-alpine.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
-  <script src="./assets/js/charts-lines.js" defer></script>
-  <script src="./assets/js/charts-pie.js" defer></script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap');
-  </style>
+<?php include 'head.php'?>
 </head>
+<Style>
+  /* Thay đổi màu hover của nút */
+  .input:hover {
+    background-color: #f5f5f5; /* Màu xám */
+    color: white; /* Màu chữ (nếu cần) */
+}
 
+/* Container chứa form */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Chiều cao 100% viewport */
+}
+
+/* Đảm bảo form có kích thước phù hợp */
+.form-container form {
+    width: 100%; /* Hoặc giá trị phù hợp với form của bạn */
+}
+
+</Style>
 <body>
   <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
-    <!-- Desktop sidebar -->
     <aside class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0">
-      <div class="py-4 text-gray-500 dark:text-gray-400">
-        <!-- Logo desktop -->
-        <a href="index.php" class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="index.php">
-          <h1 class="m-0 text-primary1 "><span class="text-dark1"><img class="Imagealignment"
-                src="../../Fontend/images/icon.png">Omacha</h1>
-        </a>
-
-        <ul class="mt-6">
-          <li class="relative px-6 py-3">
-            <span aria-hidden="true"></span>
-            <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-              href="index.php">
-              <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
-                </path>
-              </svg>
-              <span class="ml-4">Dashboard</span>
-            </a>
-          </li>
-        </ul>
-        <ul>
-          <li class="relative px-6 py-3">
-            <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-              href="addProduct.php">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z">
-                </path>
-              </svg>
-              <span class="ml-4">Add Product</span>
-            </a>
-          </li>
-
-
-
-          <li class="relative px-6 py-3">
-            <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-              href="addDiscount.php">
-              <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
-                </path>
-              </svg>
-              <span class="ml-4">Add Discount</span>
-            </a>
-          </li>
-
-          <li class="relative px-6 py-3">
-            <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-              href="manageUser.php">
-              <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <path d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
-              </svg>
-              <span class="ml-4">Manage Users</span>
-            </a>
-          </li>
-
-
-          <li class="relative px-6 py-3">
-            <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-              href="manageProduct.php">
-              <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
-                </path>
-              </svg>
-              <span class="ml-4">Manage Product</span>
-            </a>
-          </li>
-          <li class="relative px-6 py-3">
-            <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-              href="comment.php">
-              <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <path d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
-                <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
-              </svg>
-              <span class="ml-4">Manage Comment</span>
-            </a>
-          </li>
-          <li class="relative px-6 py-3">
-            <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-              href="ManageOrder.php">
-              <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122">
-                </path>
-              </svg>
-              <span class="ml-4">Manage Order</span>
-            </a>
-          </li>
-          <li class="relative px-6 py-3">
-            <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-              href="ManageDiscount.php">
-              <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
-                </path>
-              </svg>
-              <span class="ml-4">Manage Discount</span>
-            </a>
-          </li>
-          <li class="relative px-6 py-3">
-            <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-              href="ManageReview.php">
-              <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
-                </path>
-              </svg>
-              <span class="ml-4">Manage Review</span>
-            </a>
-          </li>
-        </ul>
-
-      </div>
-    </aside>
+      
+    <?php include 'aside.php'?>
+  </aside>
     <!-- Mobile sidebar -->
     <!-- Backdrop -->
     <div x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150"
@@ -508,93 +389,86 @@ if (isset($_POST['sbm'])) {
           <!-- With actions -->
         </div>
 
-        <form action="addProduct.php" method="POST" enctype="multipart/form-data">
-          <div class="content">
-            <div class="form-group text-gray-700 dark:text-gray-200">
-              <label for="name">Name Product</label>
-              <input class="form-control" name="p_name" id="name" type="text" placeholder="Name Product">
-              
-            </div>
-            <div class="form-group text-gray-700 dark:text-gray-200">
-              <label for="file1">Image Product 1 (Required) </label>
-              <input id="file1" name="p_image[]" type="file" onchange="previewImage(event, 'preview1')">
-              <img id="preview1" class="preview-img" src="" >
-            </div>
-            <div class="form-group text-gray-700 dark:text-gray-200">
-              <label for="file2">Image Product 2 (Optional)</label>
-              <input id="file2" name="p_image[]" type="file" onchange="previewImage(event, 'preview2')">
-              <img id="preview2" class="preview-img" src="" >
-            </div>
-            <div class="form-group text-gray-700 dark:text-gray-200">
-              <label for="file3">Image Product 3 (Optional)</label>
-              <input id="file3" name="p_image[]" type="file" onchange="previewImage(event, 'preview3')">
-              <img id="preview3" class="preview-img" src="">
-            </div>
+        <div class="form-container container mt-5">
+  <form action="addProduct.php" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="name">Name Product</label>
+      <input class="form-control input" name="p_name" id="name" type="text" placeholder="Name Product">
+    </div>
+    <div class="form-group">
+      <label for="file1">Image Product 1 (Required)</label>
+      <input class="form-control-file input" id="file1" name="p_image[]" type="file" onchange="previewImage(event, 'preview1')">
+      <img id="preview1" class="img-thumbnail mt-2" src="" >
+    </div>
+    <div class="form-group">
+      <label for="file2">Image Product 2 (Optional)</label>
+      <input class="form-control-file input" id="file2" name="p_image[]" type="file" onchange="previewImage(event, 'preview2')">
+      <img id="preview2" class="img-thumbnail mt-2" src="" >
+    </div>
+    <div class="form-group">
+      <label for="file3">Image Product 3 (Optional)</label>
+      <input class="form-control-file input" id="file3" name="p_image[]" type="file" onchange="previewImage(event, 'preview3')">
+      <img id="preview3" class="img-thumbnail mt-2" src="">
+    </div>
+    <div class="form-group">
+      <label for="age">Age</label>
+      <select id="age" class="form-control input" name="p_age">
+        <option>Select Age</option>
+        <option>0-12 months</option>
+        <option>1-2 years</option>
+        <option>3+ years</option>
+        <option>5+ years</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="provider">Provider</label>
+      <select id="provider" class="form-control input" name="p_provider">
+        <option>Select Provider</option>
+        <option>Frog Leaf</option>
+        <option>dun dun dun</option>
+        <option>Cloud Frog</option>
+        <option>DiNo</option>
+        <option>Baby Logo</option>
+        <option>Cookie</option>
+        <option>BarBie</option>
+        <option>LEGO</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input class="form-control input" id="price" name="p_price" type="text" placeholder="Price">
+    </div>
+    <div class="form-group">
+      <label for="type">Type</label>
+      <select id="type" class="form-control input" name="p_type">
+        <option>Select a Type</option>
+        <optgroup label="Natural">
+          <option>Wood</option>
+          <option>Cotton</option>
+          <option>Wool</option>
+          <option>Clay</option>
+          <option>Bamboo</option>
+        </optgroup>
+        <optgroup label="Man-Made">
+          <option>Plastic</option>
+          <option>Metal</option>
+          <option>Polyester</option>
+          <option>Rubberized Plastic</option>
+          <option>Foam</option>
+        </optgroup>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control input" id="description" name="p_description" rows="4" placeholder="Description"></textarea>
+    </div>
+    <div class="form-group">
+      <button name="sbm" class="btn btn-primary" type="submit">Add Product</button>
+      <a href="../../Fontend/product2.php" class="btn btn-secondary">User Interface</a>
+    </div>
+  </form>
+</div>
 
-            <div class="form-group text-gray-700 dark:text-gray-200">
-              <label for="type">Age</label>
-              <select id="type" class="form-control" name="p_age">
-                <option>Select Age</option>
-                <option>0-12 months</option>
-                <option>1-2 years</option>
-                <option>3+ years</option>
-                <option>5+ years</option>
-              </select>
-            </div>
-
-            <div class="form-group text-gray-700 dark:text-gray-200">
-              <label for="type">Provider</label>
-              <select id="type" class="form-control" name="p_provider">
-                <option>Select Provider</option>
-                <option>Frog Leaf</option>
-                <option>dun dun dun</option>
-                <option>Cloud Frog</option>
-                <option>DiNo</option>
-                <option>Baby Logo</option>
-                <option>Cookie</option>
-                <option>BarBie</option>
-                <option>LEGO</option>
-              </select>
-
-            </div>
-            <div class="form-group text-gray-700 dark:text-gray-200">
-              <label for="price">Price</label>
-              <input class="form-control" id="name" name="p_price" type="text" placeholder="Price">
-            </div>
-
-            <div class="form-group text-gray-700 dark:text-gray-200">
-              <label for="type">Type</label>
-              <select id="type" class="form-control" name="p_type">
-                <option>Select a Type</option>
-                <optgroup label="Natural">
-                  <option>Wood</option>
-                  <option>Cotton</option>
-                  <option>Wool</option>
-                  <option>Clay</option>
-                  <option>Bamboo</option>
-                </optgroup>
-                <optgroup label="Man-Made">
-                  <option>Plastic</option>
-                  <option>Metal</option>
-                  <option>Polyester</option>
-                  <option>Rubberized Plastic</option>
-                  <option>Foam</option>
-                </optgroup>
-              </select>
-            </div>
-
-                        <div class="form-group text-gray-700 dark:text-gray-200">
-              <label for="description">Description</label>
-              <textarea class="form-control" id="description" name="p_description" rows="4"
-                cols="50" placeholder="Description"></textarea>
-            </div>
-
-            <div class="form-group text-gray-700 dark:text-gray-200">
-              <button name="sbm" class="main-btn" type="submit">Add Product</button>
-              <a href="../../Fontend/product2.php" class="main-btn">User Interface</a>
-            </div>
-          </div>
-        </form>
 
     </div>
     </main>
@@ -621,4 +495,10 @@ if (isset($_POST['sbm'])) {
     }
   }
 </script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
 </html>
