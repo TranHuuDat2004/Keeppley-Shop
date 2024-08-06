@@ -14,6 +14,9 @@
     <!-- Important -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Thêm favicon vào đây -->
+    <link rel="icon" href="../images/keeppley_logo.webp" type="image/x-icon">
+        
     <style type="text/css">
         body {
             background: #f5f5f5;
@@ -146,7 +149,7 @@
                     <ul>
                         <!-- Show Icon cart  -->
                         <li><a href="../en/product.php" class="fa-solid fa-house btn-cart" style="color: #000000;"></a> </li>
-                        
+
                         <li><a href="javascript:;" class="cur">EN</a></li>
                         <li><a href="../vn/product.php">VN</a></li>
 
