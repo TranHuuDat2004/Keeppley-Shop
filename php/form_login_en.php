@@ -210,6 +210,7 @@
 
 
   <form method="post" action="login.php">
+    
     <svg width="250" height="250" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg" role="img"
       aria-labelledby="title  desc">
       <title id="title">Teacher</title>
@@ -316,6 +317,7 @@
             <input type="submit" name="submit" id="submit" value="Login" />
         </div>
     </fieldset>
+    <p class="text-muted-foreground mt-4 text-center">You don't have account <a href="Signup_en.php" class="text-primary">Click here</a></p>
 </form>
 
   <script>

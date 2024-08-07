@@ -1,7 +1,7 @@
 <style>
     .img-user {
         margin-top: 15px;
-
+        border-radius: 50%;
     }
 </style>
 
@@ -24,5 +24,6 @@
 
 <?php else: ?>
     <!-- EN -->
-    <li><a href="../php/form_login_en.php">Login</a></li>
+    <li><a href="../php/Signup_en.php">Sign Up</a></li>
+    <li><a href="../php/ChooseLogin_en.php">Login</a></li>
 <?php endif; ?>

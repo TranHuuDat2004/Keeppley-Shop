@@ -1,6 +1,5 @@
 <style>
     .img-user {
-        margin-top: 15px;
         border-radius: 50%;
     }
 </style>
@@ -16,15 +15,14 @@
 
     <!-- Show Profile Avatar -->
     <?php if (!$userLogin['image']): ?>
-        <li><a href="#"><img class="img-user" src="../user/male.png" width="50" height="50"></a></li>
+        <li><a href="../en/General.php"><img class="img-user" src="../user/male.png" width="50" height="50"></a></li>
 
     <?php else: ?>
-        <li><a href="#"><img class="img-user" src="../user/<?php echo $userLogin['image'] ?>" width="50" height="50"></a></li>
+        <li><a href="../en/General.php"><img class="img-user" src="../user/<?php echo $userLogin['image'] ?>" width="50" height="50"></a></li>
     <?php endif ?>
 
 <?php else: ?>
-
-    <!-- VN -->
-    <li><a href="../php/Signup_vn.php">Đăng kí</a></li>
-    <li><a href="../php/ChooseLogin_vn.php">Đăng nhập</a></li>
+    <!-- EN -->
+    <li><a href="../php/Signup_en.php">Sign Up</a></li>
+    <li><a href="../php/form_login_en.php">Login</a></li>
 <?php endif; ?>

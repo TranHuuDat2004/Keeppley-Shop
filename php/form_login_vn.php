@@ -385,6 +385,7 @@
         <input type="submit" name="submit" id="submit" value="Đăng nhập" />
       </div>
     </fieldset>
+    <p class="text-muted-foreground mt-4 text-center">Bạn không có tài khoản <a href="Signup_vn.php" class="text-primary">Nhấn tại đây</a></p>
   </form>
 
   <script>

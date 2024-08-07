@@ -1,5 +1,6 @@
 <?php
 $country_list = array(
+    "Not Selected",
     "Afghanistan",
     "Albania",
     "Algeria",

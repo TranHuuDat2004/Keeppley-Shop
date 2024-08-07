@@ -340,6 +340,7 @@
                 <input type="submit" name="submit" id="submit" value="Login" />
             </div>
         </fieldset>
+        <p class="text-muted-foreground mt-4 text-center">You don't have account <a href="Signup_en.php" class="text-primary">Click here</a></p>
     </form>
 
     <script>
