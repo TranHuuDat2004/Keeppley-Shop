@@ -1,3 +1,38 @@
+<?php 
+include '../php/login.php';
+// Chưa đăng nhập 
+if (isset($_SESSION["userID"])){
+    $userID = $_SESSION["userID"];
+    // print_r($userName);
+    $sqlLogin = "SELECT * FROM `Admin` WHERE userID = '$userID' ";
+    $queryLogin = mysqli_query($conn, $sqlLogin);
+    // print_r($queryLogin);
+    // Kiểm tra kết quả truy vấn
+
+    // Duyệt qua từng hàng dữ liệu từ kết quả truy vấn
+    $row = $queryLogin->fetch_assoc();
+    // Thêm thông tin từng hàng vào mảng $userLogin
+    $userLogin = array(
+        "userID" => $row["userID"],
+        "userName" => $row["userName"],
+        "email" => $row["email"],
+        "image" => $row["image"],
+        "loginpassword" => $row["loginpassword"],
+        "birthday" => $row["birthday"],
+        "bio" => $row["bio"],
+        "country" => $row["country"],
+        "phone" => $row["phone"]
+    );
+}
+
+else {    
+    // Chưa đăng nhập 
+    header('Location: ../php/form_login_en.php');
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,8 +43,6 @@
 
 
     <?php include '../php/head.php'; ?>
-    <?php include '../php/login.php'; ?>
-    <?php include '../php/getUser.php'; ?>
 
     <!-- Important -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">

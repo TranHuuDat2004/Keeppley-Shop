@@ -1,10 +1,11 @@
 <?php 
-include '../php/login.php';
+include 'login.php';
+
 // Chưa đăng nhập 
-if (isset($_SESSION["userID"])){
-    $userID = $_SESSION["userID"];
+if (isset($_SESSION["adminID"])){
+    $adminID = $_SESSION["adminID"];
     // print_r($userName);
-    $sqlLogin = "SELECT * FROM `Admin` WHERE userID = '$userID' ";
+    $sqlLogin = "SELECT * FROM `Admin` WHERE adminID = '$adminID' ";
     $queryLogin = mysqli_query($conn, $sqlLogin);
     // print_r($queryLogin);
     // Kiểm tra kết quả truy vấn
@@ -13,7 +14,7 @@ if (isset($_SESSION["userID"])){
     $row = $queryLogin->fetch_assoc();
     // Thêm thông tin từng hàng vào mảng $userLogin
     $userLogin = array(
-        "userID" => $row["userID"],
+        "adminID" => $row["adminID"],
         "userName" => $row["userName"],
         "email" => $row["email"],
         "image" => $row["image"],
@@ -27,7 +28,7 @@ if (isset($_SESSION["userID"])){
 
 else {    
     // Chưa đăng nhập 
-    header('Location: ../php/form_login_en.php');
+    header('Location: login_admin_en.php');
     exit();
 }
 
@@ -41,14 +42,13 @@ else {
     <title>Account Settings - Bootdey.com</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <?php include '../php/head.php'; ?>
-
+    <?php include 'head_setting.php'; ?>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Thêm favicon vào đây -->
     <link rel="icon" href="../images/keeppley_logo.webp" type="image/x-icon">
-        
+
     <style type="text/css">
         body {
             background: #f5f5f5;
@@ -193,21 +193,21 @@ else {
         <div class="headDiv home">
             <!-- Important -->
             <div class="wal">
-                <a href="../en/product.php" class="logo">
+                <a href="index.php" class="logo">
                     <img src="../images/20221010151814746.png" class="PC-Box" alt="Qman Toys">
-                    <img src="../images/20221010151821394.png" class="Phone-Box" alt="Qman Toys">
+                    <!-- <img src="../images/20221010151814746.png" class="Phone-Box" alt="Qman Toys"> -->
                 </a>
 
                 <div class="lan">
                     <ul>
                         <!-- Show Icon cart  -->
-                        <li><a href="../en/product.php" class="fa-solid fa-house btn-cart" style="color: #000000;"></a> </li>
-                        
+                        <!-- <li><a href="../en/product.php" class="fa-solid fa-house btn-cart" style="color: #000000;"></a> </li> -->
+
                         <li><a href="javascript:;" class="cur">EN</a></li>
                         <li><a href="../vn/product.php">VN</a></li>
 
                         <!-- Header Account Settings -->
-                        <?php include '../php/SettingUserHeader_en.php'; ?>
+                        <?php include 'SettingAdminHeader_en.php'; ?>
 
                     </ul>
                 </div>
@@ -243,14 +243,15 @@ else {
     <!---->
     <div style="margin-top:80px" class="container light-style flex-grow-1 container-p-y">
         <h4 class="font-weight-bold py-3 mb-4">
-            Account settings
+            Admin settings
         </h4>
         <div class="card overflow-hidden">
             <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
                     <div class="list-group list-group-flush account-settings-links">
-                        <a class="list-group-item list-group-item-action active" href="general.php">General</a>
-                        <a class="list-group-item list-group-item-action" href="ChangePassword.php">Change password</a>
+                        <a class="list-group-item list-group-item-action " href="general.php">General</a>
+                        <a class="list-group-item list-group-item-action active" href="Password.php">Change
+                            password</a>
                         <a class="list-group-item list-group-item-action" href="Information.php">Information</a>
                         <a class="list-group-item list-group-item-action" href="SocialLinks.php">Social links</a>
                         <a class="list-group-item list-group-item-action" href="Connections.php">Connections</a>
@@ -259,66 +260,78 @@ else {
                 </div>
                 <div class="col-md-9">
                     <div class="tab-content">
-                        <div class="tab-pane fade active show" id="account-general">
-                            <form action="../php/ChangeGeneral.php" method="POST" enctype="multipart/form-data"
-                                id="accountForm">
+                        <div class="tab-pane fade active show" id="account-change-password">
+                            <div class="card-body pb-2">
+
                                 <?php
-                                    session_start();
-                                    if (isset($_SESSION['success_message'])) {
-                                        echo '<div style="margin-top:30px; margin-right:20px" class="alert alert-success">' . $_SESSION['success_message'] . '</div>';
-                                        unset($_SESSION['success_message']); // Xóa thông báo sau khi hiển thị
-                                    }
-                                    ?>
+                                if (isset($_SESSION['success_message'])) {
+                                    echo '<div class="alert alert-success">' . $_SESSION['success_message'] . '</div>';
+                                    unset($_SESSION['success_message']); // Xóa thông báo sau khi hiển thị
+                                }
+                                ?>
 
-                                <div class="card-body media align-items-center">
+                                <form action="ChangePassword.php" method="POST" id="accountForm">
+                                    <div class="form-group">
+                                        <input type="hidden" name="AdminID" value="<?php echo $userLogin['adminID']; ?>">
+                                        <label class="form-label">Current password</label>
+                                        <div class="input-group">
+                                            <input type="password" class="form-control" name="current_password"
+                                                id="currentPassword" required>
+                                        </div>
+                                        <input type="checkbox" onclick="togglePasswordVisibility('currentPassword')">
+                                        Show Password
 
-                                    
-                                    <?php if ($userLogin['image']): ?>
-                                        <img style="border-radius: 50%;" id="preview1" src="../user/<?php echo $userLogin['image'] ?>" height="200">
-                                    <?php else: ?>
-                                        <img style="border-radius: 50%;" id="preview1" src="../user/male.png" height="200">
-                                    <?php endif; ?>
-                                    <div class="media-body ml-4">
-                                        <label class="btn btn-outline-primary">
-                                            Upload new photo
-                                            <input type="file" class="account-settings-fileinput" name="profileImage"
-                                                onchange="previewImage(event, 'preview1')">
-                                        </label>
+                                        <!-- Kiểm tra mật khẩu -->
+                                        <?php
+                                        if (isset($_SESSION['error-pass0'])) {
+                                            echo '<div style="color: red; font-size:14px">' . $_SESSION['error-pass0'] . '</div>';
+                                            unset($_SESSION['error-pass0']); // Xóa thông báo sau khi hiển thị
+                                        }
+                                        ?>
                                     </div>
-                                </div>
-                                <hr class="border-light m-0">
-                                <div class="card-body">
+
+
+
                                     <div class="form-group">
-                                        <label class="form-label">UserID:</label>
-                                        <input type="text" class="form-control mb-1"
-                                            value="<?php echo $userLogin['userID'] ?>" readonly>
-                                        <input type="hidden" name="userID" value="<?php echo $userLogin['userID'] ?>">
+                                        <label class="form-label">New password</label>
+                                        <div class="input-group">
+                                            <input type="password" class="form-control" name="new_password"
+                                                id="newPassword" required>
+                                        </div>
+                                        <input type="checkbox" onclick="togglePasswordVisibility('newPassword')"> Show
+                                        Password
+
+                                        <!-- Kiểm tra mật khẩu mới -->
+                                        <?php
+                                        if (isset($_SESSION['error-pass1'])) {
+                                            echo '<div style="color: red; font-size:14px">' . $_SESSION['error-pass1'] . '</div>';
+                                            unset($_SESSION['error-pass1']); // Xóa thông báo sau khi hiển thị
+                                        }
+                                        ?>
                                     </div>
+
+
+
                                     <div class="form-group">
-                                        <label class="form-label">Username:</label>
-                                        <input type="text" class="form-control mb-1" name="userName"
-                                            value="<?php echo $userLogin['userName'] ?>">
+                                        <label class="form-label">Repeat new password</label>
+                                        <div class="input-group">
+                                            <input type="password" class="form-control" name="repeat_new_password"
+                                                id="repeatNewPassword" required>
+                                        </div>
+                                        <input type="checkbox" onclick="togglePasswordVisibility('repeatNewPassword')">
+                                        Show Password
                                     </div>
-                                    <div class="form-group">
-                                        <label class="form-label">Email:</label>
-                                        <input type="email" class="form-control mb-1" name="email"
-                                            value="<?php echo $userLogin['email'] ?>">
-                                        <!-- <div class="alert alert-warning mt-3">
-                                            Your email is not confirmed. Please check your inbox.<br>
-                                            <a href="javascript:void(0)">Resend confirmation</a>
-                                        </div> -->
-                                    </div>
-                                </div>
-                                <div class="text-right mt-3">
+                                    <div class="text-right mt-3">
                                     <button style="margin-bottom:30px; margin-right:30px" type="submit"
                                         class="btn btn-primary">Save changes</button>
                                     <button style="margin-bottom:30px; margin-right:30px" type="button"
                                         class="btn btn-default btn-cancel" id="cancelButton">Cancel</button>
                                     <!-- Nút Đăng Xuất -->
-                                    <a style="margin-bottom:30px; margin-right:30px" href="../php/logout.php"
+                                    <a style="margin-bottom:30px; margin-right:30px" href="logout.php"
                                         class="btn btn-danger">Logout</a>
                                 </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -329,6 +342,15 @@ else {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+        function togglePasswordVisibility(inputId) {
+            var input = document.getElementById(inputId);
+            if (input.type === "password") {
+                input.type = "text";
+            } else {
+                input.type = "password";
+            }
+        }
+
         let isFormDirty = false;
 
         document.querySelectorAll('input').forEach((input) => {

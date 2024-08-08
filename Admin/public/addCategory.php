@@ -1,13 +1,23 @@
+<!--php-->
 <?php
 
-if (isset($_POST['sbm'])) {
-  $p_id = $_POST['p_id'];
-  $p_name_en = $_POST['p_name_en'];
-  $p_name_vn = $_POST['p_name_vn'];
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "keeppley-shop";
 
-  $p_images = $_FILES['p_image']['name'];
-  $p_images_tmp = $_FILES['p_image']['tmp_name'];
-  $p_image_paths = []; // Mảng để chứa các đường dẫn ảnh
+// Tạo kết nối
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if (isset($_POST['sbm'])) {
+    // Get the form inputs
+    $name_en = $_POST['name_en'];
+    $name_vn = $_POST['name_vn'];
+    $provider = $_POST['provider'];
+
+    $p_images = $_FILES['p_image']['name'];
+    $p_images_tmp = $_FILES['p_image']['tmp_name'];
+    $p_image_paths = []; // Mảng để chứa các đường dẫn ảnh
 
   // Duyệt qua từng ảnh và di chuyển vào thư mục 'images/'
   foreach ($p_images as $index => $p_image) {
@@ -20,27 +30,22 @@ if (isset($_POST['sbm'])) {
   // Ghép các đường dẫn ảnh thành một chuỗi, ngăn cách bởi dấu phẩy
   $p_image = implode(',', $p_image_paths);
 
-  $p_category = $_POST['p_category'];
-  $p_price = $_POST['p_price'];
-  $p_tutorial = $_POST['p_tutorial'];
-  $p_description = $_POST['p_description'];
+    // Prepare the SQL query to insert the category data
+    $sql = "INSERT INTO category (name_en, name_vn, images, provider) 
+            VALUES ('$name_en', '$name_vn', '$p_image', '$provider')";
 
-  // Xử lý tệp hướng dẫn
-  $p_tutorial_name = $_FILES['p_tutorial']['name'];
-  $p_tutorial_tmp = $_FILES['p_tutorial']['tmp_name'];
-  $p_tutorial_path = $p_tutorial_name;
-  move_uploaded_file($p_tutorial_tmp, '../../pdf/' . $p_tutorial_path);
-
-  $sql = "INSERT INTO product (p_name, p_image, p_age, p_provider, p_price, p_type, p_description) 
-            VALUES ('$p_name', '$p_image', '$p_age', '$p_provider', '$p_price', '$p_type', '$p_description')";
-
-  try {
-    $query = mysqli_query($conn, $sql);
-    header('Location: manageProduct.php');
-  } catch (Exception $e) {
-    var_dump($e);
-  }
+    // Execute the query
+    if (mysqli_query($conn, $sql)) {
+        echo "Category added successfully!";
+        // Redirect to a success page or back to the form
+        header('Location: manageCategories.php');
+    } else {
+        echo "Error: " . mysqli_error($conn);
+    }
+    mysqli_close($conn);
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -64,21 +69,22 @@ if (isset($_POST['sbm'])) {
     display: flex;
     justify-content: center;
     align-items: center;
+
   }
 
   /* Đảm bảo form có kích thước phù hợp */
   .form-container form {
-    width: 100%;
+    width: 80%;
     /* Hoặc giá trị phù hợp với form của bạn */
   }
 </Style>
 
 <body>
   <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
+    <!-- Desktop sidebar -->
     <aside class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0">
 
       <?php include 'aside.php' ?>
-
     </aside>
     <!-- Mobile sidebar -->
     <!-- Backdrop -->
@@ -242,97 +248,59 @@ if (isset($_POST['sbm'])) {
       </div>
     </aside>
     <div class="flex flex-col flex-1 w-full">
-
       <?php include 'Profile_Header.php'; ?>
-
       <main class="h-full pb-16 overflow-y-auto">
-        <div class="container grid px-6 mx-auto">
-          <h2 class="stext-121 my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-            Add Product
-          </h2>
-
-          <!-- With actions -->
-        </div>
 
         <div class="form-container container mt-5">
-          <form action="addProduct.php" method="POST" enctype="multipart/form-data">
+          <form method="POST" enctype="multipart/form-data">
+            <h2 class="stext-121 my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+              Add Category
+            </h2>
+            <div class="content">
+              <div class="form-group">
 
-            <div class="form-group">
+                <label for="name">Name Category (English)</label>
+                <input class="form-control input" name="name_en" id="name_en" type="text" placeholder="Name Product">
+              </div>
 
-              <label for="name">ID Product</label>
-              <input class="form-control input" name="p_id" id="name" type="text" placeholder="ID Product">
-            </div>
+              <div class="form-group">
 
-            <div class="form-group">
+                <label for="name">Name Category (Vietnamese)</label>
+                <input class="form-control input" name="name_vn" id="name_vn" type="text" placeholder="Name Product">
+              </div>
 
-              <label for="name">Name Product (English)</label>
-              <input class="form-control input" name="p_name_en" id="name_en" type="text" placeholder="Name Product">
-            </div>
+              <div class="form-group">
+                <label for="file1">Image Product 1 (Required)</label>
+                <input class="form-control-file input" id="file1" name="p_image[]" type="file"
+                  onchange="previewImage(event, 'preview1')">
+                <img id="preview1" src="" height="300px">
+              </div>
+              <div class="form-group">
+                <label for="file2">Image Product 2 (Optional)</label>
+                <input class="form-control-file input" id="file2" name="p_image[]" type="file"
+                  onchange="previewImage(event, 'preview2')">
+                <img id="preview2" src="" height="300px">
+              </div>
 
-            <div class="form-group">
+              <div class="form-group text-gray-700 dark:text-gray-200">
+                <label for="type">Provider</label>
+                <select id="type" class="form-control input" name="provider">
+                  <option>Select Provider</option>
+                  <option>Qman</option>
+                  <option>Keeppley</option>
+                </select>
+              </div>
 
-              <label for="name">Name Product (Vietnamese)</label>
-              <input class="form-control input" name="p_name_vn" id="name_vn" type="text" placeholder="Name Product">
-            </div>
-            <div class="form-group">
-              <label for="file1">Image Product 1 (Required)</label>
-              <input class="form-control-file input" id="file1" name="p_image[]" type="file"
-                onchange="previewImage(event, 'preview1')">
-              <img id="preview1" src="" height="300px">
-            </div>
-            <div class="form-group">
-              <label for="file2">Image Product 2 (Optional)</label>
-              <input class="form-control-file input" id="file2" name="p_image[]" type="file"
-                onchange="previewImage(event, 'preview2')">
-              <img id="preview2" src="" height="300px">
-            </div>
-            <div class="form-group">
-              <label for="file3">Image Product 3 (Optional)</label>
-              <input class="form-control-file input" id="file3" name="p_image[]" type="file"
-                onchange="previewImage(event, 'preview3')">
-              <img id="preview3" src="" height="300px">
-            </div>
-            <!-- <div class="form-group">
-              <label for="age">Age</label>
-              <select id="age" class="form-control input" name="p_age">
-                <option>Select Age</option>
-                <option>0-12 months</option>
-                <option>1-2 years</option>
-                <option>3+ years</option>
-                <option>5+ years</option>
-              </select>
-            </div> -->
-            <div class="form-group">
-              <label for="provider">Category</label>
-              <select id="provider" class="form-control input" name="p_category">
-
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="price">Price</label>
-              <input class="form-control input" id="price" name="p_price" type="text" placeholder="Price">
-            </div>
-            <div class="form-group">
-              <label for="tutorial">Tutorial (Word/PDF)</label>
-              <input class="form-control-file input" id="tutorial" name="p_tutorial" type="file" accept=".doc,.docx,.pdf">
-            </div>
-
-            <div class="form-group">
-              <label for="description">Description</label>
-              <textarea class="form-control input" id="description" name="p_description" rows="4"
-                placeholder="Description"></textarea>
-            </div>
-            <div class="form-group">
-              <button name="sbm" class="btn btn-primary" type="submit">Add Product</button>
-              <a href="../../Fontend/product2.php" class="btn btn-secondary">User Interface</a>
+              <div class="form-group text-gray-700 dark:text-gray-200">
+                <button name="sbm" class="main-btn" type="submit">Add Discount</button>
+                <a href="../../Fontend/product2.php" class="main-btn">User Interface</a>
+              </div>
             </div>
           </form>
         </div>
-
+      </main>
 
     </div>
-    </main>
-  </div>
   </div>
 </body>
 <script>
@@ -356,9 +324,5 @@ if (isset($_POST['sbm'])) {
     }
   }
 </script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
 
 </html>

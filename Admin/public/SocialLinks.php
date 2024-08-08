@@ -1,10 +1,11 @@
-<?php 
-include '../php/login.php';
+<?php
+include 'login.php';
+include 'ListCountries.php';
 // Chưa đăng nhập 
-if (isset($_SESSION["userID"])){
-    $userID = $_SESSION["userID"];
+if (isset($_SESSION["adminID"])) {
+    $adminID = $_SESSION["adminID"];
     // print_r($userName);
-    $sqlLogin = "SELECT * FROM `Admin` WHERE userID = '$userID' ";
+    $sqlLogin = "SELECT * FROM `Admin` WHERE adminID = '$adminID' ";
     $queryLogin = mysqli_query($conn, $sqlLogin);
     // print_r($queryLogin);
     // Kiểm tra kết quả truy vấn
@@ -13,7 +14,7 @@ if (isset($_SESSION["userID"])){
     $row = $queryLogin->fetch_assoc();
     // Thêm thông tin từng hàng vào mảng $userLogin
     $userLogin = array(
-        "userID" => $row["userID"],
+        "adminID" => $row["adminID"],
         "userName" => $row["userName"],
         "email" => $row["email"],
         "image" => $row["image"],
@@ -23,11 +24,9 @@ if (isset($_SESSION["userID"])){
         "country" => $row["country"],
         "phone" => $row["phone"]
     );
-}
-
-else {    
+} else {
     // Chưa đăng nhập 
-    header('Location: ../php/form_login_en.php');
+    header('Location: login_admin_en.php');
     exit();
 }
 
@@ -41,16 +40,14 @@ else {
     <title>Account Settings - Bootdey.com</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <?php include 'head_setting.php'; ?>
 
-    <?php include '../php/head.php'; ?>
 
-
-    <!-- Important -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Thêm favicon vào đây -->    
+    <!-- Thêm favicon vào đây -->
     <link rel="icon" href="../images/keeppley_logo.webp" type="image/x-icon">
-    
+
     <style type="text/css">
         body {
             background: #f5f5f5;
@@ -167,6 +164,27 @@ else {
             background-color: #f5f5f5;
         }
     </style>
+
+    <script>
+        function previewImage(event, previewId) {
+            const file = event.target.files[0];
+            const preview = document.getElementById(previewId);
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = '#';
+                preview.style.display = 'none';
+            }
+        }
+    </script>
 </head>
 
 <body inmaintabuse="1">
@@ -174,21 +192,22 @@ else {
         <div class="headDiv home">
             <!-- Important -->
             <div class="wal">
-                <a href="../en/product.php" class="logo">
+                <a href="index.php" class="logo">
                     <img src="../images/20221010151814746.png" class="PC-Box" alt="Qman Toys">
-                    <img src="../images/20221010151821394.png" class="Phone-Box" alt="Qman Toys">
+                    <!-- <img src="../images/20221010151814746.png" class="Phone-Box" alt="Qman Toys"> -->
                 </a>
 
                 <div class="lan">
                     <ul>
                         <!-- Show Icon cart  -->
-                        <li><a href="../en/product.php" class="fa-solid fa-house btn-cart" style="color: #000000;"></a> </li>
-                    
+                        <!-- <li><a href="../en/product.php" class="fa-solid fa-house btn-cart" style="color: #000000;"></a> </li> -->
+
                         <li><a href="javascript:;" class="cur">EN</a></li>
                         <li><a href="../vn/product.php">VN</a></li>
 
                         <!-- Header Account Settings -->
-                        <?php include '../php/SettingUserHeader_en.php'; ?>
+                        <?php include 'SettingAdminHeader_en.php'; ?>
+
                     </ul>
                 </div>
             </div>
@@ -221,26 +240,26 @@ else {
         </div>
     </div>
     <!---->
-
     <div style="margin-top:80px" class="container light-style flex-grow-1 container-p-y">
         <h4 class="font-weight-bold py-3 mb-4">
-            Account settings
+            Admin settings
         </h4>
         <div class="card overflow-hidden">
             <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
                     <div class="list-group list-group-flush account-settings-links">
-                        <a class="list-group-item list-group-item-action" href="general.php">General</a>
-                        <a class="list-group-item list-group-item-action" href="ChangePassword.php">Change password</a>
+                        <a class="list-group-item list-group-item-action " href="general.php">General</a>
+                        <a class="list-group-item list-group-item-action " href="Password.php">Change
+                            password</a>
                         <a class="list-group-item list-group-item-action " href="Information.php">Information</a>
                         <a class="list-group-item list-group-item-action active" href="SocialLinks.php">Social links</a>
                         <a class="list-group-item list-group-item-action" href="Connections.php">Connections</a>
-                        <a class="list-group-item list-group-item-action " href="Notifications.php">Notifications</a>
+                        <a class="list-group-item list-group-item-action" href="Notifications.php">Notifications</a>
                     </div>
                 </div>
                 <div class="col-md-9">
                     <div class="tab-content">
-                        <div class="tab-pane fade active show" id="account-social-links">
+                    <div class="tab-pane fade active show" id="account-social-links">
                             <div class="card-body pb-2">
                                 <div class="form-group">
                                     <label class="form-label">Twitter</label>
@@ -270,18 +289,30 @@ else {
 
 
             <div class="text-right mt-3">
-                <button style="margin-bottom:30px; margin-right:30px" type="submit" class="btn btn-primary">Save
-                    changes</button>
-                <button style="margin-bottom:30px; margin-right:30px" type="button" class="btn btn-default btn-cancel"
-                    id="cancelButton">Cancel</button>
-                <!-- Nút Đăng Xuất -->
-                <a style="margin-bottom:30px; margin-right:30px" href="../php/logout.php"
-                    class="btn btn-danger">Logout</a>
-            </div>
+                                    <button style="margin-bottom:30px; margin-right:30px" type="submit"
+                                        class="btn btn-primary">Save changes</button>
+                                    <button style="margin-bottom:30px; margin-right:30px" type="button"
+                                        class="btn btn-default btn-cancel" id="cancelButton">Cancel</button>
+                                    <!-- Nút Đăng Xuất -->
+                                    <a style="margin-bottom:30px; margin-right:30px" href="logout.php"
+                                        class="btn btn-danger">Logout</a>
+                                </div>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<script>
+    $(document).ready(function () {
+        $('#birthday').datepicker({
+            dateFormat: "MM d, yy",
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1900:2100",
+            autoclose: true
+        });
+    });
+</script>
 </body>
 
 </html>
