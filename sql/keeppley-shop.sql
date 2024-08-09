@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 06, 2024 lúc 04:31 PM
+-- Thời gian đã tạo: Th8 09, 2024 lúc 04:16 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -24,15 +24,52 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `admin`
+--
+
+CREATE TABLE `admin` (
+  `adminID` int(50) NOT NULL,
+  `userName` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `loginpassword` varchar(255) NOT NULL,
+  `image` text NOT NULL,
+  `birthday` date DEFAULT NULL,
+  `bio` text NOT NULL,
+  `country` varchar(255) NOT NULL,
+  `phone` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `admin`
+--
+
+INSERT INTO `admin` (`adminID`, `userName`, `email`, `loginpassword`, `image`, `birthday`, `bio`, `country`, `phone`) VALUES
+(1, 'admin', 'admin@gmail.com', '1234', 'admin.png', '2024-08-10', 'Ta là Admin đây', 'Việt Nam', '0909141761'),
+(2, 'admin10', 'admin@gmail.com', 'huudat', '', NULL, '', '', ''),
+(3, 'admin100', 'admin@gmail.com', 'huudat', '', NULL, '', '', ''),
+(4, 'Trần Hữu Đạt', 'huudat.lego@gmail.com', 'huudat', '', NULL, '', '', '');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `category`
 --
 
 CREATE TABLE `category` (
-  `c_id` int(11) NOT NULL,
-  `c_name` varchar(255) NOT NULL,
-  `c_brand1` text NOT NULL,
-  `c_brand2` text NOT NULL
+  `id` int(11) NOT NULL,
+  `name_en` varchar(255) NOT NULL,
+  `name_vn` varchar(255) NOT NULL,
+  `images` text NOT NULL,
+  `provider` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `category`
+--
+
+INSERT INTO `category` (`id`, `name_en`, `name_vn`, `images`, `provider`) VALUES
+(2, 'Doraemon', 'Doraemon', '2022111111563701.jpg,20221111115556855.jpg', 'Keeppley'),
+(3, 'Sario', 'Sario', '20221104153543766.jpg,20221104153536127.jpg', 'Keeppley');
 
 -- --------------------------------------------------------
 
@@ -42,14 +79,23 @@ CREATE TABLE `category` (
 
 CREATE TABLE `product` (
   `p_id` int(11) NOT NULL,
-  `p_name` varchar(255) NOT NULL,
+  `p_number` varchar(255) NOT NULL,
+  `p_name_en` varchar(255) NOT NULL,
+  `p_name_vn` varchar(255) NOT NULL,
   `p_image` varchar(255) NOT NULL,
-  `p_type` varchar(255) NOT NULL,
   `p_price` float NOT NULL,
   `p_category` varchar(225) NOT NULL,
-  `p_age` varchar(100) NOT NULL,
+  `p_tutorial` varchar(100) NOT NULL,
   `p_description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `product`
+--
+
+INSERT INTO `product` (`p_id`, `p_number`, `p_name_en`, `p_name_vn`, `p_image`, `p_price`, `p_category`, `p_tutorial`, `p_description`) VALUES
+(3, 'K20401', 'Time Machine', 'Cỗ Máy Thời Gian', '20221111120123714.jpg', 9.99, 'Doraemon', 'K20401.pdf', ''),
+(4, 'K20801', 'Hello Kitty', 'Hello Kitty', '20221104153936156.jpg,,', 9.99, 'Sario', 'K20801.pdf', '');
 
 -- --------------------------------------------------------
 
@@ -75,7 +121,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`userID`, `userName`, `email`, `loginpassword`, `image`, `birthday`, `bio`, `country`, `phone`) VALUES
 (1, 'admin', 'admin123@gmail.com', '1230', '', NULL, '', '', '0'),
-(2, 'khanhne', 'Khanhne@gmail.com', '1234', '', NULL, '', '', '0'),
+(2, 'khanhne', 'Khanhne@gmail.com', '1234', 'ThuyKhanh1.jpg', '2024-08-01', 'À Nhon, Mình là nhóm trưởng đây', 'Việt Nam', '0902313725'),
 (14, 'TranHuuDat', 'huudat.lego@gmail.com', 'huudat', 'Cole.jpg', '2024-08-05', 'HELLO', 'Việt Nam', '0902313725'),
 (15, 'TranHuuDat123', 'huudat.mini', 'huudat', '', NULL, '', '', '0'),
 (16, 'DuongThiThuyLinh', 'DuongThiThuyLinh', '1234', '', NULL, '', '', '0'),
@@ -84,17 +130,27 @@ INSERT INTO `user` (`userID`, `userName`, `email`, `loginpassword`, `image`, `bi
 (21, 'DaoMinhPhuc', 'DaoMinhPhuc@gmail.com', '1234', '', NULL, '', '', '0'),
 (23, 'huudat', 'huudat', 'huudat', '', NULL, '', '', '0'),
 (24, 'mini', 'mini', 'mini', '', NULL, '', '', '0'),
-(25, 'MIni World', 'TranHuuDat@gmail.com', '123456', '', NULL, '', '', '0');
+(25, 'MIni World', 'TranHuuDat@gmail.com', '123456', '', NULL, '', '', '0'),
+(26, 'SaoTinhNghich', 'my.love.lego.city@gmail.com', 'huudat', '', NULL, '', '', ''),
+(27, 'Melody', 'Melody@gmail.com', 'huudat', 'Mymelody.webp', '2024-08-01', 'Ta là Melody đây', 'Việt Nam', '0909141761'),
+(28, 'Kuromi', 'Kuromi@gmail.com', 'huudat', '', NULL, '', '', ''),
+(29, 'Hello Kitty', 'HelloKitty@gmail.com', 'huudat', 'Mymelody.webp', '2024-08-03', 'Hello Kitty', 'Việt Nam', '0909141761');
 
 --
 -- Chỉ mục cho các bảng đã đổ
 --
 
 --
+-- Chỉ mục cho bảng `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`adminID`);
+
+--
 -- Chỉ mục cho bảng `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`c_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `product`
@@ -113,22 +169,28 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT cho bảng `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `adminID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT cho bảng `category`
 --
 ALTER TABLE `category`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `userID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
