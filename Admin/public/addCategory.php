@@ -260,26 +260,26 @@ if (isset($_POST['sbm'])) {
               <div class="form-group">
 
                 <label for="name">Name Category (English)</label>
-                <input class="form-control input" name="name_en" id="name_en" type="text" placeholder="Name Product">
+                <input class="form-control input" name="name_en" id="name_en" type="text" placeholder="Name Category">
               </div>
 
               <div class="form-group">
 
                 <label for="name">Name Category (Vietnamese)</label>
-                <input class="form-control input" name="name_vn" id="name_vn" type="text" placeholder="Name Product">
+                <input class="form-control input" name="name_vn" id="name_vn" type="text" placeholder="Name Category">
               </div>
 
               <div class="form-group">
-                <label for="file1">Image Product 1 (Required)</label>
+                <label for="file1">Image Category Thumbnail (Required)</label>
                 <input class="form-control-file input" id="file1" name="p_image[]" type="file"
                   onchange="previewImage(event, 'preview1')">
-                <img id="preview1" src="" height="300px">
+                <img id="preview1" src="../images/placeholder-300x400.png" height="300px">
               </div>
               <div class="form-group">
-                <label for="file2">Image Product 2 (Optional)</label>
+                <label for="file2">>Image Category Banner (Required)</label>
                 <input class="form-control-file input" id="file2" name="p_image[]" type="file"
                   onchange="previewImage(event, 'preview2')">
-                <img id="preview2" src="" height="300px">
+                <img id="preview2" src="../images/300x200.jfif" height="300px">
               </div>
 
               <div class="form-group text-gray-700 dark:text-gray-200">
@@ -292,8 +292,8 @@ if (isset($_POST['sbm'])) {
               </div>
 
               <div class="form-group text-gray-700 dark:text-gray-200">
-                <button name="sbm" class="main-btn" type="submit">Add Discount</button>
-                <a href="../../Fontend/product2.php" class="main-btn">User Interface</a>
+                <button name="sbm" class="main-btn" type="submit">Add Category</button>
+                <a href="../../en/product.php" class="main-btn">User Interface</a>
               </div>
             </div>
           </form>

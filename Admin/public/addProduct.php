@@ -1,7 +1,11 @@
 <?php
-
+$conn = new mysqli('localhost', 'root', '', 'keeppley-shop'); //servername, usernamename, password, database's name
+if ($conn->connect_error) {
+  die("Connection Failed : " . $conn->connect_error);
+}
 if (isset($_POST['sbm'])) {
   $p_id = $_POST['p_id'];
+  $p_number = $_POST['p_number'];
   $p_name_en = $_POST['p_name_en'];
   $p_name_vn = $_POST['p_name_vn'];
 
@@ -22,6 +26,7 @@ if (isset($_POST['sbm'])) {
 
   $p_category = $_POST['p_category'];
   $p_price = $_POST['p_price'];
+
   $p_tutorial = $_POST['p_tutorial'];
   $p_description = $_POST['p_description'];
 
@@ -31,8 +36,8 @@ if (isset($_POST['sbm'])) {
   $p_tutorial_path = $p_tutorial_name;
   move_uploaded_file($p_tutorial_tmp, '../../pdf/' . $p_tutorial_path);
 
-  $sql = "INSERT INTO product (p_name, p_image, p_age, p_provider, p_price, p_type, p_description) 
-            VALUES ('$p_name', '$p_image', '$p_age', '$p_provider', '$p_price', '$p_type', '$p_description')";
+  $sql = "INSERT INTO product (p_number, p_name_en, p_name_vn, p_image, p_price, p_category, p_tutorial, p_description) 
+            VALUES ('$p_number', '$p_name_en', '$p_name_vn', '$p_image', '$p_price', '$p_category', '$p_tutorial_name', '$p_description')";
 
   try {
     $query = mysqli_query($conn, $sql);
@@ -41,7 +46,20 @@ if (isset($_POST['sbm'])) {
     var_dump($e);
   }
 }
+
+$sqlCategory = "SELECT * FROM `category`";
+$resultCategory = mysqli_query($conn, $sqlCategory);
+
+// Kiểm tra xem có kết quả trả về không
+if ($resultCategory->num_rows > 0) {
+  $categories = array();
+  while ($row = $resultCategory->fetch_assoc()) {
+    $categories[] = $row['name_en'];
+  }
+}
+
 ?>
+
 
 <!DOCTYPE html>
 <html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
@@ -259,8 +277,8 @@ if (isset($_POST['sbm'])) {
 
             <div class="form-group">
 
-              <label for="name">ID Product</label>
-              <input class="form-control input" name="p_id" id="name" type="text" placeholder="ID Product">
+              <label for="name">Number Product</label>
+              <input class="form-control input" name="p_number" id="name" type="text" placeholder="Number Product">
             </div>
 
             <div class="form-group">
@@ -302,19 +320,24 @@ if (isset($_POST['sbm'])) {
                 <option>5+ years</option>
               </select>
             </div> -->
+
             <div class="form-group">
               <label for="provider">Category</label>
               <select id="provider" class="form-control input" name="p_category">
-
+                <?php foreach ($categories as $category): ?>
+                  <option value="<?php echo $category; ?>"><?php echo $category; ?></option>
+                <?php endforeach; ?>
               </select>
             </div>
+
             <div class="form-group">
               <label for="price">Price</label>
               <input class="form-control input" id="price" name="p_price" type="text" placeholder="Price">
             </div>
             <div class="form-group">
               <label for="tutorial">Tutorial (Word/PDF)</label>
-              <input class="form-control-file input" id="tutorial" name="p_tutorial" type="file" accept=".doc,.docx,.pdf">
+              <input class="form-control-file input" id="tutorial" name="p_tutorial" type="file"
+                accept=".doc,.docx,.pdf">
             </div>
 
             <div class="form-group">

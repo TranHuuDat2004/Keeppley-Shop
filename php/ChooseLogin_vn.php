@@ -43,7 +43,7 @@
     <p class="text-blue-500">Hãy <span class="font-bold">CHỌN ĐỐI TƯỢNG</span> để <span class="font-bold">ĐĂNG NHẬP</span> vào hệ thống</p>
   </div>
   <div class="flex justify-around w-full max-w-4xl">
-    <a href="../Admin/public/pages/login_admin_en.php" class="text-center hover:bg-gray-100 p-6 rounded-lg border border-border cursor-pointer">
+    <a href="../Admin/public/login_admin_en.php" class="text-center hover:bg-gray-100 p-6 rounded-lg border border-border cursor-pointer">
       <img src="../user/admin.png" alt="Admin" class="mx-auto mb-4">
       <h2 class="text-xl font-bold text-foreground">Admin</h2>
       <p class="text-muted-foreground">Nếu là Admin, hãy click vào đây để đăng nhập.</p>
