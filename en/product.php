@@ -71,7 +71,7 @@
 
             <div style="margin-top:120px" class="title " id="page-100000003464980">Qman Products</div>
             <div class="list">
-            <ul>
+                <ul>
                     <?php
 
                     $sqlQman = "SELECT * FROM `Category` WHERE `provider` = 'Qman'";
@@ -82,7 +82,7 @@
                         while ($category = $result->fetch_assoc()):
 
                             // Tách chuỗi hình ảnh thành mảng và loại bỏ khoảng trắng thừa
-		                    $product_images = array_map('trim', explode(',', $category["images"]));
+                            $product_images = array_map('trim', explode(',', $category["images"]));
                             ?>
                             <li>
                                 <div class="box">
@@ -99,7 +99,7 @@
                             <?php
 
                         endwhile;
-                    ?>                    
+                    ?>
                 </ul>
                 <div class="clear_f"></div>
             </div>
@@ -121,24 +121,24 @@
                         while ($category = $result->fetch_assoc()):
 
                             // Tách chuỗi hình ảnh thành mảng và loại bỏ khoảng trắng thừa
-		                    $product_images = array_map('trim', explode(',', $category["images"]));
+                            $product_images = array_map('trim', explode(',', $category["images"]));
                             ?>
                             <li>
                                 <div class="box">
-                                    <div class="imgDiv"><a href="../en/Category_Product.php?id=<?php echo $category['id']; ?>" target="_blank"><img
-                                                src="../images/<?php echo $product_images[0]; ?>"
+                                    <div class="imgDiv"><a href="../en/Category_Product.php?id=<?php echo $category['id']; ?>"
+                                            ><img src="../images/<?php echo $product_images[0]; ?>"
                                                 alt="<?php echo $category['name_en'] ?>"></a>
                                     </div>
                                     <div class="botDiv">
                                         <div class="name"><a href="../en/doraemon.php"
-                                                target="_blank"><?php echo $category['name_en'] ?></a></div>
+                                                ><?php echo $category['name_en'] ?></a></div>
                                     </div>
                                 </div>
                             </li>
                             <?php
 
                         endwhile;
-                    ?>                    
+                    ?>
                 </ul>
                 <div class="clear_f"></div>
             </div>
@@ -149,7 +149,7 @@
 
         </div>
 
-        <script language="javascript" type="text/javascript" src="/en/script/js.js"></script>
+        <script language="javascript" type="text/javascript" src="../script/js.js"></script>
 
         <script type="text/javascript">
             function MoreData(obj) {
@@ -177,11 +177,12 @@
                                     //html += '<li><div class="box"><a target="_blank" href="' + res[i].Url + '"><div class="imgDiv"><img src="' + res[i].Image + '" alt="' + res[i].Title + '" /></div><div class="botDiv"><div class="name">' + res[i].Title + '</div><div class="username' + (id == "100000010797975" ? " username2" : "") +'">Click for More</div></div></a></div></li>'
 
 
-                                    html += '<li><div class="box"><div class="imgDiv"><a target="_blank" href="' + res[i].Url + '"><img src="' + res[i].Image + '" alt="' + res[i].Title + '" /></a></div><div class="botDiv"><div class="name"><a target="_blank" href="' + res[i].Url + '">' + res[i].Title + '</a></div><div class="username' + (id == "100000010797975" ? " username2" : "") + '"><a target="_blank" href="' + res[i].Url + '">Click for More</a></div><div class="btnVideo">'
+                                    html += '<li><div class="box"><div class="imgDiv"><a href="' + res[i].Url + '"><img src="' + res[i].Image + '" alt="' + res[i].Title + '" /></a></div><div class="botDiv"><div class="name"><a href="' + res[i].Url + '">' + res[i].Title + '</a></div><div class="username' + (id == "100000010797975" ? " username2" : "") + '"><a href="' + res[i].Url + '">Click for More</a></div><div class="btnVideo">'
                                     if (res[i].Video != "") {
-                                        html += '<a href = "' + res[i].Video + '" ' + (res[i].Video.indexOf('http') != -1 ? 'target = "_blank"' : '') + ' ><img src="../images/20221020095235674.png"  /></a>'
+                                        html += '<a href = "' + res[i].Video + '"><img src="../images/20221020095235674.png"  /></a>'
                                     }
-                                    html += '</div></div></div></li>'
+                                    html += '</div></div></div></li>';
+
                                 }
 
                                 $(obj).prev('.list').find("ul").append(html);

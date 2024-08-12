@@ -128,11 +128,19 @@ if (isset($_GET['id'])) {
                     while ($product = $resultProduct->fetch_assoc()) {
                         // Tách chuỗi hình ảnh thành mảng và loại bỏ khoảng trắng thừa
                         $product_images = array_map('trim', explode(',', $product["p_image"]));
+                        // Kiểm tra và gán lại giá trị nếu ảnh thứ 2 và thứ 3 trống
+                        if (empty($product_images[1])) {
+                            $product_images[1] = $product_images[0];
+                        }
+
+                        if (empty($product_images[2])) {
+                            $product_images[2] = $product_images[0];
+                        }
                         ?>
 
                         <li>
                             <div class="box">
-                                <a href="javascript:;">
+                                <a href="Product_Detail.php?p_id=<?php echo $product['p_id'] ?>">
                                     <div class="imgDiv"><img src="../images/<?php echo $product_images[0]; ?>"
                                             alt="<?php echo $product['p_name_en']; ?>" /></div>
                                     <div class="num"><?php echo $product['p_number']; ?></div>
