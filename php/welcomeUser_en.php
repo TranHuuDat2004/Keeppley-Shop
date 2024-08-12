@@ -2,6 +2,7 @@
     .img-user {
         margin-top: 15px;
         border-radius: 50%;
+        object-fit: cover;
     }
 </style>
 

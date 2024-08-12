@@ -1,6 +1,7 @@
 <style>
     .img-user {
         border-radius: 50%;
+        object-fit: cover;
     }
 </style>
 

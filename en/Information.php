@@ -4,7 +4,7 @@ include '../php/login.php';
 if (isset($_SESSION["userID"])){
     $userID = $_SESSION["userID"];
     // print_r($userName);
-    $sqlLogin = "SELECT * FROM `Admin` WHERE userID = '$userID' ";
+    $sqlLogin = "SELECT * FROM `User` WHERE userID = '$userID' ";
     $queryLogin = mysqli_query($conn, $sqlLogin);
     // print_r($queryLogin);
     // Kiểm tra kết quả truy vấn
@@ -249,7 +249,7 @@ else {
                             <form action="../php/UpdateInformation.php" method="post">
                                 <div class="card-body pb-2">
                                     <?php
-                                    session_start();
+                                    // session_start();
                                     if (isset($_SESSION['success_message'])) {
                                         echo '<div class="alert alert-success">' . $_SESSION['success_message'] . '</div>';
                                         unset($_SESSION['success_message']); // Xóa thông báo sau khi hiển thị

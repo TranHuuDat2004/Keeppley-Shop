@@ -22,6 +22,7 @@ if (isset($_GET['p_id'])) {
                 "p_name_vn" => $row["p_name_vn"],
                 "p_price" => $row["p_price"],
                 "p_tutorial" => $row["p_tutorial"],
+                "p_sold" => $row["p_sold"],
                 "p_description" => $row["p_description"]
             );
         }
@@ -173,13 +174,23 @@ if (isset($_GET['p_id'])) {
         }
 
         .product-details .action-buttons .add-to-cart {
-            background-color: #ff4081;
+            background-color: #007bff; 
+            color: #fff;
+        }
+
+        .product-details .action-buttons .add-to-cart:hover {
+            background-color: #0056b3;
             color: #fff;
         }
 
         .product-details .action-buttons .buy-now {
-            background-color: #333;
+            background-color: #212529;
             color: #fff;
+        }
+
+        .product-details .action-buttons .buy-now:hover {
+            background-color: #e2e6ea;
+            color: black
         }
 
         @media (max-width: 768px) {
@@ -267,7 +278,7 @@ if (isset($_GET['p_id'])) {
             </div>
             <div class="product-details">
                 <h1><?php echo $products['p_name_en']?></h1>
-                <div class="price"><?php echo $products['p_price']?></div>
+                <div class="price">$<?php echo $products['p_price']?></div>
                 <p><?php echo $products['p_description']?></p>
 
 
@@ -314,6 +325,10 @@ if (isset($_GET['p_id'])) {
                         <input type="number" id="quantity-input" value="1" min="1">
                         <!-- <button class="quantity-btn" onclick="increaseQuantity()">+</button> -->
                     </div>
+                </div>
+
+                <div class="quantity">
+                    <label style="font-size: 16px;">Quantity Sold: <?php echo $products['p_sold']?></label>
                 </div>
 
                 <div class="action-buttons">

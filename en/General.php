@@ -4,7 +4,7 @@ include '../php/login.php';
 if (isset($_SESSION["userID"])){
     $userID = $_SESSION["userID"];
     // print_r($userName);
-    $sqlLogin = "SELECT * FROM `Admin` WHERE userID = '$userID' ";
+    $sqlLogin = "SELECT * FROM `User` WHERE userID = '$userID' ";
     $queryLogin = mysqli_query($conn, $sqlLogin);
     // print_r($queryLogin);
     // Kiểm tra kết quả truy vấn
@@ -263,7 +263,7 @@ else {
                             <form action="../php/ChangeGeneral.php" method="POST" enctype="multipart/form-data"
                                 id="accountForm">
                                 <?php
-                                    session_start();
+                                    // session_start();
                                     if (isset($_SESSION['success_message'])) {
                                         echo '<div style="margin-top:30px; margin-right:20px" class="alert alert-success">' . $_SESSION['success_message'] . '</div>';
                                         unset($_SESSION['success_message']); // Xóa thông báo sau khi hiển thị
@@ -274,9 +274,9 @@ else {
 
                                     
                                     <?php if ($userLogin['image']): ?>
-                                        <img style="border-radius: 50%;" id="preview1" src="../user/<?php echo $userLogin['image'] ?>" height="200">
+                                        <img style="border-radius: 50%; object-fit: cover" id="preview1" src="../user/<?php echo $userLogin['image'] ?>" height="200" width="200">
                                     <?php else: ?>
-                                        <img style="border-radius: 50%;" id="preview1" src="../user/male.png" height="200">
+                                        <img style="border-radius: 50%; object-fit: cover" id="preview1" src="../user/male.png" height="200" width="200">
                                     <?php endif; ?>
                                     <div class="media-body ml-4">
                                         <label class="btn btn-outline-primary">

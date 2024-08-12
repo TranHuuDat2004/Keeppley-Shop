@@ -4,7 +4,7 @@ include '../php/login.php';
 if (isset($_SESSION["userID"])){
     $userID = $_SESSION["userID"];
     // print_r($userName);
-    $sqlLogin = "SELECT * FROM `Admin` WHERE userID = '$userID' ";
+    $sqlLogin = "SELECT * FROM `User` WHERE userID = '$userID' ";
     $queryLogin = mysqli_query($conn, $sqlLogin);
     // print_r($queryLogin);
     // Kiểm tra kết quả truy vấn
