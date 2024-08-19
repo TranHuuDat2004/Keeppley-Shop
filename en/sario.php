@@ -14,10 +14,10 @@
         <?php include '../php/header_en.php'; ?>
         <div class="lan">
             <ul>
-                <li><a href="#" class="cur">EN</a></li>
-                <li><a href="../vn/sario.php" >VN</a></li>
-
-                <?php include '../php/welcomeUser_en.php'; ?>
+            <?php 
+                $website = 'sario.php';
+                include '../php/welcomeUser_en.php'; 
+                ?>
             </ul>
         </div>
     </div>

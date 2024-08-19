@@ -112,12 +112,11 @@ if ($resultCategory->num_rows > 0) {
             border-radius: 10px;
         }
 
-        /* Ảnh nhỏ bên trái */
         .thumbnails {
             display: flex;
             flex-direction: column;
             margin-right: 10px;
-            width: 33%;
+            width: 20%;
         }
 
         .thumbnails img {
@@ -126,11 +125,11 @@ if ($resultCategory->num_rows > 0) {
             border: 1px solid #ddd;
             cursor: pointer;
             border-radius: 10px;
-
+            
         }
 
         .right-column {
-            flex: 50%;
+            flex: 30%;
             padding: 20px;
         }
 
@@ -171,7 +170,7 @@ if ($resultCategory->num_rows > 0) {
             font-size: 18px;
         }
 
-        .instruction-btn {
+        .instruction-btn{
             margin-left: 20px;
             background-color: #007bff;
             color: white;
@@ -256,26 +255,17 @@ if ($resultCategory->num_rows > 0) {
             background-color: #ccc;
         }
 
-        /* Zoom image */
-        .zoom-container {
-            position: relative;
-            overflow: hidden;
-            width: 150%;
+        .pdf-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-
-        /* Ensure the image fits within the container */
-        .zoom-container img {
-            padding-left: 50px;
-            width: 150%;
-            border-radius: 10px;
-            height: auto;
-            transition: transform 0.3s ease;
-        }
-
-        /* Zoom Hover */
-        .zoom-container:hover img {
-            transform: scale(1.5);
-            /* Scale upsize 150% on hover */
+        iframe {
+            width: 80%;
+            height: 90%;
+            border: none;
         }
     </style>
 </head>
@@ -320,10 +310,7 @@ if ($resultCategory->num_rows > 0) {
                 <img src="../images/<?php echo $product_images[1] ?>" alt="Thumbnail 2" onclick="changeImage(this)">
                 <img src="../images/<?php echo $product_images[2] ?>" alt="Thumbnail 3" onclick="changeImage(this)">
             </div>
-            <div class="zoom-container">
-                <img src="../images/<?php echo $product_images[0] ?>" alt="Product Image" id="main-image">
-            </div>
-
+            <img src="../images/<?php echo $product_images[0] ?>" alt="Product Image" id="main-image">
         </div>
 
         <div class="right-column">
@@ -356,17 +343,16 @@ if ($resultCategory->num_rows > 0) {
                 <button onclick="increaseQuantity()" class="quantity-btn">+</button>
             </div>
 
-            <button id="button-add" class="add-to-cart-btn">Add to cart</button>
-
-            <?php if ($products['p_tutorial']): ?>
-                <a href="../pdf/<?php echo $products['p_tutorial']; ?>"><button class="instruction-btn">View
-                        Instruction</button></a>
-            <?php else: ?>
-                <a href="404.php"><button class="instruction-btn">View Instruction</button></a>
-            <?php endif; ?>
+            <button class="add-to-cart-btn">Add to cart</button>
+            
+            <a href="../pdf/<?php echo $products['p_tutorial']?>"><button class="instruction-btn">View Instruction</button></a>
 
 
         </div>
+    </div>
+
+    <div class="pdf-container">
+        <iframe src="../pdf/<?php echo $products['p_tutorial']?>" type="application/pdf"></iframe>
     </div>
 
     <div class="productBox">
@@ -432,17 +418,12 @@ if ($resultCategory->num_rows > 0) {
                 }
             }
 
-            // Công thức zoom ảnh
-            $(document).ready(function () {
-                $(".zoom-container").mousemove(function (e) {
-                    var image = $(this).find("img");
-                    var offsetX = e.pageX - $(this).offset().left;
-                    var offsetY = e.pageY - $(this).offset().top;
-                    var posX = offsetX / $(this).width() * 100;
-                    var posY = offsetY / $(this).height() * 100;
-                    image.css("transform-origin", posX + "% " + posY + "%");
-                });
-            });
+        </script>
+
+        <script>
+            function changeImage(element) {
+                document.getElementById('main-image').src = element.src;
+            }
         </script>
 </body>
 
