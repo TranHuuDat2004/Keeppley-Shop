@@ -19,10 +19,11 @@
         <?php include '../php/header_en.php'; ?>
         <div class="lan">
             <ul>
-                <li><a href="#" class="cur">EN</a></li>
-                <li><a href="../vn/product.php">VN</a></li>
-
-                <?php include '../php/welcomeUser_en.php'; ?>
+                <!-- Header Account Settings -->
+                <?php
+                $website = 'product.php';
+                include '../php/welcomeUser_en.php'; 
+                ?>
             </ul>
         </div>
     </div>

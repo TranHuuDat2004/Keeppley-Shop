@@ -183,13 +183,12 @@ else {
                     <ul>
                         <!-- Show Icon cart  -->
                         <li><a href="../en/product.php" class="fa-solid fa-house btn-cart" style="color: #000000;"></a>
-                        </li>
-
-                        <li><a href="javascript:;" class="cur">EN</a></li>
-                        <li><a href="../vn/product.php">VN</a></li>
-
+                        </li>       
                         <!-- Header Account Settings -->
-                        <?php include '../php/SettingUserHeader_en.php'; ?>
+                        <?php 
+                        $website = 'ChangePassword.php';
+                        include '../php/SettingUserHeader_en.php'; 
+                        ?>
                     </ul>
                 </div>
             </div>

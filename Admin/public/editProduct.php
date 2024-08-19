@@ -2,47 +2,47 @@
 // Kết nối cơ sở dữ liệu
 $conn = new mysqli('localhost', 'root', '', 'keeppley-shop'); // servername, username, password, database's name
 if ($conn->connect_error) {
-    die("Connection Failed: " . $conn->connect_error);
+  die("Connection Failed: " . $conn->connect_error);
 }
 
 // Kiểm tra xem `p_id` có tồn tại và hợp lệ không
 if (isset($_GET['p_id']) && is_numeric($_GET['p_id'])) {
-    $p_id = mysqli_real_escape_string($conn, $_GET['p_id']);
+  $p_id = mysqli_real_escape_string($conn, $_GET['p_id']);
 
-    // Truy vấn để lấy thông tin sản phẩm dựa trên `p_id`
-    $sql = "SELECT * FROM product WHERE p_id = $p_id";
-    $result = mysqli_query($conn, $sql);
-    
-    if ($row = mysqli_fetch_assoc($result)) {
-        $p_id = $row['p_id'];
-        $p_number = $row['p_number'];
-        $p_name_en = $row['p_name_en'];
-        $p_name_vn = $row['p_name_vn'];
-        $p_category = $row['p_category'];
-        $p_price = $row['p_price'];
-        $p_tutorial = $row['p_tutorial'];
-        $p_description = $row['p_description'];
+  // Truy vấn để lấy thông tin sản phẩm dựa trên `p_id`
+  $sql = "SELECT * FROM product WHERE p_id = $p_id";
+  $result = mysqli_query($conn, $sql);
 
-        // Tách chuỗi hình ảnh thành mảng và loại bỏ khoảng trắng thừa
-        $product_images = array_map('trim', explode(',', $row["p_image"]));
+  if ($row = mysqli_fetch_assoc($result)) {
+    $p_id = $row['p_id'];
+    $p_number = $row['p_number'];
+    $p_name_en = $row['p_name_en'];
+    $p_name_vn = $row['p_name_vn'];
+    $p_category = $row['p_category'];
+    $p_price = $row['p_price'];
+    $p_tutorial = $row['p_tutorial'];
+    $p_description = $row['p_description'];
 
-        // Kiểm tra và gán lại giá trị nếu ảnh thứ 2 và thứ 3 trống
-        if (empty($product_images[1])) {
-            $product_images[1] = $product_images[0];
-        }
+    // Tách chuỗi hình ảnh thành mảng và loại bỏ khoảng trắng thừa
+    $product_images = array_map('trim', explode(',', $row["p_image"]));
 
-        if (empty($product_images[2])) {
-            $product_images[2] = $product_images[0];
-        }
-    } else {
-        // Nếu không tìm thấy sản phẩm, chuyển hướng người dùng về trang quản lý sản phẩm
-        header('Location: manageProduct.php');
-        exit();
+    // Kiểm tra và gán lại giá trị nếu ảnh thứ 2 và thứ 3 trống
+    if (empty($product_images[1])) {
+      $product_images[1] = $product_images[0];
     }
-} else {
-    // Nếu không có `p_id` hoặc giá trị không hợp lệ, chuyển hướng người dùng về trang quản lý sản phẩm
+
+    if (empty($product_images[2])) {
+      $product_images[2] = $product_images[0];
+    }
+  } else {
+    // Nếu không tìm thấy sản phẩm, chuyển hướng người dùng về trang quản lý sản phẩm
     header('Location: manageProduct.php');
     exit();
+  }
+} else {
+  // Nếu không có `p_id` hoặc giá trị không hợp lệ, chuyển hướng người dùng về trang quản lý sản phẩm
+  header('Location: manageProduct.php');
+  exit();
 }
 
 // Lấy danh sách các danh mục để hiển thị trong form chọn
@@ -51,9 +51,9 @@ $resultCategory = mysqli_query($conn, $sqlCategory);
 
 $categories = array();
 if ($resultCategory->num_rows > 0) {
-    while ($row = mysqli_fetch_assoc($resultCategory)) {
-        $categories[] = $row['name_en'];
-    }
+  while ($row = mysqli_fetch_assoc($resultCategory)) {
+    $categories[] = $row['name_en'];
+  }
 }
 
 ?>
@@ -85,6 +85,10 @@ if ($resultCategory->num_rows > 0) {
   .form-container form {
     width: 100%;
     /* Hoặc giá trị phù hợp với form của bạn */
+  }
+
+  a {
+    color: black;
   }
 </Style>
 
@@ -262,105 +266,112 @@ if ($resultCategory->num_rows > 0) {
 
       <main class="h-full pb-16 overflow-y-auto">
         <div class="container grid px-6 mx-auto">
-          <h2 class="stext-121 my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-            Edit Product
-          </h2>
+          <div class="flex items-center my-6">
+            <h2 style="padding: 20px" class="stext-121 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+              <a href="editProduct.php?p_id=<?php echo $p_id ?>"><u>Edit Product</u></a>
+            </h2>
+            <h2 style="padding: 20px" class="stext-121 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+              <a href="editImages.php?p_id=<?php echo $p_id ?>">Edit Images</a>
+            </h2>
+            <h2 style="padding: 20px" class="stext-121 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+              <a href="editInstruction.php?p_id=<?php echo $p_id ?>">Edit Instruction</a>
+            </h2>
+          </div>
 
-          <!-- With actions -->
-        </div>
+          <div class="form-container container mt-5">
+            <form action="updateProduct.php" method="POST" enctype="multipart/form-data">
 
-        <div class="form-container container mt-5">
-          <form action="updateProduct.php" method="POST" enctype="multipart/form-data">
+              <div class="form-group">
 
-            <div class="form-group">
-
-              <label for="name">Number Product</label>
-              <input class="form-control input" name="p_number" id="name" type="text" placeholder="Number Product"
-                value="<?php echo $p_number ?>">
+                <label for="name">Number Product</label>
+                <input class="form-control input" name="p_number" id="name" type="text" placeholder="Number Product"
+                  value="<?php echo $p_number ?>">
 
                 <input class="form-control input" name="p_id" id="name" type="hidden" placeholder="Number Product"
-                value="<?php echo $p_id ?>">
-            </div>
+                  value="<?php echo $p_id ?>">
+              </div>
 
-            <div class="form-group">
+              <div class="form-group">
 
-              <label for="name">Name Product (English)</label>
-              <input class="form-control input" name="p_name_en" id="name_en" type="text" placeholder="Name Product"
-                value="<?php echo $p_name_en ?>">
-            </div>
+                <label for="name">Name Product (English)</label>
+                <input class="form-control input" name="p_name_en" id="name_en" type="text" placeholder="Name Product"
+                  value="<?php echo $p_name_en ?>">
+              </div>
 
-            <div class="form-group">
+              <div class="form-group">
 
-              <label for="name">Name Product (Vietnamese)</label>
-              <input class="form-control input" name="p_name_vn" id="name_vn" type="text" placeholder="Name Product"
-                value="<?php echo $p_name_vn ?>">
-            </div>
-            <div class="form-group">
-              <label for="file1">Image Product 1 (Required)</label>
-              <input class="form-control-file input" id="file1" name="p_image[]" type="file"
-                onchange="previewImage(event, 'preview1')">
-              <img id="preview1" src="../../images/<?php echo $product_images[0] ?>" height="300px" >
-            </div>
-            <div class="form-group">
-              <label for="file2">Image Product 2 (Optional)</label>
-              <input class="form-control-file input" id="file2" name="p_image[]" type="file"
-                onchange="previewImage(event, 'preview2')">
-              <img id="preview2" src="../../images/<?php echo $product_images[1] ?>" height="300px" >
-            </div>
-            <div class="form-group">
-              <label for="file3">Image Product 3 (Optional)</label>
-              <input class="form-control-file input" id="file3" name="p_image[]" type="file"
-                onchange="previewImage(event, 'preview3')">
-              <img id="preview3" src="../../images/<?php echo $product_images[2] ?>" height="300px">
-            </div>
-            <!-- <div class="form-group">
-              <label for="age">Age</label>
-              <select id="age" class="form-control input" name="p_age">
-                <option>Select Age</option>
-                <option>0-12 months</option>
-                <option>1-2 years</option>
-                <option>3+ years</option>
-                <option>5+ years</option>
-              </select>
-            </div> -->
+                <label for="name">Name Product (Vietnamese)</label>
+                <input class="form-control input" name="p_name_vn" id="name_vn" type="text" placeholder="Name Product"
+                  value="<?php echo $p_name_vn ?>">
+              </div>
+              
+              <div class="form-group">
+                <label for="age">Age</label>
+                <select id="age" class="form-control input" name="p_age">
+                  <option>Select Age</option>
+                  <option>1-3 </option>
+                  <option>3-6 </option>
+                  <option>6-12 </option>
+                  <option>12+ </option>
+                </select>
+              </div>
 
-            <div class="form-group">
-              <label for="provider">Category</label>
-              <select id="provider" class="form-control input" name="p_category">
-                <?php foreach ($categories as $category): ?>
-                  <option value="<?php echo $category; ?>"><?php echo $category; ?></option>
-                <?php endforeach; ?>
-              </select>
-            </div>
+              <div class="form-group">
+                <label for="provider">Category</label>
+                <select id="provider" class="form-control input" name="p_category">
+                  <?php foreach ($categories as $category): ?>
+                    <option value="<?php echo $category; ?>"><?php echo $category; ?></option>
+                  <?php endforeach; ?>
+                </select>
+              </div>
 
-            <div class="form-group">
-              <label for="price">Price</label>
-              <input class="form-control input" id="price" name="p_price" type="text" placeholder="Price"
-                value="<?php echo $p_price ?>">
-            </div>
-            <div class="form-group">
-              <label for="tutorial">Tutorial (Word/PDF)</label>
-              <input class="form-control-file input" id="tutorial" name="p_tutorial" type="file" 
-                accept=".doc,.docx,.pdf">
-            </div>
+              <div class="form-group">
+                <label for="price">Price</label>
+                <input class="form-control input" id="price" name="p_price" type="text" placeholder="Price"
+                  value="<?php echo $p_price ?>">
+              </div>
+
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control input" id="description" name="p_description" rows="4"
+                  value="<?php echo $p_description ?>" placeholder="Description"></textarea>
+              </div>
+
+              <!-- Thuộc tính trạng thái hàng -->
+              <div class="form-group">
+                <label for="stock_status">Stock Status</label>
+                <select class="form-control input" id="stock_status" name="p_stock_status">
+                  <option value="in_stock" <?php echo ($stock_status == 'in_stock') ? 'selected' : ''; ?>>In Stock
+                  </option>
+                  <option value="out_of_stock" <?php echo ($stock_status == 'out_of_stock') ? 'selected' : ''; ?>>Out of
+                    Stock</option>
+                </select>
+              </div>
+
+              <!-- Thuộc tính phân loại sản phẩm -->
+              <div class="form-group">
+                <label for="product_status">Product Status</label>
+                <select class="form-control input" id="product_status" name="p_product_status">
+                  <option value="bestseller" <?php echo ($product_status == 'bestseller') ? 'selected' : ''; ?>>Best
+                    Seller
+                  </option>
+                  <option value="top_revenue" <?php echo ($product_status == 'top_revenue') ? 'selected' : ''; ?>>Top
+                    Revenue</option>
+                  <option value="normal" <?php echo ($product_status == 'normal') ? 'selected' : ''; ?>>Normal</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <button name="sbm" class="btn btn-primary" type="submit">Update Product</button>
+                <a href="../../Fontend/product2.php" class="btn btn-secondary">User Interface</a>
+              </div>
+            </form>
+          </div>
 
 
-            <div class="form-group">
-              <label for="description">Description</label>
-              <textarea class="form-control input" id="description" name="p_description" rows="4"
-                value="<?php echo $p_description ?>" placeholder="Description"></textarea>
-            </div>
-            <div class="form-group">
-              <button name="sbm" class="btn btn-primary" type="submit">Update Product</button>
-              <a href="../../Fontend/product2.php" class="btn btn-secondary">User Interface</a>
-            </div>
-          </form>
         </div>
-
-
+      </main>
     </div>
-    </main>
-  </div>
   </div>
 </body>
 <script>

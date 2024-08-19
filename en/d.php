@@ -17,18 +17,13 @@ if (isset($_GET['p_id'])) {
             // Đưa từng sản phẩm vào mảng products
             $products = array(
                 "p_id" => $row["p_id"],
-                "p_number" => $row["p_number"],
                 "p_image" => $row["p_image"],
                 "p_name_en" => $row["p_name_en"],
                 "p_name_vn" => $row["p_name_vn"],
                 "p_price" => $row["p_price"],
-                "p_age" => $row["p_age"],
-                "p_category" => $row["p_category"], // Thêm trường p_category
                 "p_tutorial" => $row["p_tutorial"],
-                "p_description" => $row["p_description"],
                 "p_sold" => $row["p_sold"],
-                "p_stock_status" => $row["p_stock_status"], // Thêm trường p_stock_status
-                "p_product_status" => $row["p_product_status"] // Thêm trường p_product_status
+                "p_description" => $row["p_description"]
             );
         }
 
@@ -54,196 +49,188 @@ if (isset($_GET['p_id'])) {
     // header("Location: 404.php");
     // exit(); // Dừng thực thi mã
 }
-// Truy vấn chi tiết danh mục dựa trên id
-$sqlCategory = "SELECT * FROM `category` WHERE `name_en` = '" . $products['p_category'] . "'";
-$resultCategory = mysqli_query($conn, $sqlCategory);
-
-// Kiểm tra xem có kết quả trả về không
-if ($resultCategory->num_rows > 0) {
-    // Lấy thông tin chi tiết của danh mục
-    $category = $resultCategory->fetch_assoc();
-
-    $category_name_en = $category["name_en"];
-    $category_name_vn = $category["name_vn"];
-    $provider = $category["provider"];
-}
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Detail Page</title>
+    <title>Product Page</title>
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     <?php include '../php/head.php'; ?>
     <?php include '../php/login.php'; ?>
     <?php include '../php/getUser.php'; ?>
-
     <style>
         body {
             background-color: #f8f8f8;
             font-family: Arial, sans-serif;
-            padding-top: 80px;
-            margin: 0;
-            /* padding: 0; */
-            min-height: 100%;
-            overflow-x: hidden;
         }
 
-        .container {
-            background-color: #fff;
+        .product-container {
+            margin: 100px auto;
             max-width: 1200px;
-            margin: 20px auto;
             display: flex;
+            flex-wrap: wrap;
+            background-color: #fff;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .left-column {
-            flex: 70%;
-            display: flex;
-        }
-
-        .left-column img#main-image {
-            width: 70%;
-            border-radius: 10px;
-        }
-
-        .thumbnails {
-            display: flex;
-            flex-direction: column;
-            margin-right: 10px;
-            width: 20%;
-        }
-
-        .thumbnails img {
-            max-width: 100%;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            cursor: pointer;
-            border-radius: 10px;
-            
-        }
-
-        .right-column {
-            flex: 30%;
+        .product-image {
+            flex: 2;
             padding: 20px;
         }
 
-
-        .product-title {
-            font-size: 24px;
-            margin-bottom: 10px;
+        .product-image img {
+            max-width: 100%;
+            border-radius: 8px;
         }
 
-        .price {
-            font-size: 28px;
-            color: #e74c3c;
+        .product-thumbnails {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .product-thumbnails img {
+            max-width: 33%;
+            margin-right: 10px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .product-details {
+            flex: 3;
+            padding: 20px;
+        }
+
+        .product-details h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .product-details .price {
+            font-size: 24px;
+            color: #ff4081;
             margin-bottom: 20px;
         }
 
-        .quantity {
+        .product-details p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .product-details .size-options,
+        .product-details .color-options {
+            margin-bottom: 20px;
+        }
+
+        .product-details .size-options label,
+        .product-details .color-options label {
+            margin-right: 20px;
+            font-weight: bold;
+            color: #333;
+            /* font-size: 36px; */
+        }
+
+        .product-details .size-options .btn-group-toggle label,
+        .product-details .color-options .btn-group-toggle label {
+            border-radius: 8px;
+            padding: 10px 20px;
+        }
+
+        .product-details .quantity {
             display: flex;
             align-items: center;
             margin-bottom: 20px;
         }
 
-        .quantity input {
+        .product-details .quantity input {
             width: 50px;
             height: 30px;
             text-align: center;
-            border-radius: 5px;
             margin: 0 10px;
+            border-radius: 8px;
             border: 1px solid #ddd;
         }
 
-        .add-to-cart-btn {
-            background-color: #e74c3c;
-            color: white;
-            padding: 15px 20px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 18px;
-        }
-
-        .store-info,
-        .product-info {
-            margin-top: 20px;
-            font-size: 18px;
-        }
-
-        h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .store-info div,
-        .product-info div {
-            margin-bottom: 10px;
-
-        }
-
-        .productBox {
-            margin-bottom: 0;
-            /* Đảm bảo không có margin phía dưới */
-            padding-bottom: 0;
-            /* Đảm bảo không có padding phía dưới */
-        }
-
-        /* Đối với Chrome, Safari, Edge, và Opera */
-        input[type=number]::-webkit-inner-spin-button,
-        input[type=number]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-
-        /* Đối với Firefox */
-        /* input[type=number] {
-            -moz-appearance: textfield;
-        } */
-
-        /* Định dạng container của các nút và trường nhập */
-        .quantity {
+        .product-details .action-buttons {
             display: flex;
             align-items: center;
         }
 
-        .quantity input[type="number"] {
-            width: 50px;
-            height: 40px;
-            text-align: center;
-            font-size: 18px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin: 0 10px;
-        }
-
-        /* Định dạng cho nút + và - */
-        .quantity .quantity-btn {
-            background-color: #f0f0f0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            color: #333;
-            font-size: 20px;
-            width: 40px;
-            height: 40px;
+        .product-details .action-buttons button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            margin-right: 10px;
+            font-size: 16px;
         }
 
-        .quantity .quantity-btn:hover {
+        .product-details .action-buttons .add-to-cart {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .product-details .action-buttons .add-to-cart:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        .product-details .action-buttons .buy-now {
+            background-color: #212529;
+            color: #fff;
+        }
+
+        .product-details .action-buttons .buy-now:hover {
+            background-color: #e2e6ea;
+            color: black
+        }
+
+        @media (max-width: 768px) {
+            .product-container {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .product-image,
+            .product-details {
+                width: 100%;
+            }
+        }
+
+        .quantity-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .quantity-btn {
             background-color: #ddd;
+            border: 1px solid #ccc;
+            padding: 5px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
         }
 
-        .quantity .quantity-btn:active {
+        .quantity-btn:hover {
             background-color: #ccc;
         }
 
-
+        #quantity-input {
+            width: 50px;
+            height: 30px;
+            text-align: center;
+            margin: 0 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
     </style>
 </head>
 
@@ -255,8 +242,8 @@ if ($resultCategory->num_rows > 0) {
             <ul>
                 <!-- Header Account Settings -->
                 <?php
-                $website = 'c.php';
-                include '../php/welcomeUser_en.php';
+                $website = "Product_Detail.php?p_id=" . $product['p_id'];
+                include '../php/welcomeUser_en.php'; 
                 ?>
             </ul>
         </div>
@@ -281,48 +268,75 @@ if ($resultCategory->num_rows > 0) {
     </div>
     <!---->
     <div class="container">
-        <div class="left-column">
-            <div class="thumbnails">
-                <img src="../images/<?php echo $product_images[0] ?>" alt="Thumbnail 1" onclick="changeImage(this)">
-                <img src="../images/<?php echo $product_images[1] ?>" alt="Thumbnail 2" onclick="changeImage(this)">
-                <img src="../images/<?php echo $product_images[2] ?>" alt="Thumbnail 3" onclick="changeImage(this)">
+        <div class="product-container">
+            <div class="product-image">
+                <img id="main-image" src="../images/<?php echo $product_images[0]; ?>" alt="Product Image">
+                <div class="product-thumbnails">
+                    <img src="../images/<?php echo $product_images[0]; ?>" alt="Thumbnail 1" onclick="changeImage(this)">
+                    <img src="../images/<?php echo $product_images[1]; ?>" alt="Thumbnail 2" onclick="changeImage(this)">
+                    <img src="../images/<?php echo $product_images[2]; ?>" alt="Thumbnail 3" onclick="changeImage(this)">
+                </div>
             </div>
-            <img src="../images/<?php echo $product_images[0] ?>" alt="Product Image" id="main-image">
-        </div>
+            <div class="product-details">
+                <h1><?php echo $products['p_name_en'] ?></h1>
+                <div class="price">$<?php echo $products['p_price'] ?></div>
+                <p><?php echo $products['p_description'] ?></p>
 
-        <div class="right-column">
-            <h1 class="product-title"><?php echo $products['p_name_en'] ?></h1>
-            <div class="price">$ <?php echo $products['p_price'] ?></div>
 
-            <!-- <div class="product-info">
-                <h3>Thông tin sản phẩm:</h3>
-                <div>Chủ đề: <?php echo $products['p_category'] ?></div>
-                <div>Mã sản phẩm: <?php echo $products['p_number'] ?> </div>
-                <div>Nhà cung cấp: <?php echo $provider ?></div>
-                <div>Tuổi: <?php echo $products['p_age'] ?></div>
-                <!-- Thêm thông tin sản phẩm khác -->
-            <!--</div> -->
+                <!-- <div class="size-options">
+                    <label>Size:</label>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-outline-secondary">
+                            <input type="radio" name="size" autocomplete="off"> Size S
+                        </label>
+                        <label class="btn btn-outline-secondary">
+                            <input type="radio" name="size" autocomplete="off"> Size M
+                        </label>
+                        <label class="btn btn-outline-secondary">
+                            <input type="radio" name="size" autocomplete="off"> Size L
+                        </label>
+                        <label class="btn btn-outline-secondary">
+                            <input type="radio" name="size" autocomplete="off"> Size XL
+                        </label>
+                    </div>
+                </div> -->
 
-            <div class="product-info">
-                <h3>Product Information:</h3>
-                <div>Category: <?php echo $products['p_category'] ?></div>
-                <div>Product Code: <?php echo $products['p_number'] ?></div>
-                <div>Supplier: <?php echo $provider ?></div>
-                <div>Age: <?php echo $products['p_age'] ?></div>
-                <!-- Add other product information -->
+
+                <!-- <div class="color-options">
+                    <label>Color:</label>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-outline-secondary">
+                            <input type="radio" name="color" autocomplete="off"> Red
+                        </label>
+                        <label class="btn btn-outline-secondary">
+                            <input type="radio" name="color" autocomplete="off"> Blue
+                        </label>
+                        <label class="btn btn-outline-secondary">
+                            <input type="radio" name="color" autocomplete="off"> Yellow
+                        </label>
+                        <label class="btn btn-outline-secondary">
+                            <input type="radio" name="color" autocomplete="off"> Green
+                        </label>
+                    </div>
+                </div> -->
+                <div class="quantity">
+                    <label style="font-size: 16px;">Quantity:</label>
+                    <div class="">
+                        <!-- <button class="quantity-btn" onclick="decreaseQuantity()">-</button> -->
+                        <input type="number" id="quantity-input" value="1" min="1">
+                        <!-- <button class="quantity-btn" onclick="increaseQuantity()">+</button> -->
+                    </div>
+                </div>
+
+                <div class="quantity">
+                    <label style="font-size: 16px;">Quantity Sold: <?php echo $products['p_sold'] ?></label>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-now">Buy It Now</button>
+                </div>
             </div>
-
-
-
-            <div class="quantity">
-                <button onclick="decreaseQuantity()" class="quantity-btn">-</button>
-                <input id="quantity-input" type="number" value="1" min="1">
-                <button onclick="increaseQuantity()" class="quantity-btn">+</button>
-            </div>
-
-            <button class="add-to-cart-btn">Add to cart</button>
-
-
         </div>
     </div>
 
@@ -351,7 +365,7 @@ if ($resultCategory->num_rows > 0) {
                                                 src="../images/<?php echo $product_images[0]; ?>"
                                                 alt="<?php echo $category['name_en'] ?>"></a>
                                     </div>
-                                    <div style="background-color: #f8f8f8" class="botDiv">
+                                    <div class="botDiv">
                                         <div class="name"><a href="../en/doraemon.php"><?php echo $category['name_en'] ?></a>
                                         </div>
                                     </div>
@@ -389,12 +403,6 @@ if ($resultCategory->num_rows > 0) {
                 }
             }
 
-        </script>
-
-        <script>
-            function changeImage(element) {
-                document.getElementById('main-image').src = element.src;
-            }
         </script>
 </body>
 

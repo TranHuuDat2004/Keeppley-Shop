@@ -68,6 +68,14 @@ if (isset($_GET['id'])) {
 <head>
     <?php include '../php/head.php'; ?>
 </head>
+<style>
+
+    .imgDiv img {
+        width: 80%;
+        height: 80%;
+        object-fit: cover
+    }
+</style>
 
 <body inmaintabuse="1">
 
@@ -77,10 +85,11 @@ if (isset($_GET['id'])) {
         <?php include '../php/header_en.php'; ?>
         <div class="lan">
             <ul>
-                <li><a href="#" class="cur">EN</a></li>
-                <li><a href="../vn/doraemon.php">VN</a></li>
 
-                <?php include '../php/welcomeUser_en.php'; ?>
+                <?php
+                $website = "Category_Product.php?id=" . $id;
+                include '../php/welcomeUser_en.php';
+                ?>
             </ul>
         </div>
     </div>
@@ -139,14 +148,18 @@ if (isset($_GET['id'])) {
                         ?>
 
                         <li>
-                            <div class="box">
+                            <div style="padding:40px" class="box">
                                 <a href="Product_Detail.php?p_id=<?php echo $product['p_id'] ?>">
-                                    <div class="imgDiv"><img src="../images/<?php echo $product_images[0]; ?>"
-                                            alt="<?php echo $product['p_name_en']; ?>" /></div>
+                                    <div class="imgDiv">
+                                        <img src="../images/<?php echo $product_images[0]; ?>"
+                                            alt="<?php echo $product['p_name_en']; ?>" />
+                                    </div>
+
                                     <div class="num"><?php echo $product['p_number']; ?></div>
                                     <div class="name"><?php echo $product['p_name_en']; ?></div>
                                 </a>
                             </div>
+
                         </li>
 
                     <?php } ?>

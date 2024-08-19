@@ -8,6 +8,7 @@ if (isset($_POST['sbm'])) {
   $p_number = $_POST['p_number'];
   $p_name_en = $_POST['p_name_en'];
   $p_name_vn = $_POST['p_name_vn'];
+  $p_age = $_POST['p_age'];
 
   $p_images = $_FILES['p_image']['name'];
   $p_images_tmp = $_FILES['p_image']['tmp_name'];
@@ -30,14 +31,17 @@ if (isset($_POST['sbm'])) {
   $p_tutorial = $_POST['p_tutorial'];
   $p_description = $_POST['p_description'];
 
+  $p_product_status = $_POST['p_product_status'];
+  $p_stock_status = $_POST['p_stock_status'];
+
   // Xử lý tệp hướng dẫn
   $p_tutorial_name = $_FILES['p_tutorial']['name'];
   $p_tutorial_tmp = $_FILES['p_tutorial']['tmp_name'];
   $p_tutorial_path = $p_tutorial_name;
   move_uploaded_file($p_tutorial_tmp, '../../pdf/' . $p_tutorial_path);
 
-  $sql = "INSERT INTO product (p_number, p_name_en, p_name_vn, p_image, p_price, p_category, p_tutorial, p_description) 
-            VALUES ('$p_number', '$p_name_en', '$p_name_vn', '$p_image', '$p_price', '$p_category', '$p_tutorial_name', '$p_description')";
+  $sql = "INSERT INTO product (p_number, p_name_en, p_name_vn, p_image, p_price, p_category, p_tutorial, p_description, p_age , p_stock_status, p_product_status) 
+            VALUES ('$p_number', '$p_name_en', '$p_name_vn', '$p_image', '$p_price', '$p_category', '$p_tutorial_name', '$p_age' '$p_description', '$p_stock_status', '$p_product_status')";
 
   try {
     $query = mysqli_query($conn, $sql);
@@ -310,16 +314,17 @@ if ($resultCategory->num_rows > 0) {
                 onchange="previewImage(event, 'preview3')">
               <img id="preview3" src="" height="300px">
             </div>
-            <!-- <div class="form-group">
+
+            <div class="form-group">
               <label for="age">Age</label>
               <select id="age" class="form-control input" name="p_age">
                 <option>Select Age</option>
-                <option>0-12 months</option>
-                <option>1-2 years</option>
-                <option>3+ years</option>
-                <option>5+ years</option>
+                <option>1-3 </option>
+                <option>3-6 </option>
+                <option>6-12 </option>
+                <option>12+ </option>
               </select>
-            </div> -->
+            </div>
 
             <div class="form-group">
               <label for="provider">Category</label>
@@ -345,6 +350,26 @@ if ($resultCategory->num_rows > 0) {
               <textarea class="form-control input" id="description" name="p_description" rows="4"
                 placeholder="Description"></textarea>
             </div>
+
+            <!-- Thuộc tính trạng thái hàng -->
+            <div class="form-group">
+              <label for="stock_status">Stock Status</label>
+              <select class="form-control input" id="stock_status" name="p_stock_status">
+                <option value="in_stock">In Stock</option>
+                <option value="out_of_stock">Out of Stock</option>
+              </select>
+            </div>
+
+            <!-- Thuộc tính phân loại sản phẩm -->
+            <div class="form-group">
+              <label for="product_status">Product Status</label>
+              <select class="form-control input" id="product_status" name="p_product_status">
+                <option value="bestseller">Best Seller</option>
+                <option value="top_revenue">Top Revenue</option>
+                <option value="normal">Normal</option>
+              </select>
+            </div>
+
             <div class="form-group">
               <button name="sbm" class="btn btn-primary" type="submit">Add Product</button>
               <a href="../../Fontend/product2.php" class="btn btn-secondary">User Interface</a>

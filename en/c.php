@@ -22,13 +22,9 @@ if (isset($_GET['p_id'])) {
                 "p_name_en" => $row["p_name_en"],
                 "p_name_vn" => $row["p_name_vn"],
                 "p_price" => $row["p_price"],
-                "p_age" => $row["p_age"],
-                "p_category" => $row["p_category"], // Thêm trường p_category
                 "p_tutorial" => $row["p_tutorial"],
-                "p_description" => $row["p_description"],
                 "p_sold" => $row["p_sold"],
-                "p_stock_status" => $row["p_stock_status"], // Thêm trường p_stock_status
-                "p_product_status" => $row["p_product_status"] // Thêm trường p_product_status
+                "p_description" => $row["p_description"]
             );
         }
 
@@ -54,19 +50,6 @@ if (isset($_GET['p_id'])) {
     // header("Location: 404.php");
     // exit(); // Dừng thực thi mã
 }
-// Truy vấn chi tiết danh mục dựa trên id
-$sqlCategory = "SELECT * FROM `category` WHERE `name_en` = '" . $products['p_category'] . "'";
-$resultCategory = mysqli_query($conn, $sqlCategory);
-
-// Kiểm tra xem có kết quả trả về không
-if ($resultCategory->num_rows > 0) {
-    // Lấy thông tin chi tiết của danh mục
-    $category = $resultCategory->fetch_assoc();
-
-    $category_name_en = $category["name_en"];
-    $category_name_vn = $category["name_vn"];
-    $provider = $category["provider"];
-}
 
 ?>
 
@@ -84,55 +67,46 @@ if ($resultCategory->num_rows > 0) {
 
     <style>
         body {
-            background-color: #f8f8f8;
             font-family: Arial, sans-serif;
-            padding-top: 80px;
             margin: 0;
-            /* padding: 0; */
-            min-height: 100%;
-            overflow-x: hidden;
+            padding: 0;
         }
 
         .container {
-            background-color: #fff;
+
             max-width: 1200px;
             margin: 20px auto;
             display: flex;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
         }
 
         .left-column {
-            flex: 70%;
-            display: flex;
+            flex: 60%;
         }
 
-        .left-column img#main-image {
-            width: 70%;
+        .left-column img {
+            width: 100%;
             border-radius: 10px;
         }
 
         .thumbnails {
             display: flex;
-            flex-direction: column;
-            margin-right: 10px;
-            width: 20%;
+            margin-top: 10px;
         }
 
         .thumbnails img {
-            max-width: 100%;
-            margin-bottom: 10px;
+            max-width: 30%;
+            margin-right: 10px;
             border: 1px solid #ddd;
             cursor: pointer;
             border-radius: 10px;
-            
         }
 
         .right-column {
-            flex: 30%;
+            flex: 40%;
             padding: 20px;
         }
-
 
         .product-title {
             font-size: 24px;
@@ -173,77 +147,12 @@ if ($resultCategory->num_rows > 0) {
         .store-info,
         .product-info {
             margin-top: 20px;
-            font-size: 18px;
-        }
-
-        h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
         }
 
         .store-info div,
         .product-info div {
             margin-bottom: 10px;
-
         }
-
-        .productBox {
-            margin-bottom: 0;
-            /* Đảm bảo không có margin phía dưới */
-            padding-bottom: 0;
-            /* Đảm bảo không có padding phía dưới */
-        }
-
-        /* Đối với Chrome, Safari, Edge, và Opera */
-        input[type=number]::-webkit-inner-spin-button,
-        input[type=number]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-
-        /* Đối với Firefox */
-        /* input[type=number] {
-            -moz-appearance: textfield;
-        } */
-
-        /* Định dạng container của các nút và trường nhập */
-        .quantity {
-            display: flex;
-            align-items: center;
-        }
-
-        .quantity input[type="number"] {
-            width: 50px;
-            height: 40px;
-            text-align: center;
-            font-size: 18px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin: 0 10px;
-        }
-
-        /* Định dạng cho nút + và - */
-        .quantity .quantity-btn {
-            background-color: #f0f0f0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            color: #333;
-            font-size: 20px;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .quantity .quantity-btn:hover {
-            background-color: #ddd;
-        }
-
-        .quantity .quantity-btn:active {
-            background-color: #ccc;
-        }
-
-
     </style>
 </head>
 
@@ -280,49 +189,34 @@ if ($resultCategory->num_rows > 0) {
         </div>
     </div>
     <!---->
-    <div class="container">
+    <div style="padding-top: 80px ;" class="container">
         <div class="left-column">
+            <img src="../images/<?php echo $product_images[0] ?>" alt="Product Image" id="main-image">
             <div class="thumbnails">
                 <img src="../images/<?php echo $product_images[0] ?>" alt="Thumbnail 1" onclick="changeImage(this)">
                 <img src="../images/<?php echo $product_images[1] ?>" alt="Thumbnail 2" onclick="changeImage(this)">
                 <img src="../images/<?php echo $product_images[2] ?>" alt="Thumbnail 3" onclick="changeImage(this)">
+                <!-- <img src="https://via.placeholder.com/80" alt="Thumbnail 4" onclick="changeImage(this)"> -->
             </div>
-            <img src="../images/<?php echo $product_images[0] ?>" alt="Product Image" id="main-image">
         </div>
-
         <div class="right-column">
-            <h1 class="product-title"><?php echo $products['p_name_en'] ?></h1>
-            <div class="price">$ <?php echo $products['p_price'] ?></div>
-
-            <!-- <div class="product-info">
-                <h3>Thông tin sản phẩm:</h3>
-                <div>Chủ đề: <?php echo $products['p_category'] ?></div>
-                <div>Mã sản phẩm: <?php echo $products['p_number'] ?> </div>
-                <div>Nhà cung cấp: <?php echo $provider ?></div>
-                <div>Tuổi: <?php echo $products['p_age'] ?></div>
-                <!-- Thêm thông tin sản phẩm khác -->
-            <!--</div> -->
+            <h1 class="product-title">Đồ Chơi Lắp Ráp Xe Đua Mercedes F1 LEGO TECHNIC 42165</h1>
+            <div class="price">639.000 ₫</div>
+            <div class="quantity">
+                <button onclick="decreaseQuantity()" >-</button>
+                <input id="quantity-input" type="number" value="1" min="1">
+                <button onclick="increaseQuantity()" >+</button>
+            </div>
+            <button class="add-to-cart-btn">Thêm Vào Giỏ Hàng</button>
 
             <div class="product-info">
-                <h3>Product Information:</h3>
-                <div>Category: <?php echo $products['p_category'] ?></div>
-                <div>Product Code: <?php echo $products['p_number'] ?></div>
-                <div>Supplier: <?php echo $provider ?></div>
-                <div>Age: <?php echo $products['p_age'] ?></div>
-                <!-- Add other product information -->
+                <h3>Thông tin sản phẩm:</h3>
+                <div>Chủ đề: LEGO TECHNIC</div>
+                <div>Mã sản phẩm: <?php echo $products['p_number'] ?> </div>
+                <div>Xuất xứ: Trung Quốc</div>
+                <div>Tuổi: 7+ tuổi trở lên</div>
+                <!-- Thêm thông tin sản phẩm khác -->
             </div>
-
-
-
-            <div class="quantity">
-                <button onclick="decreaseQuantity()" class="quantity-btn">-</button>
-                <input id="quantity-input" type="number" value="1" min="1">
-                <button onclick="increaseQuantity()" class="quantity-btn">+</button>
-            </div>
-
-            <button class="add-to-cart-btn">Add to cart</button>
-
-
         </div>
     </div>
 
@@ -351,7 +245,7 @@ if ($resultCategory->num_rows > 0) {
                                                 src="../images/<?php echo $product_images[0]; ?>"
                                                 alt="<?php echo $category['name_en'] ?>"></a>
                                     </div>
-                                    <div style="background-color: #f8f8f8" class="botDiv">
+                                    <div class="botDiv">
                                         <div class="name"><a href="../en/doraemon.php"><?php echo $category['name_en'] ?></a>
                                         </div>
                                     </div>

@@ -105,12 +105,12 @@ transition:All 1.5s ease;
 .fangda img{ transition:2s;-moz-transition:2s;-webkit-transition:2s;-o-transition:2s;}
 .fangda:hover img{ transform:scale(1.1);-webkit-transform:scale(1.1);}
 
-/*按钮动画--start*/
+
 .ico_h {display: inline-block; position: relative; -webkit-transition-duration: 0.3s; transition-duration: 0.3s; -webkit-transition-property: transform; transition-property: transform; -webkit-transform: translateZ(0); transform: translateZ(0); box-shadow: 0 0 1px rgba(0, 0, 0, 0); } 
 .ico_h:before {pointer-events: none; position: absolute; z-index: -1; content: ''; top: 100%; left: 5%; height: 10px; width: 90%; opacity: 0; background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%); /* W3C */ -webkit-transition-duration: 0.3s; transition-duration: 0.3s; -webkit-transition-property: transform, opacity; transition-property: transform, opacity; } 
 .ico_h:hover, .ico_h:focus, .ico_h:active {-webkit-transform: translateY(-6px); transform: translateY(-6px); -webkit-animation-name: hover; animation-name: hover; -webkit-animation-duration: 1.5s; animation-duration: 1.5s; -webkit-animation-delay: 0.3s; animation-delay: 0.3s; -webkit-animation-timing-function: linear; animation-timing-function: linear; -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite; -webkit-animation-direction: alternate; animation-direction: alternate; } 
 .ico_h:hover:before, .ico_h:focus:before, .ico_h:active:before {opacity: .4; -webkit-transform: translateY(6px); transform: translateY(6px); -webkit-animation-name: hover-shadow; animation-name: hover-shadow; -webkit-animation-duration: 1.5s; animation-duration: 1.5s; -webkit-animation-delay: 0.3s; animation-delay: 0.3s; -webkit-animation-timing-function: linear; animation-timing-function: linear; -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite; -webkit-animation-direction: alternate; animation-direction: alternate; }
-/*按钮动画--end*/
+
 
 .headDiv{ z-index:5; width:100%; position:absolute; left:0; top:0; height: 80px; }
 .headDiv .wal{ height: 80px; position: relative; }
@@ -140,7 +140,7 @@ transition:All 1.5s ease;
 .headDiv.hov .lan a{ color: #fff; }
 .headDiv.hov .lan a:after{ background: #fff; }
 
-/*导航菜单触发*/
+
 .navLayer{overflow-x: auto; height:100vh; width:100%; overflow:hidden; position:fixed; z-index:22; right:-100%; top:0;}
 .navLayer .bg{overflow-x: auto;position:relative; background: #fafbfe; height:100%; width:100%; }
 .navLayer .toptop{ height: 1.2rem; position: relative; background: #242424;}
