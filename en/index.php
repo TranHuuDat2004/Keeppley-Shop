@@ -1,233 +1,249 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html style="font-size: 57px;">
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-  <link rel="stylesheet" href="css/style.css">
-  <?php include '../php/head.php'; ?>
-  <?php include '../php/login.php'; ?>
-  <?php include '../php/getUser.php'; ?>
+    <?php include '../php/head.php'; ?>
+    <?php include '../php/login.php'; ?>
+    <?php include '../php/getUser.php'; ?>
 </head>
 
-<style>
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: sans-serif;
-    background-color: #f4f4f4;
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 75%;
-    margin: 5% auto;
-    background: white;
-    box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-wrap: wrap;
-    padding: 30px;
-}
-
-.left,
-.right {
-    flex: 1;
-    padding: 20px;
-}
-
-.main_image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-.option img {
-    width: 75px;
-    height: 75px;
-    margin: 10px;
-    cursor: pointer;
-    border: 1px solid #ddd;
-}
-
-.right {
-    padding: 20px;
-}
-
-h3 {
-    color: #af827d;
-    margin-bottom: 10px;
-    font-size: 25px;
-}
-
-h4 {
-    color: red;
-    margin: 10px 0;
-}
-
-p {
-    margin: 20px 0;
-    color: #555;
-    line-height: 1.5;
-}
-
-h5 {
-    font-size: 15px;
-    margin-bottom: 10px;
-    color: #837D7C;
-}
-
-.add span {
-    display: inline-block;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #C1908B;
-    color: #C1908B;
-    cursor: pointer;
-}
-
-.add label {
-    padding: 10px 30px;
-    border: 1px solid #C1908B;
-    margin: 0 10px;
-    display: inline-block;
-    text-align: center;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background: #C1908B;
-    color: white;
-    margin-top: 20px;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-button:hover {
-    background: #af827d;
-}
-
-@media only screen and (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        padding: 15px;
-    }
-
-    .left,
-    .right {
-        width: 100%;
-        padding: 10px;
-    }
-}
-
-@media only screen and (max-width: 511px) {
-    .container {
-        max-width: 100%;
-        padding: 10px;
-    }
-
-    .option {
-        justify-content: center;
-    }
-
-    .option img {
-        margin: 5px;
-    }
-}
-
-</style>
-
 <body>
-  <div class="headDiv home">
-    <?php include '../php/header_en.php'; ?>
-    <div class="lan">
-      <ul>
-        <li><a href="#" class="cur">EN</a></li>
-        <li><a href="../vn/product.php">VN</a></li>
 
-        <?php include '../php/welcomeUser_en.php'; ?>
-      </ul>
+
+    <div class="headD"></div>
+    <div class="headDiv home">
+        <div class="wal">
+            <a href="" class="logo">
+                <img src="../images/20221010151814746.png" class="PC-Box" alt="Qman Toys">
+                <img src="../images/20221010151821394.png" class="Phone-Box" alt="Qman Toys">
+            </a>
+            <a href="javascript:;" class="navA"></a>
+            <div class="txt Phone-Box">
+                Our Products
+
+
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><a href="../en/index.php" class="on">Our Story</a></li>
+                    <li><a href="../en/product.php">Our Products</a></li>
+
+                    <li><a href="/en/Contact/">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="lan">
+                <ul>
+                    <!-- Header Account Settings -->
+                    <?php
+                    $website = 'product.php';
+                    include '../php/welcomeUser_en.php';
+                    ?>
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
-  </div>
-  <!---->
-  <div class="navLayer">
-    <div class="bg">
-      <div class="toptop">
-        <a href="/en" class="logo"><img src="../images/20221010151821394.png" alt="Qman Toys"></a>
-        <div class="txt">Home</div>
-        <a href="javascript:;" class="closeBtn"><img src="/images/close.png"></a>
-      </div>
+    <!---->
 
-      <div class="lan">
-        <ul>
-          <li><a href="javascript:;" class="cur">EN</a></li>
+    <div class="navLayer">
+        <div class="bg">
+            <div class="toptop">
+                <a href="/en" class="logo"><img src="../images/20221010151821394.png" alt="Qman Toys"></a>
+                <div class="txt">Home</div>
+                <a href="javascript:;" class="closeBtn"><img src="/images/close.png"></a>
+            </div>
+            <div class="sideNav">
+                <div class="subNav"><a href="../en/index.php"><img src="../images/20220825135842913.png" alt="">Our
+                        Story</a></div>
+                <div class="subNav"><a href="../en/product/"><img src="../images/20220825135859657.png" alt="">Our
+                        Products</a></div>
 
-        </ul>
-      </div>
+                <div class="subNav"><a href="/en/Contact/"><img src="../images/20220825135930547.png" alt="">Contact
+                        Us</a></div>
+            </div>
+            <div class="lan">
+                <ul>
+
+                    <li><a href="javascript:;" class="cur">EN</a></li>
+
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
-  <!---->
-  <section>
-    <div class="container flex">
-      <div class="left">
-        <div class="main_image">
-          <img src="../images/p1.jpg" class="slide">
-        </div>
-        <div class="option flex">
-          <img src="../images/p1.jpg" onclick="img('../images/p1.jpg')">
-          <img src="../images/p2.jpg" onclick="img('../images/p2.jpg')">
-          <img src="../images/p3.jpg" onclick="img('../images/p3.jpg')">
-          <img src="../images/p4.jpg" onclick="img('../images/p4.jpg')">
-          <img src="../images/p5.jpg" onclick="img('../images/p5.jpg')">
-          <img src="../images/p6.jpg" onclick="img('../images/p6.jpg')">
-        </div>
-      </div>
-      <div class="right">
-        <h3>Beats Solo3 Wireless</h3>
-        <h4> <small>$</small>999.99 </h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat. </p>
-        <h5>Color-Rose Gold</h5>
-        <div class="color flex1">
-          <!-- <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span> -->
-        </div>
-        <h5>Number</h5>
-        <div class="add flex1">
-          <span>-</span>
-          <label>1</label>
-          <span>+</span>
-        </div>
+    <!---->
 
-        <button>Add to Bag</button>
-      </div>
+
+    <div class="productBox" style="background-image: url(../images/index.png);">
+        <div class="wal">
+            <div class="txtDiv">
+                <div class="txt">Veteran Innovation<br>
+                    Team</div>
+                <div class="msg">100+ Member Research, Development<br>
+                    and Manufacturing Technology Team<br>
+                    make Innovation the gene of our products.</div>
+
+            </div>
+
+            <div style="padding-top:300px" class="btnGroup">
+                <ul>
+
+                    <!-- <li><a href="#page-100000003464980" class="ico_h">Qman Products</a></li>
+
+                    <li><a href="#page-100000010724924" class="ico_h">Keeppley Products</a></li> -->
+
+                </ul>
+            </div>
+
+        </div>
+        <!-- <div id="page" class="page swiper-container-vertical">
+            <div class="swiper-wrapper" id="page-swiper-wrapper"
+                style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+
+
+                <div class="swiper-slide pageSlide indexP0 swiper-slide-prev">
+                    <div class="bg PC-Box" style="background-image: url(../images/20220824183344032.jpg);"></div>
+                    <div class="bg Phone-Box" style="background-image: url(../images/20220824183350814.jpg);"></div>
+
+                    <div class="txtLayer">
+                        <div class="txt">Qman Toys</div>
+                        <div class="wen">Leading manufacturer of Chinese Toy, which has been producing original
+                            building
+                            blocks since 1994.</div>
+                    </div>
+
+                </div>
+            </div>
+        </div> -->
     </div>
-  </section>
-  <script>
-    function img(anything) {
-      document.querySelector('.slide').src = anything;
-    }
 
-    function change(change) {
-      const line = document.querySelector('.home');
-      line.style.background = change;
-    }
-  </script>
+    <div class="swiper-slide pageSlide indexP1 swiper-slide-active">
+        <div class="wal">
+            <div class="limg"><img src="../images/2022101014476761.png"
+                    alt="Chinese Toy Backbone Brand. Has been creating original building blocks since 1994.">
+            </div>
+            <div class="txt">Chinese Toy Backbone Brand. Has been creating original building blocks
+                since 1994.
+            </div>
+            <div class="content">A brand which is made of Love. The whole story of Qman started since
+                1994, when
+                Mr. Zhan Kehua noticed that his two children had grand passions for building blocks. It
+                was also
+                when the idea to create a Chinese original building blocks brand came up.<br>Nowadays,
+                Qman is
+                not merely a brand of children's toys, yet a classic national toy brand which has been
+                growing
+                with generation after generation. We have always been practicing the brand concept of
+                Qman
+                blocks make dream come true. Along with our consumers, we use tiny block pieces to
+                lighten the
+                dreams. </div>
+            <div class="title Phone-Box">Brand Histroy</div>
+        </div>
+        <div class="botImg">
+            <img src="../images/20221010121217938.png" class="PC-Box" alt="Brand Histroy">
+            <img src="../images/20221010121225833.png" class="Phone-Box" alt="Brand Histroy">
+        </div>
+    </div>
+
+    <div class="swiper-slide pageSlide indexP2 cur swiper-slide-next">
+        <div class="bg PC-Box" style="background-image: url(../images/20220906090844329.jpg);">
+        </div>
+        <div class="bg Phone-Box"><img src="../images/20220906090914242.jpg"
+                alt="A new generation block brand, born in 2019."></div>
+        <div class="wal">
+            <div class="conDiv">
+                <div class="limg"><img src="../images/2022082419251955.png"
+                        alt="A new generation block brand, born in 2019."></div>
+                <div class="txt">A new generation block brand, born in 2019.</div>
+                <div class="content">A new generation block brand, born in 2019.<br>Focusing on
+                    providing
+                    consumers with high quality and cost-effective building blocks with legitimate IP
+                    authorization, Keeppley enables more and more China's new generation to express
+                    themselves
+                    and to "build a world for themselves“.</div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="swiper-slide pageSlide indexP3">
+
+
+        <div class="wal">
+            <div class="txt">Social Responsibility</div>
+            <div class="content">As an enterprise with social responsibility, Qman Toys has always been
+                aiming
+                to become a forerunner of standard and quality of Chinese building blocks and continuing
+                to
+                provide consumers with products that come with safety commitment and quality assurance.
+                We have
+                been granted with many international qualification certifications, which makes us in a
+                leading
+                position of the whole industry, and have become one of Chinese toy brands with safety
+                commitment. From material, design to producing and crafting, we strictly manage the
+                whole
+                quality assurance process to make sure each product is compliant and safe.</div>
+            <div class="txtImg">
+                <img src="../images/20221010121245689.png" class="PC-Box" alt="Social Responsibility">
+                <img src="../images/20221010121252957.png" class="Phone-Box" alt="Social Responsibility">
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <script>
+        $(function () {
+            var initial = 0;
+            if (localStorage.initialIndex) {
+                initial = localStorage.initialIndex;
+            }
+            if ($(window).width() > 1024) {
+                var pageSwiper = new Swiper('#page', {
+                    direction: 'vertical',
+                    keyboardControl: true,
+                    slidesPerView: 'auto',
+                    //            initialSlide: initial,
+                    mousewheelControl: true,
+                    //            pagination : '#page .swiper-pagination',
+                    //			paginationClickable:true,
+                    //            paginationBulletRender: function (swiper, index, className) {
+                    //              return '<span class="' + className + '">' + "0" + (index + 1) + '</span>';
+                    //            },
+                    speed: 800,
+                    onSlideChangeEnd: function (swiper) {
+                        var curr = swiper.activeIndex;
+                        localStorage.initialIndex = curr;
+                        $(".pageSlide").removeClass("cur").eq(swiper.realIndex).addClass("cur");
+                        headFun(curr);
+                    },
+                    onTransitionEnd: function (swiper) {
+                        if (swiper.progress === 1) {
+                            swiper.activeIndex = swiper.slides.length - 1
+                        }
+                    }
+                })
+            } else {
+                $('#page-swiper-wrapper').removeClass('swiper-wrapper');
+                $('.pageSlide').removeClass('swiper-slide');
+            }
+            function headFun(curr) {
+                if (curr === 2) {
+                    $('.headDiv').addClass('hov');
+                } else {
+                    $('.headDiv').removeClass('hov');
+                }
+
+            }
+            //--
+
+        })
+    </script>
+    <script language="javascript" type="text/javascript" src="../script/js.js"></script>
+    <script language="javascript" type="text/javascript" src="../script/swiper-3.4.2.jquery.min.js"></script>
 </body>
-
+<?php include 'footer.php'; ?>
 </html>

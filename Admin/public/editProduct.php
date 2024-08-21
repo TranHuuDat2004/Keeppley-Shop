@@ -19,9 +19,12 @@ if (isset($_GET['p_id']) && is_numeric($_GET['p_id'])) {
     $p_name_en = $row['p_name_en'];
     $p_name_vn = $row['p_name_vn'];
     $p_category = $row['p_category'];
-    $p_price = $row['p_price'];
+    $p_price_en = $row['p_price_en'];
+    $p_price_vn = $row['p_price_vn'];
     $p_tutorial = $row['p_tutorial'];
-    $p_description = $row['p_description'];
+    $p_age = $row['p_age'];
+    $p_description_en = $row['p_description_en'];
+    $p_description_vn = $row['p_description_vn'];
 
     // Tách chuỗi hình ảnh thành mảng và loại bỏ khoảng trắng thừa
     $product_images = array_map('trim', explode(',', $row["p_image"]));
@@ -304,37 +307,51 @@ if ($resultCategory->num_rows > 0) {
                 <input class="form-control input" name="p_name_vn" id="name_vn" type="text" placeholder="Name Product"
                   value="<?php echo $p_name_vn ?>">
               </div>
-              
+
               <div class="form-group">
                 <label for="age">Age</label>
                 <select id="age" class="form-control input" name="p_age">
                   <option>Select Age</option>
-                  <option>1-3 </option>
-                  <option>3-6 </option>
-                  <option>6-12 </option>
-                  <option>12+ </option>
+                  <option value="1-3" <?php echo ($p_age == '1-3') ? 'selected' : ''; ?>>1-3</option>
+                  <option value="3-6" <?php echo ($p_age == '3-6') ? 'selected' : ''; ?>>3-6</option>
+                  <option value="6-12" <?php echo ($p_age == '6-12') ? 'selected' : ''; ?>>6-12</option>
+                  <option value="12+" <?php echo ($p_age == '12+') ? 'selected' : ''; ?>>12+</option>
                 </select>
               </div>
+
 
               <div class="form-group">
                 <label for="provider">Category</label>
                 <select id="provider" class="form-control input" name="p_category">
                   <?php foreach ($categories as $category): ?>
-                    <option value="<?php echo $category; ?>"><?php echo $category; ?></option>
+                    <option value="<?php echo $category; ?>" <?php echo ($p_category == $category) ? 'selected' : ''; ?>>
+                      <?php echo $category; ?>
+                    </option>
                   <?php endforeach; ?>
                 </select>
               </div>
 
+              <div class="form-group flex center">
+              <div style="width: 35%;">
+                <label for="price">Price (USD):</label>
+                <input style="max-width:300px" class="form-control input" id="price" name="p_price" type="text" placeholder="Price" value="<?php echo $p_price_en?>">
+              </div>
+              <div style="width: 35%;">
+                <label for="price">Price (VND):</label>
+                <input style="max-width:300px" class="form-control input" id="price" name="p_price" type="text" placeholder="Price" value="<?php echo $p_price_vn?>">
+              </div>
+            </div>
+
               <div class="form-group">
-                <label for="price">Price</label>
-                <input class="form-control input" id="price" name="p_price" type="text" placeholder="Price"
-                  value="<?php echo $p_price ?>">
+                <label for="description">Description (English)</label>
+                <textarea class="form-control input" id="description" name="p_description" rows="4"
+                  value="<?php echo $p_description_en ?>" placeholder="Description"></textarea>
               </div>
 
               <div class="form-group">
-                <label for="description">Description</label>
+                <label for="description">Description (Vietnamese)</label>
                 <textarea class="form-control input" id="description" name="p_description" rows="4"
-                  value="<?php echo $p_description ?>" placeholder="Description"></textarea>
+                  value="<?php echo $p_description_vn ?>" placeholder="Description"></textarea>
               </div>
 
               <!-- Thuộc tính trạng thái hàng -->

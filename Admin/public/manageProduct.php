@@ -363,7 +363,7 @@ $query = mysqli_query($conn, $sql);
                     <th class="px-4 py-3">Age</th>
                     <th class="px-4 py-3">Provider</th>
                     <th class="px-4 py-3">Price</th>
-                    <th class="px-4 py-3">Type</th>
+                    <th class="px-4 py-3">Status</th>
                     <th class="px-4 py-3">Actions</th>
                   </tr>
                 </thead>
@@ -392,12 +392,21 @@ $query = mysqli_query($conn, $sql);
                             <td class="px-4 py-3 text-sm">
                                 ' . $row['p_name_en'] . '
                             </td>
+
+                            <td class="px-4 py-3 text-sm">
+                                ' . $row['p_age'] . '
+                            </td>
+
                             <td class="px-4 py-3 text-sm">
                                 ' . $row['p_category'] . '
                             </td>
 
                             <td class="px-4 py-3 text-sm">
-                                $' . $row['p_price'] . '
+                                $' . $row['p_price_en'] . '
+                            </td>
+
+                            <td class="px-4 py-3 text-sm">
+                                ' . $row['p_product_status'] . '
                             </td>
 
                             <td class="px-4 py-3">

@@ -1,10 +1,9 @@
 <?php
-$conn = new mysqli('localhost', 'root', '', 'keeppley-shop'); //servername, usernamename, password, database's name
+$conn = new mysqli('localhost', 'root', '', 'keeppley-shop'); //servername, username, password, database's name
 if ($conn->connect_error) {
   die("Connection Failed : " . $conn->connect_error);
 }
 if (isset($_POST['sbm'])) {
-  $p_id = $_POST['p_id'];
   $p_number = $_POST['p_number'];
   $p_name_en = $_POST['p_name_en'];
   $p_name_vn = $_POST['p_name_vn'];
@@ -26,22 +25,26 @@ if (isset($_POST['sbm'])) {
   $p_image = implode(',', $p_image_paths);
 
   $p_category = $_POST['p_category'];
-  $p_price = $_POST['p_price'];
+  $p_price_en = $_POST['p_price_en'];
+  $p_price_vn = $_POST['p_price_vn'];
 
-  $p_tutorial = $_POST['p_tutorial'];
-  $p_description = $_POST['p_description'];
+  // Xử lý tệp hướng dẫn
+  if (isset($_FILES['p_tutorial']['name']) && $_FILES['p_tutorial']['error'] == 0) {
+    $p_tutorial_name = $_FILES['p_tutorial']['name'];
+    $p_tutorial_tmp = $_FILES['p_tutorial']['tmp_name'];
+    $p_tutorial_path = $p_tutorial_name;
+    move_uploaded_file($p_tutorial_tmp, '../../pdf/' . $p_tutorial_path);
+  } else {
+    $p_tutorial_name = ''; // Hoặc bạn có thể đặt giá trị mặc định khác nếu cần
+  }
 
+  $p_description_en = $_POST['p_description_en'];
+  $p_description_vn = $_POST['p_description_vn'];
   $p_product_status = $_POST['p_product_status'];
   $p_stock_status = $_POST['p_stock_status'];
 
-  // Xử lý tệp hướng dẫn
-  $p_tutorial_name = $_FILES['p_tutorial']['name'];
-  $p_tutorial_tmp = $_FILES['p_tutorial']['tmp_name'];
-  $p_tutorial_path = $p_tutorial_name;
-  move_uploaded_file($p_tutorial_tmp, '../../pdf/' . $p_tutorial_path);
-
-  $sql = "INSERT INTO product (p_number, p_name_en, p_name_vn, p_image, p_price, p_category, p_tutorial, p_description, p_age , p_stock_status, p_product_status) 
-            VALUES ('$p_number', '$p_name_en', '$p_name_vn', '$p_image', '$p_price', '$p_category', '$p_tutorial_name', '$p_age' '$p_description', '$p_stock_status', '$p_product_status')";
+  $sql = "INSERT INTO product (p_number, p_name_en, p_name_vn, p_image, p_price_en, p_price_vn, p_category, p_tutorial, p_description_en, p_description_vn, p_age, p_stock_status, p_product_status) 
+            VALUES ('$p_number', '$p_name_en', '$p_name_vn', '$p_image', '$p_price_en', '$p_price_vn', '$p_category', '$p_tutorial_name', '$p_age', '$p_description_en', '$p_description_vn', '$p_stock_status', '$p_product_status')";
 
   try {
     $query = mysqli_query($conn, $sql);
@@ -61,8 +64,8 @@ if ($resultCategory->num_rows > 0) {
     $categories[] = $row['name_en'];
   }
 }
-
 ?>
+
 
 
 <!DOCTYPE html>
@@ -335,10 +338,18 @@ if ($resultCategory->num_rows > 0) {
               </select>
             </div>
 
-            <div class="form-group">
-              <label for="price">Price</label>
-              <input class="form-control input" id="price" name="p_price" type="text" placeholder="Price">
+            <div class="form-group flex center">
+              <div style="width: 35%;">
+                <label for="price">Price (USD):</label>
+                <input style="max-width:300px" class="form-control input" id="price" name="p_price" type="text" placeholder="Price">
+              </div>
+              <div style="width: 35%;">
+                <label for="price">Price (VND):</label>
+                <input style="max-width:300px" class="form-control input" id="price" name="p_price" type="text" placeholder="Price">
+              </div>
             </div>
+
+
             <div class="form-group">
               <label for="tutorial">Tutorial (Word/PDF)</label>
               <input class="form-control-file input" id="tutorial" name="p_tutorial" type="file"
@@ -346,8 +357,14 @@ if ($resultCategory->num_rows > 0) {
             </div>
 
             <div class="form-group">
-              <label for="description">Description</label>
-              <textarea class="form-control input" id="description" name="p_description" rows="4"
+              <label for="description">Description (English)</label>
+              <textarea class="form-control input" id="description" name="p_description_en" rows="4"
+                placeholder="Description"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="description">Description (Vietnamese)</label>
+              <textarea class="form-control input" id="description" name="p_description_vn" rows="4"
                 placeholder="Description"></textarea>
             </div>
 

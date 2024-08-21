@@ -49,10 +49,10 @@
     <!---->
 
 
-    <div class="productBox" style="background-image: url(../images/20220824214044192.png);">
+    <div class="productBox" style="background-image: url(../images/index.png);">
         <div class="wal">
             <div class="txtDiv">
-                <div class="txt">Đội ngũ phát triển<br>
+                <div style="margin-top: 70px" class="txt">Đội ngũ phát triển<br>
                 </div>
                 <div class="msg">Với hơn 100 thành viên chuyên nghiệp <br>
                     trong nghiên cứu, phát triển và công nghệ sản xuất, <br>

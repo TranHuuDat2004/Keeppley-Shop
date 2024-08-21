@@ -37,7 +37,8 @@ if (isset($_GET['id'])) {
                     "p_image" => $row["p_image"],
                     "p_name_en" => $row["p_name_en"],
                     "p_name_vn" => $row["p_name_vn"],
-                    "p_price" => $row["p_price"],
+                    "p_price_en" => $row["p_price_en"],
+                    "p_price_vn" => $row["p_price_vn"],
                     "p_tutorial" => $row["p_tutorial"],
                     "p_description" => $row["p_description"]
                 );
@@ -69,11 +70,39 @@ if (isset($_GET['id'])) {
     <?php include '../php/head.php'; ?>
 </head>
 <style>
-
     .imgDiv img {
-        width: 80%;
-        height: 80%;
+        width: 75%;
+        height: 75%;
         object-fit: cover
+    }
+
+    .box {
+        padding-bottom: 40px;
+        height: 500px;
+    }
+
+    .p_num {
+        padding-top: 15px;
+        text-align: center;
+        line-height: 30px;
+        color: #919191;
+        font-size: 22px;
+    }
+
+    .p_name {
+        padding-top: 2px;
+        font-weight: bold;
+        font-size: 24px;
+        color: #242424;
+        text-align: center;
+    }
+
+    .p_price{
+        padding-top: 10px;
+        font-weight: bold;
+        font-size: 24px;
+        color: #e74c3c;
+        text-align: center;  
     }
 </style>
 
@@ -148,15 +177,16 @@ if (isset($_GET['id'])) {
                         ?>
 
                         <li>
-                            <div style="padding:40px" class="box">
+                            <div class="box">
                                 <a href="Product_Detail.php?p_id=<?php echo $product['p_id'] ?>">
                                     <div class="imgDiv">
                                         <img src="../images/<?php echo $product_images[0]; ?>"
                                             alt="<?php echo $product['p_name_en']; ?>" />
                                     </div>
 
-                                    <div class="num"><?php echo $product['p_number']; ?></div>
-                                    <div class="name"><?php echo $product['p_name_en']; ?></div>
+                                    <div class="p_num"><?php echo $product['p_number']; ?></div>
+                                    <div class="p_name"><?php echo $product['p_name_en']; ?></div>
+                                    <div class="p_price">$ <?php echo $product['p_price_en']; ?></div>
                                 </a>
                             </div>
 
@@ -215,7 +245,10 @@ if (isset($_GET['id'])) {
             <span id="ubey-RecordingScreen-count-count"></span>
         </div>
     </div>
-</body><chatgpt-sidebar data-gpts-theme="light"></chatgpt-sidebar><chatgpt-sidebar-popups
+</body>
+<?php include 'footer.php'; ?>
+
+<chatgpt-sidebar data-gpts-theme="light"></chatgpt-sidebar><chatgpt-sidebar-popups
     data-gpts-theme="light"></chatgpt-sidebar-popups>
 
 </html>
