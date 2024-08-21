@@ -1,19 +1,100 @@
-<html style="font-size: 51px;">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <?php include '../php/head.php'; ?>
     <?php include '../php/login.php'; ?>
     <?php include '../php/getUser.php'; ?>
 
+    <style>
+        :root {
+            --sidebar-width: 300px;
+            --transition-duration: 0.5s;
+            --sidebar-bg: white;
+            --header-bg: #333;
+            --header-color: white;
+            --button-bg: #a00;
+            --button-color: white;
+            --checkout-bg: #d00;
+            --shadow-color: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Sidebar styling */
+        .cart-sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: var(--sidebar-bg);
+            overflow-x: hidden;
+            transition: var(--transition-duration);
+            padding-top: 60px;
+            box-shadow: -2px 0px 5px var(--shadow-color);
+            z-index: 1000;
+        }
+
+        .cart-sidebar .cart-header {
+            padding: 10px;
+            background-color: var(--header-bg);
+            color: var(--header-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-sidebar .cart-content {
+            padding: 20px;
+        }
+
+        .cart-sidebar .cart-actions {
+            margin-top: 20px;
+        }
+
+        .cart-sidebar .cart-actions .view-cart,
+        .cart-sidebar .cart-actions .checkout {
+            display: inline-block;
+            background-color: var(--button-bg);
+            color: var(--button-color);
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .cart-sidebar .cart-actions .checkout {
+            background-color: var(--checkout-bg);
+        }
+
+        .close-btn {
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* When the sidebar is visible */
+        .cart-sidebar.open {
+            width: var(--sidebar-width);
+        }
+
+        /* Cart button styling (optional) */
+        #cartButton {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--button-bg);
+            color: var(--button-color);
+            padding: 100px 20px;
+            cursor: pointer;
+        }
+    </style>
 </head>
-
-<style>
-
-</style>
-
 <body>
-
-
+    <!-- Giỏ hàng Button -->
+    <button id="cartButton">Giỏ hàng</button>
 
     <div class="headDiv home">
         <?php include '../php/header_en.php'; ?>
@@ -151,71 +232,43 @@
 
         </div>
     </div>
+    <!-- Sidebar -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Giỏ hàng</h2>
+            <span id="closeSidebar" class="close-btn">&times;</span>
+        </div>
+        <div class="cart-content">
+            <p>Hiện chưa có sản phẩm</p>
+            <hr>
+            <p><strong>Tổng tiền:</strong> 0₫</p>
+            <div class="cart-actions">
+                <button class="view-cart">Xem giỏ hàng</button>
+                <button class="checkout">Thanh toán</button>
+            </div>
+        </div>
+    </div>
 
-    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartButton = document.getElementById('cartButton');
+            const cartSidebar = document.getElementById('cartSidebar');
+            const closeSidebar = document.getElementById('closeSidebar');
 
-    <script language="javascript" type="text/javascript" src="../script/js.js"></script>
+            function toggleSidebar() {
+                cartSidebar.classList.toggle('open');
+            }
 
-    <script type="text/javascript">
-        function MoreData(obj) {
-            $(obj).unbind('click')
-            var page = $(obj).attr('data-page')
-            var id = $(obj).attr('data-id')
-            page++;
-            $.ajax({
-                url: "/AjaxAction/product.ashx?action=list",
-                type: "post",
-                data: {
-                    "nodecode": "134002001",
-                    "page": page,
-                    "s": 8,
-                    "cate": id
-                },
-                dataType: "json",
-                success: function (data) {
-                    if (data.status == 1) {
-                        var res = data.data;
-                        if (res.length > 0) {
-                            var html = "";
-                            for (var i = 0; i < res.length; i++) {
-
-                                //html += '<li><div class="box"><a target="_blank" href="' + res[i].Url + '"><div class="imgDiv"><img src="' + res[i].Image + '" alt="' + res[i].Title + '" /></div><div class="botDiv"><div class="name">' + res[i].Title + '</div><div class="username' + (id == "100000010797975" ? " username2" : "") +'">Click for More</div></div></a></div></li>'
-
-
-                                html += '<li><div class="box"><div class="imgDiv"><a href="' + res[i].Url + '"><img src="' + res[i].Image + '" alt="' + res[i].Title + '" /></a></div><div class="botDiv"><div class="name"><a href="' + res[i].Url + '">' + res[i].Title + '</a></div><div class="username' + (id == "100000010797975" ? " username2" : "") + '"><a href="' + res[i].Url + '">Click for More</a></div><div class="btnVideo">'
-                                if (res[i].Video != "") {
-                                    html += '<a href = "' + res[i].Video + '"><img src="../images/20221020095235674.png"  /></a>'
-                                }
-                                html += '</div></div></div></li>';
-
-                            }
-
-                            $(obj).prev('.list').find("ul").append(html);
-                            if (data.count <= $(obj).prev('.list').find("ul li").length) $(obj).hide();
-
-                        } else {
-                            $(obj).hide();
-                        }
-                    }
-
-                },
-                error: function (xhr, type) {
-                    //alert('Ajax error!');
-                    console.log(xhr + type);
+            function closeSidebarIfClickedOutside(event) {
+                if (!cartSidebar.contains(event.target) && !cartButton.contains(event.target)) {
+                    cartSidebar.classList.remove('open');
                 }
-            });
+            }
 
-            $(obj).attr('data-page', page)
-
-            $(obj).click(function () { MoreData(obj); })
-        }
-
+            cartButton.addEventListener('click', toggleSidebar);
+            closeSidebar.addEventListener('click', toggleSidebar);
+            window.addEventListener('click', closeSidebarIfClickedOutside);
+        });
     </script>
-
-    <?php include 'footer.php'; ?>
-    <?php include 'cart.php'; ?>
 </body>
-
-
-
 </html>

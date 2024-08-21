@@ -637,5 +637,6 @@ if ($resultCategory->num_rows > 0) {
 	<script src="js/main.js"></script>
 </body>
 <?php include 'footer.php'; ?>
+<?php include 'cart.php'; ?>
 
 </html>

@@ -247,7 +247,7 @@ if (isset($_GET['id'])) {
     </div>
 </body>
 <?php include 'footer.php'; ?>
-
+<?php include 'cart.php'; ?>
 <chatgpt-sidebar data-gpts-theme="light"></chatgpt-sidebar><chatgpt-sidebar-popups
     data-gpts-theme="light"></chatgpt-sidebar-popups>
 

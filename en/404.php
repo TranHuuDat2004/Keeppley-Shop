@@ -112,5 +112,6 @@
         </div>
 </body><chatgpt-sidebar data-gpts-theme="light"></chatgpt-sidebar><chatgpt-sidebar-popups
     data-gpts-theme="light"></chatgpt-sidebar-popups>
-
+    <?php include 'cart.php'; ?>
+    <?php include 'footer.php'; ?>
 </html>

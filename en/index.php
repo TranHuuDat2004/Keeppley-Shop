@@ -246,4 +246,5 @@
     <script language="javascript" type="text/javascript" src="../script/swiper-3.4.2.jquery.min.js"></script>
 </body>
 <?php include 'footer.php'; ?>
+<?php include 'cart.php'; ?>
 </html>
