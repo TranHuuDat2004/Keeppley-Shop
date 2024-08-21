@@ -10,10 +10,12 @@
 <link href="../style/main.css" rel="stylesheet" type="text/css">
 <link href="../style/index.css" rel="stylesheet" type="text/css">
 <link href="../style/media.css" rel="stylesheet" type="text/css">
+<link href="../style/cart.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../style/swiper.min.css">
 <link rel="stylesheet" href="../style/animate.min.css">
 <link rel="stylesheet" href="../style/jie.css">
 <script language="javascript" type="text/javascript" src="../script/jquery-3.5.1.min.js"></script>
+<script language="javascript" type="text/javascript" src="../script/cart.js"></script>
 <!--[if lte IE 6]>
     <script src="script/png.js" type="text/javascript"></script>
         <script type="text/javascript">

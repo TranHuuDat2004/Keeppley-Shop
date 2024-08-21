@@ -15,7 +15,8 @@
     <!-- <li><a href="#">Welcome, Doraemon và những người bạn tuyệt vời</a></li> -->
 
     <!-- Show Icon cart  -->
-    <li><a href="../en/doraemon.php" class="fa-solid fa-cart-shopping btn-cart" style="color: #000000;"></a> </li>
+    <!-- <button >Giỏ hàng</button> -->
+    <li><a id="cartButton" class="fa-solid fa-cart-shopping btn-cart" style="color: #000000;"></a> </li>
 
     <!-- Show Profile Avatar -->
     <?php if (!$userLogin['image']): ?>
