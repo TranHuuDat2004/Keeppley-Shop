@@ -6,48 +6,11 @@
 <?php include '../php/getUser.php'; ?>
 </head>
 
-<body inmaintabuse="1">
-
-
-    <div class="headD"></div>
-    <div class="headDiv home">
-        <?php include '../php/header_en.php'; ?>
-        <div class="lan">
-            <ul>
-            <?php 
-                $website = 'sario.php';
-                include '../php/welcomeUser_en.php'; 
-                ?>
-            </ul>
-        </div>
-    </div>
-    </div>
-    <!---->
-    <div class="navLayer">
-        <div class="bg">
-            <div class="toptop">
-                <a href="/en" class="logo"><img src="../images/2022/10/20221010151821394.png" alt="Qman Toys"></a>
-                <div class="txt">Home</div>
-                <a href="javascript:;" class="closeBtn"><img src="../images/close.png"></a>
-            </div>
-            <div class="sideNav">
-                <div class="subNav"><a href="/en"><img src="../images/2022/8/20220825135842913.png" alt="">Our Story</a>
-                </div>
-                <div class="subNav"><a href="/en/product/"><img src="../images/2022/8/20220825135859657.png" alt="">Our
-                        Products</a></div>
-
-                <div class="subNav"><a href="/en/Contact/"><img src="../images/2022/8/20220825135930547.png"
-                            alt="">Contact Us</a></div>
-            </div>
-            <div class="lan">
-                <ul>
-                    <li><a href="#" class="cur">EN</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!---->
-
+<body >
+    <!-- Desktop -->
+    <?php include '../php/OurProducts_en.php'; ?>
+    <!-- Mobile-->
+    <?php include '../php/mobile_en.php'; ?>
 
     <div class="productList">
         <div class="wal">

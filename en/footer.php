@@ -39,7 +39,7 @@
         <div style="flex: 1 1 200px; max-width: 15%;">
             <p class="label-footer">NEWSLETTER</p>
             <input type="email" placeholder="email@example.com"
-                style="width: 200px; padding: 10px; margin-bottom: 10px;">
+                style="width: 150px; padding: 10px; margin-bottom: 10px;">
             <button
                 style="background-color: #ff4081; color: white; padding: 10px 20px; border: none; cursor: pointer;">SUBSCRIBE</button>
         </div>

@@ -69,7 +69,7 @@ if ($resultCategory->num_rows > 0) {
     $category_name_vn = $category["name_vn"];
     $provider = $category["provider"];
 }
-
+$website = "Product_Detail.php?p_id=" . $product['p_id'];
 ?>
 
 <!DOCTYPE html>
@@ -87,7 +87,6 @@ if ($resultCategory->num_rows > 0) {
     <style>
         body {
             background-color: #f8f8f8;
-            font-family: Arial, sans-serif;
             padding-top: 80px;
             margin: 0;
             /* padding: 0; */
@@ -283,38 +282,11 @@ if ($resultCategory->num_rows > 0) {
 </head>
 
 <body>
-    <div class="headD"></div>
-    <div class="headDiv home">
-        <?php include '../php/header_en.php'; ?>
-        <div class="lan">
-            <ul>
-                <!-- Header Account Settings -->
-                <?php
-                $website = 'c.php';
-                include '../php/welcomeUser_en.php';
-                ?>
-            </ul>
-        </div>
-    </div>
-    </div>
-    <!---->
-    <div class="navLayer">
-        <div class="bg">
-            <div class="toptop">
-                <a href="/en" class="logo"><img src="../images/20221010151821394.png" alt="Qman Toys"></a>
-                <div class="txt">Home</div>
-                <a href="javascript:;" class="closeBtn"><img src="/images/close.png"></a>
-            </div>
+    <!-- Desktop -->
+    <?php include '../php/OurProducts_en.php'; ?>
+    <!-- Mobile-->
+    <?php include '../php/mobile_en.php'; ?>
 
-            <div class="lan">
-                <ul>
-                    <li><a href="javascript:;" class="cur">EN</a></li>
-
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!---->
     <div class="container">
         <div class="left-column">
             <div class="thumbnails">
@@ -358,7 +330,9 @@ if ($resultCategory->num_rows > 0) {
                 <button onclick="increaseQuantity()" class="quantity-btn">+</button>
             </div>
 
-            <button id="button-add" class="add-to-cart-btn flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">Add to cart</button>
+            <button id="button-add"
+                class="add-to-cart-btn flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">Add
+                to cart</button>
 
             <?php if ($products['p_tutorial']): ?>
                 <a href="../pdf/<?php echo $products['p_tutorial']; ?>"><button class="instruction-btn">View
@@ -415,7 +389,12 @@ if ($resultCategory->num_rows > 0) {
                     More Series &gt;</a></div>
 
         </div>
+
+        <!-- Moblie  -->
+        <script language="javascript" type="text/javascript" src="../script/js.js"></script>
         <script>
+
+
             function changeImage(element) {
                 document.getElementById('main-image').src = element.src;
             }
@@ -448,193 +427,193 @@ if ($resultCategory->num_rows > 0) {
         </script>
 
         <!--===============================================================================================-->
-	<script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="../vendor/animsition/js/animsition.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="../vendor/bootstrap/js/popper.js"></script>
-	<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="../vendor/select2/select2.min.js"></script>
-	<script>
-		$(".js-select2").each(function () {
-			$(this).select2({
-				minimumResultsForSearch: 20,
-				dropdownParent: $(this).next('.dropDownSelect2')
-			});
-		})
-	</script>
-	<!--===============================================================================================-->
-	<script src="../vendor/daterangepicker/moment.min.js"></script>
-	<script src="../vendor/daterangepicker/daterangepicker.js"></script>
-	<!--===============================================================================================-->
-	<script src="../vendor/slick/slick.min.js"></script>
-	<script src="js/slick-custom.js"></script>
-	<!--===============================================================================================-->
-	<script src="../vendor/parallax100/parallax100.js"></script>
-	<script>
-		$('.parallax100').parallax100();
-	</script>
-	<!--===============================================================================================-->
-	<script src="../vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
-	<script>
-		$('.gallery-lb').each(function () { // the containers for all your galleries
-			$(this).magnificPopup({
-				delegate: 'a', // the selector for gallery item
-				type: 'image',
-				gallery: {
-					enabled: true
-				},
-				mainClass: 'mfp-fade'
-			});
-		});
-	</script>
-	<!--===============================================================================================-->
-	<script src="../vendor/isotope/isotope.pkgd.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="../vendor/sweetalert/sweetalert.min.js"></script>
-	<script>
-		$('.js-addwish-b2, .js-addwish-detail').on('click', function (e) {
-			e.preventDefault();
-		});
+        <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="../vendor/animsition/js/animsition.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="../vendor/bootstrap/js/popper.js"></script>
+        <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="../vendor/select2/select2.min.js"></script>
+        <script>
+            $(".js-select2").each(function () {
+                $(this).select2({
+                    minimumResultsForSearch: 20,
+                    dropdownParent: $(this).next('.dropDownSelect2')
+                });
+            })
+        </script>
+        <!--===============================================================================================-->
+        <script src="../vendor/daterangepicker/moment.min.js"></script>
+        <script src="../vendor/daterangepicker/daterangepicker.js"></script>
+        <!--===============================================================================================-->
+        <script src="../vendor/slick/slick.min.js"></script>
+        <script src="js/slick-custom.js"></script>
+        <!--===============================================================================================-->
+        <script src="../vendor/parallax100/parallax100.js"></script>
+        <script>
+            $('.parallax100').parallax100();
+        </script>
+        <!--===============================================================================================-->
+        <script src="../vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+        <script>
+            $('.gallery-lb').each(function () { // the containers for all your galleries
+                $(this).magnificPopup({
+                    delegate: 'a', // the selector for gallery item
+                    type: 'image',
+                    gallery: {
+                        enabled: true
+                    },
+                    mainClass: 'mfp-fade'
+                });
+            });
+        </script>
+        <!--===============================================================================================-->
+        <script src="../vendor/isotope/isotope.pkgd.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="../vendor/sweetalert/sweetalert.min.js"></script>
+        <script>
+            $('.js-addwish-b2, .js-addwish-detail').on('click', function (e) {
+                e.preventDefault();
+            });
 
-		$('.js-addwish-b2').each(function () {
-			var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
-			$(this).on('click', function () {
-				swal(nameProduct, "is added to wishlist !", "success");
+            $('.js-addwish-b2').each(function () {
+                var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+                $(this).on('click', function () {
+                    swal(nameProduct, "is added to wishlist !", "success");
 
-				$(this).addClass('js-addedwish-b2');
-				$(this).off('click');
-			});
-		});
+                    $(this).addClass('js-addedwish-b2');
+                    $(this).off('click');
+                });
+            });
 
-		$('.js-addwish-detail').each(function () {
-			var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+            $('.js-addwish-detail').each(function () {
+                var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
 
-			$(this).on('click', function () {
-				swal(nameProduct, "is added to wishlist !", "success");
+                $(this).on('click', function () {
+                    swal(nameProduct, "is added to wishlist !", "success");
 
-				$(this).addClass('js-addedwish-detail');
-				$(this).off('click');
-			});
-		});
+                    $(this).addClass('js-addedwish-detail');
+                    $(this).off('click');
+                });
+            });
 
-		/*---------------------------------------------*/
+            /*---------------------------------------------*/
 
-		$('.js-addcart-detail').each(function () {
-			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
-			$(this).on('click', function () {
-				swal(nameProduct, "is added to cart !", "success");
-			});
-		});
+            $('.js-addcart-detail').each(function () {
+                var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+                $(this).on('click', function () {
+                    swal(nameProduct, "is added to cart !", "success");
+                });
+            });
 
-		$('.js-buycart-detail').each(function () {
-			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
-			$(this).on('click', function () {
-				swal(nameProduct, "is ready to buy !", "success");
-			});
-		});
+            $('.js-buycart-detail').each(function () {
+                var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+                $(this).on('click', function () {
+                    swal(nameProduct, "is ready to buy !", "success");
+                });
+            });
 
-		// Zoom Image
-		$(document).ready(function () {
-			$(".zoom-container").mousemove(function (e) {
-				var image = $(this).find("img");
-				var offsetX = e.pageX - $(this).offset().left;
-				var offsetY = e.pageY - $(this).offset().top;
-				var posX = offsetX / $(this).width() * 100;
-				var posY = offsetY / $(this).height() * 100;
-				image.css("transform-origin", posX + "% " + posY + "%");
-			});
-		});
-	</script>
-	<!--===============================================================================================-->
-	<script src="../vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-	<script>
-		$('.js-pscroll').each(function () {
-			$(this).css('position', 'relative');
-			$(this).css('overflow', 'hidden');
-			var ps = new PerfectScrollbar(this, {
-				wheelSpeed: 1,
-				scrollingThreshold: 1000,
-				wheelPropagation: false,
-			});
+            // Zoom Image
+            $(document).ready(function () {
+                $(".zoom-container").mousemove(function (e) {
+                    var image = $(this).find("img");
+                    var offsetX = e.pageX - $(this).offset().left;
+                    var offsetY = e.pageY - $(this).offset().top;
+                    var posX = offsetX / $(this).width() * 100;
+                    var posY = offsetY / $(this).height() * 100;
+                    image.css("transform-origin", posX + "% " + posY + "%");
+                });
+            });
+        </script>
+        <!--===============================================================================================-->
+        <script src="../vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+        <script>
+            $('.js-pscroll').each(function () {
+                $(this).css('position', 'relative');
+                $(this).css('overflow', 'hidden');
+                var ps = new PerfectScrollbar(this, {
+                    wheelSpeed: 1,
+                    scrollingThreshold: 1000,
+                    wheelPropagation: false,
+                });
 
-			$(window).on('resize', function () {
-				ps.update();
-			})
-		});
+                $(window).on('resize', function () {
+                    ps.update();
+                })
+            });
 
-		document.getElementById("button-add").addEventListener("click", function () {
+            document.getElementById("button-add").addEventListener("click", function () {
 
-			var xhr = new XMLHttpRequest();
-			xhr.open("POST", "add_to_cart.php", true);
-			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-			xhr.onreadystatechange = function () {
-				if (xhr.readyState === 4 && xhr.status === 200) {
-					// Xử lý phản hồi từ máy chủ (nếu cần)
-					console.log(xhr.responseText);
-				}
-			};
-			xhr.send("productId=" + productId + "&quantity=" + quantity);
-		});
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "add_to_cart.php", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        // Xử lý phản hồi từ máy chủ (nếu cần)
+                        console.log(xhr.responseText);
+                    }
+                };
+                xhr.send("productId=" + productId + "&quantity=" + quantity);
+            });
 
-		// Người dùng lựa chọn số lượng sản phẩm để thêm vào giỏ hàng
-		document.addEventListener("DOMContentLoaded", function () {
-			var quantityInput = document.getElementById("quantity-input");
-			var hiddenQuantity = document.getElementById("hidden-quantity");
-			var hiddenQuantityBuy = document.getElementById("hidden-quantity-buy");
+            // Người dùng lựa chọn số lượng sản phẩm để thêm vào giỏ hàng
+            document.addEventListener("DOMContentLoaded", function () {
+                var quantityInput = document.getElementById("quantity-input");
+                var hiddenQuantity = document.getElementById("hidden-quantity");
+                var hiddenQuantityBuy = document.getElementById("hidden-quantity-buy");
 
-			// Lắng nghe sự kiện thay đổi giá trị trong ô input
-			quantityInput.addEventListener("change", function () {
-				// Cập nhật giá trị biến quantity
-				var quantity = parseInt(this.value);
-				hiddenQuantity.value = quantity;
-				hiddenQuantityBuy.value = quantity;
-			});
+                // Lắng nghe sự kiện thay đổi giá trị trong ô input
+                quantityInput.addEventListener("change", function () {
+                    // Cập nhật giá trị biến quantity
+                    var quantity = parseInt(this.value);
+                    hiddenQuantity.value = quantity;
+                    hiddenQuantityBuy.value = quantity;
+                });
 
-			// Lắng nghe sự kiện nhấn nút tăng giảm số lượng
-			var buttons = document.querySelectorAll(".btn-num-product-up, .btn-num-product-down");
-			buttons.forEach(function (button) {
-				button.addEventListener("click", function () {
-					// Cập nhật giá trị biến quantity
-					var currentValue = parseInt(quantityInput.value);
-					var newValue = this.classList.contains("btn-num-product-up") ? currentValue : currentValue;
-					quantityInput.value = newValue >= 1 ? newValue : 1;
-					hiddenQuantity.value = quantityInput.value;
-					hiddenQuantityBuy.value = quantityInput.value;
-				});
-			});
-		});
+                // Lắng nghe sự kiện nhấn nút tăng giảm số lượng
+                var buttons = document.querySelectorAll(".btn-num-product-up, .btn-num-product-down");
+                buttons.forEach(function (button) {
+                    button.addEventListener("click", function () {
+                        // Cập nhật giá trị biến quantity
+                        var currentValue = parseInt(quantityInput.value);
+                        var newValue = this.classList.contains("btn-num-product-up") ? currentValue : currentValue;
+                        quantityInput.value = newValue >= 1 ? newValue : 1;
+                        hiddenQuantity.value = quantityInput.value;
+                        hiddenQuantityBuy.value = quantityInput.value;
+                    });
+                });
+            });
 
-		// Truyền biến PHP vào JavaScript
-		var images = "<?php echo $product["p_image"]; ?>";
+            // Truyền biến PHP vào JavaScript
+            var images = "<?php echo $product["p_image"]; ?>";
 
-		// Tách chuỗi thành mảng
-		var imageArray = images.split(',');
+            // Tách chuỗi thành mảng
+            var imageArray = images.split(',');
 
-		// Container để chứa các hình ảnh
-		var container = document.getElementById('image-container');
+            // Container để chứa các hình ảnh
+            var container = document.getElementById('image-container');
 
-		// Duyệt qua từng hình ảnh trong mảng và tạo các phần tử hình ảnh
-		imageArray.forEach(function (imagePath, index) {
-			var img = document.createElement('img');
-			img.src = imagePath;
+            // Duyệt qua từng hình ảnh trong mảng và tạo các phần tử hình ảnh
+            imageArray.forEach(function (imagePath, index) {
+                var img = document.createElement('img');
+                img.src = imagePath;
 
-			// Thêm các class màu sắc khác nhau dựa vào index
-			if (index % 3 === 0) {
-				img.classList.add('image-1');
-			} else if (index % 3 === 1) {
-				img.classList.add('image-2');
-			} else {
-				img.classList.add('image-3');
-			}
+                // Thêm các class màu sắc khác nhau dựa vào index
+                if (index % 3 === 0) {
+                    img.classList.add('image-1');
+                } else if (index % 3 === 1) {
+                    img.classList.add('image-2');
+                } else {
+                    img.classList.add('image-3');
+                }
 
-			container.appendChild(img);
-		})
+                container.appendChild(img);
+            })
 
-	</script>
-	<!--===============================================================================================-->
-	<script src="js/main.js"></script>
+        </script>
+        <!--===============================================================================================-->
+        <script src="js/main.js"></script>
 </body>
 <?php include 'footer.php'; ?>
 <?php include 'cart.php'; ?>

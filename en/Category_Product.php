@@ -1,4 +1,5 @@
 <?php
+$website = "Category_Product.php?id=" . $id;
 
 include '../php/login.php';
 include '../php/getUser.php';
@@ -97,55 +98,21 @@ if (isset($_GET['id'])) {
         text-align: center;
     }
 
-    .p_price{
+    .p_price {
         padding-top: 10px;
         font-weight: bold;
         font-size: 24px;
         color: #e74c3c;
-        text-align: center;  
+        text-align: center;
     }
 </style>
 
-<body inmaintabuse="1">
+<body>
+    <!-- Desktop -->
+    <?php include '../php/OurProducts_en.php'; ?>
+    <!-- Mobile-->
+    <?php include '../php/mobile_en.php'; ?>
 
-
-    <div class="headD"></div>
-    <div class="headDiv home">
-        <?php include '../php/header_en.php'; ?>
-        <div class="lan">
-            <ul>
-
-                <?php
-                $website = "Category_Product.php?id=" . $id;
-                include '../php/welcomeUser_en.php';
-                ?>
-            </ul>
-        </div>
-    </div>
-    </div>
-    <!---->
-    <div class="navLayer">
-        <div class="bg">
-            <div class="toptop">
-                <a href="/en" class="logo"><img src="../images/20221010151821394.png" alt="Qman Toys"></a>
-                <div class="txt">Home</div>
-                <a href="javascript:;" class="closeBtn"><img src="/images/close.png"></a>
-            </div>
-            <div class="sideNav">
-                <div class="subNav"><a href="/en"><img src="/../images/20220825135842913.png" alt="">Our Story</a></div>
-                <div class="subNav"><a href="/en/product/"><img src="/../images/20220825135859657.png" alt="">Our
-                        Products</a></div>
-
-                <div class="subNav"><a href="/en/Contact/"><img src="/../images/20220825135930547.png" alt="">Contact
-                        Us</a></div>
-            </div>
-            <div class="lan">
-                <ul>
-                    <li><a href="#" class="cur">EN</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
     <!---->
 
 
@@ -206,7 +173,11 @@ if (isset($_GET['id'])) {
     </div>
 
     <!---->
-    <script language="javascript" type="text/javascript" src="/en/script/js.js"></script>
+
+    </script>
+    <!-- Moblie  -->
+    <script language="javascript" type="text/javascript" src="../script/js.js"></script>
+
     <script src="chrome-extension://igkkmokkmlbkkgdnkkancbonkbbmkioc/sm.bundle.js" data-pname="recorder-screenshot-v3"
         data-asset-path="https://apv3.s3.ap-northeast-2.amazonaws.com"></script>
     <div style="display: none" class="ubey-RecordingScreen-count-down ubey-RecordingScreen-count-down-container">

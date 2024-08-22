@@ -14,8 +14,23 @@
 </style>
 
 <body>
-    <!-- Desktop -->
-    <?php include '../php/OurProducts_en.php'; ?>
+
+
+
+    <div class="headDiv home">
+        <?php include '../php/header_en.php'; ?>
+        <div class="lan">
+            <ul>
+                <!-- Header Account Settings -->
+                <?php
+
+                include '../php/welcomeUser_en.php';
+                ?>
+            </ul>
+        </div>
+    </div>
+    </div>
+
     <!-- Mobile-->
     <?php include '../php/mobile_en.php'; ?>
 

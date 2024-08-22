@@ -51,13 +51,13 @@ $(function(){
 		})
 	//ä¸‹æ‹‰é€ç”¨
 	$('.select').each(function(i){
-		function showFn(selectObj) {	//å±•å¼€æ•ˆæœ
-			// æå…¶ä»–ç„ä¸‹æ‹‰æ”¶èµ·
+		function showFn(selectObj) {	
+			
 			$('.select').children("dd").slideUp(200);
 			selectObj.children("dd").slideDown(200);
 			selectObj.addClass('on');
 		}  
-		function hideFn(selectObj){    //å…³é—­æ•ˆæœ
+		function hideFn(selectObj){   
 			selectObj.children("dd").slideUp(200);
 			selectObj.removeClass('on');
 		}

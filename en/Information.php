@@ -198,34 +198,8 @@ else {
                 </div>
             </div>
         </div>
-        <!---->
-        <div class="navLayer">
-            <div class="bg">
-                <div class="toptop">
-                    <a href="/en" class="logo"><img src="../images/20221010151821394.png" alt="Qman Toys"></a>
-                    <div class="txt">Home</div>
-                    <a href="javascript:;" class="closeBtn"><img src="/images/close.png"></a>
-                </div>
-                <div class="sideNav">
-                    <div class="subNav"><a href="/en"><img src="/../images/20220825135842913.png" alt="">Our Story</a>
-                    </div>
-                    <div class="subNav"><a href="/en/product/"><img src="/../images/20220825135859657.png" alt="">Our
-                            Products</a></div>
-
-                    <div class="subNav"><a href="/en/Contact/"><img src="/../images/20220825135930547.png"
-                                alt="">Contact
-                            Us</a></div>
-                </div>
-                <div class="lan">
-                    <ul>
-                        <li><a href="javascript:;" class="cur">EN</a></li>
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!---->
+    <!-- Mobile-->
+    <?php include '../php/mobile_en.php'; ?>
 
     <div style="margin-top:80px" class="container light-style flex-grow-1 container-p-y">
         <h4 class="font-weight-bold py-3 mb-4">
