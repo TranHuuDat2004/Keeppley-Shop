@@ -7,6 +7,74 @@
     <?php include '../php/login.php'; ?>
     <?php include '../php/getUser.php'; ?>
 </head>
+<style>
+    .bg-background {
+        background-color: #ffffff;
+    }
+
+    .text-foreground {
+        color: #333333;
+    }
+
+    .text-muted-foreground {
+        color: #888888;
+    }
+
+    .hover\:bg-gray-100:hover {
+        background-color: #f0f0f0;
+    }
+
+    .border-border {
+        border-color: #dddddd;
+    }
+
+    .hover\:bg-gray-200:hover {
+        background-color: #e2e2e2;
+    }
+
+    .qman-btn {
+        margin-top: 40px;
+        background-color: yellow;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    .qman-btn:hover {
+        background-color: #fffd7d;
+    }
+
+    .keeppley-btn {
+        background-color: none;
+        margin-top: 40px;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    .keeppley-btn:hover {
+        background-color: #cfcfcf;
+    }
+
+    .lego-btn {
+        margin-top: 40px;
+        background-color: #e74c3c;
+        color: white;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    .lego-btn:hover {
+        background-color: #ff0000;
+    }
+</style>
 
 <body>
 
@@ -16,80 +84,42 @@
     <!-- Mobile-->
     <?php include '../php/mobile_en.php'; ?>
 
-    <div class="productBox" style="background-image: url(../images/index.png);">
-        <div class="wal">
-            <div class="txtDiv">
-                <div class="txt">Veteran Innovation<br>
-                    Team</div>
-                <div class="msg">100+ Member Research, Development<br>
-                    and Manufacturing Technology Team<br>
-                    make Innovation the gene of our products.</div>
-
-            </div>
-
-            <div style="padding-top:300px" class="btnGroup">
-                <ul>
-
-                    <!-- <li><a href="#page-100000003464980" class="ico_h">Qman Products</a></li>
-
-                    <li><a href="#page-100000010724924" class="ico_h">Keeppley Products</a></li> -->
-
-                </ul>
-            </div>
-
+    <div style="margin-bottom: 50px;" class="swiper-slide pageSlide indexP2 cur swiper-slide-next">
+        <div class="bg PC-Box" style="background-image: url(../images/index.png); padding-top: 20px;">
         </div>
-        <!-- <div id="page" class="page swiper-container-vertical">
-            <div class="swiper-wrapper" id="page-swiper-wrapper"
-                style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
-
-
-                <div class="swiper-slide pageSlide indexP0 swiper-slide-prev">
-                    <div class="bg PC-Box" style="background-image: url(../images/20220824183344032.jpg);"></div>
-                    <div class="bg Phone-Box" style="background-image: url(../images/20220824183350814.jpg);"></div>
-
-                    <div class="txtLayer">
-                        <div class="txt">Qman Toys</div>
-                        <div class="wen">Leading manufacturer of Chinese Toy, which has been producing original
-                            building
-                            blocks since 1994.</div>
-                    </div>
-
+        <div class="bg Phone-Box"><img src="../images/index.png" alt="A new generation block brand, born in 2019.">
+        </div>
+        <div class="wal">
+            <div class="conDiv">
+                <div class="limg"><img src="../images/2022101014476761.png"
+                        alt="A new generation block brand, born in 2019."></div>
+                <div style="color: black;" class="txt">A leading Chinese toy brand, specializing in original building
+                    blocks since 1994.</div>
+                <div style="color: black;" class="content">
+                    <p>The journey of Qman began in 1994, sparked by Mr. Zhan Kehua's realization of his children's deep
+                        love
+                        for building blocks. This passion inspired the creation of an original Chinese brand focused on
+                        building
+                        blocks.</p>
+                    <p>Today, Qman has evolved into more than just a children's toy brand—it is a celebrated national
+                        brand that
+                        has grown alongside multiple generations. We are committed to the brand philosophy that "Qman
+                        blocks
+                        make dreams come true," and together with our customers, we use small building pieces to bring
+                        dreams to
+                        life.</p>
                 </div>
+                <button id="button-add" class="qman-btn">View Products</button>
             </div>
+        </div>
+        <!-- <div class="botImg">
+            <img src="../images/20221010121217938.png" class="PC-Box" alt="Brand Histroy">
+            <img src="../images/20221010121225833.png" class="Phone-Box" alt="Brand Histroy">
         </div> -->
     </div>
 
-    <div class="swiper-slide pageSlide indexP1 swiper-slide-active">
-        <div class="wal">
-            <div class="limg"><img src="../images/2022101014476761.png"
-                    alt="Chinese Toy Backbone Brand. Has been creating original building blocks since 1994.">
-            </div>
-            <div class="txt">Chinese Toy Backbone Brand. Has been creating original building blocks
-                since 1994.
-            </div>
-            <div class="content">A brand which is made of Love. The whole story of Qman started since
-                1994, when
-                Mr. Zhan Kehua noticed that his two children had grand passions for building blocks. It
-                was also
-                when the idea to create a Chinese original building blocks brand came up.<br>Nowadays,
-                Qman is
-                not merely a brand of children's toys, yet a classic national toy brand which has been
-                growing
-                with generation after generation. We have always been practicing the brand concept of
-                Qman
-                blocks make dream come true. Along with our consumers, we use tiny block pieces to
-                lighten the
-                dreams. </div>
-            <div class="title Phone-Box">Brand Histroy</div>
-        </div>
-        <div class="botImg">
-            <img src="../images/20221010121217938.png" class="PC-Box" alt="Brand Histroy">
-            <img src="../images/20221010121225833.png" class="Phone-Box" alt="Brand Histroy">
-        </div>
-    </div>
-
-    <div class="swiper-slide pageSlide indexP2 cur swiper-slide-next">
-        <div class="bg PC-Box" style="background-image: url(../images/20220906090844329.jpg);">
+    <div style="margin-bottom: 20px;" class="swiper-slide pageSlide indexP2 cur swiper-slide-next">
+        <div class="bg PC-Box" style="background-image: url(../images/20220906090844329.jpg); padding-top: 20px;">
         </div>
         <div class="bg Phone-Box"><img src="../images/20220906090914242.jpg"
                 alt="A new generation block brand, born in 2019."></div>
@@ -98,12 +128,19 @@
                 <div class="limg"><img src="../images/2022082419251955.png"
                         alt="A new generation block brand, born in 2019."></div>
                 <div class="txt">A new generation block brand, born in 2019.</div>
-                <div class="content">A new generation block brand, born in 2019.<br>Focusing on
-                    providing
-                    consumers with high quality and cost-effective building blocks with legitimate IP
-                    authorization, Keeppley enables more and more China's new generation to express
-                    themselves
-                    and to "build a world for themselves“.</div>
+                <div class="content">
+                    <p>Keeppley is a new-generation brand under Qman, a company that has specialized in producing
+                        building block
+                        models similar to LEGO since 1994.
+                        Keeppley focuses on offering players high-quality,
+                        officially licensed products at affordable prices, making them accessible to anyone.</p><br>
+                    <p>Keeppley's product range is incredibly diverse, spanning creative house and shop models,
+                        magnificent
+                        architectural structures, as well as unique themes like Pokémon, Doraemon, and other anime and
+                        manga
+                        series.</p>
+                </div>
+                <button id="button-add" class="keeppley-btn">View Products</button>
             </div>
         </div>
     </div>
@@ -114,23 +151,33 @@
 
 
         <div class="wal">
-            <div class="txt">Social Responsibility</div>
-            <div class="content">As an enterprise with social responsibility, Qman Toys has always been
-                aiming
-                to become a forerunner of standard and quality of Chinese building blocks and continuing
-                to
-                provide consumers with products that come with safety commitment and quality assurance.
-                We have
-                been granted with many international qualification certifications, which makes us in a
-                leading
-                position of the whole industry, and have become one of Chinese toy brands with safety
-                commitment. From material, design to producing and crafting, we strictly manage the
-                whole
-                quality assurance process to make sure each product is compliant and safe.</div>
-            <div class="txtImg">
-                <img src="../images/20221010121245689.png" class="PC-Box" alt="Social Responsibility">
-                <img src="../images/20221010121252957.png" class="Phone-Box" alt="Social Responsibility">
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <img src="../images/LEGO_logo.png" alt="">
             </div>
+            <div class="content">
+                <p><strong>Imagination:</strong> Promoting free play as a means to foster creativity and curiosity, and
+                    to
+                    explore the possibilities of turning the ordinary into something extraordinary.</p>
+
+                <p><strong>Creativity:</strong> Blending logical thinking with playfulness to generate new, surprising,
+                    and
+                    valuable ideas—an essential skill for thriving in the modern world.</p>
+
+                <p><strong>Fun:</strong> Embracing the joy of activity, adventure, and the satisfaction that comes from
+                    mastering challenges.</p>
+
+                <p><strong>Learning:</strong> Highlighting the importance of curiosity, experimentation, and
+                    collaboration
+                    in gaining new skills and insights through play.</p>
+
+                <p><strong>Caring:</strong> Committing to positively impact the lives of children, our teams, partners,
+                    and
+                    the broader world.</p>
+
+                <p><strong>Quality:</strong> Striving for continuous improvement to deliver top-quality products and
+                    experiences, earning trust and recommendations.</p>
+            </div>
+            <button id="button-add" class="lego-btn">View Products</button>
         </div>
 
     </div>
@@ -192,4 +239,5 @@
 </body>
 <?php include 'footer.php'; ?>
 <?php include 'cart.php'; ?>
+
 </html>

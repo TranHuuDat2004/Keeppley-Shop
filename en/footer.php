@@ -1,5 +1,9 @@
-<footer style="background-color: #f5f5f5; padding: 20px 0; font-family: Arial, sans-serif; font-size:20px ">
-    <div style="display: flex; justify-content: space-around; flex-wrap: wrap; padding-left:30px">
+<footer style="padding: 20px 0; font-family: Arial, sans-serif; font-size:20px ">
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <img src="../images/17.png" alt="" class="f-cute">
+    </div>
+    <div
+        style="background-color: #f5f5f5; display: flex; justify-content: space-around; flex-wrap: wrap; padding-left:30px">
         <!-- LEGAL -->
         <div style="flex: 1 1 200px; max-width: 15%; ">
             <p class="label-footer">LEGAL</p>
@@ -12,7 +16,7 @@
         </div>
 
         <!-- SERVICES -->
-        <div style="flex: 1 1 200px; max-width: 15%; ">
+        <div style="flex: 1 1 200px; max-width: 15%; background-color: #f5f5f5;">
             <p class="label-footer">SERVICES</p>
             <ul style="list-style: none; padding-left: 0;">
                 <li><a href="#">Track Order</a></li>
@@ -23,7 +27,7 @@
         </div>
 
         <!-- GET IN TOUCH -->
-        <div style="flex: 1 1 200px; max-width: 15%; ">
+        <div style="flex: 1 1 200px; max-width: 15%; background-color: #f5f5f5;">
             <p class="label-footer">GET IN TOUCH</p>
             <p>Any questions? Let us know in store at 8th floor,
                 379 Hudson St, New York, NY 10018 <br>
@@ -36,7 +40,7 @@
         </div>
 
         <!-- NEWSLETTER -->
-        <div style="flex: 1 1 200px; max-width: 15%;">
+        <div style="flex: 1 1 200px; max-width: 15%; background-color: #f5f5f5;">
             <p class="label-footer">NEWSLETTER</p>
             <input type="email" placeholder="email@example.com"
                 style="width: 150px; padding: 10px; margin-bottom: 10px;">
@@ -45,9 +49,9 @@
         </div>
     </div>
 
-    <hr style="margin: 20px 0;">
+    <!-- <hr style="margin: 20px 0; background-color: #f5f5f5;"> -->
 
-    <div style="text-align: center;">
+    <div style="text-align: center; background-color: #f5f5f5;">
         <img src="../icons/icon-pay-01.png" alt="Payment Methods" style="margin-top: 10px;">
         <img src="../icons/icon-pay-02.png" alt="Payment Methods" style="margin-top: 10px;">
         <img src="../icons/icon-pay-03.png" alt="Payment Methods" style="margin-top: 10px;">
@@ -64,20 +68,20 @@
         color: #000;
         text-decoration: none;
         font-size: 14px;
-        padding-bottom:30px
+        padding-bottom: 30px
     }
 
     footer p {
         color: #000;
         text-decoration: none;
         font-size: 14px;
-        padding-bottom:30px;
-        padding-top:18px
+        padding-bottom: 30px;
+        padding-top: 18px
     }
 
     footer a:hover {
         text-decoration: underline;
-        padding-bottom:30px
+        padding-bottom: 30px
     }
 
     footer i {
@@ -88,15 +92,15 @@
     footer input[type="email"] {
         border: 1px solid #ccc;
         border-radius: 4px;
-        padding-bottom:30px
+        padding-bottom: 30px
     }
 
     footer button {
         border-radius: 4px;
-        padding-bottom:30px
+        padding-bottom: 30px
     }
 
-    .label-footer{
+    .label-footer {
         font-weight: bold;
         font-size: 18px;
     }

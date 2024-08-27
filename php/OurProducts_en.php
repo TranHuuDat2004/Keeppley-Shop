@@ -13,8 +13,8 @@
             </div>
             <div class="nav">
                 <ul>
-                    <li><a href="../en/index.php" >Our Story</a></li>
-                    <li><a href="../en/product.php" class="on" >Our Products</a></li>
+                    <li><a href="../en/index.php" >Home</a></li>
+                    <li><a href="../en/product.php" class="on" >Products</a></li>
 
                     <li><a href="/en/Contact/">Contact Us</a></li>
                 </ul>

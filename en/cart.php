@@ -89,8 +89,6 @@
 </head>
 
 <body>
-    <!-- Giỏ hàng Button -->
-    <button id="cartButton">Giỏ hàng</button>
 
     <!-- Sidebar -->
     <div id="cartSidebar" class="cart-sidebar">
