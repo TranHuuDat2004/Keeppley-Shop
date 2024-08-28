@@ -109,7 +109,7 @@
                         dreams to
                         life.</p>
                 </div>
-                <button id="button-add" class="qman-btn">View Products</button>
+                <a href="Qman_Products.php"><button id="button-add" class="qman-btn">View Products</button></a>
             </div>
         </div>
         <!-- <div class="botImg">
@@ -118,7 +118,7 @@
         </div> -->
     </div>
 
-    <div style="margin-bottom: 20px;" class="swiper-slide pageSlide indexP2 cur swiper-slide-next">
+    <div style="margin-bottom: 50px;" class="swiper-slide pageSlide indexP2 cur swiper-slide-next">
         <div class="bg PC-Box" style="background-image: url(../images/20220906090844329.jpg); padding-top: 20px;">
         </div>
         <div class="bg Phone-Box"><img src="../images/20220906090914242.jpg"
@@ -140,7 +140,7 @@
                         manga
                         series.</p>
                 </div>
-                <button id="button-add" class="keeppley-btn">View Products</button>
+                <a href="Keeppley_Products.php"><button id="button-add" class="keeppley-btn">View Products</button></a>
             </div>
         </div>
     </div>
@@ -149,10 +149,9 @@
 
     <div class="swiper-slide pageSlide indexP3">
 
-
         <div class="wal">
             <div style="display: flex; justify-content: center; align-items: center;">
-                <img src="../images/LEGO_logo.png" alt="">
+                <img src="../images/LEGO_logo.png" alt="">                
             </div>
             <div class="content">
                 <p><strong>Imagination:</strong> Promoting free play as a means to foster creativity and curiosity, and
@@ -177,7 +176,15 @@
                 <p><strong>Quality:</strong> Striving for continuous improvement to deliver top-quality products and
                     experiences, earning trust and recommendations.</p>
             </div>
-            <button id="button-add" class="lego-btn">View Products</button>
+            <div class="txt">Top LEGO Category</div>
+            <div style="display: flex; justify-content: center; align-items: center; padding:20px">
+                <a href=""><img style="padding:20px" src="../images/LegoChima.jfif" alt="" height="150" width="275">  </a>
+                <a href=""><img style="padding:20px" src="../images/LegoNexoKnights.jfif" alt="" height="150"  width="275">  </a>
+                <a href=""><img style="padding:20px" src="../images/LEGO-City-logo.jpg" alt="" height="150"  width="275">  </a>
+                <a href=""><img style="padding:20px" src="../images/LegoNinjago.jfif" alt="" height="150"  width="275"> </a>
+            </div>
+
+            <!-- <a href="LEGO_Products.php"><button id="button-add" class="lego-btn">View Products</button></a> -->
         </div>
 
     </div>

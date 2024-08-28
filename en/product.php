@@ -10,7 +10,13 @@
 </head>
 
 <style>
+    body {
+        background-color: white;
+    }
 
+    .productBox{
+        padding-top: 80px;
+    }
 </style>
 
 <body>
@@ -21,34 +27,16 @@
 
     <!---->
 
-
-    <div class="productBox" style="background-image: url(../images/index.png);">
+    <div class="productBox">
         <div class="wal">
-            <div class="txtDiv">
-                <div class="txt">Veteran Innovation<br>
-                    Team</div>
-                <div class="msg">100+ Member Research, Development<br>
-                    and Manufacturing Technology Team<br>
-                    make Innovation the gene of our products.</div>
-
+        <div>
+                <img style="height:75%; " src="../images/Products.png" class="PC-Box" alt="Doraemon" />
+                <img src="../images/Products.png" class="Phone-Box" alt="Doraemon" />
             </div>
-
-            <div class="btnGroup">
-                <ul>
-
-                    <li><a href="#page-100000003464980" class="ico_h">Qman Products</a></li>
-
-                    <li><a href="#page-100000010724924" class="ico_h">Keeppley Products</a></li>
-
-                </ul>
-            </div>
-
-
-            <div style="margin-top:120px" class="title " id="page-100000003464980">Qman Products</div>
+            <div class="title">Qman Products</div>
             <div class="list">
                 <ul>
                     <?php
-
                     $sqlQman = "SELECT * FROM `Category` WHERE `provider` = 'Qman'";
                     $result = mysqli_query($conn, $sqlQman);
 
@@ -61,13 +49,15 @@
                             ?>
                             <li>
                                 <div class="box">
-                                    <div class="imgDiv"><a href="../en/doraemon.php" target="_blank"><img
+                                    <div class="imgDiv"><a
+                                            href="../en/Category_Product.php?id=<?php echo $category['id']; ?>"><img
                                                 src="../images/<?php echo $product_images[0]; ?>"
                                                 alt="<?php echo $category['name_en'] ?>"></a>
                                     </div>
                                     <div class="botDiv">
-                                        <div class="name"><a href="../en/doraemon.php"
-                                                target="_blank"><?php echo $category['name_en'] ?></a></div>
+                                        <div class="name"><a
+                                                href="../en/Category_Product.php?id=<?php echo $category['id']; ?>"><?php echo $category['name_en'] ?></a>
+                                        </div>
                                     </div>
                                 </div>
                             </li>
@@ -83,7 +73,7 @@
                 style="display: none;"><a href="javascript:;">
                     More Series &gt;</a></div>
 
-            <div class="title title2" id="page-100000010724924">Keeppley Products</div>
+            <div class="title title2">Keeppley Products</div>
             <div class="list">
                 <ul>
                     <?php
@@ -106,7 +96,45 @@
                                                 alt="<?php echo $category['name_en'] ?>"></a>
                                     </div>
                                     <div class="botDiv">
-                                        <div class="name"><a href="../en/doraemon.php"><?php echo $category['name_en'] ?></a>
+                                        <div class="name"><a
+                                                href="../en/Category_Product.php?id=<?php echo $category['id']; ?>"><?php echo $category['name_en'] ?></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <?php
+
+                        endwhile;
+                    ?>
+                </ul>
+                <div class="clear_f"></div>
+            </div>
+
+            <div class="title">LEGO Products</div>
+            <div class="list">
+                <ul>
+                    <?php
+
+                    $sqlKeeppley = "SELECT * FROM `Category` WHERE `provider` = 'LEGO'";
+                    $result = mysqli_query($conn, $sqlKeeppley);
+
+                    // Kiểm tra xem có kết quả trả về không
+                    if ($result->num_rows > 0)
+                        while ($category = $result->fetch_assoc()):
+
+                            // Tách chuỗi hình ảnh thành mảng và loại bỏ khoảng trắng thừa
+                            $product_images = array_map('trim', explode(',', $category["images"]));
+                            ?>
+                            <li>
+                                <div class="box">
+                                    <div class="imgDiv"><a
+                                            href="../en/Category_Product.php?id=<?php echo $category['id']; ?>"><img
+                                                src="../images/<?php echo $product_images[0]; ?>"
+                                                alt="<?php echo $category['name_en'] ?>"></a>
+                                    </div>
+                                    <div class="botDiv">
+                                        <div class="name"><a
+                                                href="../en/Category_Product.php?id=<?php echo $category['id']; ?>"><?php echo $category['name_en'] ?></a>
                                         </div>
                                     </div>
                                 </div>
@@ -125,8 +153,7 @@
 
         </div>
     </div>
-
-
+    </div>
 
     <script language="javascript" type="text/javascript" src="../script/js.js"></script>
 

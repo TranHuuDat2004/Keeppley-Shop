@@ -1,11 +1,11 @@
 <?php
-$website = "Category_Product.php?id=" . $id;
 
 include '../php/login.php';
 include '../php/getUser.php';
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-
+    $website = "Category_Product.php?id=" . $id;
+    
     // Truy vấn chi tiết danh mục dựa trên id
     $sqlCategory = "SELECT * FROM `category` WHERE `id` = '$id'";
     $resultCategory = mysqli_query($conn, $sqlCategory);

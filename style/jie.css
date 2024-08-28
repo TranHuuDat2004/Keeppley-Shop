@@ -35,7 +35,7 @@ body {
 }
 
 .productBox {
-    padding-top: 2rem;
+    padding-top: 1rem;
 }
 
 .productBox .btnGroup {
@@ -43,7 +43,7 @@ body {
 }
 
 .productBox .list li .botDiv {
-    height: 200px;
+    height: 100px;
 }
 
 .productBox .list li .name a {
@@ -170,7 +170,7 @@ body {
     }
 
     .productBox {
-        padding: 3.2rem 0.3rem 0.8rem;
+        padding: 3rem 0.3rem 0.8rem;
     }
 
     .productBox .list li .botDiv {

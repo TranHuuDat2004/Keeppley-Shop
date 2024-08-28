@@ -288,6 +288,7 @@ if (isset($_POST['sbm'])) {
                   <option>Select Provider</option>
                   <option>Qman</option>
                   <option>Keeppley</option>
+                  <option>LEGO</option>
                 </select>
               </div>
 

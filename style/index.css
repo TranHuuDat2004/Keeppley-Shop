@@ -268,7 +268,7 @@
 }
 
 .productBox {
-  padding: 200px 0 70px;
+  padding:120px 0 70px;
   background: center top no-repeat;
   background-size: 100%;
 }
@@ -290,7 +290,7 @@
 }
 
 .productBox .btnGroup {
-  padding: 220px 0 150px;
+  padding: 120px 0 150px;
 }
 
 .productBox .btnGroup li {
@@ -452,7 +452,7 @@
 }
 
 .productList .pbanner img {
-  width: 1200px;
+  width: 1000px;
 }
 
 .productList .title {
