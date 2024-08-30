@@ -9,6 +9,7 @@
 <html style="font-size: 80px;">
 
 <head>
+<title>Page Not Found</title>
     <?php include '../php/head.php'; ?>
     <?php include '../php/login.php'; ?>
     <?php include '../php/getUser.php'; ?>

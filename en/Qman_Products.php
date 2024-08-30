@@ -6,7 +6,7 @@
     <?php include '../php/head.php'; ?>
     <?php include '../php/login.php'; ?>
     <?php include '../php/getUser.php'; ?>
-
+    <title>Qman Products</title>
 </head>
 
 <style>
@@ -14,12 +14,25 @@
         background-color: white;
     }
 
-    .productBox{
-        padding-top: 80px;        
+    .productBox {
+        padding-top: 80px;
+        padding-bottom: 0px;
     }
 
-    .title{
-        padding-top: 50px;  
+    .productList {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .productBox {
+            padding-top: 10px;
+            padding-bottom: 0px;
+        }
+        .wal{
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
     }
 </style>
 
@@ -32,11 +45,15 @@
     <!---->
 
     <div class="productBox">
-        <div class="wal">
-        <div>
-                <img style="height:75%; " src="../images/Qman_Wallpaper.png" class="PC-Box" alt="Doraemon" />
-                <img style="height:75%; " src="../images/Qman_Wallpaper.png" class="Phone-Box" alt="Doraemon" />
+        <div class="productList">
+            <div class="wal">
+                <div class="pbanner">
+                    <img style="height:75%; " src="../images/Qman_Wallpaper.png" class="PC-Box" alt="Doraemon" />
+                    <img  src="../images/Qman_Wallpaper.png" class="Phone-Box" alt="Doraemon" />
+                </div>
             </div>
+        </div>
+        <div class="wal">
             <div class="title">Qman Products</div>
             <div class="list">
                 <ul>

@@ -1,7 +1,7 @@
-<?php 
+<?php
 include '../php/login.php';
 // Chưa đăng nhập 
-if (isset($_SESSION["userID"])){
+if (isset($_SESSION["userID"])) {
     $userID = $_SESSION["userID"];
     // print_r($userName);
     $sqlLogin = "SELECT * FROM `User` WHERE userID = '$userID' ";
@@ -23,9 +23,7 @@ if (isset($_SESSION["userID"])){
         "country" => $row["country"],
         "phone" => $row["phone"]
     );
-}
-
-else {    
+} else {
     // Chưa đăng nhập 
     header('Location: ../php/form_login_en.php');
     exit();
@@ -38,7 +36,7 @@ else {
 
 <head>
     <meta charset="utf-8">
-    <title>Account Settings - Bootdey.com</title>
+    <title>Account Settings</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -166,6 +164,18 @@ else {
         .btn-cancel:hover {
             background-color: #f5f5f5;
         }
+
+        .btn-setting {
+            margin-bottom: 30px;
+            margin-right: 30px
+        }
+
+        @media only screen and (max-width: 600px) {
+            .btn-setting {
+                margin-bottom: 18px;
+                margin-right: 18px
+            }
+        }
     </style>
 </head>
 
@@ -175,19 +185,18 @@ else {
             <!-- Important -->
             <div class="wal">
                 <a href="../en/product.php" class="logo">
-                    <img src="../images/20221010151814746.png" class="PC-Box" alt="Qman Toys">
-                    <img src="../images/20221010151821394.png" class="Phone-Box" alt="Qman Toys">
+                    <img src="../images/logo.png" class="PC-Box" alt="Qman Toys">
                 </a>
 
                 <div class="lan">
                     <ul>
                         <!-- Show Icon cart  -->
                         <li><a href="../en/product.php" class="fa-solid fa-house btn-cart" style="color: #000000;"></a>
-                        </li>       
+                        </li>
                         <!-- Header Account Settings -->
-                        <?php 
+                        <?php
                         $website = 'ChangePassword.php';
-                        include '../php/SettingUserHeader_en.php'; 
+                        include '../php/SettingUserHeader_en.php';
                         ?>
                     </ul>
                 </div>
@@ -222,6 +231,9 @@ else {
     </div>
     <!---->
     <div style="margin-top:80px" class="container light-style flex-grow-1 container-p-y">
+        <a href="../en/product.php" class="logo">
+            <img src="../images/logo.png" class="Phone-Box" alt="Qman Toys" height="40">
+        </a>
         <h4 class="font-weight-bold py-3 mb-4">
             Account settings
         </h4>
@@ -230,6 +242,7 @@ else {
                 <div class="col-md-3 pt-0">
                     <div class="list-group list-group-flush account-settings-links">
                         <a class="list-group-item list-group-item-action" href="general.php">General</a>
+                        <a class="list-group-item list-group-item-action" href="Image.php">Image</a>
                         <a class="list-group-item list-group-item-action active" href="ChangePassword.php">Change
                             password</a>
                         <a class="list-group-item list-group-item-action" href="Information.php">Information</a>
@@ -241,16 +254,17 @@ else {
                 <div class="col-md-9">
                     <div class="tab-content">
                         <div class="tab-pane fade active show" id="account-change-password">
-                            <div class="card-body pb-2">
+                            <form action="../php/ChangePassword.php" method="POST" id="accountForm">
+                                <div class="card-body pb-2">
 
-                                <?php
-                                if (isset($_SESSION['success_message'])) {
-                                    echo '<div class="alert alert-success">' . $_SESSION['success_message'] . '</div>';
-                                    unset($_SESSION['success_message']); // Xóa thông báo sau khi hiển thị
-                                }
-                                ?>
+                                    <?php
+                                    if (isset($_SESSION['success_message'])) {
+                                        echo '<div class="alert alert-success">' . $_SESSION['success_message'] . '</div>';
+                                        unset($_SESSION['success_message']); // Xóa thông báo sau khi hiển thị
+                                    }
+                                    ?>
 
-                                <form action="../php/ChangePassword.php" method="POST" id="accountForm">
+
                                     <div class="form-group">
                                         <input type="hidden" name="userID" value="<?php echo $userLogin['userID'] ?>">
                                         <label class="form-label">Current password</label>
@@ -301,23 +315,24 @@ else {
                                         <input type="checkbox" onclick="togglePasswordVisibility('repeatNewPassword')">
                                         Show Password
                                     </div>
-                                    <div class="text-right mt-3">
-                                        <button style="margin-bottom:30px; margin-right:30px" type="submit"
-                                            class="btn btn-primary">Save changes</button>
-                                        <button style="margin-bottom:30px; margin-right:30px" type="button"
-                                            class="btn btn-default btn-cancel" id="cancelButton">Cancel</button>
-                                        <!-- Nút Đăng Xuất - Responsive -->
-                                        <a style="margin-bottom:30px; margin-right:10px" href="../php/logout.php"
-                                            class="btn btn-danger">Logout</a>
-                                    </div>
-                                </form>
-                            </div>
+                                </div>
+                                <div class="text-right mt-3">
+                                    <button type="submit" class="btn btn-primary btn-setting">Save
+                                        changes</button>
+                                    <button type="button" class="btn btn-default btn-cancel btn-setting"
+                                        id="cancelButton">Cancel</button>
+                                    <!-- Nút Đăng Xuất -->
+                                    <a href="../php/logout.php" class="btn btn-danger btn-setting">Logout</a>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
+
 
     <script>
         function togglePasswordVisibility(inputId) {

@@ -8,9 +8,12 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
   <!-- Add favicon here -->
-  <link rel="icon" href="../images/keeppley_logo.webp" type="image/x-icon">
+  <link rel="icon" href="../images/favicon.png" type="image/x-icon">
 
   <style>
+    p{
+      font-size: 20px;
+    }
     .bg-background {
       background-color: #ffffff;
     }
@@ -39,7 +42,7 @@
 
 <body class="bg-background flex flex-col items-center justify-center min-h-screen p-4">
   <div class="text-center mb-8">
-    <img src="../images/20221010151814746.png" alt="Logo" class="mx-auto mb-4">
+    <a href="../en/index.php"><img src="../images/logo.png" alt="Logo" class="mx-auto mb-4"></a>
     <p class="text-blue-500">Please <span class="font-bold">CHOOSE A ROLE</span> to <span class="font-bold">LOG IN</span> to the system</p>
   </div>
 

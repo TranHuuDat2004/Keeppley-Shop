@@ -95,8 +95,6 @@
 
 	.headDiv .lan li {
 		font-size: 16px;
-
-		
 	}
 
 	.indexP0 .txt {
@@ -109,14 +107,14 @@
 		line-height: 26px;
 	}
 
-	/* .indexP1  */
 	.indexP1 .limg img {
-		width: 280px;
+		width: 145px;
 	}
 
 	.indexP1 .txt {
 		font-size: 32px;
 		line-height: 32px;
+		padding: 20px 0;
 	}
 
 	.indexP1 .content {
@@ -124,7 +122,15 @@
 		line-height: 30px;
 	}
 
-	/* .indexP2  */
+	.indexP1 .botImg {
+		width: 16.0rem;
+		margin-left: -8.0rem;
+	}
+
+	.indexP1 .botImg img {
+		width: 85%;
+	}
+
 	.indexP2 .limg img {
 		width: 280px;
 	}
@@ -174,7 +180,7 @@
 	}
 
 	.productBox .btnGroup {
-		padding: 100px 0 110px;
+		padding: 150px 0 110px;
 	}
 
 	.productBox .title {
@@ -373,11 +379,17 @@
 	.indexP1 .txt {
 		font-size: 28px;
 		line-height: 28px;
+		padding: 15px 0;
 	}
 
 	.indexP1 .content {
 		font-size: 14px;
 		line-height: 26px;
+	}
+
+	.indexP1 .botImg {
+		width: 15.0rem;
+		margin-left: -7.5rem;
 	}
 
 	.indexP2 .txt {
@@ -417,7 +429,6 @@
 	.nav,
 	.headDiv .lan {
 		display: none;
-		
 	}
 
 	.Phone-Box {
@@ -478,42 +489,47 @@
 		padding-right: 0.3rem;
 	}
 
-	/* .indexP1 */
-	.indexP1 .bg {
-		position: relative;
+	.indexP1 {
+		padding: 1.0rem 0;
 	}
 
-	.indexP1 .bg img {
-		width: 100%;
-	}
-
-	.indexP1 .conDiv {
-		position: absolute;
-		text-align: center;
-		padding-top: 0.8rem;
-		top: 0;
-		left: 0.3rem;
-		right: 0.3rem;
-		width: auto;
+	.indexP1 .limg {
+		padding-top: 0;
 	}
 
 	.indexP1 .limg img {
-		width: 3.0rem;
+		width: 2.4rem;
 	}
 
 	.indexP1 .txt {
 		font-size: 0.42rem;
+		line-height: 0.52rem;
+		padding: 0.25rem 0.3rem 0.4rem;
+	}
+
+	.indexP1 .title {
+		font-size: 0.42rem;
 		line-height: 0.42rem;
-		padding: 0.25rem 0;
 	}
 
 	.indexP1 .content {
 		font-size: 0.26rem;
+		padding: 0 0.3rem;
 		line-height: 0.48rem;
 	}
 
+	.indexP1 .botImg {
+		position: relative;
+		left: 0;
+		width: 100%;
+		margin-left: 0;
+		text-align: center;
+	}
 
-	/* .indexP2 */
+	.indexP1 .botImg img {
+		margin: 0 auto;
+	}
+
 	.indexP2 .bg {
 		position: relative;
 	}
@@ -588,7 +604,7 @@
 	}
 
 	.productBox {
-		padding: 3rem 0.3rem 0.8rem;
+		padding: 3.2rem 0.3rem 0.8rem;
 		background: right top no-repeat;
 		background-size: 130%;
 	}

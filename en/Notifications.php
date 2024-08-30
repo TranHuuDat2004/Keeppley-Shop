@@ -1,7 +1,7 @@
-<?php 
+<?php
 include '../php/login.php';
 // Chưa đăng nhập 
-if (isset($_SESSION["userID"])){
+if (isset($_SESSION["userID"])) {
     $userID = $_SESSION["userID"];
     // print_r($userName);
     $sqlLogin = "SELECT * FROM `User` WHERE userID = '$userID' ";
@@ -23,9 +23,7 @@ if (isset($_SESSION["userID"])){
         "country" => $row["country"],
         "phone" => $row["phone"]
     );
-}
-
-else {    
+} else {
     // Chưa đăng nhập 
     header('Location: ../php/form_login_en.php');
     exit();
@@ -37,7 +35,7 @@ else {
 
 <head>
     <meta charset="utf-8">
-    <title>Account Settings - Bootdey.com</title>
+    <title>Account Settings</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -46,7 +44,7 @@ else {
 
     <!-- Important -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Thêm favicon vào đây -->
     <link rel="icon" href="../images/keeppley_logo.webp" type="image/x-icon">
     <style type="text/css">
@@ -164,6 +162,18 @@ else {
         .btn-cancel:hover {
             background-color: #f5f5f5;
         }
+
+        .btn-setting {
+            margin-bottom: 30px;
+            margin-right: 30px
+        }
+
+        @media only screen and (max-width: 600px) {
+            .btn-setting {
+                margin-bottom: 20px;
+                margin-right: 20px
+            }
+        }
     </style>
 </head>
 
@@ -173,21 +183,21 @@ else {
             <!-- Important -->
             <div class="wal">
                 <a href="../en/product.php" class="logo">
-                    <img src="../images/20221010151814746.png" class="PC-Box" alt="Qman Toys">
-                    <img src="../images/20221010151821394.png" class="Phone-Box" alt="Qman Toys">
+                    <img src="../images/logo.png" class="PC-Box" alt="Qman Toys">
                 </a>
 
                 <div class="lan">
                     <ul>
                         <!-- Show Icon cart  -->
-                        <li><a href="../en/product.php" class="fa-solid fa-house btn-cart" style="color: #000000;"></a> </li>
+                        <li><a href="../en/product.php" class="fa-solid fa-house btn-cart" style="color: #000000;"></a>
+                        </li>
 
                         <!-- Header Account Settings -->
-                        <?php 
+                        <?php
                         $website = 'Notifications.php';
-                        include '../php/SettingUserHeader_en.php'; 
+                        include '../php/SettingUserHeader_en.php';
                         ?>
-                        
+
                     </ul>
                 </div>
             </div>
@@ -222,6 +232,9 @@ else {
     <!---->
 
     <div style="margin-top:80px" class="container light-style flex-grow-1 container-p-y">
+        <a href="../en/product.php" class="logo">
+            <img src="../images/logo.png" class="Phone-Box" alt="Qman Toys" height="40">
+        </a>
         <h4 class="font-weight-bold py-3 mb-4">
             Account settings
         </h4>
@@ -230,6 +243,7 @@ else {
                 <div class="col-md-3 pt-0">
                     <div class="list-group list-group-flush account-settings-links">
                         <a class="list-group-item list-group-item-action" href="general.php">General</a>
+                        <a class="list-group-item list-group-item-action" href="Image.php">Image</a>
                         <a class="list-group-item list-group-item-action" href="ChangePassword.php">Change password</a>
                         <a class="list-group-item list-group-item-action " href="Information.php">Information</a>
                         <a class="list-group-item list-group-item-action " href="SocialLinks.php">Social links</a>
@@ -313,13 +327,12 @@ else {
 
 
                         <div class="text-right mt-3">
-                            <button style="margin-bottom:30px; margin-right:30px" type="submit"
-                                class="btn btn-primary">Save changes</button>
-                            <button style="margin-bottom:30px; margin-right:30px" type="button"
-                                class="btn btn-default btn-cancel" id="cancelButton">Cancel</button>
+                            <button type="submit" class="btn btn-primary btn-setting">Save
+                                changes</button>
+                            <button type="button" class="btn btn-default btn-cancel btn-setting"
+                                id="cancelButton">Cancel</button>
                             <!-- Nút Đăng Xuất -->
-                            <a style="margin-bottom:30px; margin-right:30px" href="../php/logout.php"
-                                class="btn btn-danger">Logout</a>
+                            <a href="../php/logout.php" class="btn btn-danger btn-setting">Logout</a>
                         </div>
                     </div>
 

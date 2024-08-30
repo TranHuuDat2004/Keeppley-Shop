@@ -5,7 +5,7 @@ include '../php/getUser.php';
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $website = "Category_Product.php?id=" . $id;
-    
+
     // Truy vấn chi tiết danh mục dựa trên id
     $sqlCategory = "SELECT * FROM `category` WHERE `id` = '$id'";
     $resultCategory = mysqli_query($conn, $sqlCategory);
@@ -68,6 +68,7 @@ if (isset($_GET['id'])) {
 <html style="font-size: 80px;">
 
 <head>
+    <title><?php echo $category_name_en; ?></title>
     <?php include '../php/head.php'; ?>
 </head>
 <style>
@@ -83,7 +84,7 @@ if (isset($_GET['id'])) {
     }
 
     .p_num {
-        padding-top: 15px;
+        padding-top: 2px;
         text-align: center;
         line-height: 30px;
         color: #919191;
@@ -99,11 +100,49 @@ if (isset($_GET['id'])) {
     }
 
     .p_price {
-        padding-top: 10px;
+        padding-top: 2px;
         font-weight: bold;
         font-size: 24px;
         color: #e74c3c;
         text-align: center;
+    }
+
+    /* For mobile phones: */
+    @media only screen and (max-width: 600px) {
+        .imgDiv img {
+        width: 75%;
+        height: 75%;
+        object-fit: cover
+    }
+
+    .box {
+        padding-bottom: 40px;
+        height: 600px;
+    }
+
+    .p_num {
+        padding-top: 2px;
+        text-align: center;
+        line-height: 20px;
+        color: #919191;
+        font-size: 14px;
+    }
+
+    .p_name {
+        padding-top: 2px;
+        font-weight: bold;
+        font-size: 14px;
+        color: #242424;
+        text-align: center;
+    }
+
+    .p_price {
+        padding-top: 2px;
+        font-weight: bold;
+        font-size: 14px;
+        color: #e74c3c;
+        text-align: center;
+    }
     }
 </style>
 

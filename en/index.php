@@ -3,6 +3,7 @@
 <html style="font-size: 57px;">
 
 <head>
+    <title>Brick Shop</title>
     <?php include '../php/head.php'; ?>
     <?php include '../php/login.php'; ?>
     <?php include '../php/getUser.php'; ?>
@@ -74,6 +75,53 @@
     .lego-btn:hover {
         background-color: #ff0000;
     }
+
+    /* Default for larger screens (desktop) */
+
+    .img-lego {
+        flex: 1 1 25%;
+        /* Each image takes up 25% of the container width */
+        max-width: 25%;
+        padding: 20px;
+        box-sizing: border-box;
+        /* Include padding in width calculations */
+    }
+
+    /* Default styles for larger screens (PC) */
+    .Phone-Box {
+        display: none;
+        /* Hide Phone-Box on larger screens */
+    }
+
+    .PC-Box {
+        display: block;
+        /* Ensure PC-Box is visible on larger screens */
+    }
+
+    /* For mobile phones: */
+    @media only screen and (max-width: 600px) {
+        .Phone-Box {
+            display: block;
+            /* Show Phone-Box on mobile screens */
+        }
+
+        .PC-Box {
+            display: none;
+            /* Hide PC-Box on mobile screens */
+        }
+    }
+
+    /* For mobile phones: 2 images per row */
+    @media only screen and (max-width: 600px) {
+        .img-lego {
+            /* Each image takes up 50% of the container width */
+            max-width: 49%;
+        }
+
+        .para2{
+            color: white;
+        }
+    }
 </style>
 
 <body>
@@ -87,7 +135,7 @@
     <div style="margin-bottom: 50px;" class="swiper-slide pageSlide indexP2 cur swiper-slide-next">
         <div class="bg PC-Box" style="background-image: url(../images/index.png); padding-top: 20px;">
         </div>
-        <div class="bg Phone-Box"><img src="../images/index.png" alt="A new generation block brand, born in 2019.">
+        <div class="bg Phone-Box"><img src="../images/index-phone.png" alt="A new generation block brand, born in 2019.">
         </div>
         <div class="wal">
             <div class="conDiv">
@@ -118,7 +166,7 @@
         </div> -->
     </div>
 
-    <div style="margin-bottom: 50px;" class="swiper-slide pageSlide indexP2 cur swiper-slide-next">
+    <div class="swiper-slide pageSlide indexP2 cur swiper-slide-next">
         <div class="bg PC-Box" style="background-image: url(../images/20220906090844329.jpg); padding-top: 20px;">
         </div>
         <div class="bg Phone-Box"><img src="../images/20220906090914242.jpg"
@@ -151,7 +199,7 @@
 
         <div class="wal">
             <div style="display: flex; justify-content: center; align-items: center;">
-                <img src="../images/LEGO_logo.png" alt="">                
+                <img src="../images/LEGO_logo.png" alt="">
             </div>
             <div class="content">
                 <p><strong>Imagination:</strong> Promoting free play as a means to foster creativity and curiosity, and
@@ -177,11 +225,13 @@
                     experiences, earning trust and recommendations.</p>
             </div>
             <div class="txt">Top LEGO Category</div>
-            <div style="display: flex; justify-content: center; align-items: center; padding:20px">
-                <a href=""><img style="padding:20px" src="../images/LegoChima.jfif" alt="" height="150" width="275">  </a>
-                <a href=""><img style="padding:20px" src="../images/LegoNexoKnights.jfif" alt="" height="150"  width="275">  </a>
-                <a href=""><img style="padding:20px" src="../images/LEGO-City-logo.jpg" alt="" height="150"  width="275">  </a>
-                <a href=""><img style="padding:20px" src="../images/LegoNinjago.jfif" alt="" height="150"  width="275"> </a>
+            <div class="img-container">
+                <a href="#"><img class="img-lego" src="../images/LegoChima.jfif" alt="" height="150" width="275"></a>
+                <a href="#"><img class="img-lego" src="../images/LegoNexoKnights.jfif" alt="" height="150"
+                        width="275"></a>
+                <a href="#"><img class="img-lego" src="../images/LEGO-City-logo.jpg" alt="" height="150"
+                        width="275"></a>
+                <a href="#"><img class="img-lego" src="../images/LegoNinjago.jfif" alt="" height="150" width="275"></a>
             </div>
 
             <!-- <a href="LEGO_Products.php"><button id="button-add" class="lego-btn">View Products</button></a> -->

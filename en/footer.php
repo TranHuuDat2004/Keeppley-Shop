@@ -5,7 +5,7 @@
     <div
         style="background-color: #f5f5f5; display: flex; justify-content: space-around; flex-wrap: wrap; padding-left:30px">
         <!-- LEGAL -->
-        <div style="flex: 1 1 200px; max-width: 15%; ">
+        <div class="footer-column">
             <p class="label-footer">LEGAL</p>
             <ul style="list-style: none; padding-left: 0;">
                 <li><a href="#">Faq</a></li>
@@ -16,7 +16,7 @@
         </div>
 
         <!-- SERVICES -->
-        <div style="flex: 1 1 200px; max-width: 15%; background-color: #f5f5f5;">
+        <div class="footer-column">
             <p class="label-footer">SERVICES</p>
             <ul style="list-style: none; padding-left: 0;">
                 <li><a href="#">Track Order</a></li>
@@ -27,7 +27,7 @@
         </div>
 
         <!-- GET IN TOUCH -->
-        <div style="flex: 1 1 200px; max-width: 15%; background-color: #f5f5f5;">
+        <div class="footer-column">
             <p class="label-footer">GET IN TOUCH</p>
             <p>Any questions? Let us know in store at 8th floor,
                 379 Hudson St, New York, NY 10018 <br>
@@ -40,7 +40,7 @@
         </div>
 
         <!-- NEWSLETTER -->
-        <div style="flex: 1 1 200px; max-width: 15%; background-color: #f5f5f5;">
+        <div class="footer-column">
             <p class="label-footer">NEWSLETTER</p>
             <input type="email" placeholder="email@example.com"
                 style="width: 150px; padding: 10px; margin-bottom: 10px;">
@@ -49,8 +49,6 @@
         </div>
     </div>
 
-    <!-- <hr style="margin: 20px 0; background-color: #f5f5f5;"> -->
-
     <div style="text-align: center; background-color: #f5f5f5;">
         <img src="../icons/icon-pay-01.png" alt="Payment Methods" style="margin-top: 10px;">
         <img src="../icons/icon-pay-02.png" alt="Payment Methods" style="margin-top: 10px;">
@@ -58,7 +56,6 @@
         <img src="../icons/icon-pay-04.png" alt="Payment Methods" style="margin-top: 10px;">
         <img src="../icons/icon-pay-05.png" alt="Payment Methods" style="margin-top: 10px;">
         <p>&copy; 2024 All rights reserved | Made with <i class="fas fa-heart"></i> Group 5</p>
-
     </div>
 </footer>
 
@@ -103,5 +100,49 @@
     .label-footer {
         font-weight: bold;
         font-size: 18px;
+    }
+
+    .footer-column {
+        flex: 1 1 200px;
+        max-width: 15%;
+        background-color: #f5f5f5;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .footer-column {
+            flex: 1 1 100px;
+            /* Giảm xuống còn 100px cho màn hình nhỏ */
+            max-width: 100%;
+            /* Chiếm 100% chiều rộng của màn hình */
+        }
+
+        footer p {
+            color: #000;
+            text-decoration: none;
+            font-size: 12px;
+            padding-bottom: 30px;
+            padding-top: 18px;
+        }
+
+        footer i {
+            margin: 0 5px;
+            font-size: 12px;
+        }
+
+        .label-footer {
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .f-cute {
+            width: 75%;
+        }
+
+        footer input[type="email"] {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding-bottom: 30px;
+            width: 250px;
+        }
     }
 </style>

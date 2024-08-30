@@ -1,7 +1,7 @@
-<?php 
+<?php
 include '../php/login.php';
 // Chưa đăng nhập 
-if (isset($_SESSION["userID"])){
+if (isset($_SESSION["userID"])) {
     $userID = $_SESSION["userID"];
     // print_r($userName);
     $sqlLogin = "SELECT * FROM `User` WHERE userID = '$userID' ";
@@ -23,9 +23,7 @@ if (isset($_SESSION["userID"])){
         "country" => $row["country"],
         "phone" => $row["phone"]
     );
-}
-
-else {    
+} else {
     // Chưa đăng nhập 
     header('Location: ../php/form_login_en.php');
     exit();
@@ -38,7 +36,7 @@ else {
 
 <head>
     <meta charset="utf-8">
-    <title>Account Settings - Bootdey.com</title>
+    <title>Account Settings</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <?php include '../php/head.php'; ?>
@@ -170,6 +168,18 @@ else {
         .btn-cancel:hover {
             background-color: #f5f5f5;
         }
+
+        .btn-setting {
+            margin-bottom: 30px;
+            margin-right: 30px
+        }
+
+        @media only screen and (max-width: 600px) {
+            .btn-setting {
+                margin-bottom: 20px;
+                margin-right: 20px
+            }
+        }
     </style>
 </head>
 
@@ -179,8 +189,7 @@ else {
             <!-- Important -->
             <div class="wal">
                 <a href="../en/product.php" class="logo">
-                    <img src="../images/20221010151814746.png" class="PC-Box" alt="Qman Toys">
-                    <img src="../images/20221010151821394.png" class="Phone-Box" alt="Qman Toys">
+                    <img src="../images/logo.png" class="PC-Box" alt="Qman Toys">
                 </a>
 
                 <div class="lan">
@@ -190,90 +199,97 @@ else {
                         </li>
 
                         <!-- Header Account Settings -->
-                        <?php 
+                        <?php
                         $website = 'Information.php';
-                        include '../php/SettingUserHeader_en.php'; 
+                        include '../php/SettingUserHeader_en.php';
                         ?>
                     </ul>
                 </div>
             </div>
         </div>
-    <!-- Mobile-->
-    <?php include '../php/mobile_en.php'; ?>
+        <!-- Mobile-->
+        <?php include '../php/mobile_en.php'; ?>
 
-    <div style="margin-top:80px" class="container light-style flex-grow-1 container-p-y">
-        <h4 class="font-weight-bold py-3 mb-4">
-            Account settings
-        </h4>
-        <div class="card overflow-hidden">
-            <div class="row no-gutters row-bordered row-border-light">
-                <div class="col-md-3 pt-0">
-                    <div class="list-group list-group-flush account-settings-links">
-                        <a class="list-group-item list-group-item-action" href="general.php">General</a>
-                        <a class="list-group-item list-group-item-action" href="ChangePassword.php">Change password</a>
-                        <a class="list-group-item list-group-item-action active" href="Information.php">Information</a>
-                        <a class="list-group-item list-group-item-action " href="SocialLinks.php">Social links</a>
-                        <a class="list-group-item list-group-item-action" href="Connections.php">Connections</a>
-                        <a class="list-group-item list-group-item-action " href="Notifications.php">Notifications</a>
-                    </div>
-                </div>
-                <div class="col-md-9">
-                    <div class="tab-content">
-                        <div class="tab-pane fade active show" id="account-info">
-                            <form action="../php/UpdateInformation.php" method="post">
-                                <div class="card-body pb-2">
-                                    <?php
-                                    // session_start();
-                                    if (isset($_SESSION['success_message'])) {
-                                        echo '<div class="alert alert-success">' . $_SESSION['success_message'] . '</div>';
-                                        unset($_SESSION['success_message']); // Xóa thông báo sau khi hiển thị
-                                    }
-                                    ?>
-                                    <div class="form-group">
-                                        <label class="form-label">Bio</label>
-                                        <textarea class="form-control" name="bio"
-                                            rows="5"><?php echo $userLogin['bio'] ?></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">Birthday</label>
-                                        <input type="date" class="form-control" name="birthday" id="birthday"
-                                            value="<?php echo $userLogin['birthday'] ?>">
-
-                                        <!-- Lấy ID -->
-                                        <input type="hidden" name="userID" value="<?php echo $userLogin['userID'] ?>">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">Country</label>
-                                        <select class="custom-select" name="country">
-                                            <?php foreach ($country_list as $country): ?>
-                                                <option value="<?php echo htmlspecialchars($country); ?>" <?php echo $userLogin['country'] == $country ? 'selected' : ''; ?>>
-                                                    <?php echo htmlspecialchars($country); ?>
-                                                </option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="form-label">Phone</label>
-                                        <input type="text" class="form-control" name="phone"
-                                            value="<?php echo $userLogin['phone'] ?>">
-                                    </div>
-                                </div>
-                                <div class="text-right mt-3">
-                                    <button style="margin-bottom:30px; margin-right:30px" type="submit"
-                                        class="btn btn-primary">Save changes</button>
-                                    <button style="margin-bottom:30px; margin-right:30px" type="button"
-                                        class="btn btn-default btn-cancel" id="cancelButton">Cancel</button>
-                                    <!-- Nút Đăng Xuất -->
-                                    <a style="margin-bottom:30px; margin-right:30px" href="../php/logout.php"
-                                        class="btn btn-danger">Logout</a>
-                                </div>
-                            </form>
+        <div style="margin-top:80px" class="container light-style flex-grow-1 container-p-y">
+            <a href="../en/product.php" class="logo">
+                <img src="../images/logo.png" class="Phone-Box" alt="Qman Toys" height="40">
+            </a>
+            <h4 class="font-weight-bold py-3 mb-4">
+                Account settings
+            </h4>
+            <div class="card overflow-hidden">
+                <div class="row no-gutters row-bordered row-border-light">
+                    <div class="col-md-3 pt-0">
+                        <div class="list-group list-group-flush account-settings-links">
+                            <a class="list-group-item list-group-item-action" href="general.php">General</a>
+                            <a class="list-group-item list-group-item-action" href="Image.php">Image</a>
+                            <a class="list-group-item list-group-item-action" href="ChangePassword.php">Change
+                                password</a>
+                            <a class="list-group-item list-group-item-action active"
+                                href="Information.php">Information</a>
+                            <a class="list-group-item list-group-item-action " href="SocialLinks.php">Social links</a>
+                            <a class="list-group-item list-group-item-action" href="Connections.php">Connections</a>
+                            <a class="list-group-item list-group-item-action "
+                                href="Notifications.php">Notifications</a>
                         </div>
                     </div>
-                </div>
-                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+                    <div class="col-md-9">
+                        <div class="tab-content">
+                            <div class="tab-pane fade active show" id="account-info">
+                                <form action="../php/UpdateInformation.php" method="post">
+                                    <div class="card-body pb-2">
+                                        <?php
+                                        // session_start();
+                                        if (isset($_SESSION['success_message'])) {
+                                            echo '<div class="alert alert-success">' . $_SESSION['success_message'] . '</div>';
+                                            unset($_SESSION['success_message']); // Xóa thông báo sau khi hiển thị
+                                        }
+                                        ?>
+                                        <div class="form-group">
+                                            <label class="form-label">Bio</label>
+                                            <textarea class="form-control" name="bio"
+                                                rows="5"><?php echo $userLogin['bio'] ?></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Birthday</label>
+                                            <input type="date" class="form-control" name="birthday" id="birthday"
+                                                value="<?php echo $userLogin['birthday'] ?>">
+
+                                            <!-- Lấy ID -->
+                                            <input type="hidden" name="userID"
+                                                value="<?php echo $userLogin['userID'] ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Country</label>
+                                            <select class="custom-select" name="country">
+                                                <?php foreach ($country_list as $country): ?>
+                                                    <option value="<?php echo htmlspecialchars($country); ?>" <?php echo $userLogin['country'] == $country ? 'selected' : ''; ?>>
+                                                        <?php echo htmlspecialchars($country); ?>
+                                                    </option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label">Phone</label>
+                                            <input type="text" class="form-control" name="phone"
+                                                value="<?php echo $userLogin['phone'] ?>">
+                                        </div>
+                                    </div>
+                                    <div class="text-right mt-3">
+                                        <button type="submit" class="btn btn-primary btn-setting">Save
+                                            changes</button>
+                                        <button type="button" class="btn btn-default btn-cancel btn-setting"
+                                            id="cancelButton">Cancel</button>
+                                        <!-- Nút Đăng Xuất -->
+                                        <a href="../php/logout.php" class="btn btn-danger btn-setting">Logout</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 <script>
     $(document).ready(function () {

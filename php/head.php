@@ -6,7 +6,7 @@
 <meta name="Keywords" content="Qman Toys">
 <meta name="Description"
   content="Children's building blocks Guangdong Qman Culture Communication Co., LtdSmall building blocks">
-<title>Our Products - Qman Toys</title>
+
 <link href="../style/main.css" rel="stylesheet" type="text/css">
 <link href="../style/index.css" rel="stylesheet" type="text/css">
 <link href="../style/media.css" rel="stylesheet" type="text/css">
@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v5.15.4/css/all.css">
 
 <!-- Thêm favicon vào đây -->
-<link rel="icon" href="../images/keeppley_logo.webp" type="image/x-icon">
+<link rel="icon" href="../images/favicon.png" type="image/x-icon">
 
 
 

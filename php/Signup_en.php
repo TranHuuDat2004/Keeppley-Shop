@@ -8,7 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
   <!-- Thêm favicon vào đây -->
-  <link rel="icon" href="../images/keeppley_logo.webp" type="image/x-icon">
+  <link rel="icon" href="../images/favicon.png" type="image/x-icon">
 
   <style>
     .bg-background {
@@ -51,7 +51,7 @@
 
 <body class="flex items-center justify-center min-h-screen bg-background p-4">
   <div class="bg-card rounded-lg shadow-lg p-8 w-full max-w-md flex flex-col items-center">
-    <img id="image" src="../images/20221010151814746.png" class="mb-4">
+    <a href="../en/index.php"><img id="image" src="../images/logo.png" class="mb-4"></a>
     <h2 class="text-2xl font-bold text-foreground mb-6">Sign up</h2>
     <form action="Registration_en.php" method="POST" class="w-full">
       <div class="mb-4">

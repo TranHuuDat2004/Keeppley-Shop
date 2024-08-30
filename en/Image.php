@@ -173,7 +173,6 @@ if (isset($_SESSION["userID"])) {
             margin-top: 20px;
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
         }
 
         .image-gallery img {
@@ -182,6 +181,7 @@ if (isset($_SESSION["userID"])) {
             margin: 5px;
             cursor: pointer;
             border-radius: 5px;
+            object-fit: cover
         }
 
         .image-gallery img:hover {
@@ -191,6 +191,17 @@ if (isset($_SESSION["userID"])) {
         .btn-select {
             margin-left: 15px;
         }
+
+        .label-setting {
+            padding-top: 20px;
+            padding-bottom: 2px;
+            padding-left: 25px;
+        }
+
+        /* .label{
+            padding-top: 2px;
+            padding:20px;
+        } */
 
 
         @media only screen and (max-width: 600px) {
@@ -203,6 +214,15 @@ if (isset($_SESSION["userID"])) {
                 margin-top: 15px;
                 margin-left: 15px;
             }
+
+            .image-gallery img {
+            width: 80px;
+            height: 80px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            object-fit: cover
+        }
         }
     </style>
 
@@ -243,8 +263,6 @@ if (isset($_SESSION["userID"])) {
             preview.src = imgElement.src;
             defaultImageInput.value = imgElement.src;
 
-            // Ẩn gallery sau khi chọn
-            document.getElementById("imageGallery").style.display = "none";
         }
 
     </script>
@@ -313,8 +331,8 @@ if (isset($_SESSION["userID"])) {
             <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
                     <div class="list-group list-group-flush account-settings-links">
-                        <a class="list-group-item list-group-item-action active" href="general.php">General</a>
-                        <a class="list-group-item list-group-item-action" href="Image.php">Image</a>
+                        <a class="list-group-item list-group-item-action " href="general.php">General</a>
+                        <a class="list-group-item list-group-item-action active" href="Image.php">Image</a>
                         <a class="list-group-item list-group-item-action" href="ChangePassword.php">Change password</a>
                         <a class="list-group-item list-group-item-action" href="Information.php">Information</a>
                         <a class="list-group-item list-group-item-action" href="SocialLinks.php">Social links</a>
@@ -325,7 +343,7 @@ if (isset($_SESSION["userID"])) {
                 <div class="col-md-9">
                     <div class="tab-content">
                         <div class="tab-pane fade active show" id="account-general">
-                            <form action="../php/ChangeGeneral.php" method="POST" enctype="multipart/form-data"
+                            <form action="../php/ChangeImage.php" method="POST" enctype="multipart/form-data"
                                 id="accountForm">
                                 <?php
                                 // session_start();
@@ -335,44 +353,81 @@ if (isset($_SESSION["userID"])) {
                                 }
                                 ?>
 
+                                <div class="card-body media align-items-center">
+                                    <?php if ($userLogin['image']): ?>
+                                        <img style="border-radius: 50%; object-fit: cover" id="preview1"
+                                            src="../user/<?php echo $userLogin['image'] ?>" height="200" width="200">
+                                    <?php else: ?>
+                                        <img style="border-radius: 50%; object-fit: cover" id="preview1"
+                                            src="../user/male.png" height="200" width="200">
+                                    <?php endif; ?>
+                                    <div class="media-body ml-4">
+                                        <label class="btn btn-outline-primary btn-select">
+                                            Upload new photo
+                                            <input type="file" class="account-settings-fileinput" name="profileImage"
+                                                onchange="previewImage(event, 'preview1')">
+                                        </label>
 
-                                <hr class="border-light m-0">
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <label class="form-label">UserID:</label>
-                                        <input type="text" class="form-control mb-1"
-                                            value="<?php echo $userLogin['userID'] ?>" readonly>
                                         <input type="hidden" name="userID" value="<?php echo $userLogin['userID'] ?>">
                                     </div>
-                                    <div class="form-group">
-                                        <label class="form-label">Username:</label>
-                                        <input type="text" class="form-control mb-1" name="userName"
-                                            value="<?php echo $userLogin['userName'] ?>">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">Email:</label>
-                                        <input type="email" class="form-control mb-1" name="email"
-                                            value="<?php echo $userLogin['email'] ?>">
-                                        <!-- <div class="alert alert-warning mt-3">
-                                            Your email is not confirmed. Please check your inbox.<br>
-                                            <a href="javascript:void(0)">Resend confirmation</a>
-                                        </div> -->
-                                    </div>
                                 </div>
-                                <div class="text-right mt-3">
-                                    <button type="submit" class="btn btn-primary btn-setting">Save
-                                        changes</button>
-                                    <button type="button" class="btn btn-default btn-cancel btn-setting"
-                                        id="cancelButton">Cancel</button>
-                                    <!-- Nút Đăng Xuất -->
-                                    <a href="../php/logout.php" class="btn btn-danger btn-setting">Logout</a>
+                                <div class="form-group">
+                                    <label style="padding-left: 10px;" class="form-label"><strong>Or Choose Default images:</strong></label><br>
+                                    <label  class="form-label label-setting">People:</label>
+                                    <div id="imageGallery" class="image-gallery">
+                                        <img src="../user/male.png" alt="Default Image 1" onclick="selectImage(this)">
+                                        <img src="../user/female.jpg" alt="Default Image 2" onclick="selectImage(this)">
+                                    </div>
+
+                                    <label  class="form-label label-setting">Cute:</label>
+                                    <div id="imageGallery" class="image-gallery">
+                                        <img src="../user/BinhQuyen.jpg" alt="Default Image 10"
+                                            onclick="selectImage(this)">
+                                        <img src="../user/HuuDat.jpg" alt="Default Image 11"
+                                            onclick="selectImage(this)">
+                                        <img src="../user/ThuyKhanh.jpg" alt="Default Image 12"
+                                            onclick="selectImage(this)">
+                                        <img src="../user/ThuyLinh.jpg" alt="Default Image 13"
+                                            onclick="selectImage(this)">
+                                        <img src="../user/HuuDat1.jpg" alt="Default Image 14"
+                                            onclick="selectImage(this)">
+                                    </div>
+
+
+                                    <label class="form-label label-setting">Lego
+                                        Ninjago:</label>
+                                    <div id="imageGallery" class="image-gallery">
+                                        <img src="../user/Gamadon.jpg" alt="Default Image 3"
+                                            onclick="selectImage(this)">
+                                        <img src="../user/Kai.jpg" alt="Default Image 4" onclick="selectImage(this)">
+                                        <img src="../user/Jay.jpg" alt="Default Image 5" onclick="selectImage(this)">
+                                        <img src="../user/Cole.jpg" alt="Default Image 6" onclick="selectImage(this)">
+                                        <img src="../user/Zane.jpg" alt="Default Image 7" onclick="selectImage(this)">
+                                        <img src="../user/Lloyd.jpg" alt="Default Image 8" onclick="selectImage(this)">
+                                        <img src="../user/nya.jpg" alt="Default Image 9" onclick="selectImage(this)">
+                                    </div>
+                                    <!-- Thêm nhiều ảnh khác tùy ý -->
                                 </div>
-                            </form>
                         </div>
+                        <!-- Thêm phần chọn ảnh mặc định -->
+
+                        <input type="hidden" name="defaultImage" id="defaultImage">
+
+
+                        <div class="text-right mt-3">
+                            <button type="submit" class="btn btn-primary btn-setting">Save
+                                changes</button>
+                            <button type="button" class="btn btn-default btn-cancel btn-setting"
+                                id="cancelButton">Cancel</button>
+                            <!-- Nút Đăng Xuất -->
+                            <a href="../php/logout.php" class="btn btn-danger btn-setting">Logout</a>
+                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>

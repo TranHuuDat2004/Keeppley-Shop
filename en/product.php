@@ -6,7 +6,7 @@
     <?php include '../php/head.php'; ?>
     <?php include '../php/login.php'; ?>
     <?php include '../php/getUser.php'; ?>
-
+    <title>Products</title>
 </head>
 
 <style>
@@ -14,8 +14,26 @@
         background-color: white;
     }
 
-    .productBox{
+    .productBox {
         padding-top: 80px;
+        padding-bottom: 0px;
+    }
+
+    .productList {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .productBox {
+            padding-top: 10px;
+            padding-bottom: 0px;
+        }
+
+        .wal {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
     }
 </style>
 
@@ -28,11 +46,15 @@
     <!---->
 
     <div class="productBox">
-        <div class="wal">
-        <div>
-                <img style="height:75%; " src="../images/Products.png" class="PC-Box" alt="Doraemon" />
-                <img src="../images/Products.png" class="Phone-Box" alt="Doraemon" />
+        <div class="productList">
+            <div class="wal">
+                <div class="pbanner">
+                    <img style="height:75%; " src="../images/Products.png" class="PC-Box" alt="Doraemon" />
+                    <img src="../images/Products.png" class="Phone-Box" alt="Doraemon" />
+                </div>
             </div>
+        </div>
+        <div class="wal">
             <div class="title">Qman Products</div>
             <div class="list">
                 <ul>
@@ -66,7 +88,7 @@
                         endwhile;
                     ?>
                 </ul>
-                <div class="clear_f"></div>
+                <!-- <div class="clear_f"></div> -->
             </div>
 
             <div class="pageMore" onclick="MoreData(this)" data-id="100000003464980" data-page="6"
@@ -154,7 +176,7 @@
         </div>
     </div>
     </div>
-
+    <!-- Open Mobile -->
     <script language="javascript" type="text/javascript" src="../script/js.js"></script>
 
     <script type="text/javascript">

@@ -4,6 +4,7 @@
     <?php include '../php/head.php'; ?>
     <?php include '../php/login.php'; ?>
 <?php include '../php/getUser.php'; ?>
+<title>Products</title>
 </head>
 
 <body >
