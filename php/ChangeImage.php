@@ -44,7 +44,7 @@ if (isset($_POST['userID'])) {
 
     // Thực thi câu lệnh SQL
     if ($conn->query($sql) === TRUE) {
-        $_SESSION['success_message'] = "Update Information Successfully";
+        $_SESSION['success_message'] = "Update Image Successfully";
         header('Location: ../en/Image.php');
         exit(); // Đảm bảo không có mã nào khác được thực thi sau khi chuyển hướng
     } else {
