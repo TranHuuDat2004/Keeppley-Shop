@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 09, 2024 lúc 04:16 PM
+-- Thời gian đã tạo: Th9 01, 2024 lúc 10:12 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -83,19 +83,26 @@ CREATE TABLE `product` (
   `p_name_en` varchar(255) NOT NULL,
   `p_name_vn` varchar(255) NOT NULL,
   `p_image` varchar(255) NOT NULL,
-  `p_price` float NOT NULL,
+  `p_price_en` varchar(255) NOT NULL,
+  `p_price_vn` varchar(255) NOT NULL,
   `p_category` varchar(225) NOT NULL,
   `p_tutorial` varchar(100) NOT NULL,
-  `p_description` text NOT NULL
+  `p_description_en` text NOT NULL,
+  `p_description_vn` text NOT NULL,
+  `p_sold` int(10) NOT NULL,
+  `p_age` varchar(255) NOT NULL,
+  `p_stock_status` enum('in_stock','out_of_stock') NOT NULL DEFAULT 'in_stock',
+  `p_product_status` enum('bestseller','top_revenue','normal') NOT NULL DEFAULT 'normal'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `product`
 --
 
-INSERT INTO `product` (`p_id`, `p_number`, `p_name_en`, `p_name_vn`, `p_image`, `p_price`, `p_category`, `p_tutorial`, `p_description`) VALUES
-(3, 'K20401', 'Time Machine', 'Cỗ Máy Thời Gian', '20221111120123714.jpg', 9.99, 'Doraemon', 'K20401.pdf', ''),
-(4, 'K20801', 'Hello Kitty', 'Hello Kitty', '20221104153936156.jpg,,', 9.99, 'Sario', 'K20801.pdf', '');
+INSERT INTO `product` (`p_id`, `p_number`, `p_name_en`, `p_name_vn`, `p_image`, `p_price_en`, `p_price_vn`, `p_category`, `p_tutorial`, `p_description_en`, `p_description_vn`, `p_sold`, `p_age`, `p_stock_status`, `p_product_status`) VALUES
+(3, 'K20401', 'Time Machine', 'Cỗ Máy Thời Gian', 'k20401_7baded4332d143ea965136b6f33b2ca3_master.webp,k20401-1_5b0e7274662146fd8f084b9dd26ee332_master.webp,k20401-79___-01b_48223bd61d5f4df3acfa7b360cdf44c3_master.webp', '9.99', '0', 'Doraemon', 'K20401.pdf', '', '', 0, '6-12', 'in_stock', 'bestseller'),
+(4, 'K20801', 'Hello Kitty', 'Hello Kitty', '20221104153936156.jpg', '9.99', '0', 'Sario', 'K20801.pdf', '', '', 0, '6-12', 'in_stock', 'bestseller'),
+(5, 'K20401', 'Melody', 'Melody', '2022110415411562.jpg,,', '9.99', '0', 'Sario', '', '', '', 0, '12+', 'in_stock', 'bestseller');
 
 -- --------------------------------------------------------
 
@@ -122,7 +129,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`userID`, `userName`, `email`, `loginpassword`, `image`, `birthday`, `bio`, `country`, `phone`) VALUES
 (1, 'admin', 'admin123@gmail.com', '1230', '', NULL, '', '', '0'),
 (2, 'khanhne', 'Khanhne@gmail.com', '1234', 'ThuyKhanh1.jpg', '2024-08-01', 'À Nhon, Mình là nhóm trưởng đây', 'Việt Nam', '0902313725'),
-(14, 'TranHuuDat', 'huudat.lego@gmail.com', 'huudat', 'Cole.jpg', '2024-08-05', 'HELLO', 'Việt Nam', '0902313725'),
+(14, 'TranHuuDat', 'huudat.lego@gmail.com', 'huudat', 'ThuyLinh.jpg', '2024-08-05', 'HELLO', 'Việt Nam', '0902313725'),
 (15, 'TranHuuDat123', 'huudat.mini', 'huudat', '', NULL, '', '', '0'),
 (16, 'DuongThiThuyLinh', 'DuongThiThuyLinh', '1234', '', NULL, '', '', '0'),
 (17, 'NguyenThuyKhanh', 'NguyenThuyKhanh', '1234', '', NULL, '', '', '0'),
@@ -184,7 +191,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `user`
