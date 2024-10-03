@@ -1,300 +1,123 @@
-<?php $website = 'index.php'; ?>
+<?php
+// Lấy tên file này
+$website = basename($_SERVER['SCRIPT_NAME']);
+// echo $website;
+?>
 
-<html style="font-size: 57px;">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Brick Shop</title>
     <?php include '../php/head.php'; ?>
     <?php include '../php/login.php'; ?>
     <?php include '../php/getUser.php'; ?>
+    <title>Brick Shop</title>
+    <link rel="stylesheet" href="../css/index.css"> <!-- Đường dẫn tới tệp CSS -->
 </head>
-<style>
-    .bg-background {
-        background-color: #ffffff;
-    }
 
-    .text-foreground {
-        color: #333333;
-    }
-
-    .text-muted-foreground {
-        color: #888888;
-    }
-
-    .hover\:bg-gray-100:hover {
-        background-color: #f0f0f0;
-    }
-
-    .border-border {
-        border-color: #dddddd;
-    }
-
-    .hover\:bg-gray-200:hover {
-        background-color: #e2e2e2;
-    }
-
-    .qman-btn {
-        margin-top: 40px;
-        background-color: yellow;
-        padding: 15px 20px;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        font-size: 18px;
-    }
-
-    .qman-btn:hover {
-        background-color: #fffd7d;
-    }
-
-    .keeppley-btn {
-        background-color: none;
-        margin-top: 40px;
-        padding: 15px 20px;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        font-size: 18px;
-    }
-
-    .keeppley-btn:hover {
-        background-color: #cfcfcf;
-    }
-
-    .lego-btn {
-        margin-top: 40px;
-        background-color: #e74c3c;
-        color: white;
-        padding: 15px 20px;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        font-size: 18px;
-    }
-
-    .lego-btn:hover {
-        background-color: #ff0000;
-    }
-
-    /* Default for larger screens (desktop) */
-
-    .img-lego {
-        flex: 1 1 25%;
-        /* Each image takes up 25% of the container width */
-        max-width: 25%;
-        padding: 20px;
-        box-sizing: border-box;
-        /* Include padding in width calculations */
-    }
-
-    /* Default styles for larger screens (PC) */
-    .Phone-Box {
-        display: none;
-        /* Hide Phone-Box on larger screens */
-    }
-
-    .PC-Box {
-        display: block;
-        /* Ensure PC-Box is visible on larger screens */
-    }
-
-    /* For mobile phones: */
-    @media only screen and (max-width: 600px) {
-        .Phone-Box {
-            display: block;
-            /* Show Phone-Box on mobile screens */
-        }
-
-        .PC-Box {
-            display: none;
-            /* Hide PC-Box on mobile screens */
-        }
-    }
-
-    /* For mobile phones: 2 images per row */
-    @media only screen and (max-width: 600px) {
-        .img-lego {
-            /* Each image takes up 50% of the container width */
-            max-width: 49%;
-        }
-
-        .para2{
-            color: white;
-        }
-    }
-</style>
 
 <body>
+    <!-- Header Section -->
+    <header>
+        <!-- Desktop Navbar -->
+        <?php include '../php/header_home_en.php'; ?>
 
+    </header>
 
-    <!-- Desktop -->
-    <?php include '../php/OurStory_en.php'; ?>
-    <!-- Mobile-->
-    <?php include '../php/mobile_en.php'; ?>
-
-    <div style="margin-bottom: 50px;" class="swiper-slide pageSlide indexP2 cur swiper-slide-next">
-        <div class="bg PC-Box" style="background-image: url(../images/index.png); padding-top: 20px;">
+    <!-- Qman Section -->
+    <section style="padding-left: 80px;" class="qman-section">
+        <div class="qman-text">
+            <img style="padding-left: 30px;" src="../images/2022101014476761.png" alt="Keeppley Product">
+            <h1 style="margin-bottom: 30px; max-width: 700px;">A leading Chinese toy brand, specializing in original
+                building blocks since 1994.</h1>
+            <p style="margin-bottom: 30px; max-width: 700px;">The journey of Qman began in 1994, sparked by Mr. Zhan
+                Kehua's realization
+                of his children's deep love for building blocks. This passion inspired the creation of an original
+                Chinese brand focused on building blocks.</p>
+            <p class="p2" style="margin-bottom: 50px; max-width: 700px;">Today, Qman has evolved into more than just a
+                children's
+                toy brand—it is a celebrated national brand that has grown alongside multiple generations. We are
+                committed to the brand philosophy that "<b>Qman blocks make dreams come true</b>" and together with our
+                customers, we use small building pieces to bring dreams to life.</p>
+            <a href="#" class="btn">View Products</a>
         </div>
-        <div class="bg Phone-Box"><img src="../images/index-phone.png" alt="A new generation block brand, born in 2019.">
+        <div class="qman-image">
+
         </div>
-        <div class="wal">
-            <div class="conDiv">
-                <div class="limg"><img src="../images/2022101014476761.png"
-                        alt="A new generation block brand, born in 2019."></div>
-                <div style="color: black;" class="txt">A leading Chinese toy brand, specializing in original building
-                    blocks since 1994.</div>
-                <div style="color: black;" class="content">
-                    <p>The journey of Qman began in 1994, sparked by Mr. Zhan Kehua's realization of his children's deep
-                        love
-                        for building blocks. This passion inspired the creation of an original Chinese brand focused on
-                        building
-                        blocks.</p>
-                    <p>Today, Qman has evolved into more than just a children's toy brand—it is a celebrated national
-                        brand that
-                        has grown alongside multiple generations. We are committed to the brand philosophy that "Qman
-                        blocks
-                        make dreams come true," and together with our customers, we use small building pieces to bring
-                        dreams to
-                        life.</p>
-                </div>
-                <a href="Qman_Products.php"><button id="button-add" class="qman-btn">View Products</button></a>
+    </section>
+
+    <!-- Keeppley Section -->
+    <section style="padding-left: 100px;" class="keeppley-section">
+        <div class="keeppley-text">
+            <img style="padding-left: 30px;" src="../images/2022082419251955.png" alt="Keeppley Product" height="40">
+            <h1>A new generation block brand, born in 2019.</h1>
+            <p style="margin-bottom: 30px; ; max-width: 800px;">Keeppley is a new-generation brand under Qman, a company
+                that has
+                specialized in producing building block models similar to LEGO since 1994. Keeppley focuses on offering
+                players high-quality, officially licensed products at affordable prices, making them accessible to
+                anyone.</p>
+            <p style="margin-bottom: 50px; ; max-width: 800px;">
+                Keeppley's product range is incredibly diverse, spanning creative house and shop models,magnificent
+                architectural structures, as well as unique themes like <b>Pokémon, Doraemon,</b> and other anime and
+                manga
+                series.
+            </p>
+            <a href="#" class="btn">View Products</a>
+        </div>
+        <div class="keeppley-image">
+
+        </div>
+    </section>
+
+    <!-- LEGO Section -->
+    <section class="lego-section">
+        <div class="lego-text">
+            <div style="display: flex; justify-content: center; margin-bottom: 30px;">
+                <img src="../images/LEGO_logo.png" alt="LEGO Logo" height="100">
             </div>
-        </div>
-        <!-- <div class="botImg">
-            <img src="../images/20221010121217938.png" class="PC-Box" alt="Brand Histroy">
-            <img src="../images/20221010121225833.png" class="Phone-Box" alt="Brand Histroy">
-        </div> -->
-    </div>
 
-    <div class="swiper-slide pageSlide indexP2 cur swiper-slide-next">
-        <div class="bg PC-Box" style="background-image: url(../images/20220906090844329.jpg); padding-top: 20px;">
-        </div>
-        <div class="bg Phone-Box"><img src="../images/20220906090914242.jpg"
-                alt="A new generation block brand, born in 2019."></div>
-        <div class="wal">
-            <div class="conDiv">
-                <div class="limg"><img src="../images/2022082419251955.png"
-                        alt="A new generation block brand, born in 2019."></div>
-                <div class="txt">A new generation block brand, born in 2019.</div>
-                <div class="content">
-                    <p>Keeppley is a new-generation brand under Qman, a company that has specialized in producing
-                        building block
-                        models similar to LEGO since 1994.
-                        Keeppley focuses on offering players high-quality,
-                        officially licensed products at affordable prices, making them accessible to anyone.</p><br>
-                    <p>Keeppley's product range is incredibly diverse, spanning creative house and shop models,
-                        magnificent
-                        architectural structures, as well as unique themes like Pokémon, Doraemon, and other anime and
-                        manga
-                        series.</p>
-                </div>
-                <a href="Keeppley_Products.php"><button id="button-add" class="keeppley-btn">View Products</button></a>
-            </div>
-        </div>
-    </div>
-
-
-
-    <div class="swiper-slide pageSlide indexP3">
-
-        <div class="wal">
-            <div style="display: flex; justify-content: center; align-items: center;">
-                <img src="../images/LEGO_logo.png" alt="">
-            </div>
-            <div class="content">
-                <p><strong>Imagination:</strong> Promoting free play as a means to foster creativity and curiosity, and
-                    to
-                    explore the possibilities of turning the ordinary into something extraordinary.</p>
-
-                <p><strong>Creativity:</strong> Blending logical thinking with playfulness to generate new, surprising,
+            <p style="margin-bottom: 30px;">LEGO, a globally iconic toy brand, is celebrated for its interlocking
+                plastic bricks that spark
+                creativity and imagination. Founded in 1932 by Ole Kirk Christiansen in Denmark, LEGO began as a wooden
+                toy manufacturer before evolving into the plastic brick system we know today in 1958.
+            </p>
+            <p style="margin-bottom: 30px;">
+                LEGO sets come in various themes, including <b>LEGO City, Ninjago, Nexo Knight, Chima</b>, and licensed
+                series
+                like <b>Harry Potter, Despicable Me 4</b>. Beyond physical toys, LEGO has expanded into video games,
+                movies
+                (The LEGO Movie), and digital apps, offering endless creative opportunities for both children and
+                adults.
+            </p>
+            <p style="margin-bottom: 30px;">
+                At the heart of LEGO's mission are six core values: <b>imagination, creativity, fun, learning, caring,
                     and
-                    valuable ideas—an essential skill for thriving in the modern world.</p>
-
-                <p><strong>Fun:</strong> Embracing the joy of activity, adventure, and the satisfaction that comes from
-                    mastering challenges.</p>
-
-                <p><strong>Learning:</strong> Highlighting the importance of curiosity, experimentation, and
-                    collaboration
-                    in gaining new skills and insights through play.</p>
-
-                <p><strong>Caring:</strong> Committing to positively impact the lives of children, our teams, partners,
-                    and
-                    the broader world.</p>
-
-                <p><strong>Quality:</strong> Striving for continuous improvement to deliver top-quality products and
-                    experiences, earning trust and recommendations.</p>
-            </div>
-            <div class="txt">Top LEGO Category</div>
-            <div class="img-container">
-                <a href="#"><img class="img-lego" src="../images/LegoChima.jfif" alt="" height="150" width="275"></a>
-                <a href="#"><img class="img-lego" src="../images/LegoNexoKnights.jfif" alt="" height="150"
-                        width="275"></a>
-                <a href="#"><img class="img-lego" src="../images/LEGO-City-logo.jpg" alt="" height="150"
-                        width="275"></a>
-                <a href="#"><img class="img-lego" src="../images/LegoNinjago.jfif" alt="" height="150" width="275"></a>
-            </div>
-
-            <!-- <a href="LEGO_Products.php"><button id="button-add" class="lego-btn">View Products</button></a> -->
+                    quality.</b> Together, these values help children and families explore their potential while
+                ensuring
+                top-tier product quality and joyful experiences.
+            </p>
         </div>
+        <div class="img-container">
+            <a href="#"><img class="img-lego" src="../images/LegoChima.jfif" alt="" height="150" width="275"></a>
+            <a href="#"><img class="img-lego" src="../images/LegoNexoKnights.jfif" alt="" height="150" width="275"></a>
+            <a href="#"><img class="img-lego" src="../images/LEGO-City-logo.jpg" alt="" height="150" width="275"></a>
+            <a href="#"><img class="img-lego" src="../images/LegoNinjago.jfif" alt="" height="150" width="275"></a>
+        </div>
+    </section>
 
-    </div>
+
+    <!-- Footer Section -->
+    <?php include '../en/footer.php' ?>
 
 
-
-
-
-
-    <script>
-        $(function () {
-            var initial = 0;
-            if (localStorage.initialIndex) {
-                initial = localStorage.initialIndex;
-            }
-            if ($(window).width() > 1024) {
-                var pageSwiper = new Swiper('#page', {
-                    direction: 'vertical',
-                    keyboardControl: true,
-                    slidesPerView: 'auto',
-                    //            initialSlide: initial,
-                    mousewheelControl: true,
-                    //            pagination : '#page .swiper-pagination',
-                    //			paginationClickable:true,
-                    //            paginationBulletRender: function (swiper, index, className) {
-                    //              return '<span class="' + className + '">' + "0" + (index + 1) + '</span>';
-                    //            },
-                    speed: 800,
-                    onSlideChangeEnd: function (swiper) {
-                        var curr = swiper.activeIndex;
-                        localStorage.initialIndex = curr;
-                        $(".pageSlide").removeClass("cur").eq(swiper.realIndex).addClass("cur");
-                        headFun(curr);
-                    },
-                    onTransitionEnd: function (swiper) {
-                        if (swiper.progress === 1) {
-                            swiper.activeIndex = swiper.slides.length - 1
-                        }
-                    }
-                })
-            } else {
-                $('#page-swiper-wrapper').removeClass('swiper-wrapper');
-                $('.pageSlide').removeClass('swiper-slide');
-            }
-            function headFun(curr) {
-                if (curr === 2) {
-                    $('.headDiv').addClass('hov');
-                } else {
-                    $('.headDiv').removeClass('hov');
-                }
-
-            }
-            //--
-
-        })
-    </script>
-    <script language="javascript" type="text/javascript" src="../script/js.js"></script>
-    <script language="javascript" type="text/javascript" src="../script/swiper-3.4.2.jquery.min.js"></script>
+    <!-- Cart Section -->
+    <?php include '../en/cart.php' ?>
 </body>
-<?php include 'footer.php'; ?>
-<?php include 'cart.php'; ?>
+<script>
+    function toggleMenu() {
+        var navLayer = document.getElementById("nav-menu");
+        navLayer.classList.toggle("active");
+    }
+</script>
 
 </html>

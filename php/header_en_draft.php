@@ -1,4 +1,5 @@
-/* Global Styles */
+<style>
+    /* Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -525,3 +526,35 @@ footer button {
     width: 250px;
   }
 }
+</style>
+
+
+
+<!-- Thanh điều hướng trên Desktop -->
+<div class="navbar desktop">
+    <div class="logo">
+        <img src="../images/logo.png" width="200" alt="Logo Brick Shop">
+    </div>
+    <ul>
+        <li><a class="active" href="#">Trang chủ</a></li>
+        <li><a href="#">Sản phẩm</a></li>
+        <li><a href="#">Liên hệ</a></li>
+    </ul>
+    <ul>
+        <div class="language-switcher">
+            <div class="current-lang">
+                <img src="../images/flags/vn.png" alt="Cờ Việt Nam">
+            </div>
+            <div class="dropdown-content">
+                <a href="../html/index-chatgpt_en.html" class="lang-option">
+                    <img src="../images/flags/en.png" alt="Cờ Anh"> English
+                </a>
+                <a href="../html/index-chatgpt_vn.html" class="lang-option">
+                    <img src="../images/flags/vn.png" alt="Cờ Việt Nam"> Tiếng Việt
+                </a>
+            </div>
+        </div>
+        <a href="#" class="btn-login">Đăng ký</a>
+        <a href="#" class="btn">Đăng nhập</a>
+    </ul>
+</div>

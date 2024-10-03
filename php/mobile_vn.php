@@ -156,36 +156,34 @@
         cursor: pointer;
     }
 </style>
-<!-- Mobile Navbar -->
+<!-- Thanh điều hướng trên Mobile -->
 <div class="navbar mobile">
     <div class="menu-icon navA" onclick="toggleMenu()">
         <button class="hamburger-menu" id="btn-hamburger">☰</button>
     </div>
     <div class="logo">
-        <img src="../images/logo.png" width="200" alt="Brick Shop Logo">
-        <!-- <a href="#" class="btn">Login</a>
-                <a href="#" class="btn">Sign Up</a> -->
+        <img src="../images/logo.png" width="200" alt="Logo Brick Shop">
     </div>
 </div>
 
-<!-- Mobile Menu Layer -->
+<!-- Lớp Menu trên Mobile -->
 <div class="navLayer" id="nav-menu">
     <div class="navbar-header">
-        <img src="../images/logo.png" width="200" alt="Brick Shop Logo">
+        <img src="../images/logo.png" width="200" alt="Logo Brick Shop">
         <span class="closeBtn" onclick="toggleMenu()">X</span>
     </div>
     <ul class="nav-items">
-        <li><a href="#" class="active">Our Story</a></li>
-        <li><a href="#">Our Products</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">Sign Up</a></li>
-        <li><a href="#">Login</a></li>
+        <li><a href="#" class="active">Câu chuyện của chúng tôi</a></li>
+        <li><a href="#">Sản phẩm của chúng tôi</a></li>
+        <li><a href="#">Liên hệ</a></li>
+        <li><a href="#">Đăng ký</a></li>
+        <li><a href="#">Đăng nhập</a></li>
     </ul>
 
-    <!-- Language Switch -->
+    <!-- Chuyển đổi ngôn ngữ -->
     <div class="lang-switch">
-        <button class="lang-btn">EN</button>
-        <button class="lang-btn active">VN</button>
+        <a  href="../html/index-chatgpt_en.html" ><button class="lang-btn">EN</button></a>
+        <a href="../html/index-chatgpt_vn.html" ><button class="lang-btn active">VN</button></a>
     </div>
 </div>
 

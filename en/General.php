@@ -40,9 +40,10 @@ if (isset($_SESSION["userID"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <?php include '../php/head.php'; ?>
-
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Offline -->
+    <link href="../style/bootstrap_4.5.0.css" rel="stylesheet">
 
     <!-- Thêm favicon vào đây -->
     <link rel="icon" href="../images/keeppley_logo.webp" type="image/x-icon">
@@ -255,14 +256,14 @@ if (isset($_SESSION["userID"])) {
         <div class="headDiv home">
             <!-- Important -->
             <div class="wal">
-                <a href="../en/product.php" class="logo">
+                <a href="../en/index.php" class="logo">
                     <img src="../images/logo.png" class="PC-Box" alt="Qman Toys">
                 </a>
 
                 <div class="lan">
                     <ul>
                         <!-- Show Icon cart  -->
-                        <li><a href="../en/product.php" class="fa-solid fa-house btn-cart" style="color: #000000;"></a>
+                        <li><a href="../en/index.php" class="fa-solid fa-house btn-cart" style="color: #000000;"></a>
                         </li>
 
                         <?php
@@ -303,7 +304,7 @@ if (isset($_SESSION["userID"])) {
     </div>
     <!---->
     <div style="margin-top:80px" class="container light-style flex-grow-1 container-p-y">
-        <a href="../en/product.php" class="logo">
+        <a href="../en/index.php" class="logo">
             <img src="../images/logo.png" class="Phone-Box" alt="Qman Toys" height="40">
         </a>
         <h4 class="font-weight-bold py-3 mb-4">
@@ -320,6 +321,7 @@ if (isset($_SESSION["userID"])) {
                         <a class="list-group-item list-group-item-action" href="SocialLinks.php">Social links</a>
                         <a class="list-group-item list-group-item-action" href="Connections.php">Connections</a>
                         <a class="list-group-item list-group-item-action" href="Notifications.php">Notifications</a>
+                        <a class="list-group-item list-group-item-action" href="Languages.php">Languages</a>
                     </div>
                 </div>
                 <div class="col-md-9">

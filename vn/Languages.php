@@ -1,5 +1,7 @@
 <?php
 include '../php/login.php';
+include '../php/ListLanguages.php';
+
 // Chưa đăng nhập 
 if (isset($_SESSION["userID"])) {
     $userID = $_SESSION["userID"];
@@ -30,6 +32,7 @@ if (isset($_SESSION["userID"])) {
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,17 +41,15 @@ if (isset($_SESSION["userID"])) {
     <title>Account Settings</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
     <?php include '../php/head.php'; ?>
-
-
-    <!-- Important -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Offline -->
     <link href="../style/bootstrap_4.5.0.css" rel="stylesheet">
-    
+
     <!-- Thêm favicon vào đây -->
     <link rel="icon" href="../images/keeppley_logo.webp" type="image/x-icon">
+
     <style type="text/css">
         body {
             background: #f5f5f5;
@@ -170,13 +171,85 @@ if (isset($_SESSION["userID"])) {
             margin-right: 30px
         }
 
+        .image-gallery {
+            display: none;
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .image-gallery img {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        .btn-select {
+            margin-left: 15px;
+        }
+
+
         @media only screen and (max-width: 600px) {
             .btn-setting {
                 margin-bottom: 20px;
                 margin-right: 20px
             }
+
+            .btn-select {
+                margin-top: 15px;
+                margin-left: 15px;
+            }
         }
     </style>
+
+    <script>
+        function previewImage(event, previewId) {
+            const file = event.target.files[0];
+            const preview = document.getElementById(previewId);
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = '#';
+                preview.style.display = 'none';
+            }
+        }
+
+        document.getElementById("chooseImageBtn").onclick = function() {
+            var gallery = document.getElementById("imageGallery");
+            if (gallery.style.display === "none" || gallery.style.display === "") {
+                gallery.style.display = "flex";
+            } else {
+                gallery.style.display = "none";
+            }
+        }
+
+        function selectImage(imgElement) {
+            var preview = document.getElementById('preview1');
+            var defaultImageInput = document.getElementById('defaultImage');
+
+            // Cập nhật hình ảnh preview và input ẩn
+            preview.src = imgElement.src;
+            defaultImageInput.value = imgElement.src;
+
+            // Ẩn gallery sau khi chọn
+            document.getElementById("imageGallery").style.display = "none";
+        }
+    </script>
 </head>
 
 <body inmaintabuse="1">
@@ -194,9 +267,8 @@ if (isset($_SESSION["userID"])) {
                         <li><a href="../en/index.php" class="fa-solid fa-house btn-cart" style="color: #000000;"></a>
                         </li>
 
-                        <!-- Header Account Settings -->
                         <?php
-                        $website = 'Notifications.php';
+                        $website = 'General.php';
                         include '../php/SettingUserHeader_en.php';
                         ?>
 
@@ -232,115 +304,97 @@ if (isset($_SESSION["userID"])) {
         </div>
     </div>
     <!---->
-
     <div style="margin-top:80px" class="container light-style flex-grow-1 container-p-y">
         <a href="../en/index.php" class="logo">
             <img src="../images/logo.png" class="Phone-Box" alt="Qman Toys" height="40">
         </a>
         <h4 class="font-weight-bold py-3 mb-4">
-            Account settings
+            Trung tâm tài khoản
         </h4>
         <div class="card overflow-hidden">
             <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
                     <div class="list-group list-group-flush account-settings-links">
-                        <a class="list-group-item list-group-item-action" href="general.php">General</a>
-                        <a class="list-group-item list-group-item-action" href="Image.php">Image</a>
-                        <a class="list-group-item list-group-item-action" href="ChangePassword.php">Change password</a>
-                        <a class="list-group-item list-group-item-action " href="Information.php">Information</a>
-                        <a class="list-group-item list-group-item-action " href="SocialLinks.php">Social links</a>
-                        <a class="list-group-item list-group-item-action" href="Connections.php">Connections</a>
-                        <a class="list-group-item list-group-item-action active"
-                            href="Notifications.php">Notifications</a>
-                            <a class="list-group-item list-group-item-action" href="Languages.php">Languages</a>
+                        <a class="list-group-item list-group-item-action " href="general.php">Thông tin tài khoản</a>
+                        <a class="list-group-item list-group-item-action" href="Image.php">Hình ảnh</a>
+                        <a class="list-group-item list-group-item-action" href="ChangePassword.php">Mật khẩu</a>
+                        <a class="list-group-item list-group-item-action" href="Information.php">Thông tin cá nhân</a>
+                        <a class="list-group-item list-group-item-action" href="SocialLinks.php">Mạng xã hội</a>
+                        <a class="list-group-item list-group-item-action" href="Connections.php">Liên kết</a>
+                        <a class="list-group-item list-group-item-action" href="Notifications.php">Thông báo</a>
+                        <a class="list-group-item list-group-item-action active" href="Languages.php">Ngôn ngữ</a>
                     </div>
                 </div>
                 <div class="col-md-9">
                     <div class="tab-content">
-                        <div class="tab-pane fade active show" id="account-notifications">
-                            <div class="card-body pb-2">
-                                <h6 class="mb-4">Activity</h6>
-                                <div class="form-group">
-                                    <label class="switcher">
-                                        <input type="checkbox" class="switcher-input" checked>
-                                        <span class="switcher-indicator">
-                                            <span class="switcher-yes"></span>
-                                            <span class="switcher-no"></span>
-                                        </span>
-                                        <span class="switcher-label">Email me when someone comments on my article</span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="switcher">
-                                        <input type="checkbox" class="switcher-input" checked>
-                                        <span class="switcher-indicator">
-                                            <span class="switcher-yes"></span>
-                                            <span class="switcher-no"></span>
-                                        </span>
-                                        <span class="switcher-label">Email me when someone answers on my forum
-                                            thread</span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="switcher">
-                                        <input type="checkbox" class="switcher-input">
-                                        <span class="switcher-indicator">
-                                            <span class="switcher-yes"></span>
-                                            <span class="switcher-no"></span>
-                                        </span>
-                                        <span class="switcher-label">Email me when someone follows me</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <hr class="border-light m-0">
-                            <div class="card-body pb-2">
-                                <h6 class="mb-4">Application</h6>
-                                <div class="form-group">
-                                    <label class="switcher">
-                                        <input type="checkbox" class="switcher-input" checked>
-                                        <span class="switcher-indicator">
-                                            <span class="switcher-yes"></span>
-                                            <span class="switcher-no"></span>
-                                        </span>
-                                        <span class="switcher-label">News and announcements</span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="switcher">
-                                        <input type="checkbox" class="switcher-input">
-                                        <span class="switcher-indicator">
-                                            <span class="switcher-yes"></span>
-                                            <span class="switcher-no"></span>
-                                        </span>
-                                        <span class="switcher-label">Weekly product updates</span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="switcher">
-                                        <input type="checkbox" class="switcher-input" checked>
-                                        <span class="switcher-indicator">
-                                            <span class="switcher-yes"></span>
-                                            <span class="switcher-no"></span>
-                                        </span>
-                                        <span class="switcher-label">Weekly blog digest</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="tab-pane fade active show" id="account-general">
+                            <form action="../php/ChangeLanguages.php" method="POST" enctype="multipart/form-data"
+                                id="accountForm">
+                                <?php
+                                // session_start();
+                                if (isset($_SESSION['success_message'])) {
+                                    echo '<div style="margin-top:30px; margin-right:20px" class="alert alert-success">' . $_SESSION['success_message'] . '</div>';
+                                    unset($_SESSION['success_message']); // Xóa thông báo sau khi hiển thị
+                                }
+                                ?>
 
 
-                        <div class="text-right mt-3">
-                            <button type="submit" class="btn btn-primary btn-setting">Save
-                                changes</button>
-                            <button type="button" class="btn btn-default btn-cancel btn-setting"
-                                id="cancelButton">Cancel</button>
-                            <!-- Nút Đăng Xuất -->
-                            <a href="../php/logout.php" class="btn btn-danger btn-setting">Logout</a>
+                                <hr class="border-light m-0">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label class="form-label">Chọn ngôn ngữ:</label>
+                                        <select class="custom-select" name="language">
+
+                                            <option value="Việt Nam">Việt Nam</option>
+                                            <option value="English">English</option>
+
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="text-right mt-3">
+                                    <button type="submit" class="btn btn-primary btn-setting">Lưu thay đổi</button>
+                                    <button type="button" class="btn btn-default btn-cancel btn-setting"
+                                        id="cancelButton">Hủy</button>
+                                    <!-- Nút Đăng Xuất -->
+                                    <a href="../php/logout.php" class="btn btn-danger btn-setting">Đăng xuất</a>
+                                </div>
+                            </form>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
 
-                    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let isFormDirty = false;
+
+        document.querySelectorAll('input').forEach((input) => {
+            input.addEventListener('change', () => {
+                isFormDirty = true;
+            });
+        });
+
+        document.getElementById('accountForm').addEventListener('submit', function() {
+            isFormDirty = false;
+        });
+
+        document.getElementById('cancelButton').addEventListener('click', function() {
+            isFormDirty = false;
+            location.reload();
+        });
+
+        window.addEventListener('beforeunload', function(e) {
+            if (isFormDirty) {
+                const confirmationMessage = 'You have unsaved changes. Are you sure you want to leave this page?';
+                e.returnValue = confirmationMessage; // Gecko, Trident, Chrome 34+
+                return confirmationMessage; // Gecko, WebKit, Chrome <34
+            }
+        });
+    </script>
 </body>
 
 </html>

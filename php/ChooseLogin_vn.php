@@ -14,6 +14,12 @@
     .bg-background {
       background-color: #ffffff;
     }
+    p{
+      font-size: 20px;
+    }
+    .bg-background {
+      background-color: #ffffff;
+    }
 
     .text-foreground {
       color: #333333;
@@ -34,12 +40,47 @@
     .hover\:bg-gray-200:hover {
       background-color: #e2e2e2;
     }
+
+    .text-center img {
+    width: 100%; /* Điều chỉnh width của logo */
+  }
+
+  .text-center .logo {
+    width: 75%; /* Điều chỉnh width của logo */
+  }
+
+    /* Các phần tử size 75% cho màn hình dưới 1400px */
+@media (max-width: 1500px) {
+  .text-center img {
+    width: 60%;
+  }
+
+  .text-center .logo {
+    width: 50%; /* Điều chỉnh width của logo */
+  }
+  
+  .p-6 {
+    padding: 20px; /* Điều chỉnh padding */
+  }
+
+  .mx-auto {
+    width: 75%;
+  }
+
+  .max-w-4xl {
+    max-width: 75%;
+  }
+
+  a {
+    width: 75%;
+  }
+}
   </style>
 </head>
 
 <body class="bg-background flex flex-col items-center justify-center min-h-screen p-4">
   <div class="text-center mb-8">
-    <img src="../images/20221010151814746.png" alt="Logo" class="mx-auto mb-4">
+    <img src="../images/logo.png" alt="Logo" class="mx-auto mb-4 logo">
     <p class="text-blue-500">Hãy <span class="font-bold">CHỌN ĐỐI TƯỢNG</span> để <span class="font-bold">ĐĂNG NHẬP</span> vào hệ thống</p>
   </div>
   <div class="flex justify-around w-full max-w-4xl">

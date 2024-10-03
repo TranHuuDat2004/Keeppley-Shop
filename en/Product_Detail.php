@@ -87,7 +87,6 @@ $website = "Product_Detail.php?p_id=" . $product['p_id'];
     <style>
         body {
             background-color: #f8f8f8;
-            padding-top: 80px;
             margin: 0;
             /* padding: 0; */
             min-height: 100%;
@@ -137,7 +136,7 @@ $website = "Product_Detail.php?p_id=" . $product['p_id'];
 
 
         .product-title {
-            font-size: 24px;
+            font-size: 28px;
             margin-bottom: 10px;
         }
 
@@ -169,7 +168,7 @@ $website = "Product_Detail.php?p_id=" . $product['p_id'];
             border: none;
             border-radius: 10px;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 22px;
         }
 
         .instruction-btn {
@@ -180,18 +179,18 @@ $website = "Product_Detail.php?p_id=" . $product['p_id'];
             border: none;
             border-radius: 10px;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 22px;
         }
 
 
         .store-info,
         .product-info {
             margin-top: 20px;
-            font-size: 18px;
+            font-size: 22px;
         }
 
         h3 {
-            font-size: 24px;
+            font-size: 28px;
             margin-bottom: 10px;
         }
 
@@ -230,7 +229,7 @@ $website = "Product_Detail.php?p_id=" . $product['p_id'];
             width: 50px;
             height: 40px;
             text-align: center;
-            font-size: 18px;
+            font-size: 22px;
             border: 1px solid #ccc;
             border-radius: 4px;
             margin: 0 10px;
@@ -277,6 +276,19 @@ $website = "Product_Detail.php?p_id=" . $product['p_id'];
         .zoom-container:hover img {
             transform: scale(1.5);
             /* Scale upsize 150% on hover */
+        }
+
+        .description {
+            padding: 12px;
+            background-color: #fff;
+            font-size: 22px;
+        }
+
+        .update-later {
+            font-size: 60px;
+            color: #888;
+            font-weight: bold;
+            text-align: center;
         }
     </style>
 </head>
@@ -345,10 +357,35 @@ $website = "Product_Detail.php?p_id=" . $product['p_id'];
         </div>
     </div>
 
+    <div style="padding-top: 10px; padding-bottom:10px" class="productBox">
+        <div class="wal">
+            <div class="title title2" id="page-100000010724924">Description</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="product-info">
+            <div class="description">
+                <?php
+                // Kiểm tra xem mô tả có tồn tại và không trống
+                if (!empty($products['p_description_en'])) {
+                    echo $products['p_description_en'];
+                } else {
+                    // Thêm một class cho thông báo "Cập nhật sau"
+                    echo "<div class='update-later'>Update later</div>";
+                }
+                ?>
+            </div>
+            <!-- Add other product information -->
+        </div>
+    </div>
+
+
+
     <div class="productBox">
         <div class="wal">
 
-            <div class="title title2" id="page-100000010724924">Best-Selling Products</div>
+            <div class="title" id="page-100000010724924">Best-Selling Products</div>
             <div class="list">
                 <ul>
                     <?php
@@ -362,21 +399,21 @@ $website = "Product_Detail.php?p_id=" . $product['p_id'];
 
                             // Tách chuỗi hình ảnh thành mảng và loại bỏ khoảng trắng thừa
                             $product_images = array_map('trim', explode(',', $category["images"]));
-                            ?>
-                            <li>
-                                <div class="box">
-                                    <div class="imgDiv"><a
-                                            href="../en/Category_Product.php?id=<?php echo $category['id']; ?>"><img
-                                                src="../images/<?php echo $product_images[0]; ?>"
-                                                alt="<?php echo $category['name_en'] ?>"></a>
-                                    </div>
-                                    <div style="background-color: #f8f8f8" class="botDiv">
-                                        <div class="name"><a href="../en/doraemon.php"><?php echo $category['name_en'] ?></a>
-                                        </div>
+                    ?>
+                        <li>
+                            <div class="box">
+                                <div class="imgDiv"><a
+                                        href="../en/Category_Product.php?id=<?php echo $category['id']; ?>"><img
+                                            src="../images/<?php echo $product_images[0]; ?>"
+                                            alt="<?php echo $category['name_en'] ?>"></a>
+                                </div>
+                                <div style="background-color: #f8f8f8" class="botDiv">
+                                    <div class="name"><a href="../en/doraemon.php"><?php echo $category['name_en'] ?></a>
                                     </div>
                                 </div>
-                            </li>
-                            <?php
+                            </div>
+                        </li>
+                    <?php
 
                         endwhile;
                     ?>
@@ -393,8 +430,6 @@ $website = "Product_Detail.php?p_id=" . $product['p_id'];
         <!-- Moblie  -->
         <script language="javascript" type="text/javascript" src="../script/js.js"></script>
         <script>
-
-
             function changeImage(element) {
                 document.getElementById('main-image').src = element.src;
             }
@@ -414,8 +449,8 @@ $website = "Product_Detail.php?p_id=" . $product['p_id'];
             }
 
             // Công thức zoom ảnh
-            $(document).ready(function () {
-                $(".zoom-container").mousemove(function (e) {
+            $(document).ready(function() {
+                $(".zoom-container").mousemove(function(e) {
                     var image = $(this).find("img");
                     var offsetX = e.pageX - $(this).offset().left;
                     var offsetY = e.pageY - $(this).offset().top;
@@ -436,7 +471,7 @@ $website = "Product_Detail.php?p_id=" . $product['p_id'];
         <!--===============================================================================================-->
         <script src="../vendor/select2/select2.min.js"></script>
         <script>
-            $(".js-select2").each(function () {
+            $(".js-select2").each(function() {
                 $(this).select2({
                     minimumResultsForSearch: 20,
                     dropdownParent: $(this).next('.dropDownSelect2')
@@ -457,7 +492,7 @@ $website = "Product_Detail.php?p_id=" . $product['p_id'];
         <!--===============================================================================================-->
         <script src="../vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
         <script>
-            $('.gallery-lb').each(function () { // the containers for all your galleries
+            $('.gallery-lb').each(function() { // the containers for all your galleries
                 $(this).magnificPopup({
                     delegate: 'a', // the selector for gallery item
                     type: 'image',
@@ -473,13 +508,13 @@ $website = "Product_Detail.php?p_id=" . $product['p_id'];
         <!--===============================================================================================-->
         <script src="../vendor/sweetalert/sweetalert.min.js"></script>
         <script>
-            $('.js-addwish-b2, .js-addwish-detail').on('click', function (e) {
+            $('.js-addwish-b2, .js-addwish-detail').on('click', function(e) {
                 e.preventDefault();
             });
 
-            $('.js-addwish-b2').each(function () {
+            $('.js-addwish-b2').each(function() {
                 var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
-                $(this).on('click', function () {
+                $(this).on('click', function() {
                     swal(nameProduct, "is added to wishlist !", "success");
 
                     $(this).addClass('js-addedwish-b2');
@@ -487,10 +522,10 @@ $website = "Product_Detail.php?p_id=" . $product['p_id'];
                 });
             });
 
-            $('.js-addwish-detail').each(function () {
+            $('.js-addwish-detail').each(function() {
                 var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
 
-                $(this).on('click', function () {
+                $(this).on('click', function() {
                     swal(nameProduct, "is added to wishlist !", "success");
 
                     $(this).addClass('js-addedwish-detail');
@@ -500,23 +535,23 @@ $website = "Product_Detail.php?p_id=" . $product['p_id'];
 
             /*---------------------------------------------*/
 
-            $('.js-addcart-detail').each(function () {
+            $('.js-addcart-detail').each(function() {
                 var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
-                $(this).on('click', function () {
+                $(this).on('click', function() {
                     swal(nameProduct, "is added to cart !", "success");
                 });
             });
 
-            $('.js-buycart-detail').each(function () {
+            $('.js-buycart-detail').each(function() {
                 var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
-                $(this).on('click', function () {
+                $(this).on('click', function() {
                     swal(nameProduct, "is ready to buy !", "success");
                 });
             });
 
             // Zoom Image
-            $(document).ready(function () {
-                $(".zoom-container").mousemove(function (e) {
+            $(document).ready(function() {
+                $(".zoom-container").mousemove(function(e) {
                     var image = $(this).find("img");
                     var offsetX = e.pageX - $(this).offset().left;
                     var offsetY = e.pageY - $(this).offset().top;
@@ -529,7 +564,7 @@ $website = "Product_Detail.php?p_id=" . $product['p_id'];
         <!--===============================================================================================-->
         <script src="../vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
         <script>
-            $('.js-pscroll').each(function () {
+            $('.js-pscroll').each(function() {
                 $(this).css('position', 'relative');
                 $(this).css('overflow', 'hidden');
                 var ps = new PerfectScrollbar(this, {
@@ -538,17 +573,17 @@ $website = "Product_Detail.php?p_id=" . $product['p_id'];
                     wheelPropagation: false,
                 });
 
-                $(window).on('resize', function () {
+                $(window).on('resize', function() {
                     ps.update();
                 })
             });
 
-            document.getElementById("button-add").addEventListener("click", function () {
+            document.getElementById("button-add").addEventListener("click", function() {
 
                 var xhr = new XMLHttpRequest();
                 xhr.open("POST", "add_to_cart.php", true);
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xhr.onreadystatechange = function () {
+                xhr.onreadystatechange = function() {
                     if (xhr.readyState === 4 && xhr.status === 200) {
                         // Xử lý phản hồi từ máy chủ (nếu cần)
                         console.log(xhr.responseText);
@@ -558,13 +593,13 @@ $website = "Product_Detail.php?p_id=" . $product['p_id'];
             });
 
             // Người dùng lựa chọn số lượng sản phẩm để thêm vào giỏ hàng
-            document.addEventListener("DOMContentLoaded", function () {
+            document.addEventListener("DOMContentLoaded", function() {
                 var quantityInput = document.getElementById("quantity-input");
                 var hiddenQuantity = document.getElementById("hidden-quantity");
                 var hiddenQuantityBuy = document.getElementById("hidden-quantity-buy");
 
                 // Lắng nghe sự kiện thay đổi giá trị trong ô input
-                quantityInput.addEventListener("change", function () {
+                quantityInput.addEventListener("change", function() {
                     // Cập nhật giá trị biến quantity
                     var quantity = parseInt(this.value);
                     hiddenQuantity.value = quantity;
@@ -573,8 +608,8 @@ $website = "Product_Detail.php?p_id=" . $product['p_id'];
 
                 // Lắng nghe sự kiện nhấn nút tăng giảm số lượng
                 var buttons = document.querySelectorAll(".btn-num-product-up, .btn-num-product-down");
-                buttons.forEach(function (button) {
-                    button.addEventListener("click", function () {
+                buttons.forEach(function(button) {
+                    button.addEventListener("click", function() {
                         // Cập nhật giá trị biến quantity
                         var currentValue = parseInt(quantityInput.value);
                         var newValue = this.classList.contains("btn-num-product-up") ? currentValue : currentValue;
@@ -595,7 +630,7 @@ $website = "Product_Detail.php?p_id=" . $product['p_id'];
             var container = document.getElementById('image-container');
 
             // Duyệt qua từng hình ảnh trong mảng và tạo các phần tử hình ảnh
-            imageArray.forEach(function (imagePath, index) {
+            imageArray.forEach(function(imagePath, index) {
                 var img = document.createElement('img');
                 img.src = imagePath;
 
@@ -610,7 +645,6 @@ $website = "Product_Detail.php?p_id=" . $product['p_id'];
 
                 container.appendChild(img);
             })
-
         </script>
         <!--===============================================================================================-->
         <script src="js/main.js"></script>

@@ -7,6 +7,9 @@
   <title>Select Login Role</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
+  <!-- Offline -->
+  <link href="../style/tailwindcss_2.2.19.css" rel="stylesheet">
+
   <!-- Add favicon here -->
   <link rel="icon" href="../images/favicon.png" type="image/x-icon">
 
@@ -37,12 +40,48 @@
     .hover\:bg-gray-200:hover {
       background-color: #e2e2e2;
     }
+
+    .text-center img {
+    width: 100%; /* Điều chỉnh width của logo */
+  }
+
+  .text-center .logo {
+    width: 75%; /* Điều chỉnh width của logo */
+  }
+
+    /* Các phần tử size 75% cho màn hình dưới 1400px */
+@media (max-width: 1500px) {
+  .text-center img {
+    width: 60%;
+  }
+
+  .text-center .logo {
+    width: 50%; /* Điều chỉnh width của logo */
+  }
+  
+  .p-6 {
+    padding: 20px; /* Điều chỉnh padding */
+  }
+
+  .mx-auto {
+    width: 75%;
+  }
+
+  .max-w-4xl {
+    max-width: 75%;
+  }
+
+  a {
+    width: 75%;
+  }
+}
+
   </style>
 </head>
 
 <body class="bg-background flex flex-col items-center justify-center min-h-screen p-4">
   <div class="text-center mb-8">
-    <a href="../en/index.php"><img src="../images/logo.png" alt="Logo" class="mx-auto mb-4"></a>
+    <a href="../en/index.php"><img src="../images/logo.png" alt="Logo" class="mx-auto mb-4 logo"></a>
     <p class="text-blue-500">Please <span class="font-bold">CHOOSE A ROLE</span> to <span class="font-bold">LOG IN</span> to the system</p>
   </div>
 

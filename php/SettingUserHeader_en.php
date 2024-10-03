@@ -5,8 +5,6 @@
     }
 </style>
 
-<li><a href="../en/<?php echo $website ?>" class="cur">EN</a></li>
-<li><a href="../vn/<?php echo $website ?>">VN</a></li>
 
 <!-- Show Icon cart and Profile Avatar -->
 <?php if ($userLogin['userName']): ?>
