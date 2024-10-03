@@ -322,6 +322,36 @@
     }
 
     /* Responsive Styles Header */
+    @media (max-width: 1400px) {
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* 4 cột, mỗi cột có cùng kích thước */
+            gap: 20px;
+            /* Khoảng cách giữa các sản phẩm */
+            margin-bottom: 40px;
+            /* Khoảng cách dưới */
+            padding: 10px 0px;
+        }
+
+    }
+
+    /* Responsive Styles Header */
+    @media (max-width: 900px) {
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            /* 2 cột, mỗi cột có cùng kích thước */
+            gap: 20px;
+            /* Khoảng cách giữa các sản phẩm */
+            margin-bottom: 40px;
+            /* Khoảng cách dưới */
+            padding: 10px 0px;
+        }
+
+    }
+
+    /* Responsive Styles Header */
     @media (max-width: 768px) {
         .product-grid {
             display: grid;

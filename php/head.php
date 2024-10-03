@@ -7,12 +7,9 @@
 <meta name="Description"
   content="Children's building blocks Guangdong Qman Culture Communication Co., LtdSmall building blocks">
 
-<link href="../style/main.css" rel="stylesheet" type="text/css">
-<link href="../style/index.css" rel="stylesheet" type="text/css">
-<link href="../style/media.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="../style/swiper.min.css">
-<link rel="stylesheet" href="../style/animate.min.css">
-<link rel="stylesheet" href="../style/jie.css">
+
+
+
 
 
 <!-- Moblie  -->
