@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautify Store</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Thêm Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+    <!-- OwlCarousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3hJ2VNO5g1bYvcHAyeyLMOveVZMAz9CtOIRoJMNgl+K+voGAwl0NO7ADhK3V7YcdVp7cTHrdvxp3mOWK2ewA=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-UTw2ZdvWJalAqflRfthDFZ3J4iIgpwlqV5XfwFahBBVhbi0CHXjqkT29YrKK7UiZFc2z+T2rwMAlXZ1pZtOW6w=="
+        crossorigin="anonymous" />
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- OwlCarousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-QtLscKcYN4LtZ5hrPSGoI7cIxstUpA6zZdlhHe+hQfAfXsyIbYc6msVZ+1qZLZ7IOJSx7U2o20LzjpugKT2TRw=="
+        crossorigin="anonymous"></script>
+
+</head>
+
+<style>
+    /* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    /* Header */
+    .top-bar {
+        background-color: #f7f7f7;
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .main-nav {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-nav .logo a {
+        text-decoration: none;
+        font-size: 24px;
+        color: #333;
+        font-weight: bold;
+    }
+
+    .main-nav .nav-links {
+        display: flex;
+        list-style: none;
+    }
+
+    .main-nav .nav-links li {
+        margin-left: 20px;
+    }
+
+    .main-nav .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+    }
+
+    .search-cart input {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .search-cart img {
+        width: 30px;
+        margin-left: 10px;
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+        background-image: url('banner-image.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 48px;
+    }
+
+    .hero-text p {
+        font-size: 20px;
+    }
+
+    .btn-cta {
+        padding: 10px 20px;
+        background-color: green;
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-top: 20px;
+    }
+
+    /* Categories Section */
+    .categories {
+        padding: 40px;
+        text-align: center;
+    }
+
+    .category-list {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .category-item {
+        background-color: white;
+        padding: 20px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        text-align: center;
+        width: 150px;
+    }
+
+    /* Featured Products */
+    .featured-products {
+        padding: 40px;
+        background-color: #f9f9f9;
+    }
+
+    .product-grid {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .product-item {
+        background-color: white;
+        padding: 20px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        text-align: center;
+        width: 200px;
+    }
+
+    .product-item img {
+        max-width: 100%;
+        border-radius: 8px;
+    }
+
+    .product-item p {
+        margin: 10px 0;
+    }
+
+    /* Footer */
+    /* Style chung cho footer */
+    footer {
+        background-color: #222;
+        color: #ccc;
+        padding: 40px 0;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Bố trí các cột theo Grid */
+    .footer-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        /* 4 cột */
+        gap: 20px;
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+
+    /* Style cho từng cột trong footer */
+    .footer-column h2,
+    .footer-column h3 {
+        color: #fff;
+        margin-bottom: 20px;
+    }
+
+    .footer-column p,
+    .footer-column ul {
+        margin-bottom: 15px;
+    }
+
+    .footer-column ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-column ul li {
+        margin-bottom: 10px;
+    }
+
+    .footer-column ul li a {
+        color: #ccc;
+        text-decoration: none;
+    }
+
+    .footer-column ul li a:hover {
+        text-decoration: underline;
+    }
+
+    .footer-column a {
+        color: #ccc;
+        text-decoration: none;
+    }
+
+    .footer-column a:hover {
+        color: #fff;
+    }
+
+    .social-icons a {
+        display: inline-block;
+        margin-right: 10px;
+        font-size: 20px;
+        color: #fff;
+    }
+
+    .app-buttons img {
+        width: 150px;
+        margin-right: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .footer-container {
+            grid-template-columns: repeat(2, 1fr);
+            /* 2 cột khi trên màn hình nhỏ hơn */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .footer-container {
+            grid-template-columns: 1fr;
+            /* 1 cột khi trên màn hình nhỏ */
+        }
+    }
+</style>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="top-bar">
+            <p>Nhận thông báo về các sản phẩm mới nhất và khuyến mãi</p>
+        </div>
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="#">Beautify.</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Cửa hàng</a></li>
+                <li><a href="#">Danh mục SALE</a></li>
+                <li><a href="#">Sản phẩm HOT</a></li>
+                <li><a href="#">Top Deals</a></li>
+                <li><a href="#">Khác</a></li>
+            </ul>
+            <div class="search-cart">
+                <input type="text" placeholder="Tìm kiếm...">
+                <a href="#"><img src="cart-icon.png" alt="Cart"></a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-banner">
+        <div class="hero-text">
+            <h1>Cải thiện sắc tố da và điều trị mụn</h1>
+            <p>Bộ sưu tập dưỡng da chuyên sâu</p>
+            <a href="#" class="btn-cta">Mua Ngay</a>
+        </div>
+    </section>
+
+    <!-- Product Categories -->
+    <section class="categories">
+        <h2>Danh mục sản phẩm</h2>
+        <div class="category-list">
+            <div class="category-item">Kem che khuyết điểm</div>
+            <div class="category-item">Kem che khuyết điểm</div>
+            <div class="category-item">Kem che khuyết điểm</div>
+            <!-- Repeat for other categories -->
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="featured-products">
+        <h2>Sản Phẩm Hàng Đầu</h2>
+        <div class="product-grid">
+            <div class="product-item">
+                <img src="product1.jpg" alt="Product 1">
+                <p>Kem dưỡng da ban ngày Sunday Riley</p>
+                <p>399,000 đ</p>
+            </div>
+            <!-- Repeat product items -->
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h2>Beautify.</h2>
+                <p>CÔNG TY TNHH MTV THƯƠNG MẠI & ĐẦU TƯ BEAUTIFY.</p>
+                <p>Giấy chứng nhận đăng ký doanh nghiệp số 0310618188, cấp ngày 29.01.2011, nơi cấp Sở kế hoạch và đầu
+                    tư TP HCM</p>
+                <p>Trụ sở chính: L2-VP-01, 346 Bến Vân Đồn, P1, Q4, TP Hồ Chí Minh, VN</p>
+                <p>Hotline: <a href="tel:19004449">19004449</a> - Điện thoại: <a href="tel:02838328272">02838328272</a>
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Theo dõi chúng tôi</h3>
+                <div class="social-icons">
+                    <a href="#"><img src="../images/facebook.png" alt=""></a>
+                    <!-- <a href="#"><img src="../images/tiktok.png" alt=""></a> -->
+                    <a href="#"><img src="../images/x.png" alt=""></a>
+                    <a href="#"><img src="../images/insta.png" alt=""></a>
+                    <a href="#"><img src="../images/youtube.png" alt=""></a>
+                </div>
+                <h3>Tải app tại đây</h3>
+                <div class="app-buttons">
+                    <a href="#"><img src="../images/App Store.png" alt="App Store"></a>
+
+                </div>
+                <div class="app-buttons">
+                    <a href="#"><img src="../images/Google Play.png" alt="Google Play"></a>
+
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Về chúng tôi</h3>
+                <ul>
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="#">Cẩm nang làm đẹp</a></li>
+                    <li><a href="#">Khách hàng thân thiết</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                    <li><a href="#">Địa chỉ cửa hàng</a></li>
+                    <li><a href="#">Cho thuê mặt bằng</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Về chính sách</h3>
+                <ul>
+                    <li><a href="#">Chính sách và quy định chung</a></li>
+                    <li><a href="#">Quy định - hình thức thanh toán</a></li>
+                    <li><a href="#">Chính sách vận chuyển</a></li>
+                    <li><a href="#">Chính sách đổi trả hàng</a></li>
+                    <li><a href="#">Hướng dẫn mua hàng</a></li>
+                    <li><a href="#">Quy trình xuất hóa đơn điện tử</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        $(document).ready(function () {
+            $('.social-links').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: false,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        items: 2
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 5
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

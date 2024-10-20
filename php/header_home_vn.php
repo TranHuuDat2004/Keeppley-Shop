@@ -16,6 +16,10 @@
         line-height: 1.6;
     }
 
+    header{
+        background-color: #f5f5f5;
+    }
+
     /* Desktop Navbar */
     .navbar.desktop {
         display: flex;
@@ -60,6 +64,7 @@
 
     .logo img {
         max-width: 200px;
+        float: left;
     }
 
     .hamburger-menu {
@@ -189,17 +194,18 @@
         cursor: pointer;
     }
 
-    .btn {
+    .btn-sign-up {
+        margin-top: 20px;
         padding: 10px 20px;
         background-color: #ff5c5c;
         color: white;
         border: none;
         border-radius: 16px;
         cursor: pointer;
-
     }
 
     .btn-login {
+        margin-top: 20px;
         padding: 10px 20px;
         background-color: #ffffff;
         /* Màu nền trắng */
@@ -212,9 +218,39 @@
         cursor: pointer;
     }
 
+    .btn-cart {
+        padding: 0px 0px;
+        background-color: #fff;
+        border: none;
+        border-radius: 16px;
+        cursor: pointer;
+        margin: 0px 15px;
+    }
+
+    /* Responsive Styles Header */
+    @media (max-width: 768px) {
+        .btn-cart {
+            padding: 5px 10px;
+            background-color: #fff;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            margin: 5px 20px;
+        }
+
+    }
+
     .img-user {
         border-radius: 50%;
         object-fit: cover;
+    }
+
+    .buttons {
+        padding: 10px 20px;
+        color: white;
+        border: none;
+        border-radius: 16px;
+        cursor: pointer;
     }
 
     /* Language switcher container */
@@ -223,21 +259,109 @@
         display: inline-block;
         margin-right: 20px;
     }
-</style>
 
+    /* Current language flag icon */
+    .current-lang img {
+        padding-top: 5px;
+        width: 48px;
+        cursor: pointer;
+    }
+
+    /* Dropdown styling */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: white;
+        width: 150px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .dropdown-content a {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        text-decoration: none;
+        color: black;
+        font-size: 14px;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f1f1f1;
+    }
+
+    /* Language option flag icons */
+    .lang-option img {
+        width: 18px;
+        margin-right: 8px;
+    }
+
+    /* Show dropdown when hovering */
+    .language-switcher:hover .dropdown-content {
+        display: block;
+    }
+
+    .search-bar {
+        display: flex;
+        align-items: center;
+        background-color: white;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .search-bar input {
+        border: none;
+        padding: 5px;
+        width: 200px;
+        /* background-color: #f5f5f5; */
+    }
+
+    .search-bar .btn-search {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .btn-search{
+        margin-left: 15px;
+    }
+</style>
 <!-- Header Section -->
 <header>
 
-    <!-- Thanh điều hướng trên Desktop -->
+    <!-- Desktop Navbar -->
     <div class="navbar desktop">
-        <div class="logo">
-            <img src="../images/logo.png" width="200" alt="Logo Brick Shop">
-        </div>
+        <a href="../vn/index.php">
+            <div class="logo">
+                <img src="../images/logo.png" width="200" alt="Brick Shop Logo">
+            </div>
+        </a>
+
         <ul>
-            <li><a class="active" href="../vn/index.php">Trang chủ</a></li>
-            <li><a href="../vn/product.php">Sản phẩm</a></li>
-            <li><a href="../vn/404.php">Liên hệ</a></li>
+            <?php if ($website == 'index.php'): ?>
+                <li><a class="active" href="../vn/index.php">Trang chủ</a></li>
+                <li><a href="../vn/product.php">Sản phẩm</a></li>
+                <li><a href="#">Liên hệ</a></li>
+
+            <?php elseif ($website == 'contact.php'): ?>
+                <li><a href="../vn/index.php">Trang chủ</a></li>
+                <li><a href="../vn/product.php">Sản phẩm</a></li>
+                <li><a class="active" href="#">Liên hệ</a></li>
+
+            <?php else: ?>
+                <li><a href="../vn/index.php">Trang chủ</a></li>
+                <li><a class="active" href="../vn/product.php">Sản phẩm</a></li>
+                <li><a href="#">Liên hệ</a></li>
+            <?php endif ?>
         </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm sản phẩm">
+            <button class="btn-cart"><a class="fa-duotone fa-solid fa-magnifying-glass fa-xl" style="color: #ff5c5c; "></a></button>
+        </div>
         <ul>
             <div class="language-switcher">
                 <div class="current-lang">
@@ -251,48 +375,109 @@
                         <img src="../images/flags/vn.png" alt="Vietnam Flag"> Tiếng Việt
                     </a>
                 </div>
+
             </div>
-            <a href="../php/Signup_vn.php" class="btn-login">Đăng ký</a>
-            <a href="../php/ChooseLogin_vn.php" class="btn">Đăng nhập</a>
-        </ul>
+
+
+            <!-- Show Icon cart and Profile Avatar -->
+            <?php if ($userLogin['userName']): ?>
+
+                <!-- <li><a href="#">Welcome, Doraemon và những người bạn tuyệt vời</a></li> -->
+
+                <!-- Show Icon cart  -->
+                <!-- fa-bounce -->                
+                <button class="btn-cart"><a id="cartButton" class="fa-duotone fa-solid fa-cart-shopping fa-2xl" style="color: #ff5c5c; padding-right:10px"></a></button>
+
+
+                <div class="language-switcher">
+
+                    <!-- <label style="padding-right: 10px; padding-top:0px">Hi, Duy</label> -->
+
+
+
+
+                    <!-- Show Profile Avatar -->
+                    <?php if (!$userLogin['image']): ?>
+                        <a href="../vn/General.php"><img class="img-user" src="../user/male.png" width="50" height="50"></a>
+                </div>
+            <?php else: ?>
+                <a href="../vn/General.php"><img class="img-user" src="../user/<?php echo $userLogin['image'] ?>" width="50"
+                        height="50"></a>
+    </div>
+<?php endif ?>
+
+<?php else: ?>
+    <!-- Sign up and login buttons -->
+    <div class="buttons">
+        <a style="margin-top: 20px;" href="../php/Signup_vn.php" class="btn btn-sign-up">Đăng kí</a>
+        <a style="margin-top: 20px;" href="../php/ChooseLogin_vn.php" class="btn btn-login">Đăng nhập</a>
     </div>
 
 
-    <!-- Thanh điều hướng trên Mobile -->
-    <div class="navbar mobile">
-        <div class="menu-icon navA" onclick="toggleMenu()">
-            <button class="hamburger-menu" id="btn-hamburger">☰</button>
-        </div>
-        <div class="logo">
-            <img src="../images/logo.png" width="200" alt="Logo Brick Shop">
-        </div>
+<?php endif; ?>
+</ul>
+</div>
+
+<!-- Mobile Navbar -->
+<div class="navbar mobile">
+    <div class="menu-icon navA" onclick="toggleMenu()">
+        <button class="hamburger-menu" id="btn-hamburger">☰</button>
     </div>
+    <div class="logo">
+        <img src="../images/logo.png" width="200" alt="Brick Shop Logo">
+        <button class="btn-cart"><a class="fa-duotone fa-solid fa-magnifying-glass fa-2xl" style="color: #ff5c5c;"></a></button>
 
-    <!-- Lớp Menu trên Mobile -->
-    <div class="navLayer" id="nav-menu">
-        <div class="navbar-header">
-            <img src="../images/logo.png" width="200" alt="Logo Brick Shop">
-            <span class="closeBtn" onclick="toggleMenu()">X</span>
-        </div>
-        <ul class="nav-items">
-            <li><a href="../vn/index.php" class="active">Câu chuyện của chúng tôi</a></li>
-            <li><a href="../vn/product.php">Sản phẩm của chúng tôi</a></li>
-            <li><a href="../vn/404.php">Liên hệ</a></li>
-            <li><a href="../php/Signup_vn.php">Đăng ký</a></li>
-            <li><a href="../php/ChooseLogin_vn.php">Đăng nhập</a></li>
-        </ul>
-
-        <!-- Chuyển đổi ngôn ngữ -->
-        <div class="lang-switch">
-            <a href="../en/<?php echo $website ?>"><button class="lang-btn">EN</button></a>
-            <a href="../vn/<?php echo $website ?>"><button class="lang-btn active">VN</button></a>
-        </div>
+        <!-- <a href="#" class="btn">Đăng nhập</a>
+        <a href="#" class="btn">Đăng kí</a> -->
     </div>
+</div>
 
-    <script>
-        function toggleMenu() {
-            var navLayer = document.getElementById("nav-menu");
-            navLayer.classList.toggle("active");
-        }
-    </script>
+<!-- Mobile Menu Layer -->
+<div class="navLayer" id="nav-menu">
+    <div class="navbar-header">
+        <img src="../images/logo.png" width="200" alt="Brick Shop Logo">
+        <span class="closeBtn" onclick="toggleMenu()">X</span>
+    </div>
+    <ul class="nav-items">
+        <?php if ($website == 'index.php'): ?>
+            <li><a class="active" href="../vn/index.php">Trang chủ</a></li>
+            <li><a href="../vn/product.php">Sản phẩm</a></li>
+            <li><a href="#">Liên hệ</a></li>
+
+        <?php elseif ($website == 'contact.php'): ?>
+            <li><a href="../vn/index.php">Trang chủ</a></li>
+            <li><a href="../vn/product.php">Sản phẩm</a></li>
+            <li><a class="active" href="#">Liên hệ</a></li>
+
+        <?php else: ?>
+            <li><a href="../vn/index.php">Trang chủ</a></li>
+            <li><a class="active" href="../vn/product.php">Sản phẩm</a></li>
+            <li><a href="#">Liên hệ</a></li>
+        <?php endif ?>
+
+        <!-- Show Icon cart and Profile Avatar -->
+        <?php if ($userLogin['userName']): ?>
+            <li><a href="../vn/General.php">Xem giỏ hàng</a></li>
+            <li><a href="../vn/General.php">Thông tin tài khoản</a></li>
+    </ul>
+<?php else: ?>
+    <li><a href="../php/Signup_vn.php">Đăng kí</a></li>
+    <li><a href="../php/ChooseLogin_vn.php">Đăng nhập</a></li>
+    </ul>
+<?php endif; ?>
+
+<!-- Language Switch -->
+<div class="lang-switch">
+    <a href="../en/<?php echo $website ?>"><button class="lang-btn ">EN</button></a>
+    <a href="../vn/<?php echo $website ?>"><button class="lang-btn active">VN</button></a>
+</div>
+</div>
+
+<script>
+    function toggleMenu() {
+        var navLayer = document.getElementById("nav-menu");
+        navLayer.classList.toggle("active");
+    }
+</script>
+
 </header>

@@ -1,4 +1,8 @@
 <?php
+// Lấy tên file này
+$website = basename($_SERVER['SCRIPT_NAME']);
+// echo $website;
+
 include '../php/login.php';
 // Chưa đăng nhập 
 if (isset($_SESSION["userID"])) {
@@ -52,13 +56,13 @@ if (isset($_SESSION["userID"])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Offline -->
     <link href="../style/bootstrap_4.5.0.css" rel="stylesheet">
-    
+
     <!-- Thêm favicon vào đây -->
     <link rel="icon" href="../images/keeppley_logo.webp" type="image/x-icon">
     <style type="text/css">
         body {
             background: #f5f5f5;
-            margin-top: 20px;
+
         }
 
         .ui-w-80 {
@@ -186,116 +190,100 @@ if (isset($_SESSION["userID"])) {
 </head>
 
 <body>
-    <div class="headD">
-        <div class="headDiv home">
-            <!-- Important -->
-            <div class="wal">
-                <a href="../en/index.php" class="logo">
-                    <img src="../images/logo.png" class="PC-Box" alt="Qman Toys">
-                </a>
+    <!-- Header Section -->
+    <?php include '../php/header_home_en.php' ?>
 
-                <div class="lan">
-                    <ul>
-                        <!-- Show Icon cart  -->
-                        <li><a href="../en/index.php" class="fa-solid fa-house btn-cart" style="color: #000000;"></a>
-                        </li>
+    <!-- Cart Section -->
+    <?php include '../en/cart.php' ?>
 
-                        <!-- Header Account Settings -->
-                        <?php
-                        $website = 'Information.php';
-                        include '../php/SettingUserHeader_en.php';
-                        ?>
-                    </ul>
+    <div style="margin-top:20px" class="container light-style flex-grow-1 container-p-y">
+
+        <h4 class="font-weight-bold py-3 mb-4">
+            Account settings
+        </h4>
+        <div class="card overflow-hidden">
+            <div class="row no-gutters row-bordered row-border-light">
+                <div class="col-md-3 pt-0">
+                    <div class="list-group list-group-flush account-settings-links">
+                        <a class="list-group-item list-group-item-action" href="general.php">General</a>
+                        <a class="list-group-item list-group-item-action" href="Image.php">Image</a>
+                        <a class="list-group-item list-group-item-action" href="ChangePassword.php">Change
+                            password</a>
+                        <a class="list-group-item list-group-item-action active"
+                            href="Information.php">Information</a>
+                        <a class="list-group-item list-group-item-action " href="SocialLinks.php">Social links</a>
+                        <a class="list-group-item list-group-item-action" href="Connections.php">Connections</a>
+                        <a class="list-group-item list-group-item-action "
+                            href="Notifications.php">Notifications</a>
+                        <a class="list-group-item list-group-item-action" href="Languages.php">Languages</a>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="tab-content">
+                        <div class="tab-pane fade active show" id="account-info">
+                            <form action="../php/UpdateInformation.php" method="post">
+                                <div class="card-body pb-2">
+                                    <?php
+                                    // session_start();
+                                    if (isset($_SESSION['success_message'])) {
+                                        echo '<div class="alert alert-success">' . $_SESSION['success_message'] . '</div>';
+                                        unset($_SESSION['success_message']); // Xóa thông báo sau khi hiển thị
+                                    }
+                                    ?>
+                                    <div class="form-group">
+                                        <label class="form-label">Bio</label>
+                                        <textarea class="form-control" name="bio"
+                                            rows="5"><?php echo $userLogin['bio'] ?></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Birthday</label>
+                                        <input type="date" class="form-control" name="birthday" id="birthday"
+                                            value="<?php echo $userLogin['birthday'] ?>">
+
+                                        <!-- Lấy ID -->
+                                        <input type="hidden" name="userID"
+                                            value="<?php echo $userLogin['userID'] ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Country</label>
+                                        <select class="custom-select" name="country">
+                                            <?php foreach ($country_list as $country): ?>
+                                                <option value="<?php echo htmlspecialchars($country); ?>" <?php echo $userLogin['country'] == $country ? 'selected' : ''; ?>>
+                                                    <?php echo htmlspecialchars($country); ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">Phone</label>
+                                        <input type="text" class="form-control" name="phone"
+                                            value="<?php echo $userLogin['phone'] ?>">
+                                    </div>
+                                </div>
+                                <div class="text-right mt-3">
+                                    <button type="submit" class="btn btn-primary btn-setting">Save
+                                        changes</button>
+                                    <button type="button" class="btn btn-default btn-cancel btn-setting"
+                                        id="cancelButton">Cancel</button>
+                                    <!-- Nút Đăng Xuất -->
+                                    <a href="../php/logout.php" class="btn btn-danger btn-setting">Logout</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- Mobile-->
-        <?php include '../php/mobile_en.php'; ?>
+    </div>
+    <!-- Footer Section -->
+    <?php include '../en/footer.php' ?>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
 
-        <div style="margin-top:80px" class="container light-style flex-grow-1 container-p-y">
-            <a href="../en/index.php" class="logo">
-                <img src="../images/logo.png" class="Phone-Box" alt="Qman Toys" height="40">
-            </a>
-            <h4 class="font-weight-bold py-3 mb-4">
-                Account settings
-            </h4>
-            <div class="card overflow-hidden">
-                <div class="row no-gutters row-bordered row-border-light">
-                    <div class="col-md-3 pt-0">
-                        <div class="list-group list-group-flush account-settings-links">
-                            <a class="list-group-item list-group-item-action" href="general.php">General</a>
-                            <a class="list-group-item list-group-item-action" href="Image.php">Image</a>
-                            <a class="list-group-item list-group-item-action" href="ChangePassword.php">Change
-                                password</a>
-                            <a class="list-group-item list-group-item-action active"
-                                href="Information.php">Information</a>
-                            <a class="list-group-item list-group-item-action " href="SocialLinks.php">Social links</a>
-                            <a class="list-group-item list-group-item-action" href="Connections.php">Connections</a>
-                            <a class="list-group-item list-group-item-action "
-                                href="Notifications.php">Notifications</a>
-                                <a class="list-group-item list-group-item-action" href="Languages.php">Languages</a>
-                        </div>
-                    </div>
-                    <div class="col-md-9">
-                        <div class="tab-content">
-                            <div class="tab-pane fade active show" id="account-info">
-                                <form action="../php/UpdateInformation.php" method="post">
-                                    <div class="card-body pb-2">
-                                        <?php
-                                        // session_start();
-                                        if (isset($_SESSION['success_message'])) {
-                                            echo '<div class="alert alert-success">' . $_SESSION['success_message'] . '</div>';
-                                            unset($_SESSION['success_message']); // Xóa thông báo sau khi hiển thị
-                                        }
-                                        ?>
-                                        <div class="form-group">
-                                            <label class="form-label">Bio</label>
-                                            <textarea class="form-control" name="bio"
-                                                rows="5"><?php echo $userLogin['bio'] ?></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label">Birthday</label>
-                                            <input type="date" class="form-control" name="birthday" id="birthday"
-                                                value="<?php echo $userLogin['birthday'] ?>">
-
-                                            <!-- Lấy ID -->
-                                            <input type="hidden" name="userID"
-                                                value="<?php echo $userLogin['userID'] ?>">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label">Country</label>
-                                            <select class="custom-select" name="country">
-                                                <?php foreach ($country_list as $country): ?>
-                                                    <option value="<?php echo htmlspecialchars($country); ?>" <?php echo $userLogin['country'] == $country ? 'selected' : ''; ?>>
-                                                        <?php echo htmlspecialchars($country); ?>
-                                                    </option>
-                                                <?php endforeach; ?>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="form-label">Phone</label>
-                                            <input type="text" class="form-control" name="phone"
-                                                value="<?php echo $userLogin['phone'] ?>">
-                                        </div>
-                                    </div>
-                                    <div class="text-right mt-3">
-                                        <button type="submit" class="btn btn-primary btn-setting">Save
-                                            changes</button>
-                                        <button type="button" class="btn btn-default btn-cancel btn-setting"
-                                            id="cancelButton">Cancel</button>
-                                        <!-- Nút Đăng Xuất -->
-                                        <a href="../php/logout.php" class="btn btn-danger btn-setting">Logout</a>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         $('#birthday').datepicker({
             dateFormat: "MM d, yy",
             changeMonth: true,

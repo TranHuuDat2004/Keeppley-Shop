@@ -1,4 +1,8 @@
 <?php
+// Lấy tên file này
+$website = basename($_SERVER['SCRIPT_NAME']);
+// echo $website;
+
 include '../php/login.php';
 // Chưa đăng nhập 
 if (isset($_SESSION["userID"])) {
@@ -51,7 +55,6 @@ if (isset($_SESSION["userID"])) {
     <style type="text/css">
         body {
             background: #f5f5f5;
-            margin-top: 20px;
         }
 
         .ui-w-80 {
@@ -171,7 +174,7 @@ if (isset($_SESSION["userID"])) {
 
         .image-gallery {
             display: none;
-            margin-top: 20px;
+
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -215,7 +218,7 @@ if (isset($_SESSION["userID"])) {
             if (file) {
                 const reader = new FileReader();
 
-                reader.onload = function (e) {
+                reader.onload = function(e) {
                     preview.src = e.target.result;
                     preview.style.display = 'block';
                 }
@@ -227,7 +230,7 @@ if (isset($_SESSION["userID"])) {
             }
         }
 
-        document.getElementById("chooseImageBtn").onclick = function () {
+        document.getElementById("chooseImageBtn").onclick = function() {
             var gallery = document.getElementById("imageGallery");
             if (gallery.style.display === "none" || gallery.style.display === "") {
                 gallery.style.display = "flex";
@@ -247,66 +250,17 @@ if (isset($_SESSION["userID"])) {
             // Ẩn gallery sau khi chọn
             document.getElementById("imageGallery").style.display = "none";
         }
-
     </script>
 </head>
 
 <body inmaintabuse="1">
-    <div class="headD">
-        <div class="headDiv home">
-            <!-- Important -->
-            <div class="wal">
-                <a href="../en/index.php" class="logo">
-                    <img src="../images/logo.png" class="PC-Box" alt="Qman Toys">
-                </a>
+    <!-- Header Section -->
+    <?php include '../php/header_home_en.php' ?>
 
-                <div class="lan">
-                    <ul>
-                        <!-- Show Icon cart  -->
-                        <li><a href="../en/index.php" class="fa-solid fa-house btn-cart" style="color: #000000;"></a>
-                        </li>
+    <!-- Cart Section -->
+    <?php include '../en/cart.php' ?>
 
-                        <?php
-                        $website = 'General.php';
-                        include '../php/SettingUserHeader_en.php';
-                        ?>
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!---->
-        <div class="navLayer">
-            <div class="bg">
-                <div class="toptop">
-                    <a href="/en" class="logo"><img src="../images/20221010151821394.png" alt="Qman Toys"></a>
-                    <div class="txt">Home</div>
-                    <a href="javascript:;" class="closeBtn"><img src="/images/close.png"></a>
-                </div>
-                <div class="sideNav">
-                    <div class="subNav"><a href="/en"><img src="/../images/20220825135842913.png" alt="">Our Story</a>
-                    </div>
-                    <div class="subNav"><a href="/en/product/"><img src="/../images/20220825135859657.png" alt="">Our
-                            Products</a></div>
-
-                    <div class="subNav"><a href="/en/Contact/"><img src="/../images/20220825135930547.png"
-                                alt="">Contact
-                            Us</a></div>
-                </div>
-                <div class="lan">
-                    <ul>
-                        <li><a href="javascript:;" class="cur">EN</a></li>
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!---->
-    <div style="margin-top:80px" class="container light-style flex-grow-1 container-p-y">
-        <a href="../en/index.php" class="logo">
-            <img src="../images/logo.png" class="Phone-Box" alt="Qman Toys" height="40">
-        </a>
+    <div style="margin-top:20px" class="container light-style flex-grow-1 container-p-y">
         <h4 class="font-weight-bold py-3 mb-4">
             Account settings
         </h4>
@@ -388,16 +342,16 @@ if (isset($_SESSION["userID"])) {
             });
         });
 
-        document.getElementById('accountForm').addEventListener('submit', function () {
+        document.getElementById('accountForm').addEventListener('submit', function() {
             isFormDirty = false;
         });
 
-        document.getElementById('cancelButton').addEventListener('click', function () {
+        document.getElementById('cancelButton').addEventListener('click', function() {
             isFormDirty = false;
             location.reload();
         });
 
-        window.addEventListener('beforeunload', function (e) {
+        window.addEventListener('beforeunload', function(e) {
             if (isFormDirty) {
                 const confirmationMessage = 'You have unsaved changes. Are you sure you want to leave this page?';
                 e.returnValue = confirmationMessage; // Gecko, Trident, Chrome 34+
@@ -406,5 +360,9 @@ if (isset($_SESSION["userID"])) {
         });
     </script>
 </body>
+<!-- Footer Section -->
+<footer id="footer-section">
+    <?php include '../en/footer.php'; ?>
+</footer>
 
 </html>

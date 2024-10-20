@@ -90,19 +90,10 @@
 <body>
 
 
-    <div class="headD"></div>
-    <div class="headDiv home">
-
-        <?php include '../php/header_vn.php'; ?>
-        <div class="lan">
-            <ul>
-
-                <li><a href="../en/doraemon.php">EN</a></li>
-                <li><a href="javascript:;" class="cur">VN</a></li>
-
-            </ul>
-        </div>
-    </div>
+    <!-- Header Section -->
+    <header>
+        <?php include '../php/header_home_vn.php' ?>
+    </header>
     </div>
     <div class="productList">
         <div class="wal">
@@ -210,14 +201,14 @@
                                 <div class="num">K20413</div>
                                 <div class="name">Doraemon-Phi Hành Gia</div>
                                 <a href="shopping-cart.php" id="btn-cart"
-							class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-							View Cart
-						</a>
+                                    class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+                                    View Cart
+                                </a>
 
-						<a href="your-order.php" id="btn-cart"
-							class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-							Your Order
-						</a>
+                                <a href="your-order.php" id="btn-cart"
+                                    class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+                                    Your Order
+                                </a>
                             </a>
                         </div>
                     </li>

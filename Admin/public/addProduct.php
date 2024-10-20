@@ -1,4 +1,36 @@
 <?php
+include 'login.php';
+// Chưa đăng nhập 
+if (isset($_SESSION["adminID"])){
+    $adminID = $_SESSION["adminID"];
+    // print_r($userName);
+    $sqlLogin = "SELECT * FROM `Admin` WHERE adminID = '$adminID' ";
+    $queryLogin = mysqli_query($conn, $sqlLogin);
+    // print_r($queryLogin);
+    // Kiểm tra kết quả truy vấn
+
+    // Duyệt qua từng hàng dữ liệu từ kết quả truy vấn
+    $row = $queryLogin->fetch_assoc();
+    // Thêm thông tin từng hàng vào mảng $userLogin
+    $userLogin = array(
+        "adminID" => $row["adminID"],
+        "userName" => $row["userName"],
+        "email" => $row["email"],
+        "image" => $row["image"],
+        "loginpassword" => $row["loginpassword"],
+        "birthday" => $row["birthday"],
+        "bio" => $row["bio"],
+        "country" => $row["country"],
+        "phone" => $row["phone"]
+    );
+}
+
+else {    
+    // Chưa đăng nhập 
+    header('Location: login_admin_en.php');
+    exit();
+}
+
 $conn = new mysqli('localhost', 'root', '', 'keeppley-shop'); //servername, username, password, database's name
 if ($conn->connect_error) {
   die("Connection Failed : " . $conn->connect_error);
@@ -73,8 +105,32 @@ if ($resultCategory->num_rows > 0) {
 
 <head>
   <?php include 'head.php' ?>
-  <?php include 'login.php' ?>
   <?php include 'getAdmin.php' ?>
+
+  <!-- Place the first <script> tag in your HTML's <head> -->
+<script src="https://cdn.tiny.cloud/1/be9jpdenr0dn2q72l59n3xrecjq8xb9nhdexsuqvn6kfhk7g/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+
+<!-- Place the following <script> and <textarea> tags your HTML's <body> -->
+<script>
+  tinymce.init({
+    selector: 'textarea',
+    plugins: [
+      // Core editing features
+      'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+      // Your account includes a free trial of TinyMCE premium features
+      // Try the most popular premium features until Sep 20, 2024:
+      'checklist', 'mediaembed', 'casechange', 'export', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown',
+    ],
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+    tinycomments_mode: 'embedded',
+    tinycomments_author: 'Author name',
+    mergetags_list: [
+      { value: 'First.Name', title: 'First Name' },
+      { value: 'Email', title: 'Email' },
+    ],
+    ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
+  });
+</script>
 </head>
 <Style>
   /* Thay đổi màu hover của nút */
@@ -389,7 +445,7 @@ if ($resultCategory->num_rows > 0) {
 
             <div class="form-group">
               <button name="sbm" class="btn btn-primary" type="submit">Add Product</button>
-              <a href="../../Fontend/product2.php" class="btn btn-secondary">User Interface</a>
+              <a style="margin:20px" href="../../en/product.php" class="btn btn-secondary">View Shop</a>
             </div>
           </form>
         </div>

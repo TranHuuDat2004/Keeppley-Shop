@@ -13,9 +13,11 @@ if (isset($_POST['sbm'])) {
     $p_name_en = $_POST['p_name_en'];
     $p_name_vn = $_POST['p_name_vn'];
     $p_category = $_POST['p_category'];
-    $p_price = $_POST['p_price'];
+    $p_price_en = $_POST['p_price_en'];
+    $p_price_vn = $_POST['p_price_vn'];
     $p_age = $_POST['p_age'];
-    $p_description = $_POST['p_description'];
+    $p_description_en = $_POST['p_description_en'];
+    $p_description_vn = $_POST['p_description_vn'];
     $p_stock_status = $_POST['p_stock_status'];
     $p_product_status = $_POST['p_product_status'];
 
@@ -24,10 +26,12 @@ if (isset($_POST['sbm'])) {
             SET p_number = '$p_number', 
                 p_name_en = '$p_name_en', 
                 p_name_vn = '$p_name_vn', 
-                p_price = '$p_price', 
+                p_price_en = '$p_price_en', 
+                p_price_vn = '$p_price_vn',
                 p_category = '$p_category', 
                 p_age = '$p_age',
-                p_description = '$p_description', 
+                p_description_en = '$p_description_en', 
+                p_description_vn = '$p_description_vn', 
                 p_stock_status = '$p_stock_status',
                 p_product_status = '$p_product_status' 
             WHERE p_id = '$p_id'";
@@ -39,4 +43,3 @@ if (isset($_POST['sbm'])) {
         var_dump($e);
     }
 }
-?>

@@ -3,7 +3,7 @@
 <html style="font-size: 51px;">
 
 <head>
-<title>Keeppley Products</title>
+    <title>Keeppley Products</title>
     <?php include '../php/head.php'; ?>
     <?php include '../php/login.php'; ?>
     <?php include '../php/getUser.php'; ?>
@@ -16,7 +16,7 @@
     }
 
     .productBox {
-        padding-top: 80px;
+        padding-top: 20px;
         padding-bottom: 0px;
     }
 
@@ -25,14 +25,51 @@
         padding-bottom: 0px;
     }
 
+    .pbanner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80%;
+        width: 80%;
+        margin: auto;
+        /* Căn giữa cả ngang và dọc */
+        object-fit: cover;
+    }
+
+    @media only screen and (max-width: 1400px) {
+        .pbanner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90%;
+            width: 70%;
+            margin: auto;
+            /* Căn giữa cả ngang và dọc */
+            object-fit: cover;
+        }
+
+        .productBox {
+            padding-top: 40px;
+        }
+    }
+
+
     @media only screen and (max-width: 600px) {
         .productBox {
             padding-top: 10px;
             padding-bottom: 0px;
         }
-        .wal{
+
+        .wal {
             padding-top: 10px;
             padding-bottom: 10px;
+        }
+
+        .pbanner {
+            height: auto;
+            width: auto;
+            margin: 0;
+            object-fit: none;
         }
     }
 </style>
@@ -50,7 +87,7 @@
             <div class="wal">
                 <div class="pbanner">
                     <img style="height:75%; " src="../images/Keeppley_Wallpaper.png" class="PC-Box" alt="Doraemon" />
-                    <img  src="../images/Keeppley_Wallpaper.png" class="Phone-Box" alt="Doraemon" />
+                    <img src="../images/Keeppley_Wallpaper.png" class="Phone-Box" alt="Doraemon" />
                 </div>
             </div>
         </div>
@@ -64,26 +101,22 @@
 
                     // Kiểm tra xem có kết quả trả về không
                     if ($result->num_rows > 0)
-                        while ($category = $result->fetch_assoc()):
+                        while ($category = $result->fetch_assoc()) :
 
                             // Tách chuỗi hình ảnh thành mảng và loại bỏ khoảng trắng thừa
                             $product_images = array_map('trim', explode(',', $category["images"]));
-                            ?>
-                            <li>
-                                <div class="box">
-                                    <div class="imgDiv"><a
-                                            href="../en/Category_Product.php?id=<?php echo $category['id']; ?>"><img
-                                                src="../images/<?php echo $product_images[0]; ?>"
-                                                alt="<?php echo $category['name_en'] ?>"></a>
-                                    </div>
-                                    <div class="botDiv">
-                                        <div class="name"><a
-                                                href="../en/Category_Product.php?id=<?php echo $category['id']; ?>"><?php echo $category['name_en'] ?></a>
-                                        </div>
+                    ?>
+                        <li>
+                            <div class="box">
+                                <div class="imgDiv"><a href="../en/Category_Product.php?id=<?php echo $category['id']; ?>"><img src="../images/<?php echo $product_images[0]; ?>" alt="<?php echo $category['name_en'] ?>"></a>
+                                </div>
+                                <div class="botDiv">
+                                    <div class="name"><a href="../en/Category_Product.php?id=<?php echo $category['id']; ?>"><?php echo $category['name_en'] ?></a>
                                     </div>
                                 </div>
-                            </li>
-                            <?php
+                            </div>
+                        </li>
+                    <?php
 
                         endwhile;
                     ?>
@@ -120,7 +153,7 @@
                     "cate": id
                 },
                 dataType: "json",
-                success: function (data) {
+                success: function(data) {
                     if (data.status == 1) {
                         var res = data.data;
                         if (res.length > 0) {
@@ -147,7 +180,7 @@
                     }
 
                 },
-                error: function (xhr, type) {
+                error: function(xhr, type) {
                     //alert('Ajax error!');
                     console.log(xhr + type);
                 }
@@ -155,9 +188,10 @@
 
             $(obj).attr('data-page', page)
 
-            $(obj).click(function () { MoreData(obj); })
+            $(obj).click(function() {
+                MoreData(obj);
+            })
         }
-
     </script>
 
     <?php include 'footer.php'; ?>

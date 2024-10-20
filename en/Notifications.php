@@ -1,4 +1,8 @@
 <?php
+// Lấy tên file này
+$website = basename($_SERVER['SCRIPT_NAME']);
+// echo $website;
+
 include '../php/login.php';
 // Chưa đăng nhập 
 if (isset($_SESSION["userID"])) {
@@ -46,13 +50,13 @@ if (isset($_SESSION["userID"])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Offline -->
     <link href="../style/bootstrap_4.5.0.css" rel="stylesheet">
-    
+
     <!-- Thêm favicon vào đây -->
     <link rel="icon" href="../images/keeppley_logo.webp" type="image/x-icon">
     <style type="text/css">
         body {
             background: #f5f5f5;
-            margin-top: 20px;
+
         }
 
         .ui-w-80 {
@@ -180,63 +184,14 @@ if (isset($_SESSION["userID"])) {
 </head>
 
 <body inmaintabuse="1">
-    <div class="headD">
-        <div class="headDiv home">
-            <!-- Important -->
-            <div class="wal">
-                <a href="../en/index.php" class="logo">
-                    <img src="../images/logo.png" class="PC-Box" alt="Qman Toys">
-                </a>
+    <!-- Header Section -->
+    <?php include '../php/header_home_en.php' ?>
 
-                <div class="lan">
-                    <ul>
-                        <!-- Show Icon cart  -->
-                        <li><a href="../en/index.php" class="fa-solid fa-house btn-cart" style="color: #000000;"></a>
-                        </li>
+    <!-- Cart Section -->
+    <?php include '../en/cart.php' ?>
 
-                        <!-- Header Account Settings -->
-                        <?php
-                        $website = 'Notifications.php';
-                        include '../php/SettingUserHeader_en.php';
-                        ?>
+    <div style="margin-top:20px" class="container light-style flex-grow-1 container-p-y">
 
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!---->
-        <div class="navLayer">
-            <div class="bg">
-                <div class="toptop">
-                    <a href="/en" class="logo"><img src="../images/20221010151821394.png" alt="Qman Toys"></a>
-                    <div class="txt">Home</div>
-                    <a href="javascript:;" class="closeBtn"><img src="/images/close.png"></a>
-                </div>
-                <div class="sideNav">
-                    <div class="subNav"><a href="/en"><img src="/../images/20220825135842913.png" alt="">Our Story</a>
-                    </div>
-                    <div class="subNav"><a href="/en/product/"><img src="/../images/20220825135859657.png" alt="">Our
-                            Products</a></div>
-
-                    <div class="subNav"><a href="/en/Contact/"><img src="/../images/20220825135930547.png"
-                                alt="">Contact
-                            Us</a></div>
-                </div>
-                <div class="lan">
-                    <ul>
-                        <li><a href="javascript:;" class="cur">EN</a></li>
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!---->
-
-    <div style="margin-top:80px" class="container light-style flex-grow-1 container-p-y">
-        <a href="../en/index.php" class="logo">
-            <img src="../images/logo.png" class="Phone-Box" alt="Qman Toys" height="40">
-        </a>
         <h4 class="font-weight-bold py-3 mb-4">
             Account settings
         </h4>
@@ -252,7 +207,7 @@ if (isset($_SESSION["userID"])) {
                         <a class="list-group-item list-group-item-action" href="Connections.php">Connections</a>
                         <a class="list-group-item list-group-item-action active"
                             href="Notifications.php">Notifications</a>
-                            <a class="list-group-item list-group-item-action" href="Languages.php">Languages</a>
+                        <a class="list-group-item list-group-item-action" href="Languages.php">Languages</a>
                     </div>
                 </div>
                 <div class="col-md-9">
@@ -338,9 +293,15 @@ if (isset($_SESSION["userID"])) {
                             <a href="../php/logout.php" class="btn btn-danger btn-setting">Logout</a>
                         </div>
                     </div>
-
-                    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Section -->
+    <?php include '../en/footer.php' ?>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

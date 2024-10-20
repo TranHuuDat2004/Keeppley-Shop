@@ -64,7 +64,7 @@ $(function(){
 		function hideAll(){
 			$('.select dd').slideUp(200);
 		};
-a
+
 		$(this).children('dt').click(function(){
 			var index = $(this).parent().index();
 			var selectObj = $(this).parent();

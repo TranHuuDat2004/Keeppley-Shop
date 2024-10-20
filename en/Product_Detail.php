@@ -72,28 +72,29 @@ if ($resultCategory->num_rows > 0) {
 $website = "Product_Detail.php?p_id=" . $product['p_id'];
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Detail Page</title>
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     <?php include '../php/head.php'; ?>
     <?php include '../php/login.php'; ?>
     <?php include '../php/getUser.php'; ?>
+    <title>Brick Shop - LEGO Products</title>
+    <link rel="stylesheet" href="../css/product.css" />
+</head>
 
-    <style>
-        body {
-            background-color: #f8f8f8;
-            margin: 0;
-            /* padding: 0; */
-            min-height: 100%;
-            overflow-x: hidden;
+<style>
+    body{
+        background-color: #f5f5f5;
+    }
+
+    h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
         }
-
-        .container {
+        
+    .container {
             background-color: #fff;
             max-width: 1200px;
             margin: 20px auto;
@@ -290,14 +291,24 @@ $website = "Product_Detail.php?p_id=" . $product['p_id'];
             font-weight: bold;
             text-align: center;
         }
-    </style>
-</head>
-
+</style>
 <body>
-    <!-- Desktop -->
-    <?php include '../php/OurProducts_en.php'; ?>
-    <!-- Mobile-->
-    <?php include '../php/mobile_en.php'; ?>
+
+    <!-- Header Section -->
+
+    <?php include '../php/header_home_en.php' ?>
+
+    <!-- Cart Section -->
+    <?php include '../en/cart.php' ?>
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../en/index.php">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="../en/product.php">Sản phẩm</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Keeppley</li>
+        </ol>
+    </nav>
 
     <div class="container">
         <div class="left-column">
@@ -380,276 +391,131 @@ $website = "Product_Detail.php?p_id=" . $product['p_id'];
         </div>
     </div>
 
+    <!-- Products Section -->
+    <section class="products">
+        <h2>LEGO Products</h2>
+        <div class="product-grid">
 
+            <?php
+            $sqlQman = "SELECT * FROM `Category` WHERE `provider` = 'LEGO'";
+            $result = mysqli_query($conn, $sqlQman);
 
-    <div class="productBox">
-        <div class="wal">
+            // Kiểm tra xem có kết quả trả về không
+            if ($result->num_rows > 0)
+                while ($category = $result->fetch_assoc()):
 
-            <div class="title" id="page-100000010724924">Best-Selling Products</div>
-            <div class="list">
-                <ul>
+                    // Tách chuỗi hình ảnh thành mảng và loại bỏ khoảng trắng thừa
+                    $product_images = array_map('trim', explode(',', $category["images"]));
+                    ?>
+
+                    <div class="product">
+                        <a href="../en/Category_Product.php?id=<?php echo $category['id']; ?>">
+                            <img src="../images/<?php echo $product_images[0]; ?>" alt="Pokémon Keeppley">
+                            <p><?php echo $category['name_en'] ?></p>
+                        </a>
+                    </div>
                     <?php
 
-                    $sqlKeeppley = "SELECT * FROM `Category` WHERE `provider` = 'Keeppley'";
-                    $result = mysqli_query($conn, $sqlKeeppley);
-
-                    // Kiểm tra xem có kết quả trả về không
-                    if ($result->num_rows > 0)
-                        while ($category = $result->fetch_assoc()):
-
-                            // Tách chuỗi hình ảnh thành mảng và loại bỏ khoảng trắng thừa
-                            $product_images = array_map('trim', explode(',', $category["images"]));
-                    ?>
-                        <li>
-                            <div class="box">
-                                <div class="imgDiv"><a
-                                        href="../en/Category_Product.php?id=<?php echo $category['id']; ?>"><img
-                                            src="../images/<?php echo $product_images[0]; ?>"
-                                            alt="<?php echo $category['name_en'] ?>"></a>
-                                </div>
-                                <div style="background-color: #f8f8f8" class="botDiv">
-                                    <div class="name"><a href="../en/doraemon.php"><?php echo $category['name_en'] ?></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    <?php
-
-                        endwhile;
-                    ?>
-                </ul>
-                <div class="clear_f"></div>
-            </div>
-
-            <div class="pageMore" onclick="MoreData(this)" data-id="100000010724924" data-page="2"
-                style="display: none;"><a href="javascript:;">
-                    More Series &gt;</a></div>
+                endwhile;
+            ?>
 
         </div>
 
-        <!-- Moblie  -->
-        <script language="javascript" type="text/javascript" src="../script/js.js"></script>
-        <script>
-            function changeImage(element) {
-                document.getElementById('main-image').src = element.src;
-            }
+    </section>
 
-            function increaseQuantity() {
-                var quantityInput = document.getElementById('quantity-input');
-                var currentValue = parseInt(quantityInput.value);
-                quantityInput.value = currentValue + 1;
-            }
+    <!-- Footer Section -->
+    <footer style="padding: 20px 0; font-family: Arial, sans-serif; font-size:20px ">
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <img src="../images/17.png" alt="" class="f-cute">
+        </div>
+        <div
+            style="background-color: #f5f5f5; display: flex; justify-content: space-around; flex-wrap: wrap; padding-left:30px">
+            <!-- LEGAL -->
+            <div class="footer-column">
+                <p class="label-footer">LEGAL</p>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li><a href="#">Faq</a></li>
+                    <li><a href="#">Retailers</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookies</a></li>
+                </ul>
+            </div>
 
-            function decreaseQuantity() {
-                var quantityInput = document.getElementById('quantity-input');
-                var currentValue = parseInt(quantityInput.value);
-                if (currentValue > 1) {
-                    quantityInput.value = currentValue - 1;
-                }
-            }
+            <!-- SERVICES -->
+            <div class="footer-column">
+                <p class="label-footer">SERVICES</p>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
 
-            // Công thức zoom ảnh
-            $(document).ready(function() {
-                $(".zoom-container").mousemove(function(e) {
-                    var image = $(this).find("img");
-                    var offsetX = e.pageX - $(this).offset().left;
-                    var offsetY = e.pageY - $(this).offset().top;
-                    var posX = offsetX / $(this).width() * 100;
-                    var posY = offsetY / $(this).height() * 100;
-                    image.css("transform-origin", posX + "% " + posY + "%");
-                });
-            });
-        </script>
+            <!-- GET IN TOUCH -->
+            <div class="footer-column">
+                <p class="label-footer">GET IN TOUCH</p>
+                <p>Any questions? Let us know in store at 8th floor,
+                    379 Hudson St, New York, NY 10018 <br>
+                    or call us on (+1) 96 716 6879</p>
+                <div>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
 
-        <!--===============================================================================================-->
-        <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
-        <!--===============================================================================================-->
-        <script src="../vendor/animsition/js/animsition.min.js"></script>
-        <!--===============================================================================================-->
-        <script src="../vendor/bootstrap/js/popper.js"></script>
-        <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-        <!--===============================================================================================-->
-        <script src="../vendor/select2/select2.min.js"></script>
-        <script>
-            $(".js-select2").each(function() {
-                $(this).select2({
-                    minimumResultsForSearch: 20,
-                    dropdownParent: $(this).next('.dropDownSelect2')
-                });
-            })
-        </script>
-        <!--===============================================================================================-->
-        <script src="../vendor/daterangepicker/moment.min.js"></script>
-        <script src="../vendor/daterangepicker/daterangepicker.js"></script>
-        <!--===============================================================================================-->
-        <script src="../vendor/slick/slick.min.js"></script>
-        <script src="js/slick-custom.js"></script>
-        <!--===============================================================================================-->
-        <script src="../vendor/parallax100/parallax100.js"></script>
-        <script>
-            $('.parallax100').parallax100();
-        </script>
-        <!--===============================================================================================-->
-        <script src="../vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
-        <script>
-            $('.gallery-lb').each(function() { // the containers for all your galleries
-                $(this).magnificPopup({
-                    delegate: 'a', // the selector for gallery item
-                    type: 'image',
-                    gallery: {
-                        enabled: true
-                    },
-                    mainClass: 'mfp-fade'
-                });
-            });
-        </script>
-        <!--===============================================================================================-->
-        <script src="../vendor/isotope/isotope.pkgd.min.js"></script>
-        <!--===============================================================================================-->
-        <script src="../vendor/sweetalert/sweetalert.min.js"></script>
-        <script>
-            $('.js-addwish-b2, .js-addwish-detail').on('click', function(e) {
-                e.preventDefault();
-            });
+            <!-- NEWSLETTER -->
+            <div class="footer-column">
+                <p class="label-footer">NEWSLETTER</p>
+                <input type="email" placeholder="email@example.com"
+                    style="width: 150px; padding: 10px; margin-bottom: 10px;">
+                <button
+                    style="background-color: #ff4081; color: white; padding: 10px 20px; border: none; cursor: pointer;">SUBSCRIBE</button>
+            </div>
+        </div>
 
-            $('.js-addwish-b2').each(function() {
-                var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
-                $(this).on('click', function() {
-                    swal(nameProduct, "is added to wishlist !", "success");
+        <div style="text-align: center; background-color: #f5f5f5;">
+            <img src="../icons/icon-pay-01.png" alt="Payment Methods" style="margin-top: 10px;">
+            <img src="../icons/icon-pay-02.png" alt="Payment Methods" style="margin-top: 10px;">
+            <img src="../icons/icon-pay-03.png" alt="Payment Methods" style="margin-top: 10px;">
+            <img src="../icons/icon-pay-04.png" alt="Payment Methods" style="margin-top: 10px;">
+            <img src="../icons/icon-pay-05.png" alt="Payment Methods" style="margin-top: 10px;">
+            <p>&copy; 2024 All rights reserved | Made with <i class="fas fa-heart"></i> Group 5</p>
+        </div>
+    </footer>
 
-                    $(this).addClass('js-addedwish-b2');
-                    $(this).off('click');
-                });
-            });
-
-            $('.js-addwish-detail').each(function() {
-                var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
-
-                $(this).on('click', function() {
-                    swal(nameProduct, "is added to wishlist !", "success");
-
-                    $(this).addClass('js-addedwish-detail');
-                    $(this).off('click');
-                });
-            });
-
-            /*---------------------------------------------*/
-
-            $('.js-addcart-detail').each(function() {
-                var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
-                $(this).on('click', function() {
-                    swal(nameProduct, "is added to cart !", "success");
-                });
-            });
-
-            $('.js-buycart-detail').each(function() {
-                var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
-                $(this).on('click', function() {
-                    swal(nameProduct, "is ready to buy !", "success");
-                });
-            });
-
-            // Zoom Image
-            $(document).ready(function() {
-                $(".zoom-container").mousemove(function(e) {
-                    var image = $(this).find("img");
-                    var offsetX = e.pageX - $(this).offset().left;
-                    var offsetY = e.pageY - $(this).offset().top;
-                    var posX = offsetX / $(this).width() * 100;
-                    var posY = offsetY / $(this).height() * 100;
-                    image.css("transform-origin", posX + "% " + posY + "%");
-                });
-            });
-        </script>
-        <!--===============================================================================================-->
-        <script src="../vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-        <script>
-            $('.js-pscroll').each(function() {
-                $(this).css('position', 'relative');
-                $(this).css('overflow', 'hidden');
-                var ps = new PerfectScrollbar(this, {
-                    wheelSpeed: 1,
-                    scrollingThreshold: 1000,
-                    wheelPropagation: false,
-                });
-
-                $(window).on('resize', function() {
-                    ps.update();
-                })
-            });
-
-            document.getElementById("button-add").addEventListener("click", function() {
-
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", "add_to_cart.php", true);
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState === 4 && xhr.status === 200) {
-                        // Xử lý phản hồi từ máy chủ (nếu cần)
-                        console.log(xhr.responseText);
-                    }
-                };
-                xhr.send("productId=" + productId + "&quantity=" + quantity);
-            });
-
-            // Người dùng lựa chọn số lượng sản phẩm để thêm vào giỏ hàng
-            document.addEventListener("DOMContentLoaded", function() {
-                var quantityInput = document.getElementById("quantity-input");
-                var hiddenQuantity = document.getElementById("hidden-quantity");
-                var hiddenQuantityBuy = document.getElementById("hidden-quantity-buy");
-
-                // Lắng nghe sự kiện thay đổi giá trị trong ô input
-                quantityInput.addEventListener("change", function() {
-                    // Cập nhật giá trị biến quantity
-                    var quantity = parseInt(this.value);
-                    hiddenQuantity.value = quantity;
-                    hiddenQuantityBuy.value = quantity;
-                });
-
-                // Lắng nghe sự kiện nhấn nút tăng giảm số lượng
-                var buttons = document.querySelectorAll(".btn-num-product-up, .btn-num-product-down");
-                buttons.forEach(function(button) {
-                    button.addEventListener("click", function() {
-                        // Cập nhật giá trị biến quantity
-                        var currentValue = parseInt(quantityInput.value);
-                        var newValue = this.classList.contains("btn-num-product-up") ? currentValue : currentValue;
-                        quantityInput.value = newValue >= 1 ? newValue : 1;
-                        hiddenQuantity.value = quantityInput.value;
-                        hiddenQuantityBuy.value = quantityInput.value;
-                    });
-                });
-            });
-
-            // Truyền biến PHP vào JavaScript
-            var images = "<?php echo $product["p_image"]; ?>";
-
-            // Tách chuỗi thành mảng
-            var imageArray = images.split(',');
-
-            // Container để chứa các hình ảnh
-            var container = document.getElementById('image-container');
-
-            // Duyệt qua từng hình ảnh trong mảng và tạo các phần tử hình ảnh
-            imageArray.forEach(function(imagePath, index) {
-                var img = document.createElement('img');
-                img.src = imagePath;
-
-                // Thêm các class màu sắc khác nhau dựa vào index
-                if (index % 3 === 0) {
-                    img.classList.add('image-1');
-                } else if (index % 3 === 1) {
-                    img.classList.add('image-2');
-                } else {
-                    img.classList.add('image-3');
-                }
-
-                container.appendChild(img);
-            })
-        </script>
-        <!--===============================================================================================-->
-        <script src="js/main.js"></script>
 </body>
-<?php include 'footer.php'; ?>
-<?php include 'cart.php'; ?>
 
+    <script>
+        function changeImage(element) {
+            document.getElementById('main-image').src = element.src;
+        }
+
+        function increaseQuantity() {
+            var quantityInput = document.getElementById('quantity-input');
+            var currentValue = parseInt(quantityInput.value);
+            quantityInput.value = currentValue + 1;
+        }
+
+        function decreaseQuantity() {
+            var quantityInput = document.getElementById('quantity-input');
+            var currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+            }
+        }
+
+        // Công thức zoom ảnh
+        $(document).ready(function() {
+            $(".zoom-container").mousemove(function(e) {
+                var image = $(this).find("img");
+                var offsetX = e.pageX - $(this).offset().left;
+                var offsetY = e.pageY - $(this).offset().top;
+                var posX = offsetX / $(this).width() * 100;
+                var posY = offsetY / $(this).height() * 100;
+                image.css("transform-origin", posX + "% " + posY + "%");
+            });
+        });
+    </script>
 </html>

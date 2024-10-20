@@ -251,6 +251,13 @@ body {
   padding-left: 30px;
 }
 
+.dark-mode.qman-image img {
+  max-width: 100%;
+  padding-left: 30px;
+  filter: brightness(0.8) contrast(1.2);
+}
+
+
 /* Keeppley Section */
 .keeppley-section {
   margin-top: 20px;

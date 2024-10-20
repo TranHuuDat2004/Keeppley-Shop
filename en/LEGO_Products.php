@@ -1,168 +1,136 @@
 <?php $website = 'product.php'; ?>
 
-<html style="font-size: 51px;">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-<title>LEGO Products</title>
     <?php include '../php/head.php'; ?>
     <?php include '../php/login.php'; ?>
     <?php include '../php/getUser.php'; ?>
-
+    <title>Brick Shop - LEGO Products</title>
+    <link rel="stylesheet" href="../css/product.css" />
 </head>
 
-<style>
-    body {
-        background-color: white;
-    }
-
-    .productBox {
-        padding-top: 80px;
-        padding-bottom: 0px;
-    }
-
-    .productList {
-        padding-top: 0px;
-        padding-bottom: 0px;
-    }
-
-    @media only screen and (max-width: 600px) {
-        .productBox {
-            padding-top: 10px;
-            padding-bottom: 0px;
-        }
-        .wal{
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
-    }
-</style>
 
 <body>
-    <!-- Desktop -->
-    <?php include '../php/OurProducts_en.php'; ?>
-    <!-- Mobile-->
-    <?php include '../php/mobile_en.php'; ?>
 
-    <!---->
+    <!-- Header Section -->
 
-    <div class="productBox">
-        <div class="productList">
-            <div class="wal">
-                <div class="pbanner">
-                    <img style="height:75%; " src="../images/LEGO_Wallpaper.png" class="PC-Box" alt="Doraemon" />
-                    <img  src="../images/LEGO_Wallpaper.png" class="Phone-Box" alt="Doraemon" />
+    <?php include '../php/header_home_en.php' ?>
+
+    <!-- Cart Section -->
+    <?php include '../en/cart.php' ?>
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../en/index.php">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="../en/product.php">Sản phẩm</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Keeppley</li>
+        </ol>
+    </nav>
+
+    <!-- Brands Section -->
+    <section class="brands">
+        <div class="brand-logo">
+            <img src="../images/LEGO_Wallpaper.png" alt="Product">
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+        <h2>LEGO Products</h2>
+        <div class="product-grid">
+
+            <?php
+            $sqlQman = "SELECT * FROM `Category` WHERE `provider` = 'LEGO'";
+            $result = mysqli_query($conn, $sqlQman);
+
+            // Kiểm tra xem có kết quả trả về không
+            if ($result->num_rows > 0)
+                while ($category = $result->fetch_assoc()):
+
+                    // Tách chuỗi hình ảnh thành mảng và loại bỏ khoảng trắng thừa
+                    $product_images = array_map('trim', explode(',', $category["images"]));
+                    ?>
+
+                    <div class="product">
+                        <a href="../en/Category_Product.php?id=<?php echo $category['id']; ?>">
+                            <img src="../images/<?php echo $product_images[0]; ?>" alt="Pokémon Keeppley">
+                            <p><?php echo $category['name_en'] ?></p>
+                        </a>
+                    </div>
+                    <?php
+
+                endwhile;
+            ?>
+
+        </div>
+
+    </section>
+
+    <!-- Footer Section -->
+    <footer style="padding: 20px 0; font-family: Arial, sans-serif; font-size:20px ">
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <img src="../images/17.png" alt="" class="f-cute">
+        </div>
+        <div
+            style="background-color: #f5f5f5; display: flex; justify-content: space-around; flex-wrap: wrap; padding-left:30px">
+            <!-- LEGAL -->
+            <div class="footer-column">
+                <p class="label-footer">LEGAL</p>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li><a href="#">Faq</a></li>
+                    <li><a href="#">Retailers</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookies</a></li>
+                </ul>
+            </div>
+
+            <!-- SERVICES -->
+            <div class="footer-column">
+                <p class="label-footer">SERVICES</p>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+
+            <!-- GET IN TOUCH -->
+            <div class="footer-column">
+                <p class="label-footer">GET IN TOUCH</p>
+                <p>Any questions? Let us know in store at 8th floor,
+                    379 Hudson St, New York, NY 10018 <br>
+                    or call us on (+1) 96 716 6879</p>
+                <div>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-        </div>
-        <div class="wal">
-            <div class="title">LEGO Products</div>
-            <div class="list">
-                <ul>
-                    <?php
-                    $sqlQman = "SELECT * FROM `Category` WHERE `provider` = 'LEGO'";
-                    $result = mysqli_query($conn, $sqlQman);
 
-                    // Kiểm tra xem có kết quả trả về không
-                    if ($result->num_rows > 0)
-                        while ($category = $result->fetch_assoc()):
-
-                            // Tách chuỗi hình ảnh thành mảng và loại bỏ khoảng trắng thừa
-                            $product_images = array_map('trim', explode(',', $category["images"]));
-                            ?>
-                            <li>
-                                <div class="box">
-                                    <div class="imgDiv"><a
-                                            href="../en/Category_Product.php?id=<?php echo $category['id']; ?>"><img
-                                                src="../images/<?php echo $product_images[0]; ?>"
-                                                alt="<?php echo $category['name_en'] ?>"></a>
-                                    </div>
-                                    <div class="botDiv">
-                                        <div class="name"><a
-                                                href="../en/Category_Product.php?id=<?php echo $category['id']; ?>"><?php echo $category['name_en'] ?></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <?php
-
-                        endwhile;
-                    ?>
-                </ul>
-                <div class="clear_f"></div>
+            <!-- NEWSLETTER -->
+            <div class="footer-column">
+                <p class="label-footer">NEWSLETTER</p>
+                <input type="email" placeholder="email@example.com"
+                    style="width: 150px; padding: 10px; margin-bottom: 10px;">
+                <button
+                    style="background-color: #ff4081; color: white; padding: 10px 20px; border: none; cursor: pointer;">SUBSCRIBE</button>
             </div>
-
-            
-
-            <!-- <div class="pageMore" onclick="MoreData(this)" data-id="100000010724924" data-page="2"
-                style="display: none;"><a href="javascript:;">
-                    More Series &gt;</a></div> -->
-
         </div>
-    </div>
-    </div>
 
-    <script language="javascript" type="text/javascript" src="../script/js.js"></script>
+        <div style="text-align: center; background-color: #f5f5f5;">
+            <img src="../icons/icon-pay-01.png" alt="Payment Methods" style="margin-top: 10px;">
+            <img src="../icons/icon-pay-02.png" alt="Payment Methods" style="margin-top: 10px;">
+            <img src="../icons/icon-pay-03.png" alt="Payment Methods" style="margin-top: 10px;">
+            <img src="../icons/icon-pay-04.png" alt="Payment Methods" style="margin-top: 10px;">
+            <img src="../icons/icon-pay-05.png" alt="Payment Methods" style="margin-top: 10px;">
+            <p>&copy; 2024 All rights reserved | Made with <i class="fas fa-heart"></i> Group 5</p>
+        </div>
+    </footer>
 
-    <script type="text/javascript">
-        function MoreData(obj) {
-            $(obj).unbind('click')
-            var page = $(obj).attr('data-page')
-            var id = $(obj).attr('data-id')
-            page++;
-            $.ajax({
-                url: "/AjaxAction/product.ashx?action=list",
-                type: "post",
-                data: {
-                    "nodecode": "134002001",
-                    "page": page,
-                    "s": 8,
-                    "cate": id
-                },
-                dataType: "json",
-                success: function (data) {
-                    if (data.status == 1) {
-                        var res = data.data;
-                        if (res.length > 0) {
-                            var html = "";
-                            for (var i = 0; i < res.length; i++) {
-
-                                //html += '<li><div class="box"><a target="_blank" href="' + res[i].Url + '"><div class="imgDiv"><img src="' + res[i].Image + '" alt="' + res[i].Title + '" /></div><div class="botDiv"><div class="name">' + res[i].Title + '</div><div class="username' + (id == "100000010797975" ? " username2" : "") +'">Click for More</div></div></a></div></li>'
-
-
-                                html += '<li><div class="box"><div class="imgDiv"><a href="' + res[i].Url + '"><img src="' + res[i].Image + '" alt="' + res[i].Title + '" /></a></div><div class="botDiv"><div class="name"><a href="' + res[i].Url + '">' + res[i].Title + '</a></div><div class="username' + (id == "100000010797975" ? " username2" : "") + '"><a href="' + res[i].Url + '">Click for More</a></div><div class="btnVideo">'
-                                if (res[i].Video != "") {
-                                    html += '<a href = "' + res[i].Video + '"><img src="../images/20221020095235674.png"  /></a>'
-                                }
-                                html += '</div></div></div></li>';
-
-                            }
-
-                            $(obj).prev('.list').find("ul").append(html);
-                            if (data.count <= $(obj).prev('.list').find("ul li").length) $(obj).hide();
-
-                        } else {
-                            $(obj).hide();
-                        }
-                    }
-
-                },
-                error: function (xhr, type) {
-                    //alert('Ajax error!');
-                    console.log(xhr + type);
-                }
-            });
-
-            $(obj).attr('data-page', page)
-
-            $(obj).click(function () { MoreData(obj); })
-        }
-
-    </script>
-
-    <?php include 'footer.php'; ?>
-    <?php include 'cart.php'; ?>
 </body>
-
-
 
 </html>

@@ -1,4 +1,36 @@
 <?php
+include 'login.php';
+// Chưa đăng nhập 
+if (isset($_SESSION["adminID"])){
+    $adminID = $_SESSION["adminID"];
+    // print_r($userName);
+    $sqlLogin = "SELECT * FROM `Admin` WHERE adminID = '$adminID' ";
+    $queryLogin = mysqli_query($conn, $sqlLogin);
+    // print_r($queryLogin);
+    // Kiểm tra kết quả truy vấn
+
+    // Duyệt qua từng hàng dữ liệu từ kết quả truy vấn
+    $row = $queryLogin->fetch_assoc();
+    // Thêm thông tin từng hàng vào mảng $userLogin
+    $userLogin = array(
+        "adminID" => $row["adminID"],
+        "userName" => $row["userName"],
+        "email" => $row["email"],
+        "image" => $row["image"],
+        "loginpassword" => $row["loginpassword"],
+        "birthday" => $row["birthday"],
+        "bio" => $row["bio"],
+        "country" => $row["country"],
+        "phone" => $row["phone"]
+    );
+}
+
+else {    
+    // Chưa đăng nhập 
+    header('Location: login_admin_en.php');
+    exit();
+}
+
 // Kết nối cơ sở dữ liệu
 $conn = new mysqli('localhost', 'root', '', 'keeppley-shop'); // servername, username, password, database's name
 if ($conn->connect_error) {
@@ -66,8 +98,33 @@ if ($resultCategory->num_rows > 0) {
 
 <head>
   <?php include 'head.php' ?>
-  <?php include 'login.php' ?>
   <?php include 'getAdmin.php' ?>
+
+<!-- Place the first <script> tag in your HTML's <head> -->
+<script src="https://cdn.tiny.cloud/1/be9jpdenr0dn2q72l59n3xrecjq8xb9nhdexsuqvn6kfhk7g/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+
+<!-- Place the following <script> and <textarea> tags your HTML's <body> -->
+<script>
+  tinymce.init({
+    selector: 'textarea',
+    plugins: [
+      // Core editing features
+      'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+      // Your account includes a free trial of TinyMCE premium features
+      // Try the most popular premium features until Sep 20, 2024:
+      'checklist', 'mediaembed', 'casechange', 'export', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown',
+    ],
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+    tinycomments_mode: 'embedded',
+    tinycomments_author: 'Author name',
+    mergetags_list: [
+      { value: 'First.Name', title: 'First Name' },
+      { value: 'Email', title: 'Email' },
+    ],
+    ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
+  });
+</script>
+
 </head>
 <Style>
   /* Thay đổi màu hover của nút */
@@ -332,27 +389,26 @@ if ($resultCategory->num_rows > 0) {
               </div>
 
               <div class="form-group flex center">
-              <div style="width: 35%;">
-                <label for="price">Price (USD):</label>
-                <input style="max-width:300px" class="form-control input" id="price" name="p_price" type="text" placeholder="Price" value="<?php echo $p_price_en?>">
+                <div style="width: 35%;">
+                  <label for="price">Price (USD):</label>
+                  <input style="max-width:300px" class="form-control input" id="price" name="p_price_en" type="text" placeholder="Price" value="<?php echo $p_price_en ?>">
+                </div>
+                <div style="width: 35%;">
+                  <label for="price">Price (VND):</label>
+                  <input style="max-width:300px" class="form-control input" id="price" name="p_price_vn" type="text" placeholder="Price" value="<?php echo $p_price_vn ?>">
+                </div>
               </div>
-              <div style="width: 35%;">
-                <label for="price">Price (VND):</label>
-                <input style="max-width:300px" class="form-control input" id="price" name="p_price" type="text" placeholder="Price" value="<?php echo $p_price_vn?>">
-              </div>
-            </div>
 
               <div class="form-group">
                 <label for="description">Description (English)</label>
-                <textarea class="form-control input" id="description" name="p_description" rows="4"
-                  value="<?php echo $p_description_en ?>" placeholder="Description"></textarea>
+                <textarea class="form-control input" id="description" name="p_description_en" rows="4" placeholder="Description"><?php echo $p_description_en ?></textarea>
               </div>
 
               <div class="form-group">
-                <label for="description">Description (Vietnamese)</label>
-                <textarea class="form-control input" id="description" name="p_description" rows="4"
-                  value="<?php echo $p_description_vn ?>" placeholder="Description"></textarea>
+                <label for="description_vn">Description (Vietnamese)</label>
+                <textarea class="form-control input" id="description_vn" name="p_description_vn" rows="4" placeholder="Description"><?php echo $p_description_vn ?></textarea>
               </div>
+
 
               <!-- Thuộc tính trạng thái hàng -->
               <div class="form-group">
@@ -399,7 +455,7 @@ if ($resultCategory->num_rows > 0) {
     if (file) {
       const reader = new FileReader();
 
-      reader.onload = function (e) {
+      reader.onload = function(e) {
         preview.src = e.target.result;
         preview.style.display = 'block';
         preview.style.height = '300px';

@@ -278,6 +278,17 @@
     }
 
     /* Responsive Styles Header */
+    @media (max-width: 1400px) {
+        .brands img {
+            margin: 0 20px;
+            height: 300px;
+            width: 900px;
+            object-fit: cover;
+        }
+
+    }
+
+    /* Responsive Styles Header */
     @media (max-width: 768px) {
         .brands img {
             margin: 0 20px;
@@ -355,7 +366,6 @@
     }
 
     .product {
-        background-color: white;
         border-radius: 10px;
         overflow: hidden;
         padding: 10px;
@@ -411,98 +421,153 @@
 
     }
 
-    /* Footer */
-    footer a {
-        color: #000;
-        text-decoration: none;
-        font-size: 14px;
-        padding-bottom: 30px
+    /* Dark Mode Styles */
+    .dark-mode body {
+        background-color: #121212;
+        color: #f0f0f0;
+    }
+    
+    .dark-mode .navbar.desktop {
+        background-color: #333;
+    }
+    
+    .dark-mode .navbar.desktop ul li a {
+        color: #f0f0f0;
+    }
+    
+    .dark-mode .navbar.mobile {
+        background-color: #333;
+    }
+    
+    .dark-mode .hamburger-menu {
+        background-color: #ff5c5c;
+    }
+    
+    .dark-mode .navLayer {
+        background-color: #333;
+    }
+    
+    .dark-mode .nav-items li a {
+        background-color: #333;
+        color: #ff5c5c;
+    }
+    
+    .dark-mode .nav-items .active {
+        background-color: #ff5c5c;
+        color: white;
+    }
+    
+    .dark-mode .lang-btn {
+        background-color: #333;
+        color: #ff5c5c;
+        border: 1px solid #ff5c5c;
+    }
+    
+    .dark-mode .brands img {
+        filter: brightness(0.9) contrast(1.1);
+    }
+    
+    .dark-mode .product-grid {
+        background-color: #121212;
+    }
+    
+    .dark-mode .products {
+        background-color: #1e1e1e;
+        border: 1px solid #333;
+        color: #f0f0f0;
     }
 
-    footer p {
-        color: #000;
-        text-decoration: none;
-        font-size: 14px;
-        padding-bottom: 30px;
-        padding-top: 18px
+    .dark-mode .product {
+        background-color: #1e1e1e;
+        border: 1px solid #333;
+        color: #f0f0f0;
+    }
+    
+    .dark-mode .product p {
+        color: #e0e0e0;
+    }
+    
+    .dark-mode .breadcrumb {
+        background-color: #333;
+        color: #f0f0f0;
+    }
+    
+    .dark-mode footer p,
+    .dark-mode footer a {
+        color: #f0f0f0;
+    }
+    
+    .dark-mode .footer-column {
+        background-color: #1e1e1e;
+    }
+    
+    .dark-mode .btn {
+        background-color: #ff5c5c;
+        color: white;
+    }
+    
+    .dark-mode .btn-login {
+        background-color: #1e1e1e;
+        color: #ff5c5c;
+        border: 1px solid #ff5c5c;
     }
 
-    footer a:hover {
-        text-decoration: underline;
-        padding-bottom: 30px
+    .dark-mode .product-grid {
+        background-color: #1e1e1e;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        padding: 20px 100px;
+        /* 5 cột, mỗi cột có cùng kích thước */
+        gap: 20px;
+        /* Khoảng cách giữa các sản phẩm */
+        margin-bottom: 40px;
+        /* Khoảng cách dưới */
     }
-
-    footer i {
-        margin: 0 5px;
-        font-size: 14px;
-    }
-
-    footer input[type="email"] {
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        padding-bottom: 30px
-    }
-
-    footer button {
-        border-radius: 16px;
-        padding-bottom: 30px
-    }
-
-    .label-footer {
-        font-weight: bold;
-        font-size: 18px;
-    }
-
-    .footer-column {
-        flex: 1 1 200px;
-        max-width: 15%;
-        background-color: #f5f5f5;
-    }
-
-    p {
-        font-size: 16px;
-        font-weight: 600;
-    }
-
-    a {
-        text-decoration: none;
-        /* Xóa gạch chân */
-    }
-
-    @media only screen and (max-width: 600px) {
-        .footer-column {
-            flex: 1 1 100px;
-            /* Giảm xuống còn 100px cho màn hình nhỏ */
-            max-width: 100%;
-            /* Chiếm 100% chiều rộng của màn hình */
+    
+        /* Responsive Styles Header */
+        @media (max-width: 1400px) {
+            .dark-mode .product-grid {
+                background-color: #1e1e1e;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                /* 4 cột, mỗi cột có cùng kích thước */
+                gap: 20px;
+                /* Khoảng cách giữa các sản phẩm */
+                margin-bottom: 40px;
+                /* Khoảng cách dưới */
+                padding: 10px 0px;
+            }
+    
         }
-
-        footer p {
-            color: #000;
-            text-decoration: none;
-            font-size: 12px;
-            padding-bottom: 30px;
-            padding-top: 18px;
+    
+        /* Responsive Styles Header */
+        @media (max-width: 900px) {
+            .dark-mode .product-grid {
+                background-color: #1e1e1e;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                /* 2 cột, mỗi cột có cùng kích thước */
+                gap: 20px;
+                /* Khoảng cách giữa các sản phẩm */
+                margin-bottom: 40px;
+                /* Khoảng cách dưới */
+                padding: 10px 0px;
+            }
+    
         }
-
-        footer i {
-            margin: 0 5px;
-            font-size: 12px;
+    
+        /* Responsive Styles Header */
+        @media (max-width: 768px) {
+            .dark-mode .product-grid {
+                background-color: #1e1e1e;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 cột, mỗi cột có cùng kích thước */
+                gap: 20px;
+                /* Khoảng cách giữa các sản phẩm */
+                margin-bottom: 40px;
+                /* Khoảng cách dưới */
+                padding: 10px 0px;
+            }
+    
         }
-
-        .label-footer {
-            font-weight: bold;
-            font-size: 12px;
-        }
-
-        .f-cute {
-            width: 75%;
-        }
-
-        footer input[type="email"] {
-            border: 1px solid #ccc;
-            border-radius: 16px;
-            padding-bottom: 30px;
-            width: 250px;
-        }
-    }

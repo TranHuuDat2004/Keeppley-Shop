@@ -1,146 +1,228 @@
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-		<script src="https://unpkg.com/unlazy@0.11.3/dist/unlazy.with-hashing.iife.js" defer init></script>
-		<script type="text/javascript">
-			window.tailwind.config = {
-				darkMode: ['class'],
-				theme: {
-					extend: {
-						colors: {
-							border: 'hsl(var(--border))',
-							input: 'hsl(var(--input))',
-							ring: 'hsl(var(--ring))',
-							background: 'hsl(var(--background))',
-							foreground: 'hsl(var(--foreground))',
-							primary: {
-								DEFAULT: 'hsl(var(--primary))',
-								foreground: 'hsl(var(--primary-foreground))'
-							},
-							secondary: {
-								DEFAULT: 'hsl(var(--secondary))',
-								foreground: 'hsl(var(--secondary-foreground))'
-							},
-							destructive: {
-								DEFAULT: 'hsl(var(--destructive))',
-								foreground: 'hsl(var(--destructive-foreground))'
-							},
-							muted: {
-								DEFAULT: 'hsl(var(--muted))',
-								foreground: 'hsl(var(--muted-foreground))'
-							},
-							accent: {
-								DEFAULT: 'hsl(var(--accent))',
-								foreground: 'hsl(var(--accent-foreground))'
-							},
-							popover: {
-								DEFAULT: 'hsl(var(--popover))',
-								foreground: 'hsl(var(--popover-foreground))'
-							},
-							card: {
-								DEFAULT: 'hsl(var(--card))',
-								foreground: 'hsl(var(--card-foreground))'
-							},
-						},
-					}
-				}
-			}
-		</script>
-		<style type="text/tailwindcss">
-			@layer base {
-				:root {
-					--background: 0 0% 100%;
---foreground: 240 10% 3.9%;
---card: 0 0% 100%;
---card-foreground: 240 10% 3.9%;
---popover: 0 0% 100%;
---popover-foreground: 240 10% 3.9%;
---primary: 240 5.9% 10%;
---primary-foreground: 0 0% 98%;
---secondary: 240 4.8% 95.9%;
---secondary-foreground: 240 5.9% 10%;
---muted: 240 4.8% 95.9%;
---muted-foreground: 240 3.8% 46.1%;
---accent: 240 4.8% 95.9%;
---accent-foreground: 240 5.9% 10%;
---destructive: 0 84.2% 60.2%;
---destructive-foreground: 0 0% 98%;
---border: 240 5.9% 90%;
---input: 240 5.9% 90%;
---ring: 240 5.9% 10%;
---radius: 0.5rem;
-				}
-				.dark {
-					--background: 240 10% 3.9%;
---foreground: 0 0% 98%;
---card: 240 10% 3.9%;
---card-foreground: 0 0% 98%;
---popover: 240 10% 3.9%;
---popover-foreground: 0 0% 98%;
---primary: 0 0% 98%;
---primary-foreground: 240 5.9% 10%;
---secondary: 240 3.7% 15.9%;
---secondary-foreground: 0 0% 98%;
---muted: 240 3.7% 15.9%;
---muted-foreground: 240 5% 64.9%;
---accent: 240 3.7% 15.9%;
---accent-foreground: 0 0% 98%;
---destructive: 0 62.8% 30.6%;
---destructive-foreground: 0 0% 98%;
---border: 240 3.7% 15.9%;
---input: 240 3.7% 15.9%;
---ring: 240 4.9% 83.9%;
-				}
-			}
-		</style>
-  </head>
-  <body>
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="styles.css">
+    <?php include '../php/head.php'; ?>
+    <?php include '../php/login.php'; ?>
+    <?php include '../php/getUser.php'; ?>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .product-detail {
+        display: flex;
+        margin: 20px;
+    }
+
+    .product-images {
+        flex: 1;
+        margin-right: 20px;
+    }
+
+    .product-images .main-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    .thumbnail-images {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    .thumbnail-images img {
+        width: 32%;
+        cursor: pointer;
+    }
+
+    .product-info {
+        flex: 2;
+    }
+
+    .product-info h1 {
+        font-size: 2em;
+        margin-bottom: 10px;
+    }
+
+    .price {
+        font-size: 1.5em;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .description {
+        margin-bottom: 20px;
+    }
+
+    .size-options,
+    .color-options,
+    .quantity-selector {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    select,
+    input[type="number"] {
+        padding: 5px;
+        font-size: 1em;
+    }
+
+    .quantity-selector {
+        display: flex;
+        align-items: center;
+    }
+
+    .quantity-selector button {
+        padding: 5px 10px;
+        font-size: 1em;
+        border: 1px solid #ddd;
+        background-color: #f7f7f7;
+        cursor: pointer;
+    }
+
+    .quantity-selector input {
+        text-align: center;
+        border: 1px solid #ddd;
+        width: 50px;
+        margin: 0 5px;
+    }
+
+    .buttons {
+        display: flex;
+        gap: 10px;
+    }
+
+    .add-to-cart,
+    .buy-now {
+        padding: 10px 20px;
+        font-size: 1em;
+        border: none;
+        cursor: pointer;
+    }
+
+    .add-to-cart {
+        background-color: #ff4081;
+        color: #fff;
+    }
+
+    .buy-now {
+        background-color: #333;
+        color: #fff;
+    }
+</style>
+
+<body>
+    <header>
     
+    <div class="headDiv home">
+        <?php include '../php/header_en.php'; ?>
+        <div class="lan">
+            <ul>
+                <li><a href="#" class="cur">EN</a></li>
+                <li><a href="../vn/product.php">VN</a></li>
 
-<div class="bg-background text-foreground p-4">
-  <header class="flex justify-between items-center mb-4">
-    <div class="flex items-center space-x-2">
-      <img src="https://placehold.co/40x40?text=Logo" alt="Qman logo" class="h-10" />
-      <img src="https://placehold.co/40x40?text=Logo" alt="Keeppley logo" class="h-10" />
+                <?php include '../php/welcomeUser_en.php'; ?>
+            </ul>
+        </div>
     </div>
-    <nav class="flex space-x-8 text-lg">
-      <a href="#" class="hover:text-primary">Our Story</a>
-      <a href="#" class="hover:text-primary">Our Products</a>
-      <a href="#" class="hover:text-primary">Contact Us</a>
-    </nav>
-    <div class="flex space-x-4">
-      <a href="#" class="hover:text-primary">EN</a>
-      <a href="#" class="hover:text-primary">VN</a>
     </div>
-  </header>
-  <main class="rounded-lg overflow-hidden">
-    <img src="https://placehold.co/800x400" alt="Product showcase with Doraemon theme" class="w-full h-auto" />
-  </main>
+    <!---->
+    <div class="navLayer">
+        <div class="bg">
+            <div class="toptop">
+                <a href="/en" class="logo"><img src="../images/20221010151821394.png" alt="Qman Toys"></a>
+                <div class="txt">Home</div>
+                <a href="javascript:;" class="closeBtn"><img src="/images/close.png"></a>
+            </div>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
-    <div class="bg-card text-card-foreground p-4 rounded-lg shadow-md">
-      <img src="https://placehold.co/300x200" alt="Product 1" class="w-full h-48 object-cover rounded-lg mb-4" />
-      <h3 class="text-lg font-semibold mb-2">Product 1</h3>
-      <p class="text-sm text-muted-foreground">Description of Product 1</p>
-      <button class="mt-4 bg-primary text-primary-foreground px-4 py-2 rounded-md hover:bg-primary/80">Buy Now</button>
-    </div>
-    <div class="bg-card text-card-foreground p-4 rounded-lg shadow-md">
-      <img src="https://placehold.co/300x200" alt="Product 2" class="w-full h-48 object-cover rounded-lg mb-4" />
-      <h3 class="text-lg font-semibold mb-2">Product 2</h3>
-      <p class="text-sm text-muted-foreground">Description of Product 2</p>
-      <button class="mt-4 bg-primary text-primary-foreground px-4 py-2 rounded-md hover:bg-primary/80">Buy Now</button>
-    </div>
-    <div class="bg-card text-card-foreground p-4 rounded-lg shadow-md">
-      <img src="https://placehold.co/300x200" alt="Product 3" class="w-full h-48 object-cover rounded-lg mb-4" />
-      <h3 class="text-lg font-semibold mb-2">Product 3</h3>
-      <p class="text-sm text-muted-foreground">Description of Product 3</p>
-      <button class="mt-4 bg-primary text-primary-foreground px-4 py-2 rounded-md hover:bg-primary/80">Buy Now</button>
-    </div>
-  </div>
-</div>
+            <div class="lan">
+                <ul>
+                    <li><a href="javascript:;" class="cur">EN</a></li>
 
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!---->
+    </header>
+    <main>
+        <div class="product-detail">
+            <div class="product-images">
+                <div class="main-image">
+                    <img src="path_to_main_image.jpg" alt="Product Image">
+                </div>
+                <div class="thumbnail-images">
+                    <img src="path_to_thumbnail1.jpg" alt="Thumbnail 1">
+                    <img src="path_to_thumbnail2.jpg" alt="Thumbnail 2">
+                    <img src="path_to_thumbnail3.jpg" alt="Thumbnail 3">
+                </div>
+            </div>
+            <div class="product-info">
+                <h1>LEGO 70365 Axl</h1>
+                <p class="price">$12.99</p>
+                <p class="description">
+                    Features a buildable battle suit with highly posable limbs and a minifigure cockpit...
+                </p>
+                <div class="size-options">
+                    <label for="size">Size:</label>
+                    <select id="size" name="size">
+                        <option value="S">Size S</option>
+                        <option value="M">Size M</option>
+                        <option value="L">Size L</option>
+                        <option value="XL">Size XL</option>
+                    </select>
+                </div>
+                <div class="color-options">
+                    <label for="color">Color:</label>
+                    <select id="color" name="color">
+                        <option value="Red">Red</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Yellow">Yellow</option>
+                        <option value="Green">Green</option>
+                    </select>
+                </div>
+                <div class="quantity-selector">
+                    <button class="minus">-</button>
+                    <input type="number" value="1" min="1">
+                    <button class="plus">+</button>
+                </div>
+                <div class="buttons">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-now">Buy It Now</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <!-- Add your footer content here -->
+    </footer>
+    <script src="../script/js.js"></script>
+    <script>
+        document.querySelector('.minus').addEventListener('click', function () {
+            var qty = document.querySelector('input[type="number"]').value;
+            if (qty > 1) {
+                document.querySelector('input[type="number"]').value = parseInt(qty) - 1;
+            }
+        });
 
-  </body>
+        document.querySelector('.plus').addEventListener('click', function () {
+            var qty = document.querySelector('input[type="number"]').value;
+            document.querySelector('input[type="number"]').value = parseInt(qty) + 1;
+        });
+
+    </script>
+</body>
+
 </html>

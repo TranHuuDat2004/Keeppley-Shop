@@ -14,9 +14,10 @@
   <link rel="icon" href="../images/favicon.png" type="image/x-icon">
 
   <style>
-    p{
+    p {
       font-size: 20px;
     }
+
     .bg-background {
       background-color: #ffffff;
     }
@@ -42,40 +43,96 @@
     }
 
     .text-center img {
-    width: 100%; /* Điều chỉnh width của logo */
-  }
+      width: 100%;
+      /* Điều chỉnh width của logo */
+    }
 
-  .text-center .logo {
-    width: 75%; /* Điều chỉnh width của logo */
-  }
+    .text-center .logo {
+      width: 75%;
+      /* Điều chỉnh width của logo */
+    }
+
+    /* Language switcher container */
+    .language-switcher {
+      position: relative;
+      display: inline-block;
+      margin-right: 20px;
+    }
+
+    /* Current language flag icon */
+    .current-lang img {
+      padding-top: 20px;
+      width: 48px;
+      cursor: pointer;
+    }
+
+    /* Dropdown styling */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: white;
+      width: 150px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .dropdown-content a {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      text-decoration: none;
+      color: black;
+      font-size: 14px;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    /* Language option flag icons */
+    .lang-option img {
+      width: 18px;
+      margin-right: 8px;
+    }
+
+    /* Show dropdown when hovering */
+    .language-switcher:hover .dropdown-content {
+      display: block;
+    }
 
     /* Các phần tử size 75% cho màn hình dưới 1400px */
-@media (max-width: 1500px) {
-  .text-center img {
-    width: 60%;
-  }
+    @media (max-width: 1500px) {
+      .text-center img {
+        width: 60%;
+      }
 
-  .text-center .logo {
-    width: 50%; /* Điều chỉnh width của logo */
-  }
-  
-  .p-6 {
-    padding: 20px; /* Điều chỉnh padding */
-  }
+      .text-center .logo {
+        width: 50%;
+        /* Điều chỉnh width của logo */
+      }
 
-  .mx-auto {
-    width: 75%;
-  }
+      .p-6 {
+        padding: 20px;
+        /* Điều chỉnh padding */
+      }
 
-  .max-w-4xl {
-    max-width: 75%;
-  }
+      .mx-auto {
+        width: 75%;
+      }
 
-  a {
-    width: 75%;
-  }
-}
+      .max-w-4xl {
+        max-width: 75%;
+      }
 
+      a {
+        width: 75%;
+      }
+
+
+    }
   </style>
 </head>
 

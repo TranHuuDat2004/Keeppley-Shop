@@ -1,7 +1,7 @@
 <div class="py-4 text-gray-500 dark:text-gray-400">
     <!-- Logo desktop -->
     <a href="index.php" class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="index.php">
-      <h1 class="m-0 text-primary1 "><span class="text-dark1"><img src="../../images/20221010151814746.png" height="180px"></h1>
+      <h1 class="m-0 text-primary1 "><span class="text-dark1"><img src="../../images/logo.png" height="100px"></h1>
     </a>
     
     <ul class="mt-6">
